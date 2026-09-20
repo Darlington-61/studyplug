@@ -1,0 +1,5432 @@
+[
+  {
+    "id": 1369,
+    "collection_id": 79,
+    "question": "<p><em>Fill in the blank spaces in the following sentences making use of the best of the five option</em>:<br />\r\nThe telephone .... in the nineteenth century and is now used in most countries in the world</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 4,
+    "options": [
+      {
+        "id": 6112,
+        "question_id": 1369,
+        "description": "had been invented",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 6113,
+        "question_id": 1369,
+        "description": "was invented",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 6114,
+        "question_id": 1369,
+        "description": "would have been invented",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 6115,
+        "question_id": 1369,
+        "description": "has been invented",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 6116,
+        "question_id": 1369,
+        "description": "was being invented",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1370,
+    "collection_id": 79,
+    "question": "<p><em>Fill in the blank spaces in the following sentences making use of the best of the five option</em>:<br />\r\nBy the end of the next semester he .... his University education</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 21,
+    "options": [
+      {
+        "id": 6117,
+        "question_id": 1370,
+        "description": "would have completed",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 6118,
+        "question_id": 1370,
+        "description": "will be completing",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 6119,
+        "question_id": 1370,
+        "description": "shall have completed",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 6120,
+        "question_id": 1370,
+        "description": "was completing",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 6121,
+        "question_id": 1370,
+        "description": "must complete",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1371,
+    "collection_id": 79,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five option</i>:<br>\r\nIn the past his father used to walk but nowadays he .... to work by bicycles",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 6122,
+        "question_id": 1371,
+        "description": "was going",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 6123,
+        "question_id": 1371,
+        "description": "is going",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 6124,
+        "question_id": 1371,
+        "description": "seldomly goes",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 6125,
+        "question_id": 1371,
+        "description": "goes",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 6126,
+        "question_id": 1371,
+        "description": "has gone",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1939,
+    "collection_id": 79,
+    "question": "<p><em>Fill in the blank spaces in the following sentences making use of the best of the five options</em><br />\r\nThe students .... so much noise while the lecturer had to walk out of the class</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 8,
+    "options": [
+      {
+        "id": 8497,
+        "question_id": 1939,
+        "description": "made",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8498,
+        "question_id": 1939,
+        "description": "had been making",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8499,
+        "question_id": 1939,
+        "description": "were making",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8500,
+        "question_id": 1939,
+        "description": "had made",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8501,
+        "question_id": 1939,
+        "description": "would have been making",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1940,
+    "collection_id": 79,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i><br>\r\nOlukayode .... as a mechanic when he was young, but now he is a driver",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 8,
+    "options": [
+      {
+        "id": 8502,
+        "question_id": 1940,
+        "description": "had been working",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8503,
+        "question_id": 1940,
+        "description": "used to work",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8504,
+        "question_id": 1940,
+        "description": "would work",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8505,
+        "question_id": 1940,
+        "description": "would have worked",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8506,
+        "question_id": 1940,
+        "description": "had worked",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1941,
+    "collection_id": 79,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i><br>\r\n...., it might not look such a rosy proposition.",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 5,
+    "options": [
+      {
+        "id": 8507,
+        "question_id": 1941,
+        "description": "From his viewing proposal",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8508,
+        "question_id": 1941,
+        "description": "when he views the proposal",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8509,
+        "question_id": 1941,
+        "description": "Having viewed the proposal",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8510,
+        "question_id": 1941,
+        "description": "From his point of view",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 8511,
+        "question_id": 1941,
+        "description": "From his seesing it",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1942,
+    "collection_id": 79,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i><br>\r\nIf we went to any European country .... Britain, we should need a substantial amount of money to pay our way",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 6,
+    "options": [
+      {
+        "id": 8512,
+        "question_id": 1942,
+        "description": "like",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 8513,
+        "question_id": 1942,
+        "description": "let us say",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8514,
+        "question_id": 1942,
+        "description": "as an example",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8515,
+        "question_id": 1942,
+        "description": "like say",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8516,
+        "question_id": 1942,
+        "description": "if we say",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1943,
+    "collection_id": 79,
+    "question": "<p><em>Fill in the blank spaces in the following sentences making use of the best of the five options</em><br />\r\nThe horse is a winner, ....</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 8517,
+        "question_id": 1943,
+        "description": "you can take that from me",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8518,
+        "question_id": 1943,
+        "description": "you can say i say so",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8519,
+        "question_id": 1943,
+        "description": "you can take my word for it",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8520,
+        "question_id": 1943,
+        "description": "it is my word against theirs",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8521,
+        "question_id": 1943,
+        "description": "you may or may not believe it",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1944,
+    "collection_id": 79,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i><br>\r\nIf he had entered the room, i .... him",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 8522,
+        "question_id": 1944,
+        "description": "saw",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8523,
+        "question_id": 1944,
+        "description": "had seen",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8524,
+        "question_id": 1944,
+        "description": "would have seen",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8525,
+        "question_id": 1944,
+        "description": "may see",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8526,
+        "question_id": 1944,
+        "description": "will see",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1946,
+    "collection_id": 79,
+    "question": "<p><em>Fill in the blank spaces in the following sentences making use of the best of the five options</em><br />\r\nYou should show some consideration .... the feelings of others</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 13,
+    "options": [
+      {
+        "id": 8532,
+        "question_id": 1946,
+        "description": "with",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8533,
+        "question_id": 1946,
+        "description": "about",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8534,
+        "question_id": 1946,
+        "description": "by",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8535,
+        "question_id": 1946,
+        "description": "to",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8536,
+        "question_id": 1946,
+        "description": "for",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1948,
+    "collection_id": 79,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i><br>\r\nThe old car .... several times this year",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 14,
+    "options": [
+      {
+        "id": 8542,
+        "question_id": 1948,
+        "description": "was repaired",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8543,
+        "question_id": 1948,
+        "description": "has been repaired",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8544,
+        "question_id": 1948,
+        "description": "had been repaired",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8545,
+        "question_id": 1948,
+        "description": "has repaired",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8546,
+        "question_id": 1948,
+        "description": "was being repaired",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1949,
+    "collection_id": 79,
+    "question": "<i>Choose the word or phrase <b>closest in meaning</b> to the underlined word</i>:<br>\r\nHis <u>penury</u> gave him a lifetime of hunger",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 1,
+    "options": [
+      {
+        "id": 8547,
+        "question_id": 1949,
+        "description": "avariciousness",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8548,
+        "question_id": 1949,
+        "description": "affluence",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8549,
+        "question_id": 1949,
+        "description": "poverty",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8550,
+        "question_id": 1949,
+        "description": "penny pinching",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8551,
+        "question_id": 1949,
+        "description": "greed",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1950,
+    "collection_id": 79,
+    "question": "<i>Choose the word or phrase <b>closest in meaning</b> to the underlined word</i>:<br>\r\nThe bible's <u>prodigal</u> son became quite wealth eventually",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 6,
+    "options": [
+      {
+        "id": 8552,
+        "question_id": 1950,
+        "description": "prestigious",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8553,
+        "question_id": 1950,
+        "description": "phlegmatic",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8554,
+        "question_id": 1950,
+        "description": "errant",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8555,
+        "question_id": 1950,
+        "description": "pecuniary",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8556,
+        "question_id": 1950,
+        "description": "extravagant",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1951,
+    "collection_id": 79,
+    "question": "<i>Choose the word or phrase <b>closest in meaning</b> to the underlined word</i>:<br>\r\nDon't eat just any <u>innocuous</u> looking mushroom you see around",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 12,
+    "options": [
+      {
+        "id": 8557,
+        "question_id": 1951,
+        "description": "harmful",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8558,
+        "question_id": 1951,
+        "description": "harmless",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8559,
+        "question_id": 1951,
+        "description": "innocent",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8560,
+        "question_id": 1951,
+        "description": "immunized",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8561,
+        "question_id": 1951,
+        "description": "conspicuous",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1952,
+    "collection_id": 79,
+    "question": "<i>Choose the word or phrase <b>closest in meaning</b> to the underlined word</i>:<br>\r\nColossal means",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 8,
+    "options": [
+      {
+        "id": 8562,
+        "question_id": 1952,
+        "description": "a greek column",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8563,
+        "question_id": 1952,
+        "description": "gigantic",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8564,
+        "question_id": 1952,
+        "description": "something which has lost too much fluid",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8565,
+        "question_id": 1952,
+        "description": "a calamity",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8566,
+        "question_id": 1952,
+        "description": "the sale of colos",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1953,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>best option</strong> to fill the gaps in the following sentences</em>:<br />\r\nThe prices .... are too high for us</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 16,
+    "options": [
+      {
+        "id": 8567,
+        "question_id": 1953,
+        "description": "you lent me",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8568,
+        "question_id": 1953,
+        "description": "you quoted",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8569,
+        "question_id": 1953,
+        "description": "you attended",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8570,
+        "question_id": 1953,
+        "description": "you gave me",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8571,
+        "question_id": 1953,
+        "description": "you want to buy",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1954,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:<br>\r\nThe method .... does not give the expected results.",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 8572,
+        "question_id": 1954,
+        "description": "you recommended",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 8573,
+        "question_id": 1954,
+        "description": "you visited",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8574,
+        "question_id": 1954,
+        "description": "you told",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8575,
+        "question_id": 1954,
+        "description": "you sent me",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8576,
+        "question_id": 1954,
+        "description": "you wanted",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1955,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:<br>\r\nOxygen is necessary to life. Nothing can live without it. It was .... a century ago",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 15,
+    "options": [
+      {
+        "id": 8577,
+        "question_id": 1955,
+        "description": "invented",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8578,
+        "question_id": 1955,
+        "description": "found out",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8579,
+        "question_id": 1955,
+        "description": "discovered",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8580,
+        "question_id": 1955,
+        "description": "learnt",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8581,
+        "question_id": 1955,
+        "description": "extracted",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1956,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:<br>\r\nWhy does a flamingo stand on one leg? Because if it lifted the other one, it would ....",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 10,
+    "options": [
+      {
+        "id": 8582,
+        "question_id": 1956,
+        "description": "go down",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8583,
+        "question_id": 1956,
+        "description": "let down",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8584,
+        "question_id": 1956,
+        "description": "fall down",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8585,
+        "question_id": 1956,
+        "description": "come down",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8586,
+        "question_id": 1956,
+        "description": "get down",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1957,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:<br>\r\nI am travelling by the 6:30 train tomorrow morning. Will you .... me ....?",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 8587,
+        "question_id": 1957,
+        "description": "see/off",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 8588,
+        "question_id": 1957,
+        "description": "look/up",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8589,
+        "question_id": 1957,
+        "description": "take/down",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8590,
+        "question_id": 1957,
+        "description": "see/to",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8591,
+        "question_id": 1957,
+        "description": "put/up",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1958,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>best option</strong> to fill the gaps in the following sentences</em>:<br />\r\nI am a student and .... Musa. I left for the university, and .... Musa</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 7,
+    "options": [
+      {
+        "id": 8592,
+        "question_id": 1958,
+        "description": "was, does",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8593,
+        "question_id": 1958,
+        "description": "so is, so did",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8594,
+        "question_id": 1958,
+        "description": "so was, so does",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8595,
+        "question_id": 1958,
+        "description": "he is , he did",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8596,
+        "question_id": 1958,
+        "description": "so he is, so he went",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1959,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:<br>\r\nYou have been absent from classes for four months. How can you .... for the lost time",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 8,
+    "options": [
+      {
+        "id": 8597,
+        "question_id": 1959,
+        "description": "make in",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8598,
+        "question_id": 1959,
+        "description": "make up",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8599,
+        "question_id": 1959,
+        "description": "make off",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8600,
+        "question_id": 1959,
+        "description": "make out",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8601,
+        "question_id": 1959,
+        "description": "make over",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1960,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:<br>\r\nI am afraid you cannot use this telephone; it is ....",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 8602,
+        "question_id": 1960,
+        "description": "out of order",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 8603,
+        "question_id": 1960,
+        "description": "in order",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8604,
+        "question_id": 1960,
+        "description": "for order",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8605,
+        "question_id": 1960,
+        "description": "at order",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8606,
+        "question_id": 1960,
+        "description": "with order",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1961,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:<br>\r\nYou should make an ..... to improve the situation",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 8607,
+        "question_id": 1961,
+        "description": "effect",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8608,
+        "question_id": 1961,
+        "description": "efficiency",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8609,
+        "question_id": 1961,
+        "description": "effectiveness",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8610,
+        "question_id": 1961,
+        "description": "effort",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 8611,
+        "question_id": 1961,
+        "description": "effectualness",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1962,
+    "collection_id": 79,
+    "question": "<p>From the options lettered A-D, select the option that best fills the gap(s) in the sentence below:</p>\r\n\r\n<p>Must you always .... lies? Why don&#39;t you .... the truth for once</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 11,
+    "options": [
+      {
+        "id": 8612,
+        "question_id": 1962,
+        "description": "speak",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8613,
+        "question_id": 1962,
+        "description": "say",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8614,
+        "question_id": 1962,
+        "description": "talk",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8615,
+        "question_id": 1962,
+        "description": "tell",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 8616,
+        "question_id": 1962,
+        "description": "utter",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1963,
+    "collection_id": 79,
+    "question": "<p><em>complete the sentences with the <strong>correct options</strong> from the list below</em>:<br />\r\n.... listening to the news when i came in</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 5,
+    "options": [
+      {
+        "id": 8617,
+        "question_id": 1963,
+        "description": "There were",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8618,
+        "question_id": 1963,
+        "description": "There was",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8619,
+        "question_id": 1963,
+        "description": "It was",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8620,
+        "question_id": 1963,
+        "description": "There are going to be",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8621,
+        "question_id": 1963,
+        "description": "They were",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1964,
+    "collection_id": 79,
+    "question": "<p><em>complete the sentences with the <strong>correct options</strong> from the list below</em>:<br />\r\nThey said that ....about 20 candidates for the job of a shorthand typist</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 22,
+    "options": [
+      {
+        "id": 8622,
+        "question_id": 1964,
+        "description": "they were",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8623,
+        "question_id": 1964,
+        "description": "it will be",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8624,
+        "question_id": 1964,
+        "description": "there were",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8625,
+        "question_id": 1964,
+        "description": "it was",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8626,
+        "question_id": 1964,
+        "description": "there are",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1965,
+    "collection_id": 79,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:<br>\r\nHe told me to go on .... till seven",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 8627,
+        "question_id": 1965,
+        "description": "to work",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8628,
+        "question_id": 1965,
+        "description": "worked",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8629,
+        "question_id": 1965,
+        "description": "works",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8630,
+        "question_id": 1965,
+        "description": "working",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 8631,
+        "question_id": 1965,
+        "description": "work",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1966,
+    "collection_id": 79,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:<br>\r\nMany goods .... tape recorders and cameras find a ready market in every country",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 8632,
+        "question_id": 1966,
+        "description": "like",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8633,
+        "question_id": 1966,
+        "description": "such a",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8634,
+        "question_id": 1966,
+        "description": "such as",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8635,
+        "question_id": 1966,
+        "description": "such",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8636,
+        "question_id": 1966,
+        "description": "as",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1967,
+    "collection_id": 79,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:<br>\r\nHe acts .... he were a general manager",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 8637,
+        "question_id": 1967,
+        "description": "as",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8638,
+        "question_id": 1967,
+        "description": "if",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8639,
+        "question_id": 1967,
+        "description": "as if",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8640,
+        "question_id": 1967,
+        "description": "so as",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8641,
+        "question_id": 1967,
+        "description": "that",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1968,
+    "collection_id": 79,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:<br>\r\nCould i ring him up? I'd rather you ....",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 17,
+    "options": [
+      {
+        "id": 8642,
+        "question_id": 1968,
+        "description": "visit him",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8643,
+        "question_id": 1968,
+        "description": "visited him",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8644,
+        "question_id": 1968,
+        "description": "would visit him",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8645,
+        "question_id": 1968,
+        "description": "visiting him",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8646,
+        "question_id": 1968,
+        "description": "will visit him",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1969,
+    "collection_id": 79,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:<br>\r\nDon't study on the examination day? What did he tell you? He told me .... on the examination day",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 8,
+    "options": [
+      {
+        "id": 8647,
+        "question_id": 1969,
+        "description": "no studying",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8648,
+        "question_id": 1969,
+        "description": "don't study",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8649,
+        "question_id": 1969,
+        "description": "not study",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8650,
+        "question_id": 1969,
+        "description": "not to study",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 8651,
+        "question_id": 1969,
+        "description": "to not study",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1970,
+    "collection_id": 79,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:<br>\r\nI .... to gain admission to the college for the past three years",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 4,
+    "options": [
+      {
+        "id": 8652,
+        "question_id": 1970,
+        "description": "have been trying",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 8653,
+        "question_id": 1970,
+        "description": "tried",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8654,
+        "question_id": 1970,
+        "description": "am trying",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8655,
+        "question_id": 1970,
+        "description": "was trying",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8656,
+        "question_id": 1970,
+        "description": "try",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 1971,
+    "collection_id": 79,
+    "question": "<p><em>complete the sentences with the <strong>correct options</strong> from the list below</em>:<br />\r\n.... a lot of arguments for and against car loans in the press recently</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 9,
+    "options": [
+      {
+        "id": 8657,
+        "question_id": 1971,
+        "description": "There are",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8658,
+        "question_id": 1971,
+        "description": "There has been",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8659,
+        "question_id": 1971,
+        "description": "There have been",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8660,
+        "question_id": 1971,
+        "description": "There is",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8661,
+        "question_id": 1971,
+        "description": "There was",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2020,
+    "collection_id": 79,
+    "question": "<i> Complete the sentences with the <b>correct options</b> from the list below</i>:<br><br>\r\nHe reported to his manager that he .... overseas",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 8869,
+        "question_id": 2020,
+        "description": "had never been",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 8870,
+        "question_id": 2020,
+        "description": "never was",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8871,
+        "question_id": 2020,
+        "description": "has never been",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8872,
+        "question_id": 2020,
+        "description": "is never",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8873,
+        "question_id": 2020,
+        "description": "will never be",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2021,
+    "collection_id": 79,
+    "question": "<i> Complete the sentences with the <b>correct options</b> from the list below</i>:<br>\r\nShall we go to the union meeting? No thank you, i do not feel like .... anywhere",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 8874,
+        "question_id": 2021,
+        "description": "go",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8875,
+        "question_id": 2021,
+        "description": "going",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 8876,
+        "question_id": 2021,
+        "description": "to go",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8877,
+        "question_id": 2021,
+        "description": "to have gone",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8878,
+        "question_id": 2021,
+        "description": "went",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2023,
+    "collection_id": 79,
+    "question": "<p><em>Complete the sentences with the <strong>correct options</strong> from the list below</em>:<br />\r\nWill they sign any contracts at the Fair?</p>\r\n\r\n<p>They will not only sign the contracts but a lot of goods .... as well</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 4,
+    "options": [
+      {
+        "id": 8883,
+        "question_id": 2023,
+        "description": "will buy",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8884,
+        "question_id": 2023,
+        "description": "to buy",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8885,
+        "question_id": 2023,
+        "description": "they buy",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8886,
+        "question_id": 2023,
+        "description": "they bought",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8887,
+        "question_id": 2023,
+        "description": "will be bought",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2025,
+    "collection_id": 79,
+    "question": "<p><em>Complete the sentences with the <strong>correct options</strong> from the list below</em>:<br />\r\nI started writing this test at 8 : 00 a.m It is 10 : 00 a.m now. By 11 : 00 a.m. I .... it for three hours.</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 14,
+    "options": [
+      {
+        "id": 8892,
+        "question_id": 2025,
+        "description": "shall be writing",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8893,
+        "question_id": 2025,
+        "description": "have been writing",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8894,
+        "question_id": 2025,
+        "description": "shall have been writing",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8895,
+        "question_id": 2025,
+        "description": "am writing",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8896,
+        "question_id": 2025,
+        "description": "was writing",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2026,
+    "collection_id": 79,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:<br>\r\nWriting for newspaper is exciting and lucrative especially when one is a <u>freelance</u> journalist",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 5,
+    "options": [
+      {
+        "id": 8897,
+        "question_id": 2026,
+        "description": "a forthright",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8898,
+        "question_id": 2026,
+        "description": "an eloquent",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8899,
+        "question_id": 2026,
+        "description": "an unattached",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8900,
+        "question_id": 2026,
+        "description": "a political",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8901,
+        "question_id": 2026,
+        "description": "a convincing",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2030,
+    "collection_id": 79,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:<br>\r\nHe has never been a good mediator, even in minor family disputes, because in most cases his views are always <u>jaundiced</u>",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 7,
+    "options": [
+      {
+        "id": 8914,
+        "question_id": 2030,
+        "description": "coloured",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8915,
+        "question_id": 2030,
+        "description": "sick",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8916,
+        "question_id": 2030,
+        "description": "suspicious",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8917,
+        "question_id": 2030,
+        "description": "unscrupulous",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8918,
+        "question_id": 2030,
+        "description": "prejudiced",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2033,
+    "collection_id": 79,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:<br>\r\nAfter the wife had covered her misdeeds by prevaricating on several occasions, the poor husband accused her <u>point blank</u> of adultery",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 9,
+    "options": [
+      {
+        "id": 8927,
+        "question_id": 2033,
+        "description": "bluntly",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 8928,
+        "question_id": 2033,
+        "description": "pointedly",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8929,
+        "question_id": 2033,
+        "description": "emphatically",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8930,
+        "question_id": 2033,
+        "description": "unreservedly",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8931,
+        "question_id": 2033,
+        "description": "unmistakingly",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2039,
+    "collection_id": 79,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:<br>\r\nThe vote of thanks which was elaborately moved by the social secretary <u>did not ring true</u> particularly as the fund raising had been a big failure",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 8952,
+        "question_id": 2039,
+        "description": "was all lies",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8953,
+        "question_id": 2039,
+        "description": "was not honest",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8954,
+        "question_id": 2039,
+        "description": "was inaudible",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8955,
+        "question_id": 2039,
+        "description": "was not genuine",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 8956,
+        "question_id": 2039,
+        "description": "was distorted",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2047,
+    "collection_id": 79,
+    "question": "<p><em>Choosing the word or phrase from A to E which has the <strong>same meaning</strong> as the underlined word or words in each sentence</em>:<br />\r\nI listened with rapt attention as he never suspected that i knew he was telling me a <ins>cock and bull story</ins></p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 22,
+    "options": [
+      {
+        "id": 8985,
+        "question_id": 2047,
+        "description": "a story about a cock",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8986,
+        "question_id": 2047,
+        "description": "a story about bull",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8987,
+        "question_id": 2047,
+        "description": "an incredible story",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 8988,
+        "question_id": 2047,
+        "description": "an interesting",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 8989,
+        "question_id": 2047,
+        "description": "an eye witness story",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2050,
+    "collection_id": 79,
+    "question": "<p><em>Choosing the word or phrase from A to E which has the <strong>same meaning</strong> as the underlined word or words in each sentence</em>:</p>\r\n\r\n<p>When a man is <ins>immune</ins> to an illness, he is</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 6,
+    "options": [
+      {
+        "id": 8994,
+        "question_id": 2050,
+        "description": "opposed to it",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 8995,
+        "question_id": 2050,
+        "description": "attached to it",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 8996,
+        "question_id": 2050,
+        "description": "hated by it",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 8997,
+        "question_id": 2050,
+        "description": "protected against it",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 8998,
+        "question_id": 2050,
+        "description": "addicted to it",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2051,
+    "collection_id": 79,
+    "question": "<p><em>Choose the word or phrase from A to E that has the <strong>same meaning</strong> as the underlined word or words in each sentence</em>:<br />\r\nThe two boxers were neck and neck up till the sixth round but in the seventh and final round, the bigger one <ins>lost ground</ins></p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 6,
+    "options": [
+      {
+        "id": 8999,
+        "question_id": 2051,
+        "description": "could no longer stand on his feet",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9000,
+        "question_id": 2051,
+        "description": "failed to maintain his position",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 9001,
+        "question_id": 2051,
+        "description": "was beaten",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9002,
+        "question_id": 2051,
+        "description": "became dizzy",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9003,
+        "question_id": 2051,
+        "description": "became a punching bag",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2052,
+    "collection_id": 79,
+    "question": "<p><em>Choosing the word or phrase from A to E which has the <strong>same meaning</strong> as the underlined word or words in each sentence</em>:<br />\r\nWhile the mother and father were arguing furiously, their small boy sat patiently,&nbsp;<ins>taking in</ins> everything they said.</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 32,
+    "options": [
+      {
+        "id": 9004,
+        "question_id": 2052,
+        "description": "absorbing",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 9005,
+        "question_id": 2052,
+        "description": "accommodating",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9006,
+        "question_id": 2052,
+        "description": "embracing",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9007,
+        "question_id": 2052,
+        "description": "accepting",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9008,
+        "question_id": 2052,
+        "description": "noting",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2053,
+    "collection_id": 79,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:<br>\r\nFor a priest to be successful, he should, from time to time <u>review </u> his actions",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 4,
+    "options": [
+      {
+        "id": 9009,
+        "question_id": 2053,
+        "description": "inspect",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9010,
+        "question_id": 2053,
+        "description": "examine",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 9011,
+        "question_id": 2053,
+        "description": "stare at",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9012,
+        "question_id": 2053,
+        "description": "visualize",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9013,
+        "question_id": 2053,
+        "description": "conceptualized",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2055,
+    "collection_id": 79,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:<br>\r\nIn some parts of our society, people are <u>ostracized</u> purely on the basis of their parentage",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 5,
+    "options": [
+      {
+        "id": 9018,
+        "question_id": 2055,
+        "description": "hated",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9019,
+        "question_id": 2055,
+        "description": "disrespected",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9020,
+        "question_id": 2055,
+        "description": "shut off form others",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9021,
+        "question_id": 2055,
+        "description": "locked up",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9022,
+        "question_id": 2055,
+        "description": "abandoned",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2057,
+    "collection_id": 79,
+    "question": "<p><em>Choosing the word or phrase from A to E which has the <strong>same meaning</strong> as the underlined word or words in each sentence</em>:<br />\r\nSitting majestically on his throne is the Oba of Benin <ins>flanked</ins> by some of his wives</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 7,
+    "options": [
+      {
+        "id": 9027,
+        "question_id": 2057,
+        "description": "surrounded",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 9028,
+        "question_id": 2057,
+        "description": "supported",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9029,
+        "question_id": 2057,
+        "description": "guarded",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9030,
+        "question_id": 2057,
+        "description": "protected",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9031,
+        "question_id": 2057,
+        "description": "neglected",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2059,
+    "collection_id": 79,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:<br>\r\nIn civilized society, it is <u>unseemly</u> to emit a loud belch at the end of a meal",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 10,
+    "options": [
+      {
+        "id": 9036,
+        "question_id": 2059,
+        "description": "noisy",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9037,
+        "question_id": 2059,
+        "description": "annoying",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9038,
+        "question_id": 2059,
+        "description": "stupid",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9039,
+        "question_id": 2059,
+        "description": "outrageous",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9040,
+        "question_id": 2059,
+        "description": "impolite",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2061,
+    "collection_id": 79,
+    "question": "<i>Choosing the <b>appropriate option</b> to fill the gap in the following sentences</i>:<br>\r\nAs a result of the injury sustained on the football field, Segun was .... with a broken leg for months",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 19,
+    "options": [
+      {
+        "id": 9045,
+        "question_id": 2061,
+        "description": "laid down",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9046,
+        "question_id": 2061,
+        "description": "laid out",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9047,
+        "question_id": 2061,
+        "description": "laid on",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9048,
+        "question_id": 2061,
+        "description": "laid up",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 9049,
+        "question_id": 2061,
+        "description": "laid off",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2063,
+    "collection_id": 79,
+    "question": "<i>Choosing the <b>appropriate option</b> to fill the gap in the following sentences</i>:<br>\r\nthe principal was able to establish a functional language laboratory for school because he acted .... the advice of experts on the subject",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 9054,
+        "question_id": 2063,
+        "description": "through",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9055,
+        "question_id": 2063,
+        "description": "at",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9056,
+        "question_id": 2063,
+        "description": "from",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9057,
+        "question_id": 2063,
+        "description": "on",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 9058,
+        "question_id": 2063,
+        "description": "by",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2064,
+    "collection_id": 79,
+    "question": "<i>Choosing the <b>appropriate option</b> to fill the gap in the following sentences</i>:<br>\r\nDume .... in Abraka for three years when i met her",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 9059,
+        "question_id": 2064,
+        "description": "lived",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9060,
+        "question_id": 2064,
+        "description": "had lived",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 9061,
+        "question_id": 2064,
+        "description": "would have lived",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9062,
+        "question_id": 2064,
+        "description": "was living",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9063,
+        "question_id": 2064,
+        "description": "was lived",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2065,
+    "collection_id": 79,
+    "question": "<i>Choosing the <b>appropriate option</b> to fill the gap in the following sentences</i>:<br>\r\nIf i were the Head of the English Department in my school, i .... make oral English a compulsory subject",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 19,
+    "options": [
+      {
+        "id": 9064,
+        "question_id": 2065,
+        "description": "would",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 9065,
+        "question_id": 2065,
+        "description": "could",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9066,
+        "question_id": 2065,
+        "description": "should",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9067,
+        "question_id": 2065,
+        "description": "might",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9068,
+        "question_id": 2065,
+        "description": "had",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2071,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>appropriate option </strong> to fill the gap in the following sentences</em>:<br />\r\nIf Remi perform poorly in her forthcoming examination, then either her mother or I.... to blame</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 27,
+    "options": [
+      {
+        "id": 9089,
+        "question_id": 2071,
+        "description": "must",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9090,
+        "question_id": 2071,
+        "description": "has",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9091,
+        "question_id": 2071,
+        "description": "will be",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9092,
+        "question_id": 2071,
+        "description": "are",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9093,
+        "question_id": 2071,
+        "description": "am",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2072,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br><br>\r\nI was able to .... Olu my book because he promised to return it the following day",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 7,
+    "options": [
+      {
+        "id": 9094,
+        "question_id": 2072,
+        "description": "borrow",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9095,
+        "question_id": 2072,
+        "description": "give",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9096,
+        "question_id": 2072,
+        "description": "lend",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9097,
+        "question_id": 2072,
+        "description": "lease",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9098,
+        "question_id": 2072,
+        "description": "secure",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2073,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>appropriate option </strong> to fill the gap in the following sentences</em>:<br />\r\nYou cannot have a vague idea of the content of this comprehension text unless you first .... the whole passage for a few minutes, said the teacher to his pupils</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 9099,
+        "question_id": 2073,
+        "description": "digest",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9100,
+        "question_id": 2073,
+        "description": "decipher",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9101,
+        "question_id": 2073,
+        "description": "skim through",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9102,
+        "question_id": 2073,
+        "description": "chew through",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9103,
+        "question_id": 2073,
+        "description": "master",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2074,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br>\r\nThe prefect came to the class five minutes after the lesson ....",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 1,
+    "options": [
+      {
+        "id": 9104,
+        "question_id": 2074,
+        "description": "has started",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9105,
+        "question_id": 2074,
+        "description": "had started",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 9106,
+        "question_id": 2074,
+        "description": "have started",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9107,
+        "question_id": 2074,
+        "description": "is started",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9108,
+        "question_id": 2074,
+        "description": "has been started",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2075,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br>\r\nBimbo sings beautifully .... ?",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 9109,
+        "question_id": 2075,
+        "description": "isn't it",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9110,
+        "question_id": 2075,
+        "description": "doesn't she",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 9111,
+        "question_id": 2075,
+        "description": "isn't she",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9112,
+        "question_id": 2075,
+        "description": "does she",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9113,
+        "question_id": 2075,
+        "description": "is she",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2076,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>appropriate option </strong> to fill the gap in the following sentences</em>:<br />\r\nWe couldn&#39;t find the official who was to act as our guide ...., he has left before we arrived</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 5,
+    "options": [
+      {
+        "id": 9114,
+        "question_id": 2076,
+        "description": "Moreover",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9115,
+        "question_id": 2076,
+        "description": "Actually",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 9116,
+        "question_id": 2076,
+        "description": "Nevertheless",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9117,
+        "question_id": 2076,
+        "description": "However",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9118,
+        "question_id": 2076,
+        "description": "Even",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2077,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br>\r\nNo sooner had the examination ended .... the students started vacating  the halls of residence",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 9,
+    "options": [
+      {
+        "id": 9119,
+        "question_id": 2077,
+        "description": "when",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9120,
+        "question_id": 2077,
+        "description": "that",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9121,
+        "question_id": 2077,
+        "description": "than",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9122,
+        "question_id": 2077,
+        "description": "before",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9123,
+        "question_id": 2077,
+        "description": "and",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2078,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br>\r\nOgedengbe kept goal for his club team because there wasn't .... to do it",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 1,
+    "options": [
+      {
+        "id": 9124,
+        "question_id": 2078,
+        "description": "nobody else",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9125,
+        "question_id": 2078,
+        "description": "any other body",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9126,
+        "question_id": 2078,
+        "description": "any other body",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9127,
+        "question_id": 2078,
+        "description": "no other body",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9128,
+        "question_id": 2078,
+        "description": "anybody else",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2079,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br>\r\nGrace must be allergic .... smoke because any time she sits by someone who is smoking, she sneezes",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 1,
+    "options": [
+      {
+        "id": 9129,
+        "question_id": 2079,
+        "description": "to",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 9130,
+        "question_id": 2079,
+        "description": "from",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9131,
+        "question_id": 2079,
+        "description": "for",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9132,
+        "question_id": 2079,
+        "description": "with",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9133,
+        "question_id": 2079,
+        "description": "by",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2080,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>appropriate option </strong> to fill the gap in the following sentences</em>:<br />\r\nNow that i realize the full extent of your ... i am afraid it will be impossible for me to ever trust you again</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 28,
+    "options": [
+      {
+        "id": 9134,
+        "question_id": 2080,
+        "description": "dubiousness",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9135,
+        "question_id": 2080,
+        "description": "corruption",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9136,
+        "question_id": 2080,
+        "description": "deceptiveness",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9137,
+        "question_id": 2080,
+        "description": "duplicity",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 9138,
+        "question_id": 2080,
+        "description": "inconsistency",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2081,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br>\r\nLegislators must be trained to .... the truth",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 6,
+    "options": [
+      {
+        "id": 9139,
+        "question_id": 2081,
+        "description": "disguise",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9140,
+        "question_id": 2081,
+        "description": "discern",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 9141,
+        "question_id": 2081,
+        "description": "digest",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9142,
+        "question_id": 2081,
+        "description": "disturb",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9143,
+        "question_id": 2081,
+        "description": "distort",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2082,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br>\r\nHe must be a good student because he is a .... reader",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 12,
+    "options": [
+      {
+        "id": 9144,
+        "question_id": 2082,
+        "description": "romanesque",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9145,
+        "question_id": 2082,
+        "description": "veracious",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9146,
+        "question_id": 2082,
+        "description": "voracious",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9147,
+        "question_id": 2082,
+        "description": "mendacious",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9148,
+        "question_id": 2082,
+        "description": "sarcastic",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2083,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:<br>\r\nIt is very difficult to capture the subtle ..... of words when translated from one language to another",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 9149,
+        "question_id": 2083,
+        "description": "essence",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9150,
+        "question_id": 2083,
+        "description": "denotations",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9151,
+        "question_id": 2083,
+        "description": "connotations",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9152,
+        "question_id": 2083,
+        "description": "inflexions",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9153,
+        "question_id": 2083,
+        "description": "insults",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2084,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>appropriate option </strong> to fill the gap in the following sentences</em>:<br />\r\nAs it holds true that, unless you train your body you cannot be an athlete, so also unless you train your .... you cannot be a ....</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 28,
+    "options": [
+      {
+        "id": 9154,
+        "question_id": 2084,
+        "description": "kicking - footballer",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9155,
+        "question_id": 2084,
+        "description": "voice - choirmaster",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9156,
+        "question_id": 2084,
+        "description": "mind - scholar",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9157,
+        "question_id": 2084,
+        "description": "courage - hero",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9158,
+        "question_id": 2084,
+        "description": "arms - swimmer",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2085,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>correct word</b> to fill the space in the following sentences</i>:<br>\r\nThe meeting starts .... two o'clock. Please be punctual",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 6,
+    "options": [
+      {
+        "id": 9159,
+        "question_id": 2085,
+        "description": "about",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9160,
+        "question_id": 2085,
+        "description": "in",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9161,
+        "question_id": 2085,
+        "description": "on",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9162,
+        "question_id": 2085,
+        "description": "at",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 9163,
+        "question_id": 2085,
+        "description": "around",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2086,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>correct word</b> to fill the space in the following sentences</i>:<br>\r\nEvery time you pay a bill you must insist .... being given a receipt",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 9164,
+        "question_id": 2086,
+        "description": "in",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9165,
+        "question_id": 2086,
+        "description": "from",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9166,
+        "question_id": 2086,
+        "description": "on",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9167,
+        "question_id": 2086,
+        "description": "by",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9168,
+        "question_id": 2086,
+        "description": "onto",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2087,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>correct word</b> to fill the space in the following sentences</i>:<br>\r\nThe elections .... the Senate were held in July",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 10,
+    "options": [
+      {
+        "id": 9169,
+        "question_id": 2087,
+        "description": "into",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 9170,
+        "question_id": 2087,
+        "description": "of",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9171,
+        "question_id": 2087,
+        "description": "from",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9172,
+        "question_id": 2087,
+        "description": "onto",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9173,
+        "question_id": 2087,
+        "description": "on",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2088,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>correct word</strong> to fill the space in the following sentences</em>:<br />\r\nThere is a filling station .... the corner, to your right.</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 8,
+    "options": [
+      {
+        "id": 9174,
+        "question_id": 2088,
+        "description": "about",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9175,
+        "question_id": 2088,
+        "description": "by",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9176,
+        "question_id": 2088,
+        "description": "from",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9177,
+        "question_id": 2088,
+        "description": "around",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 9178,
+        "question_id": 2088,
+        "description": "to",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2089,
+    "collection_id": 79,
+    "question": "<i>Choose the <b>correct word</b> to fill the space in the following sentences</i>:<br>\r\nIt is difficult these days to get a seat .... the plane in spite of a confirmed booking",
+    "ref_id": null,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 12,
+    "options": [
+      {
+        "id": 9179,
+        "question_id": 2089,
+        "description": "inside",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 9180,
+        "question_id": 2089,
+        "description": "in",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9181,
+        "question_id": 2089,
+        "description": "on",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 9182,
+        "question_id": 2089,
+        "description": "upon",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9183,
+        "question_id": 2089,
+        "description": "into",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 2090,
+    "collection_id": 79,
+    "question": "<p><em>Choose the <strong>correct word</strong> to fill the space in the following sentences</em>:<br />\r\nHe travelled to Jos .... train when he came last</p>",
+    "ref_id": 0,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 9184,
+        "question_id": 2090,
+        "description": "by",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 9185,
+        "question_id": 2090,
+        "description": "in",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 9186,
+        "question_id": 2090,
+        "description": "on",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 9187,
+        "question_id": 2090,
+        "description": "inside",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 9188,
+        "question_id": 2090,
+        "description": "through",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": null
+  },
+  {
+    "id": 15088,
+    "collection_id": 79,
+    "question": "Ezekiel was a great herald of thing to come because",
+    "ref_id": 65,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60369,
+        "question_id": 15088,
+        "description": "he was a prophet",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60370,
+        "question_id": 15088,
+        "description": "he preached about events which were to characterized the period after the exile",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 60371,
+        "question_id": 15088,
+        "description": "God showed him what was going to happen after the exile",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60372,
+        "question_id": 15088,
+        "description": "he ran a prophetic ministry",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60373,
+        "question_id": 15088,
+        "description": "God was with him",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 65,
+      "collection_id": 79,
+      "description": "<p>&nbsp <i>read each passage and answer the question that follow</i><br>\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. <br>\n<br>\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.<br>\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple<p>",
+      "updated_at": 1378206123
+    }
+  },
+  {
+    "id": 15090,
+    "collection_id": 79,
+    "question": "in his work, Ezekiel",
+    "ref_id": 65,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 60374,
+        "question_id": 15090,
+        "description": "was friendly with Ezra",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60375,
+        "question_id": 15090,
+        "description": "founded Judaism in conhjuction with Ezra",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60376,
+        "question_id": 15090,
+        "description": "had a large religious following",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60377,
+        "question_id": 15090,
+        "description": "forged a link between the past and the future",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 60378,
+        "question_id": 15090,
+        "description": "demostrated that he was a man of God",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 65,
+      "collection_id": 79,
+      "description": "<p>&nbsp <i>read each passage and answer the question that follow</i><br>\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. <br>\n<br>\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.<br>\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple<p>",
+      "updated_at": 1378206123
+    }
+  },
+  {
+    "id": 15102,
+    "collection_id": 79,
+    "question": "<p>By and large critics of Ezekiel and his work were</p>",
+    "ref_id": 65,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 60419,
+        "question_id": 15102,
+        "description": "successful",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60420,
+        "question_id": 15102,
+        "description": "ungodly",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60421,
+        "question_id": 15102,
+        "description": "unsuccessful",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 60422,
+        "question_id": 15102,
+        "description": "jealous",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60423,
+        "question_id": 15102,
+        "description": "angered by his acceptance",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 65,
+      "collection_id": 79,
+      "description": "<p>&nbsp <i>read each passage and answer the question that follow</i><br>\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. <br>\n<br>\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.<br>\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple<p>",
+      "updated_at": 1378206123
+    }
+  },
+  {
+    "id": 15105,
+    "collection_id": 79,
+    "question": "<p>When other prophetic book where discredited, Ezekiel&#39;s book was accepted because</p>",
+    "ref_id": 65,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60432,
+        "question_id": 15105,
+        "description": "the people loved him",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60433,
+        "question_id": 15105,
+        "description": "the other prohpetic writers were not a original",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60434,
+        "question_id": 15105,
+        "description": "the critics were biased in their judgement",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60435,
+        "question_id": 15105,
+        "description": "he was a great prophet",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60436,
+        "question_id": 15105,
+        "description": "his work was convincingly documented",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 65,
+      "collection_id": 79,
+      "description": "<p>&nbsp <i>read each passage and answer the question that follow</i><br>\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. <br>\n<br>\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.<br>\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple<p>",
+      "updated_at": 1378206123
+    }
+  },
+  {
+    "id": 15144,
+    "collection_id": 79,
+    "question": "in the passage, there is an attempt to explain that to ensure a totally healthy child",
+    "ref_id": 77,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60557,
+        "question_id": 15144,
+        "description": "it is necessary to concentrate on the child's physical well-being alone",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60558,
+        "question_id": 15144,
+        "description": "it is essential to reduce the high child mortality and morbidity rate",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60559,
+        "question_id": 15144,
+        "description": "it is necessary to take care of other things in addition to the child's physical well-being",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 60560,
+        "question_id": 15144,
+        "description": "it is imprtant to keep to the rules of hygiene",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60561,
+        "question_id": 15144,
+        "description": "it is necessary to copy foreign ways of bringing up children",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 77,
+      "collection_id": 79,
+      "description": "<p>&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.<br>\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.<br>\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.<br>\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.<br>\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.<br>\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.<br>\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.<br>\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged <p>",
+      "updated_at": 1378203848
+    }
+  },
+  {
+    "id": 15147,
+    "collection_id": 79,
+    "question": "it is said that differences in ways of bringing up children and educating them",
+    "ref_id": 77,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60570,
+        "question_id": 15147,
+        "description": "achieve the same results",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60571,
+        "question_id": 15147,
+        "description": "are reflected in the personalities , attitudes and achievements of thye individual",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 60572,
+        "question_id": 15147,
+        "description": "make people aggressive",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60573,
+        "question_id": 15147,
+        "description": "have nothing to do with educational attainments",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60574,
+        "question_id": 15147,
+        "description": "are a matter of the cultural background of the people",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 77,
+      "collection_id": 79,
+      "description": "<p>&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.<br>\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.<br>\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.<br>\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.<br>\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.<br>\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.<br>\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.<br>\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged <p>",
+      "updated_at": 1378203848
+    }
+  },
+  {
+    "id": 15148,
+    "collection_id": 79,
+    "question": "since the training  for social adjustment begins from  the moment of birth, our traditional practices",
+    "ref_id": 77,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60575,
+        "question_id": 15148,
+        "description": "are too uncivilized to be helpful to the child",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60576,
+        "question_id": 15148,
+        "description": "need to be mordenized",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60577,
+        "question_id": 15148,
+        "description": "are very helpful to the proper growth of the child",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 60578,
+        "question_id": 15148,
+        "description": "make the child a stranger to modern civilization",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60579,
+        "question_id": 15148,
+        "description": "are the cause of underdevelopment",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 77,
+      "collection_id": 79,
+      "description": "<p>&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.<br>\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.<br>\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.<br>\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.<br>\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.<br>\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.<br>\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.<br>\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged <p>",
+      "updated_at": 1378203848
+    }
+  },
+  {
+    "id": 15149,
+    "collection_id": 79,
+    "question": "in spite of the fact that the Western country now recognize the importance of the early period of childhood in forming a relationship, Nigerian hospital and maternity home.",
+    "ref_id": 77,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60580,
+        "question_id": 15149,
+        "description": "copy the wrong Western practise noe being criticized in Western countriesd",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 60581,
+        "question_id": 15149,
+        "description": "improve on local practises and make the future of the child secure",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60582,
+        "question_id": 15149,
+        "description": "ensure that the child is brought up in the right way",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60583,
+        "question_id": 15149,
+        "description": "ensure that the child develops the right skills for establishing relationships",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60584,
+        "question_id": 15149,
+        "description": "do not know which practise to choose",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 77,
+      "collection_id": 79,
+      "description": "<p>&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.<br>\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.<br>\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.<br>\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.<br>\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.<br>\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.<br>\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.<br>\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged <p>",
+      "updated_at": 1378203848
+    }
+  },
+  {
+    "id": 15158,
+    "collection_id": 79,
+    "question": "unless the training of our traditional birth attendants is based on healthy practices",
+    "ref_id": 77,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60617,
+        "question_id": 15158,
+        "description": "our children will be under-developed",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60618,
+        "question_id": 15158,
+        "description": "our children will be worse off thanthose brough up in the traditional way",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 60619,
+        "question_id": 15158,
+        "description": "our medical services will be unable to provide the right services",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60620,
+        "question_id": 15158,
+        "description": "our ecenomic progress will be adversely affected",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60621,
+        "question_id": 15158,
+        "description": "the role of the mothe will be rendered useless",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 77,
+      "collection_id": 79,
+      "description": "<p>&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.<br>\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.<br>\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.<br>\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.<br>\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.<br>\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.<br>\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.<br>\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged <p>",
+      "updated_at": 1378203848
+    }
+  },
+  {
+    "id": 15198,
+    "collection_id": 79,
+    "question": "<p>the author explains that researches conducted on various aspect of rural-urban drift have</p>",
+    "ref_id": 86,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 3,
+    "options": [
+      {
+        "id": 60774,
+        "question_id": 15198,
+        "description": "failed to provide effective solutions",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60775,
+        "question_id": 15198,
+        "description": "revealed the causes and effects of this drift",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60776,
+        "question_id": 15198,
+        "description": "increase the hue and cry against it",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60777,
+        "question_id": 15198,
+        "description": "provided effective solutions to the problem",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60778,
+        "question_id": 15198,
+        "description": "not only provided solutions but also brought out the causes and effects of this drift",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 86,
+      "collection_id": 79,
+      "description": "<p>&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.<br>\r\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.<br>\r\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative<br>\r\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. <br>\r\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres<br>\r\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.<br>\r\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. <br>\r\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected. <p>",
+      "updated_at": 1378131047
+    }
+  },
+  {
+    "id": 15199,
+    "collection_id": 79,
+    "question": "one of the reasons why people drift fro the rural areas to the urban ares is",
+    "ref_id": 86,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60779,
+        "question_id": 15199,
+        "description": "hunger resulting from drought",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60780,
+        "question_id": 15199,
+        "description": "laziness and ignorant",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60781,
+        "question_id": 15199,
+        "description": "better rural eduaction and possession of qualifications which make better jobs available in urban ares",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 60782,
+        "question_id": 15199,
+        "description": "the easy life and comfort in the city",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60783,
+        "question_id": 15199,
+        "description": "the freedom from traditional control and pagan practices",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 86,
+      "collection_id": 79,
+      "description": "<p>&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.<br>\r\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.<br>\r\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative<br>\r\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. <br>\r\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres<br>\r\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.<br>\r\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. <br>\r\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected. <p>",
+      "updated_at": 1378131047
+    }
+  },
+  {
+    "id": 15200,
+    "collection_id": 79,
+    "question": "migration in large number is said to result in",
+    "ref_id": 86,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60784,
+        "question_id": 15200,
+        "description": "juvenile deliquency",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60785,
+        "question_id": 15200,
+        "description": "a fall in the production of food, accomodation and health in the cities",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 60786,
+        "question_id": 15200,
+        "description": "highway robbery",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60787,
+        "question_id": 15200,
+        "description": "difficulty of life in rural areas",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60788,
+        "question_id": 15200,
+        "description": "mental stress by parents and relations",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 86,
+      "collection_id": 79,
+      "description": "<p>&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.<br>\r\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.<br>\r\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative<br>\r\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. <br>\r\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres<br>\r\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.<br>\r\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. <br>\r\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected. <p>",
+      "updated_at": 1378131047
+    }
+  },
+  {
+    "id": 15204,
+    "collection_id": 79,
+    "question": "one suggested solution to the problem is to",
+    "ref_id": 86,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60801,
+        "question_id": 15204,
+        "description": "provode social amenities and create employment opportunities in rural areas",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 60802,
+        "question_id": 15204,
+        "description": "encourage mechanized agriculture in order to raise income",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60803,
+        "question_id": 15204,
+        "description": "force the young rural people to stay by warning them about the problems in the cities",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60804,
+        "question_id": 15204,
+        "description": "mount road blocks",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60805,
+        "question_id": 15204,
+        "description": "lower the level of education in rural areas and increase qualification for employment in the cities",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 86,
+      "collection_id": 79,
+      "description": "<p>&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.<br>\r\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.<br>\r\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative<br>\r\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. <br>\r\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres<br>\r\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.<br>\r\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. <br>\r\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected. <p>",
+      "updated_at": 1378131047
+    }
+  },
+  {
+    "id": 15205,
+    "collection_id": 79,
+    "question": "the consequences of the rural-urban drift are shown in the above passages as being",
+    "ref_id": 86,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60806,
+        "question_id": 15205,
+        "description": "useful to the cities and not to the rural areas",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60807,
+        "question_id": 15205,
+        "description": "a national disaster",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60808,
+        "question_id": 15205,
+        "description": "a natural occurrence and sign of progress",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60809,
+        "question_id": 15205,
+        "description": "negative",
+        "tag": "d",
+        "is_correct": 1
+      },
+      {
+        "id": 60810,
+        "question_id": 15205,
+        "description": "a healthy economic phenomenon",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 86,
+      "collection_id": 79,
+      "description": "<p>&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.<br>\r\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.<br>\r\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative<br>\r\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. <br>\r\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres<br>\r\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.<br>\r\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. <br>\r\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected. <p>",
+      "updated_at": 1378131047
+    }
+  },
+  {
+    "id": 15207,
+    "collection_id": 79,
+    "question": "the boss Boeta Dick, can be described as being",
+    "ref_id": 88,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60815,
+        "question_id": 15207,
+        "description": "skinny",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 60816,
+        "question_id": 15207,
+        "description": "hard working",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60817,
+        "question_id": 15207,
+        "description": "ambitious",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60818,
+        "question_id": 15207,
+        "description": "A Chinese",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60819,
+        "question_id": 15207,
+        "description": "slender",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 88,
+      "collection_id": 79,
+      "description": "<p>&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.<br>\r\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them. <p>",
+      "updated_at": 1378132976
+    }
+  },
+  {
+    "id": 15208,
+    "collection_id": 79,
+    "question": "Boeta Dick spat in the bucket because",
+    "ref_id": 88,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60820,
+        "question_id": 15208,
+        "description": "he was sick",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60821,
+        "question_id": 15208,
+        "description": "he had a dirty habit",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60822,
+        "question_id": 15208,
+        "description": "he coughed",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 60823,
+        "question_id": 15208,
+        "description": "the smithy smelled badly",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60824,
+        "question_id": 15208,
+        "description": "it is good to spit regularly",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 88,
+      "collection_id": 79,
+      "description": "<p>&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.<br>\r\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them. <p>",
+      "updated_at": 1378132976
+    }
+  },
+  {
+    "id": 15209,
+    "collection_id": 79,
+    "question": "without the solderers  in the smithy",
+    "ref_id": 88,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60825,
+        "question_id": 15209,
+        "description": "no work can be done",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60826,
+        "question_id": 15209,
+        "description": "the boss will go into debt",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60827,
+        "question_id": 15209,
+        "description": "the products can not be completed",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 60828,
+        "question_id": 15209,
+        "description": "the boss will be unhappy",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60829,
+        "question_id": 15209,
+        "description": "the other workers will not like their job",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 88,
+      "collection_id": 79,
+      "description": "<p>&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.<br>\r\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them. <p>",
+      "updated_at": 1378132976
+    }
+  },
+  {
+    "id": 15210,
+    "collection_id": 79,
+    "question": "the solderers received",
+    "ref_id": 88,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60830,
+        "question_id": 15210,
+        "description": "occasonal money for their work",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60831,
+        "question_id": 15210,
+        "description": "too much for their work",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60832,
+        "question_id": 15210,
+        "description": "just enough for their work",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60833,
+        "question_id": 15210,
+        "description": "a fair wage",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60834,
+        "question_id": 15210,
+        "description": "not so much as their work demanded",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 88,
+      "collection_id": 79,
+      "description": "<p>&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.<br>\r\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them. <p>",
+      "updated_at": 1378132976
+    }
+  },
+  {
+    "id": 15211,
+    "collection_id": 79,
+    "question": "sulphur powder was added to",
+    "ref_id": 88,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 1,
+    "options": [
+      {
+        "id": 60835,
+        "question_id": 15211,
+        "description": "beautify the tin",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60836,
+        "question_id": 15211,
+        "description": "complete the manufacture",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 60837,
+        "question_id": 15211,
+        "description": "strenghten the tin",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60838,
+        "question_id": 15211,
+        "description": "satisfy the boss",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60839,
+        "question_id": 15211,
+        "description": "ensure that the tins were not damaged during transportation",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 88,
+      "collection_id": 79,
+      "description": "<p>&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.<br>\r\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them. <p>",
+      "updated_at": 1378132976
+    }
+  },
+  {
+    "id": 15212,
+    "collection_id": 79,
+    "question": "Rufus Okeke was very popular with people because he",
+    "ref_id": 89,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 2,
+    "options": [
+      {
+        "id": 60840,
+        "question_id": 15212,
+        "description": "was energetic",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60841,
+        "question_id": 15212,
+        "description": "has decided to pitch his tent with the villagers",
+        "tag": "b",
+        "is_correct": 1
+      },
+      {
+        "id": 60842,
+        "question_id": 15212,
+        "description": "did not like town life",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60843,
+        "question_id": 15212,
+        "description": "could not live without his parents",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60844,
+        "question_id": 15212,
+        "description": "made more mobey for the villagers",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 89,
+      "collection_id": 79,
+      "description": "<p>&nbsp; Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village&nbsp;tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.<br />\r\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election</p>\r\n\r\n<p>&nbsp;</p>",
+      "updated_at": 1708505689
+    }
+  },
+  {
+    "id": 15214,
+    "collection_id": 79,
+    "question": "<p>A village tout can be described as being</p>",
+    "ref_id": 89,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 4,
+    "options": [
+      {
+        "id": 60849,
+        "question_id": 15214,
+        "description": "unemployed",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 60850,
+        "question_id": 15214,
+        "description": "crazy",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60851,
+        "question_id": 15214,
+        "description": "energetic",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60852,
+        "question_id": 15214,
+        "description": "lazy",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60853,
+        "question_id": 15214,
+        "description": "servile",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 89,
+      "collection_id": 79,
+      "description": "<p>&nbsp; Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village&nbsp;tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.<br />\r\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election</p>\r\n\r\n<p>&nbsp;</p>",
+      "updated_at": 1708505689
+    }
+  },
+  {
+    "id": 15215,
+    "collection_id": 79,
+    "question": "<p>the reference to Okeke&#39;s &#39;bright future&#39; in Port-Harcourt can be described as being</p>",
+    "ref_id": 89,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 1,
+    "options": [
+      {
+        "id": 60854,
+        "question_id": 15215,
+        "description": "sarcastic",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 60855,
+        "question_id": 15215,
+        "description": "true",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60856,
+        "question_id": 15215,
+        "description": "untrue",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60857,
+        "question_id": 15215,
+        "description": "irrelevant",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60858,
+        "question_id": 15215,
+        "description": "impossible",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 89,
+      "collection_id": 79,
+      "description": "<p>&nbsp; Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village&nbsp;tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.<br />\r\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election</p>\r\n\r\n<p>&nbsp;</p>",
+      "updated_at": 1708505689
+    }
+  },
+  {
+    "id": 15217,
+    "collection_id": 79,
+    "question": "the reference to Okeke's 'bright future' in Port-Harcourt can be described as being",
+    "ref_id": 89,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60863,
+        "question_id": 15217,
+        "description": "sarcastic",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 60864,
+        "question_id": 15217,
+        "description": "true",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60865,
+        "question_id": 15217,
+        "description": "untrue",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60866,
+        "question_id": 15217,
+        "description": "irrelevant",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60867,
+        "question_id": 15217,
+        "description": "impossible",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 89,
+      "collection_id": 79,
+      "description": "<p>&nbsp; Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village&nbsp;tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.<br />\r\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election</p>\r\n\r\n<p>&nbsp;</p>",
+      "updated_at": 1708505689
+    }
+  },
+  {
+    "id": 15218,
+    "collection_id": 79,
+    "question": "the writer is saying indirectly that political parties in power could be",
+    "ref_id": 89,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60868,
+        "question_id": 15218,
+        "description": "unpredictable",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60869,
+        "question_id": 15218,
+        "description": "honest",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60870,
+        "question_id": 15218,
+        "description": "corrupt",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 60871,
+        "question_id": 15218,
+        "description": "servile",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60872,
+        "question_id": 15218,
+        "description": "autocratic",
+        "tag": "e",
+        "is_correct": 1
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 89,
+      "collection_id": 79,
+      "description": "<p>&nbsp; Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village&nbsp;tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.<br />\r\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election</p>\r\n\r\n<p>&nbsp;</p>",
+      "updated_at": 1708505689
+    }
+  },
+  {
+    "id": 15219,
+    "collection_id": 79,
+    "question": "which of the following statement would you consider correct with reference to Okeke as an election expert?",
+    "ref_id": 89,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 0,
+    "options": [
+      {
+        "id": 60873,
+        "question_id": 15219,
+        "description": "it is true that he was an expert",
+        "tag": "a",
+        "is_correct": 0
+      },
+      {
+        "id": 60874,
+        "question_id": 15219,
+        "description": "it is doubtful that he was an expert",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 60875,
+        "question_id": 15219,
+        "description": "it is most likely to be true that he was an expert",
+        "tag": "c",
+        "is_correct": 1
+      },
+      {
+        "id": 60876,
+        "question_id": 15219,
+        "description": "there are no election experts",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 60877,
+        "question_id": 15219,
+        "description": "he was not an election expert at all",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 89,
+      "collection_id": 79,
+      "description": "<p>&nbsp; Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village&nbsp;tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.<br />\r\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election</p>\r\n\r\n<p>&nbsp;</p>",
+      "updated_at": 1708505689
+    }
+  },
+  {
+    "id": 15247,
+    "collection_id": 79,
+    "question": "<p>The account of Ezikiel&#39;s Ministry was</p>",
+    "ref_id": 65,
+    "image": "",
+    "novel_id": null,
+    "comments_count": 1,
+    "options": [
+      {
+        "id": 61000,
+        "question_id": 15247,
+        "description": "compiled with the collaboration of others",
+        "tag": "a",
+        "is_correct": 1
+      },
+      {
+        "id": 61001,
+        "question_id": 15247,
+        "description": "his and his alone",
+        "tag": "b",
+        "is_correct": 0
+      },
+      {
+        "id": 61002,
+        "question_id": 15247,
+        "description": "shared by many writers",
+        "tag": "c",
+        "is_correct": 0
+      },
+      {
+        "id": 61003,
+        "question_id": 15247,
+        "description": "partly composed by him and partly by Ezra",
+        "tag": "d",
+        "is_correct": 0
+      },
+      {
+        "id": 61004,
+        "question_id": 15247,
+        "description": "produced as a result of God's Inspiration",
+        "tag": "e",
+        "is_correct": 0
+      }
+    ],
+    "collection": {
+      "id": 79,
+      "exam_year": 1980,
+      "exam_type": "jamb"
+    },
+    "novel": null,
+    "ref": {
+      "id": 65,
+      "collection_id": 79,
+      "description": "<p>&nbsp <i>read each passage and answer the question that follow</i><br>\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. <br>\n<br>\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.<br>\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple<p>",
+      "updated_at": 1378206123
+    }
+  }
+]

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+*.zip
+*.log
+.DS_Store
+cookies*.txt
+scratch/
+*.key
+*.crt
+StudyPlug.apk
+StudyPlug.ipa

@@ -1,0 +1,51 @@
+========================================================================
+STUDY PLUG - OPTION B CPANEL INSTALLATION (ISOLATED SUBFOLDER)
+========================================================================
+
+You are hosting this in: public_html/studyplug-api/
+WordPress stays in: public_html/ (UNTOUCHED)
+
+STEP 1: CREATE A NEW MYSQL DATABASE
+-----------------------------------
+1. In cPanel, click "MySQL® Database Wizard".
+2. Create database: studyplug (full name: yourcpaneluser_studyplug)
+3. Create user: studyplug (full name: yourcpaneluser_studyplug)
+4. Set a password and CHECK "ALL PRIVILEGES".
+
+STEP 2: IMPORT THE QUESTIONS DATABASE
+-------------------------------------
+1. In cPanel, click "phpMyAdmin".
+2. In the left panel, click on your new database: yourcpaneluser_studyplug
+3. Click "Import" at the top.
+4. Click "Choose File" -> select "studyplug_db.sql" from this folder.
+5. Click "Import" / "Go".
+
+STEP 3: CONFIGURE DB CREDENTIALS
+--------------------------------
+1. In cPanel File Manager, open "studyplug-api/db.php".
+2. Click "Edit".
+3. Update lines 19-21:
+   define('DB_NAME', 'yourcpaneluser_studyplug');
+   define('DB_USER', 'yourcpaneluser_studyplug');
+   define('DB_PASS', 'your_actual_password_here');
+4. Click "Save Changes".
+
+STEP 4: TEST YOUR SETUP IN YOUR BROWSER
+---------------------------------------
+Open in your browser:
+https://yourdomain.com/studyplug-api/ping.php
+
+You should see:
+"connected": true,
+"isolated_from_wp": true,
+"total_questions_in_db": 110
+
+STEP 5: CONNECT STUDY PLUG APP
+------------------------------
+In the Study Plug web app:
+1. Click "cPanel DB" at the top.
+2. Enter your API URL:
+   https://yourdomain.com/studyplug-api
+3. Click "Test Connection" and "Save & Connect".
+All questions and diagram images will now stream directly from your cPanel!
+========================================================================

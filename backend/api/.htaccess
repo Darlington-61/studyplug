@@ -1,0 +1,16 @@
+# Study Plug - Isolated API Configuration
+# This ensures WordPress (.htaccess) rewrite rules will NEVER interfere with Study Plug
+
+<IfModule mod_rewrite.c>
+    RewriteEngine Off
+</IfModule>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Allow CORS headers for Study Plug CBT frontend
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+</IfModule>

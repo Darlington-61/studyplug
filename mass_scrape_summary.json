@@ -1,0 +1,21 @@
+{
+  "summary": [
+    {
+      "subject": "Use of English",
+      "years": 48,
+      "inserted": 2934
+    }
+  ],
+  "errors": [
+    "Upload Use of English 1995: Upload timeout",
+    "Upload Use of English 2012: Upload timeout"
+  ],
+  "progress": {
+    "totalSubjects": 14,
+    "doneSubjects": 14,
+    "totalYears": 48,
+    "doneYears": 48,
+    "totalQuestions": 3034,
+    "totalInserted": 2934
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "study-plug",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npx tailwindcss -i ./src/index.css -o ./style.css --minify && npx esbuild src/main.tsx --bundle --outfile=standalone.js --format=iife --minify && node build-standalone.cjs && tsc && vite build",
+    "bundle": "npx tailwindcss -i ./src/index.css -o ./style.css --minify && npx esbuild src/main.tsx --bundle --outfile=standalone.js --format=iife --minify && node build-standalone.cjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/ios": "^8.5.2",
+    "@mlc-ai/web-llm": "^0.2.85",
+    "acme-client": "^5.4.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "pngjs": "^7.0.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.3"
+  }
+}

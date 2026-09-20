@@ -1,0 +1,1502 @@
+[
+  {
+    "q_number": 1,
+    "myschool_id": 1369,
+    "question": "Fill in the blank spaces in the following sentences making use of the best of the five option:\n\nThe telephone .... in the nineteenth century and is now used in most countries in the world",
+    "options": {
+      "A": "had been invented",
+      "B": "was invented",
+      "C": "would have been invented",
+      "D": "has been invented",
+      "E": "was being invented"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 2,
+    "myschool_id": 1370,
+    "question": "Fill in the blank spaces in the following sentences making use of the best of the five option:\n\nBy the end of the next semester he .... his University education",
+    "options": {
+      "A": "would have completed",
+      "B": "will be completing",
+      "C": "shall have completed",
+      "D": "was completing",
+      "E": "must complete"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 3,
+    "myschool_id": 1371,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five option</i>:\n\nIn the past his father used to walk but nowadays he .... to work by bicycles",
+    "options": {
+      "A": "was going",
+      "B": "is going",
+      "C": "seldomly goes",
+      "D": "goes",
+      "E": "has gone"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 4,
+    "myschool_id": 1939,
+    "question": "Fill in the blank spaces in the following sentences making use of the best of the five options\n\nThe students .... so much noise while the lecturer had to walk out of the class",
+    "options": {
+      "A": "made",
+      "B": "had been making",
+      "C": "were making",
+      "D": "had made",
+      "E": "would have been making"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 5,
+    "myschool_id": 1940,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i>\n\nOlukayode .... as a mechanic when he was young, but now he is a driver",
+    "options": {
+      "A": "had been working",
+      "B": "used to work",
+      "C": "would work",
+      "D": "would have worked",
+      "E": "had worked"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 6,
+    "myschool_id": 1941,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i>\n\n...., it might not look such a rosy proposition.",
+    "options": {
+      "A": "From his viewing proposal",
+      "B": "when he views the proposal",
+      "C": "Having viewed the proposal",
+      "D": "From his point of view",
+      "E": "From his seesing it"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 7,
+    "myschool_id": 1942,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i>\n\nIf we went to any European country .... Britain, we should need a substantial amount of money to pay our way",
+    "options": {
+      "A": "like",
+      "B": "let us say",
+      "C": "as an example",
+      "D": "like say",
+      "E": "if we say"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 8,
+    "myschool_id": 1943,
+    "question": "Fill in the blank spaces in the following sentences making use of the best of the five options\n\nThe horse is a winner, ....",
+    "options": {
+      "A": "you can take that from me",
+      "B": "you can say i say so",
+      "C": "you can take my word for it",
+      "D": "it is my word against theirs",
+      "E": "you may or may not believe it"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 9,
+    "myschool_id": 1944,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i>\n\nIf he had entered the room, i .... him",
+    "options": {
+      "A": "saw",
+      "B": "had seen",
+      "C": "would have seen",
+      "D": "may see",
+      "E": "will see"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 10,
+    "myschool_id": 1946,
+    "question": "Fill in the blank spaces in the following sentences making use of the best of the five options\n\nYou should show some consideration .... the feelings of others",
+    "options": {
+      "A": "with",
+      "B": "about",
+      "C": "by",
+      "D": "to",
+      "E": "for"
+    },
+    "correct": "E",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 11,
+    "myschool_id": 1948,
+    "question": "<i>Fill in the blank spaces in the following sentences making use of the best of the five options</i>\n\nThe old car .... several times this year",
+    "options": {
+      "A": "was repaired",
+      "B": "has been repaired",
+      "C": "had been repaired",
+      "D": "has repaired",
+      "E": "was being repaired"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 12,
+    "myschool_id": 1949,
+    "question": "<i>Choose the word or phrase <b>closest in meaning</b> to the underlined word</i>:\n\nHis <u>penury</u> gave him a lifetime of hunger",
+    "options": {
+      "A": "avariciousness",
+      "B": "affluence",
+      "C": "poverty",
+      "D": "penny pinching",
+      "E": "greed"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 13,
+    "myschool_id": 1950,
+    "question": "<i>Choose the word or phrase <b>closest in meaning</b> to the underlined word</i>:\n\nThe bible's <u>prodigal</u> son became quite wealth eventually",
+    "options": {
+      "A": "prestigious",
+      "B": "phlegmatic",
+      "C": "errant",
+      "D": "pecuniary",
+      "E": "extravagant"
+    },
+    "correct": "E",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 14,
+    "myschool_id": 1951,
+    "question": "<i>Choose the word or phrase <b>closest in meaning</b> to the underlined word</i>:\n\nDon't eat just any <u>innocuous</u> looking mushroom you see around",
+    "options": {
+      "A": "harmful",
+      "B": "harmless",
+      "C": "innocent",
+      "D": "immunized",
+      "E": "conspicuous"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 15,
+    "myschool_id": 1952,
+    "question": "<i>Choose the word or phrase <b>closest in meaning</b> to the underlined word</i>:\n\nColossal means",
+    "options": {
+      "A": "a greek column",
+      "B": "gigantic",
+      "C": "something which has lost too much fluid",
+      "D": "a calamity",
+      "E": "the sale of colos"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 16,
+    "myschool_id": 1953,
+    "question": "Choose the best option to fill the gaps in the following sentences:\n\nThe prices .... are too high for us",
+    "options": {
+      "A": "you lent me",
+      "B": "you quoted",
+      "C": "you attended",
+      "D": "you gave me",
+      "E": "you want to buy"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 17,
+    "myschool_id": 1954,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:\n\nThe method .... does not give the expected results.",
+    "options": {
+      "A": "you recommended",
+      "B": "you visited",
+      "C": "you told",
+      "D": "you sent me",
+      "E": "you wanted"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 18,
+    "myschool_id": 1955,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:\n\nOxygen is necessary to life. Nothing can live without it. It was .... a century ago",
+    "options": {
+      "A": "invented",
+      "B": "found out",
+      "C": "discovered",
+      "D": "learnt",
+      "E": "extracted"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 19,
+    "myschool_id": 1956,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:\n\nWhy does a flamingo stand on one leg? Because if it lifted the other one, it would ....",
+    "options": {
+      "A": "go down",
+      "B": "let down",
+      "C": "fall down",
+      "D": "come down",
+      "E": "get down"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 20,
+    "myschool_id": 1957,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:\n\nI am travelling by the 6:30 train tomorrow morning. Will you .... me ....?",
+    "options": {
+      "A": "see/off",
+      "B": "look/up",
+      "C": "take/down",
+      "D": "see/to",
+      "E": "put/up"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 21,
+    "myschool_id": 1958,
+    "question": "Choose the best option to fill the gaps in the following sentences:\n\nI am a student and .... Musa. I left for the university, and .... Musa",
+    "options": {
+      "A": "was, does",
+      "B": "so is, so did",
+      "C": "so was, so does",
+      "D": "he is , he did",
+      "E": "so he is, so he went"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 22,
+    "myschool_id": 1959,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:\n\nYou have been absent from classes for four months. How can you .... for the lost time",
+    "options": {
+      "A": "make in",
+      "B": "make up",
+      "C": "make off",
+      "D": "make out",
+      "E": "make over"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 23,
+    "myschool_id": 1960,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:\n\nI am afraid you cannot use this telephone; it is ....",
+    "options": {
+      "A": "out of order",
+      "B": "in order",
+      "C": "for order",
+      "D": "at order",
+      "E": "with order"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 24,
+    "myschool_id": 1961,
+    "question": "<i>Choose the <b>best option</b> to fill the gaps in the following sentences</i>:\n\nYou should make an ..... to improve the situation",
+    "options": {
+      "A": "effect",
+      "B": "efficiency",
+      "C": "effectiveness",
+      "D": "effort",
+      "E": "effectualness"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 25,
+    "myschool_id": 1962,
+    "question": "From the options lettered A-D, select the option that best fills the gap(s) in the sentence below:\n\n\n\nMust you always .... lies? Why don't you .... the truth for once",
+    "options": {
+      "A": "speak",
+      "B": "say",
+      "C": "talk",
+      "D": "tell",
+      "E": "utter"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 26,
+    "myschool_id": 1963,
+    "question": "complete the sentences with the correct options from the list below:\n\n.... listening to the news when i came in",
+    "options": {
+      "A": "There were",
+      "B": "There was",
+      "C": "It was",
+      "D": "There are going to be",
+      "E": "They were"
+    },
+    "correct": "E",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 27,
+    "myschool_id": 1964,
+    "question": "complete the sentences with the correct options from the list below:\n\nThey said that ....about 20 candidates for the job of a shorthand typist",
+    "options": {
+      "A": "they were",
+      "B": "it will be",
+      "C": "there were",
+      "D": "it was",
+      "E": "there are"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 28,
+    "myschool_id": 1965,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:\n\nHe told me to go on .... till seven",
+    "options": {
+      "A": "to work",
+      "B": "worked",
+      "C": "works",
+      "D": "working",
+      "E": "work"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 29,
+    "myschool_id": 1966,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:\n\nMany goods .... tape recorders and cameras find a ready market in every country",
+    "options": {
+      "A": "like",
+      "B": "such a",
+      "C": "such as",
+      "D": "such",
+      "E": "as"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 30,
+    "myschool_id": 1967,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:\n\nHe acts .... he were a general manager",
+    "options": {
+      "A": "as",
+      "B": "if",
+      "C": "as if",
+      "D": "so as",
+      "E": "that"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 31,
+    "myschool_id": 1968,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:\n\nCould i ring him up? I'd rather you ....",
+    "options": {
+      "A": "visit him",
+      "B": "visited him",
+      "C": "would visit him",
+      "D": "visiting him",
+      "E": "will visit him"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 32,
+    "myschool_id": 1969,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:\n\nDon't study on the examination day? What did he tell you? He told me .... on the examination day",
+    "options": {
+      "A": "no studying",
+      "B": "don't study",
+      "C": "not study",
+      "D": "not to study",
+      "E": "to not study"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 33,
+    "myschool_id": 1970,
+    "question": "<i>complete the sentences with the <b>correct options</b> from the list below</i>:\n\nI .... to gain admission to the college for the past three years",
+    "options": {
+      "A": "have been trying",
+      "B": "tried",
+      "C": "am trying",
+      "D": "was trying",
+      "E": "try"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 34,
+    "myschool_id": 1971,
+    "question": "complete the sentences with the correct options from the list below:\n\n.... a lot of arguments for and against car loans in the press recently",
+    "options": {
+      "A": "There are",
+      "B": "There has been",
+      "C": "There have been",
+      "D": "There is",
+      "E": "There was"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 35,
+    "myschool_id": 2020,
+    "question": "<i> Complete the sentences with the <b>correct options</b> from the list below</i>:\n\n\nHe reported to his manager that he .... overseas",
+    "options": {
+      "A": "had never been",
+      "B": "never was",
+      "C": "has never been",
+      "D": "is never",
+      "E": "will never be"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 36,
+    "myschool_id": 2021,
+    "question": "<i> Complete the sentences with the <b>correct options</b> from the list below</i>:\n\nShall we go to the union meeting? No thank you, i do not feel like .... anywhere",
+    "options": {
+      "A": "go",
+      "B": "going",
+      "C": "to go",
+      "D": "to have gone",
+      "E": "went"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 37,
+    "myschool_id": 2023,
+    "question": "Complete the sentences with the correct options from the list below:\n\nWill they sign any contracts at the Fair?\n\n\n\nThey will not only sign the contracts but a lot of goods .... as well",
+    "options": {
+      "A": "will buy",
+      "B": "to buy",
+      "C": "they buy",
+      "D": "they bought",
+      "E": "will be bought"
+    },
+    "correct": "E",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 38,
+    "myschool_id": 2025,
+    "question": "Complete the sentences with the correct options from the list below:\n\nI started writing this test at 8 : 00 a.m It is 10 : 00 a.m now. By 11 : 00 a.m. I .... it for three hours.",
+    "options": {
+      "A": "shall be writing",
+      "B": "have been writing",
+      "C": "shall have been writing",
+      "D": "am writing",
+      "E": "was writing"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 39,
+    "myschool_id": 2026,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:\n\nWriting for newspaper is exciting and lucrative especially when one is a <u>freelance</u> journalist",
+    "options": {
+      "A": "a forthright",
+      "B": "an eloquent",
+      "C": "an unattached",
+      "D": "a political",
+      "E": "a convincing"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 40,
+    "myschool_id": 2030,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:\n\nHe has never been a good mediator, even in minor family disputes, because in most cases his views are always <u>jaundiced</u>",
+    "options": {
+      "A": "coloured",
+      "B": "sick",
+      "C": "suspicious",
+      "D": "unscrupulous",
+      "E": "prejudiced"
+    },
+    "correct": "E",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 41,
+    "myschool_id": 2033,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:\n\nAfter the wife had covered her misdeeds by prevaricating on several occasions, the poor husband accused her <u>point blank</u> of adultery",
+    "options": {
+      "A": "bluntly",
+      "B": "pointedly",
+      "C": "emphatically",
+      "D": "unreservedly",
+      "E": "unmistakingly"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 42,
+    "myschool_id": 2039,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:\n\nThe vote of thanks which was elaborately moved by the social secretary <u>did not ring true</u> particularly as the fund raising had been a big failure",
+    "options": {
+      "A": "was all lies",
+      "B": "was not honest",
+      "C": "was inaudible",
+      "D": "was not genuine",
+      "E": "was distorted"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 43,
+    "myschool_id": 2047,
+    "question": "Choosing the word or phrase from A to E which has the same meaning as the underlined word or words in each sentence:\n\nI listened with rapt attention as he never suspected that i knew he was telling me a <ins>cock and bull story</ins>",
+    "options": {
+      "A": "a story about a cock",
+      "B": "a story about bull",
+      "C": "an incredible story",
+      "D": "an interesting",
+      "E": "an eye witness story"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 44,
+    "myschool_id": 2050,
+    "question": "Choosing the word or phrase from A to E which has the same meaning as the underlined word or words in each sentence:\n\n\n\nWhen a man is <ins>immune</ins> to an illness, he is",
+    "options": {
+      "A": "opposed to it",
+      "B": "attached to it",
+      "C": "hated by it",
+      "D": "protected against it",
+      "E": "addicted to it"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 45,
+    "myschool_id": 2051,
+    "question": "Choose the word or phrase from A to E that has the same meaning as the underlined word or words in each sentence:\n\nThe two boxers were neck and neck up till the sixth round but in the seventh and final round, the bigger one <ins>lost ground</ins>",
+    "options": {
+      "A": "could no longer stand on his feet",
+      "B": "failed to maintain his position",
+      "C": "was beaten",
+      "D": "became dizzy",
+      "E": "became a punching bag"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 46,
+    "myschool_id": 2052,
+    "question": "Choosing the word or phrase from A to E which has the same meaning as the underlined word or words in each sentence:\n\nWhile the mother and father were arguing furiously, their small boy sat patiently, <ins>taking in</ins> everything they said.",
+    "options": {
+      "A": "absorbing",
+      "B": "accommodating",
+      "C": "embracing",
+      "D": "accepting",
+      "E": "noting"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 47,
+    "myschool_id": 2053,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:\n\nFor a priest to be successful, he should, from time to time <u>review </u> his actions",
+    "options": {
+      "A": "inspect",
+      "B": "examine",
+      "C": "stare at",
+      "D": "visualize",
+      "E": "conceptualized"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 48,
+    "myschool_id": 2055,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:\n\nIn some parts of our society, people are <u>ostracized</u> purely on the basis of their parentage",
+    "options": {
+      "A": "hated",
+      "B": "disrespected",
+      "C": "shut off form others",
+      "D": "locked up",
+      "E": "abandoned"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 49,
+    "myschool_id": 2057,
+    "question": "Choosing the word or phrase from A to E which has the same meaning as the underlined word or words in each sentence:\n\nSitting majestically on his throne is the Oba of Benin <ins>flanked</ins> by some of his wives",
+    "options": {
+      "A": "surrounded",
+      "B": "supported",
+      "C": "guarded",
+      "D": "protected",
+      "E": "neglected"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 50,
+    "myschool_id": 2059,
+    "question": "<i> Choosing the word or phrase from A to E which has the <b>same meaning</b> as the underlined word or words in each sentence</i>:\n\nIn civilized society, it is <u>unseemly</u> to emit a loud belch at the end of a meal",
+    "options": {
+      "A": "noisy",
+      "B": "annoying",
+      "C": "stupid",
+      "D": "outrageous",
+      "E": "impolite"
+    },
+    "correct": "E",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 51,
+    "myschool_id": 2061,
+    "question": "<i>Choosing the <b>appropriate option</b> to fill the gap in the following sentences</i>:\n\nAs a result of the injury sustained on the football field, Segun was .... with a broken leg for months",
+    "options": {
+      "A": "laid down",
+      "B": "laid out",
+      "C": "laid on",
+      "D": "laid up",
+      "E": "laid off"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 52,
+    "myschool_id": 2063,
+    "question": "<i>Choosing the <b>appropriate option</b> to fill the gap in the following sentences</i>:\n\nthe principal was able to establish a functional language laboratory for school because he acted .... the advice of experts on the subject",
+    "options": {
+      "A": "through",
+      "B": "at",
+      "C": "from",
+      "D": "on",
+      "E": "by"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 53,
+    "myschool_id": 2064,
+    "question": "<i>Choosing the <b>appropriate option</b> to fill the gap in the following sentences</i>:\n\nDume .... in Abraka for three years when i met her",
+    "options": {
+      "A": "lived",
+      "B": "had lived",
+      "C": "would have lived",
+      "D": "was living",
+      "E": "was lived"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 54,
+    "myschool_id": 2065,
+    "question": "<i>Choosing the <b>appropriate option</b> to fill the gap in the following sentences</i>:\n\nIf i were the Head of the English Department in my school, i .... make oral English a compulsory subject",
+    "options": {
+      "A": "would",
+      "B": "could",
+      "C": "should",
+      "D": "might",
+      "E": "had"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 55,
+    "myschool_id": 2071,
+    "question": "Choose the appropriate option  to fill the gap in the following sentences:\n\nIf Remi perform poorly in her forthcoming examination, then either her mother or I.... to blame",
+    "options": {
+      "A": "must",
+      "B": "has",
+      "C": "will be",
+      "D": "are",
+      "E": "am"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 56,
+    "myschool_id": 2072,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\n\nI was able to .... Olu my book because he promised to return it the following day",
+    "options": {
+      "A": "borrow",
+      "B": "give",
+      "C": "lend",
+      "D": "lease",
+      "E": "secure"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 57,
+    "myschool_id": 2073,
+    "question": "Choose the appropriate option  to fill the gap in the following sentences:\n\nYou cannot have a vague idea of the content of this comprehension text unless you first .... the whole passage for a few minutes, said the teacher to his pupils",
+    "options": {
+      "A": "digest",
+      "B": "decipher",
+      "C": "skim through",
+      "D": "chew through",
+      "E": "master"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 58,
+    "myschool_id": 2074,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\nThe prefect came to the class five minutes after the lesson ....",
+    "options": {
+      "A": "has started",
+      "B": "had started",
+      "C": "have started",
+      "D": "is started",
+      "E": "has been started"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 59,
+    "myschool_id": 2075,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\nBimbo sings beautifully .... ?",
+    "options": {
+      "A": "isn't it",
+      "B": "doesn't she",
+      "C": "isn't she",
+      "D": "does she",
+      "E": "is she"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 60,
+    "myschool_id": 2076,
+    "question": "Choose the appropriate option  to fill the gap in the following sentences:\n\nWe couldn't find the official who was to act as our guide ...., he has left before we arrived",
+    "options": {
+      "A": "Moreover",
+      "B": "Actually",
+      "C": "Nevertheless",
+      "D": "However",
+      "E": "Even"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 61,
+    "myschool_id": 2077,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\nNo sooner had the examination ended .... the students started vacating  the halls of residence",
+    "options": {
+      "A": "when",
+      "B": "that",
+      "C": "than",
+      "D": "before",
+      "E": "and"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 62,
+    "myschool_id": 2078,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\nOgedengbe kept goal for his club team because there wasn't .... to do it",
+    "options": {
+      "A": "nobody else",
+      "B": "any other body",
+      "C": "any other body",
+      "D": "no other body",
+      "E": "anybody else"
+    },
+    "correct": "E",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 63,
+    "myschool_id": 2079,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\nGrace must be allergic .... smoke because any time she sits by someone who is smoking, she sneezes",
+    "options": {
+      "A": "to",
+      "B": "from",
+      "C": "for",
+      "D": "with",
+      "E": "by"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 64,
+    "myschool_id": 2080,
+    "question": "Choose the appropriate option  to fill the gap in the following sentences:\n\nNow that i realize the full extent of your ... i am afraid it will be impossible for me to ever trust you again",
+    "options": {
+      "A": "dubiousness",
+      "B": "corruption",
+      "C": "deceptiveness",
+      "D": "duplicity",
+      "E": "inconsistency"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 65,
+    "myschool_id": 2081,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\nLegislators must be trained to .... the truth",
+    "options": {
+      "A": "disguise",
+      "B": "discern",
+      "C": "digest",
+      "D": "disturb",
+      "E": "distort"
+    },
+    "correct": "B",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 66,
+    "myschool_id": 2082,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\nHe must be a good student because he is a .... reader",
+    "options": {
+      "A": "romanesque",
+      "B": "veracious",
+      "C": "voracious",
+      "D": "mendacious",
+      "E": "sarcastic"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 67,
+    "myschool_id": 2083,
+    "question": "<i>Choose the <b>appropriate option </b> to fill the gap in the following sentences</i>:\n\nIt is very difficult to capture the subtle ..... of words when translated from one language to another",
+    "options": {
+      "A": "essence",
+      "B": "denotations",
+      "C": "connotations",
+      "D": "inflexions",
+      "E": "insults"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 68,
+    "myschool_id": 2084,
+    "question": "Choose the appropriate option  to fill the gap in the following sentences:\n\nAs it holds true that, unless you train your body you cannot be an athlete, so also unless you train your .... you cannot be a ....",
+    "options": {
+      "A": "kicking - footballer",
+      "B": "voice - choirmaster",
+      "C": "mind - scholar",
+      "D": "courage - hero",
+      "E": "arms - swimmer"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 69,
+    "myschool_id": 2085,
+    "question": "<i>Choose the <b>correct word</b> to fill the space in the following sentences</i>:\n\nThe meeting starts .... two o'clock. Please be punctual",
+    "options": {
+      "A": "about",
+      "B": "in",
+      "C": "on",
+      "D": "at",
+      "E": "around"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 70,
+    "myschool_id": 2086,
+    "question": "<i>Choose the <b>correct word</b> to fill the space in the following sentences</i>:\n\nEvery time you pay a bill you must insist .... being given a receipt",
+    "options": {
+      "A": "in",
+      "B": "from",
+      "C": "on",
+      "D": "by",
+      "E": "onto"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 71,
+    "myschool_id": 2087,
+    "question": "<i>Choose the <b>correct word</b> to fill the space in the following sentences</i>:\n\nThe elections .... the Senate were held in July",
+    "options": {
+      "A": "into",
+      "B": "of",
+      "C": "from",
+      "D": "onto",
+      "E": "on"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 72,
+    "myschool_id": 2088,
+    "question": "Choose the correct word to fill the space in the following sentences:\n\nThere is a filling station .... the corner, to your right.",
+    "options": {
+      "A": "about",
+      "B": "by",
+      "C": "from",
+      "D": "around",
+      "E": "to"
+    },
+    "correct": "D",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 73,
+    "myschool_id": 2089,
+    "question": "<i>Choose the <b>correct word</b> to fill the space in the following sentences</i>:\n\nIt is difficult these days to get a seat .... the plane in spite of a confirmed booking",
+    "options": {
+      "A": "inside",
+      "B": "in",
+      "C": "on",
+      "D": "upon",
+      "E": "into"
+    },
+    "correct": "C",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 74,
+    "myschool_id": 2090,
+    "question": "Choose the correct word to fill the space in the following sentences:\n\nHe travelled to Jos .... train when he came last",
+    "options": {
+      "A": "by",
+      "B": "in",
+      "C": "on",
+      "D": "inside",
+      "E": "through"
+    },
+    "correct": "A",
+    "has_ref": false,
+    "ref": null
+  },
+  {
+    "q_number": 75,
+    "myschool_id": 15088,
+    "question": "Ezekiel was a great herald of thing to come because",
+    "options": {
+      "A": "he was a prophet",
+      "B": "he preached about events which were to characterized the period after the exile",
+      "C": "God showed him what was going to happen after the exile",
+      "D": "he ran a prophetic ministry",
+      "E": "God was with him"
+    },
+    "correct": "B",
+    "has_ref": true,
+    "ref": "&nbsp <i>read each passage and answer the question that follow</i>\n\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. \n\n\n\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.\n\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple"
+  },
+  {
+    "q_number": 76,
+    "myschool_id": 15090,
+    "question": "in his work, Ezekiel",
+    "options": {
+      "A": "was friendly with Ezra",
+      "B": "founded Judaism in conhjuction with Ezra",
+      "C": "had a large religious following",
+      "D": "forged a link between the past and the future",
+      "E": "demostrated that he was a man of God"
+    },
+    "correct": "D",
+    "has_ref": true,
+    "ref": "&nbsp <i>read each passage and answer the question that follow</i>\n\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. \n\n\n\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.\n\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple"
+  },
+  {
+    "q_number": 77,
+    "myschool_id": 15102,
+    "question": "By and large critics of Ezekiel and his work were",
+    "options": {
+      "A": "successful",
+      "B": "ungodly",
+      "C": "unsuccessful",
+      "D": "jealous",
+      "E": "angered by his acceptance"
+    },
+    "correct": "C",
+    "has_ref": true,
+    "ref": "&nbsp <i>read each passage and answer the question that follow</i>\n\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. \n\n\n\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.\n\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple"
+  },
+  {
+    "q_number": 78,
+    "myschool_id": 15105,
+    "question": "When other prophetic book where discredited, Ezekiel's book was accepted because",
+    "options": {
+      "A": "the people loved him",
+      "B": "the other prohpetic writers were not a original",
+      "C": "the critics were biased in their judgement",
+      "D": "he was a great prophet",
+      "E": "his work was convincingly documented"
+    },
+    "correct": "E",
+    "has_ref": true,
+    "ref": "&nbsp <i>read each passage and answer the question that follow</i>\n\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. \n\n\n\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.\n\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple"
+  },
+  {
+    "q_number": 79,
+    "myschool_id": 15144,
+    "question": "in the passage, there is an attempt to explain that to ensure a totally healthy child",
+    "options": {
+      "A": "it is necessary to concentrate on the child's physical well-being alone",
+      "B": "it is essential to reduce the high child mortality and morbidity rate",
+      "C": "it is necessary to take care of other things in addition to the child's physical well-being",
+      "D": "it is imprtant to keep to the rules of hygiene",
+      "E": "it is necessary to copy foreign ways of bringing up children"
+    },
+    "correct": "C",
+    "has_ref": true,
+    "ref": "&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.\n\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.\n\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.\n\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.\n\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.\n\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.\n\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.\n\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged"
+  },
+  {
+    "q_number": 80,
+    "myschool_id": 15147,
+    "question": "it is said that differences in ways of bringing up children and educating them",
+    "options": {
+      "A": "achieve the same results",
+      "B": "are reflected in the personalities , attitudes and achievements of thye individual",
+      "C": "make people aggressive",
+      "D": "have nothing to do with educational attainments",
+      "E": "are a matter of the cultural background of the people"
+    },
+    "correct": "B",
+    "has_ref": true,
+    "ref": "&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.\n\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.\n\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.\n\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.\n\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.\n\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.\n\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.\n\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged"
+  },
+  {
+    "q_number": 81,
+    "myschool_id": 15148,
+    "question": "since the training  for social adjustment begins from  the moment of birth, our traditional practices",
+    "options": {
+      "A": "are too uncivilized to be helpful to the child",
+      "B": "need to be mordenized",
+      "C": "are very helpful to the proper growth of the child",
+      "D": "make the child a stranger to modern civilization",
+      "E": "are the cause of underdevelopment"
+    },
+    "correct": "C",
+    "has_ref": true,
+    "ref": "&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.\n\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.\n\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.\n\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.\n\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.\n\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.\n\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.\n\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged"
+  },
+  {
+    "q_number": 82,
+    "myschool_id": 15149,
+    "question": "in spite of the fact that the Western country now recognize the importance of the early period of childhood in forming a relationship, Nigerian hospital and maternity home.",
+    "options": {
+      "A": "copy the wrong Western practise noe being criticized in Western countriesd",
+      "B": "improve on local practises and make the future of the child secure",
+      "C": "ensure that the child is brought up in the right way",
+      "D": "ensure that the child develops the right skills for establishing relationships",
+      "E": "do not know which practise to choose"
+    },
+    "correct": "A",
+    "has_ref": true,
+    "ref": "&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.\n\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.\n\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.\n\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.\n\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.\n\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.\n\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.\n\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged"
+  },
+  {
+    "q_number": 83,
+    "myschool_id": 15158,
+    "question": "unless the training of our traditional birth attendants is based on healthy practices",
+    "options": {
+      "A": "our children will be under-developed",
+      "B": "our children will be worse off thanthose brough up in the traditional way",
+      "C": "our medical services will be unable to provide the right services",
+      "D": "our ecenomic progress will be adversely affected",
+      "E": "the role of the mothe will be rendered useless"
+    },
+    "correct": "B",
+    "has_ref": true,
+    "ref": "&nbsp Although our aim is to nurture healthy children, Nigerian children are still subjected to severe physical and mental stress as they develop.\n\nSo far our interest and activities have been to ensure their physical well-being through the reduction of high mortality and morbidity rates, still inadequate as this may be. But we need to examine from time to time the other needs of the Nigerian child which will ensure a totally healthy development.\n\nWe are split between two cultures – our traditional and the Western, a relic of our colonial past. This also affects our child-rearing practices. Therefore, these practices must have a very important bearing on how the child is prepared for our world of today so that he fits into our disturbed cultural milieu.\n\nDifferent styles of child-rearing and education can produce different personalities in terms of motivation, aggressiveness, achievement and integration of the individual into the community socially and culturally. It is important that, while we struggle with the visible organic disease, we fix our gaze on the other important measures to attain this end – a healthy child.\n\nThe process of social adjustment begins from the moment of birth. Many of our traditional birth practices ensure that the mother either carries or suckles her child immediately after birth. The baby therefore comes into close contact with the mother at this critical time.\n\nMoreover she is forced to stay indoors with the baby for varying periods of time. By this means, the attachment of the baby to the mother, so essential for the child’s ability to relate to her in future is secured.\n\nThis crucial moment in the baby’s life is now being recognized in the Western countries, whilst birth practices in some hospital and maternity homes separate mother and child immediately after birth to the extent that their ability to develop a close relationship may be jeopardized.\n\nOur Nigerian child of today may, therefore, be worse off than that of yesterday. As we move towards the training of our traditional birth attendants with a view to incorporating them into our health services, healthy practices such as the one described above must be maintained and encouraged"
+  },
+  {
+    "q_number": 84,
+    "myschool_id": 15198,
+    "question": "the author explains that researches conducted on various aspect of rural-urban drift have",
+    "options": {
+      "A": "failed to provide effective solutions",
+      "B": "revealed the causes and effects of this drift",
+      "C": "increase the hue and cry against it",
+      "D": "provided effective solutions to the problem",
+      "E": "not only provided solutions but also brought out the causes and effects of this drift"
+    },
+    "correct": "E",
+    "has_ref": true,
+    "ref": "&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.\n\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.\n\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative\n\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. \n\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres\n\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.\n\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. \n\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected."
+  },
+  {
+    "q_number": 85,
+    "myschool_id": 15199,
+    "question": "one of the reasons why people drift fro the rural areas to the urban ares is",
+    "options": {
+      "A": "hunger resulting from drought",
+      "B": "laziness and ignorant",
+      "C": "better rural eduaction and possession of qualifications which make better jobs available in urban ares",
+      "D": "the easy life and comfort in the city",
+      "E": "the freedom from traditional control and pagan practices"
+    },
+    "correct": "C",
+    "has_ref": true,
+    "ref": "&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.\n\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.\n\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative\n\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. \n\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres\n\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.\n\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. \n\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected."
+  },
+  {
+    "q_number": 86,
+    "myschool_id": 15200,
+    "question": "migration in large number is said to result in",
+    "options": {
+      "A": "juvenile deliquency",
+      "B": "a fall in the production of food, accomodation and health in the cities",
+      "C": "highway robbery",
+      "D": "difficulty of life in rural areas",
+      "E": "mental stress by parents and relations"
+    },
+    "correct": "B",
+    "has_ref": true,
+    "ref": "&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.\n\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.\n\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative\n\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. \n\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres\n\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.\n\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. \n\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected."
+  },
+  {
+    "q_number": 87,
+    "myschool_id": 15204,
+    "question": "one suggested solution to the problem is to",
+    "options": {
+      "A": "provode social amenities and create employment opportunities in rural areas",
+      "B": "encourage mechanized agriculture in order to raise income",
+      "C": "force the young rural people to stay by warning them about the problems in the cities",
+      "D": "mount road blocks",
+      "E": "lower the level of education in rural areas and increase qualification for employment in the cities"
+    },
+    "correct": "A",
+    "has_ref": true,
+    "ref": "&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.\n\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.\n\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative\n\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. \n\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres\n\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.\n\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. \n\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected."
+  },
+  {
+    "q_number": 88,
+    "myschool_id": 15205,
+    "question": "the consequences of the rural-urban drift are shown in the above passages as being",
+    "options": {
+      "A": "useful to the cities and not to the rural areas",
+      "B": "a national disaster",
+      "C": "a natural occurrence and sign of progress",
+      "D": "negative",
+      "E": "a healthy economic phenomenon"
+    },
+    "correct": "D",
+    "has_ref": true,
+    "ref": "&nbsp Over the years there has been this hue and cry by government and the public policy advisers against the phenomenon of the rural-urban drift. Researches have been conducted on various aspects of this phenomenon which have resulted in the identification of the various causes and consequences of drift. In addition, prescriptions have been given for controlling the rural-urban drift.\n\nAmong the causes most often mentioned are population pressures in some rural areas resulting in dwindling farm lands; increase in school enrollment and the resultant rise in education levels which qualify many people for urban employment, higher wages in the urban centres relative to rural centres and the rather naïve one of the ‘bright lights’ in the cities so much touted by early foreign sociologists.\n\nThe most often mention consequences of this rural-urban migration includes depopulation of the rural area leading to overcrowding of the cities and the resultant housing and sanitation problems; decline in the agricultural population resulting in less food crops being grown and high food prices in the cities, and increasing urban unemployment. The results of the phenomenon are seen largely as negative\n\nMeasures to control the rural-urban drift includes the establishment of essential amenities like water, electricity, hospitals, colleges, and cinema houses; the location of employment generating establishment and the building of good interconnecting roads. \n\nThe sum total of these prescriptions in essence, unwittingly or paradoxically, is for the rural areas to be transformed into urban centres. This is so because to industrialize the rural areas would draw many more people out of agriculture than if industries were restricted to urban centres\n\nWhen industries are located in the rural areas, it involves much less cost for the prospective rural-urban migrant to change to a non-agricultural job, than is involved in his leaving a rural abode for a distance urban centre.\n\nTherefore, rural industrialization holds a higher potential for the de-agriculturalization of the rural population than when industries are concentrated in urban areas. \n\nThe phenomenon of rural-urban migration has been intensively and extensively researched and studied, but it would seem that it has largely been misinterpreted and misunderstood. Consequently public policies on the subject have been misdirected."
+  },
+  {
+    "q_number": 89,
+    "myschool_id": 15207,
+    "question": "the boss Boeta Dick, can be described as being",
+    "options": {
+      "A": "skinny",
+      "B": "hard working",
+      "C": "ambitious",
+      "D": "A Chinese",
+      "E": "slender"
+    },
+    "correct": "A",
+    "has_ref": true,
+    "ref": "&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.\n\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them."
+  },
+  {
+    "q_number": 90,
+    "myschool_id": 15208,
+    "question": "Boeta Dick spat in the bucket because",
+    "options": {
+      "A": "he was sick",
+      "B": "he had a dirty habit",
+      "C": "he coughed",
+      "D": "the smithy smelled badly",
+      "E": "it is good to spit regularly"
+    },
+    "correct": "C",
+    "has_ref": true,
+    "ref": "&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.\n\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them."
+  },
+  {
+    "q_number": 91,
+    "myschool_id": 15209,
+    "question": "without the solderers  in the smithy",
+    "options": {
+      "A": "no work can be done",
+      "B": "the boss will go into debt",
+      "C": "the products can not be completed",
+      "D": "the boss will be unhappy",
+      "E": "the other workers will not like their job"
+    },
+    "correct": "C",
+    "has_ref": true,
+    "ref": "&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.\n\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them."
+  },
+  {
+    "q_number": 92,
+    "myschool_id": 15210,
+    "question": "the solderers received",
+    "options": {
+      "A": "occasonal money for their work",
+      "B": "too much for their work",
+      "C": "just enough for their work",
+      "D": "a fair wage",
+      "E": "not so much as their work demanded"
+    },
+    "correct": "E",
+    "has_ref": true,
+    "ref": "&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.\n\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them."
+  },
+  {
+    "q_number": 93,
+    "myschool_id": 15211,
+    "question": "sulphur powder was added to",
+    "options": {
+      "A": "beautify the tin",
+      "B": "complete the manufacture",
+      "C": "strenghten the tin",
+      "D": "satisfy the boss",
+      "E": "ensure that the tins were not damaged during transportation"
+    },
+    "correct": "B",
+    "has_ref": true,
+    "ref": "&nbsp I began work at the smithy on the Monday morning. My wages were half a crown a week. My hours were from six in the morning till six in the night, with an hour break for launch. My boss, Boeta Dick, was a tall, bent, reedy consumptive.  He has a parched yellow skin, brawn tight over his jutting bones. His cheeks were so sunken it   was as though he were permanently sucking them in. his eyes were far back in his head. He coughed violently, and beside his seat was a bucket of sand into which he spat. Changing the sand daily was the only part of my job I hated.\n\nThe smithy was divided into two parts. At one end were the machines that cut, shaped, and put the tins together. The man who worked on the machines were on a regular weekly wage. At the other end, was a row of small furnaces, each with it own bellows and piles of fuel. Here, at each furnace a man sat soldering the seams of the tins as they came from machines. The solders were on piece work. To average two or three pounds a week they had to do a mountainous amount of soldering.  Each solderer had a boy to cart the tins from the machines to him, then to smear the seams of each tin with sulphur powder so that the lead took easily and, after checking, to cart the tins of the yard where the Lorries collected them."
+  },
+  {
+    "q_number": 94,
+    "myschool_id": 15212,
+    "question": "Rufus Okeke was very popular with people because he",
+    "options": {
+      "A": "was energetic",
+      "B": "has decided to pitch his tent with the villagers",
+      "C": "did not like town life",
+      "D": "could not live without his parents",
+      "E": "made more mobey for the villagers"
+    },
+    "correct": "B",
+    "has_ref": true,
+    "ref": "Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.\n\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election"
+  },
+  {
+    "q_number": 95,
+    "myschool_id": 15214,
+    "question": "A village tout can be described as being",
+    "options": {
+      "A": "unemployed",
+      "B": "crazy",
+      "C": "energetic",
+      "D": "lazy",
+      "E": "servile"
+    },
+    "correct": "A",
+    "has_ref": true,
+    "ref": "Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.\n\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election"
+  },
+  {
+    "q_number": 96,
+    "myschool_id": 15215,
+    "question": "the reference to Okeke's 'bright future' in Port-Harcourt can be described as being",
+    "options": {
+      "A": "sarcastic",
+      "B": "true",
+      "C": "untrue",
+      "D": "irrelevant",
+      "E": "impossible"
+    },
+    "correct": "A",
+    "has_ref": true,
+    "ref": "Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.\n\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election"
+  },
+  {
+    "q_number": 97,
+    "myschool_id": 15217,
+    "question": "the reference to Okeke's 'bright future' in Port-Harcourt can be described as being",
+    "options": {
+      "A": "sarcastic",
+      "B": "true",
+      "C": "untrue",
+      "D": "irrelevant",
+      "E": "impossible"
+    },
+    "correct": "A",
+    "has_ref": true,
+    "ref": "Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.\n\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election"
+  },
+  {
+    "q_number": 98,
+    "myschool_id": 15218,
+    "question": "the writer is saying indirectly that political parties in power could be",
+    "options": {
+      "A": "unpredictable",
+      "B": "honest",
+      "C": "corrupt",
+      "D": "servile",
+      "E": "autocratic"
+    },
+    "correct": "E",
+    "has_ref": true,
+    "ref": "Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.\n\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election"
+  },
+  {
+    "q_number": 99,
+    "myschool_id": 15219,
+    "question": "which of the following statement would you consider correct with reference to Okeke as an election expert?",
+    "options": {
+      "A": "it is true that he was an expert",
+      "B": "it is doubtful that he was an expert",
+      "C": "it is most likely to be true that he was an expert",
+      "D": "there are no election experts",
+      "E": "he was not an election expert at all"
+    },
+    "correct": "C",
+    "has_ref": true,
+    "ref": "Rufus Okeke &ndash; Roof, for short &ndash; was a very popular man in his village. Although the villagers did not explain it in so many words, Roof&rsquo;s popularity was a measure of their gratitude to an energetic young man who unlike most of his fellows nowadays, had not abandoned the village in order to seek work, any work, in the towns. Roof was not a village tout either. Everyone knew how he had spent two years as a bicycle repairer&rsquo;s apprentice in Port-Harcourt and had given up of his own free will a bright future to return to his people and guide them in these political times. Not that Umuofia needed a lot of guidance. The village already belonged en masse to the People&rsquo;s Alliance Party, and its most illustrious son, Chief the Honorable Marcus Ibe, was Minister of Culture in the outgoing government (which was pretty certain to be the incoming one as well). Nobody doubted that the Honorable Minister would be elected in his constituency. Opposition to him was like the proverbial fly trying to move a dung hill. It would have been ridiculous enough without coming, as it did now, from a complete nonentity.\n\nAs was to be expected, Roof was in the service of the Honourable Minister for the coming elections. He had become a real expert in election campaigning at all levels &ndash; villages, local government or national. He could tell the mood and temper of the electorate at any given time. For instance, he had warned the Minister months ago about the radical change that had come into the thinking of Umuofia since the last national election"
+  },
+  {
+    "q_number": 100,
+    "myschool_id": 15247,
+    "question": "The account of Ezikiel's Ministry was",
+    "options": {
+      "A": "compiled with the collaboration of others",
+      "B": "his and his alone",
+      "C": "shared by many writers",
+      "D": "partly composed by him and partly by Ezra",
+      "E": "produced as a result of God's Inspiration"
+    },
+    "correct": "A",
+    "has_ref": true,
+    "ref": "&nbsp <i>read each passage and answer the question that follow</i>\n\nThe great herald of things to come was Ezekiel, not only in the sense that he predicted the future, but also became in the manner and content of his prophetic ministry, he foreshadowed many of the important religious developments, which were characteristics of the age after the Exile. \n\n\n\nHe, rather than Ezra, was the founder of Judaism. He not only pointed forward; but as well shall see, he represented some of the great elements in Israel’s religious past.\n\nThe book which bears his name is outwardly impressive in its orderliness and symmetry and in the careful chronologic al arrangement of its contents. It purports to present the record of prophecies uttered in the Babylonian Exile between 593 and 571 B.C and for long this was not seriously questioned. Even when other prophetic books have been dissected and assigned to sundry authors and editors, this book continued to be regarded by most scholars as having come into its entirety from Ezekiel. Then came a period in which many extreme theories were advanced , assigning much of it to other hands  or presupposing complicated processes of editorial revision, or dating the book to a period much later than the Babylonian Exile, or maintaining that Ezekiel’s ministry was not  exercised in Babylonia but in Palestine, or at least was begun there. Such theories have been subjected to damaging criticism and are now somewhat discredited. The account of Ezekiel’s ministry and teaching is based on the view that he lived and worked among the exile in Babylonia, at the period indicated, and the bulk of the material in the book comes from him, though, like other prophetic collections, it owes much in its complication, arrangement and transmission to prophetic disciple"
+  }
+]
