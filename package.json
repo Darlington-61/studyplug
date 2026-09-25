@@ -17,12 +17,14 @@
     "@mlc-ai/web-llm": "^0.2.85",
     "acme-client": "^5.4.0",
     "clsx": "^2.1.1",
+    "katex": "^0.18.7",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
+    "@types/katex": "^0.16.8",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",

@@ -5,11 +5,18 @@ const path = require('path');
 
 function cpanelRequest(options, postData) {
   return new Promise((resolve, reject) => {
-    const req = https.request(options, (res) => {
+    const opts = {
+      ...options,
+      timeout: 600000,
+    };
+    const req = https.request(opts, (res) => {
       let body = '';
       const setCookies = res.headers['set-cookie'];
       res.on('data', (chunk) => (body += chunk));
       res.on('end', () => resolve({ statusCode: res.statusCode, headers: res.headers, body, setCookies }));
+    });
+    req.on('timeout', () => {
+      req.destroy(new Error('Request timed out after 600s'));
     });
     req.on('error', reject);
     if (postData) req.write(postData);
@@ -116,7 +123,9 @@ async function main() {
   }
 
   const htaccessContent = Buffer.from(
-    `<IfModule mod_headers.c>
+    `DirectoryIndex index.html
+
+<IfModule mod_headers.c>
   <FilesMatch "\\.(html|htm)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"

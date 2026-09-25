@@ -4,6 +4,7 @@ export interface AiChatMessage {
   id: string;
   sender: 'user' | 'assistant' | 'system';
   text: string;
+  imageUrl?: string;
   timestamp: number;
 }
 
@@ -18,17 +19,17 @@ export interface AiModelConfig {
 export const SUPPORTED_OFFLINE_MODELS: AiModelConfig[] = [
   {
     id: 'SmolLM2-360M-Instruct-q4f16_1-MLC',
-    name: 'SmolLM2 360M (Ultra-Light)',
+    name: 'PlugAI Lite Turbo (Ultra-Fast)',
     sizeMb: 195,
-    description: 'Fastest download, ultra-low RAM usage. Ideal for mobile phones and quick explanations.',
-    recommendedFor: 'Mobile Phones & Budget Laptops'
+    description: 'Instant download, zero lag, minimal RAM. Perfect for fast definitions, formulas, and syllabus hints on mobile.',
+    recommendedFor: 'Mobile Phones & Instant Speed'
   },
   {
     id: 'Qwen2.5-0.5B-Instruct-q4f16_1-MLC',
-    name: 'Qwen 2.5 0.5B (Math & Science)',
+    name: 'PlugAI Pro Reasoning (Math & Science)',
     sizeMb: 360,
-    description: 'Specialized in mathematics, physics calculations, and step-by-step science proofs.',
-    recommendedFor: 'Desktop & 4GB+ RAM Phones'
+    description: 'Specialized deep-thinking engine for step-by-step calculations, physics proofs, and detailed theory solutions.',
+    recommendedFor: 'Calculations, Science & Complex Working'
   }
 ];
 
@@ -140,8 +141,16 @@ class AiTutorService {
       throw new Error('Offline AI engine is not initialized yet. Please download or load the model first.');
     }
 
+    const brandSystemPrompt = {
+      role: 'system' as const,
+      content: 'You are StudyPlug AI (PlugAI), the official Nigerian curriculum educational AI tutor created exclusively by StudyPlug for JAMB, WAEC, NECO, and BECE. Always identify yourself strictly as StudyPlug AI or PlugAI. Never disclose or name underlying model architectures, open-source weight names, or third-party AI companies. Provide concise, step-by-step explanations with equations, examples, and exam tips.'
+    };
+
+    const hasSystem = messages.some(m => m.role === 'system');
+    const finalMessages = hasSystem ? messages : [brandSystemPrompt, ...messages];
+
     const reply = await this.engine.chat.completions.create({
-      messages,
+      messages: finalMessages,
       temperature: 0.6,
       max_tokens: 800,
       stream: true
@@ -287,9 +296,11 @@ ${notesSnippet ? `#### 📝 Review Note Summary:\n${notesSnippet.slice(0, 450)}.
     context?: string
   ): Promise<string> {
     try {
-      const systemPrompt = `You are PlugAI, the brilliant AI exam tutor for StudyPlug Nigeria (JAMB UTME, WAEC SSCE, WAEC GCE, NECO, BECE, Post-UTME).
-Your job is to provide clear, step-by-step mathematical working, formula breakdown, or grammatical rule explanations for Nigerian secondary school and university entrance exams.
-Format with clean markdown and emojis. Be direct, clear, and encouraging.`;
+      const systemPrompt = `You are StudyPlug AI (also known as PlugAI), the official Nigerian curriculum educational AI tutor created exclusively by StudyPlug (supporting JAMB UTME, WAEC SSCE, WAEC GCE, NECO, BECE, and Post-UTME).
+CRITICAL RULES:
+1. Always identify yourself strictly as "StudyPlug AI" or "PlugAI". You were created by the StudyPlug team for Nigerian students. Never mention or reveal any underlying LLM names, open-source weight names, or third-party AI companies.
+2. Provide clear, step-by-step mathematical working, formula breakdown, or grammatical rule explanations for Nigerian secondary school and university entrance exams.
+3. Format with clean markdown, LaTeX formulas ($...$), and emojis. Be direct, clear, and encouraging.`;
 
       const fullQuery = `${systemPrompt}\n\n[QUESTION / EXAM CONTEXT]\n${context || 'General Nigerian Exam Preparation'}\n\n[STUDENT QUERY]\n${userPrompt}`;
 

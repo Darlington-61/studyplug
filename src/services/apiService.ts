@@ -116,10 +116,29 @@ export const fetchQuestions = async (
       if (res.ok) {
         const data = await res.json();
         if (data.success && Array.isArray(data.questions) && data.questions.length > 0) {
-          // Strictly validate that returned questions match the requested subject
+          // Strictly validate that returned questions match the requested subject and paper type
+          const isReqTheory = lowerSub.includes('(theory)');
+          const isReqPractical = lowerSub.includes('(practical)');
+
           const validQuestions = data.questions.filter((q: Question) => {
             const qSub = (q.subject || '').toLowerCase();
-            return qSub.includes(lowerSub.slice(0, 4)) || lowerSub.includes(qSub.slice(0, 4));
+            const qTopic = (q.topic || '').toLowerCase();
+
+            // Guard against theory/practical mixing
+            if (!isReqTheory && (qSub.includes('(theory)') || qTopic.includes('paper 2') || (q.options?.[0]?.text && q.options[0].text.includes('[theory')))) {
+              return false;
+            }
+            if (!isReqPractical && (qSub.includes('(practical)') || qTopic.includes('paper 3') || (q.options?.[0]?.text && q.options[0].text.includes('[practical')))) {
+              return false;
+            }
+            if (isReqTheory && !qSub.includes('(theory)') && !qTopic.includes('paper 2')) {
+              return false;
+            }
+            if (isReqPractical && !qSub.includes('(practical)') && !qTopic.includes('paper 3')) {
+              return false;
+            }
+
+            return qSub === lowerSub || qSub.includes(lowerSub) || lowerSub.includes(qSub);
           });
 
           if (validQuestions.length > 0) {

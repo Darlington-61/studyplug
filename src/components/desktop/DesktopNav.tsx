@@ -23,7 +23,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
   const [isAdminOpen, setIsAdminOpen] = React.useState(false);
 
   return (
-    <header className="w-full bg-[#092218]/95 backdrop-blur-md border-b-[3px] border-[#C4823F] sticky top-0 z-40 transition-all shadow-md">
+    <header className={`w-full ${currentTab === 'notes' ? 'bg-[#151241]/95 border-b-[2px] border-indigo-500/40 text-white' : 'bg-[#092218]/95 border-b-[3px] border-[#C4823F] text-white'} backdrop-blur-md sticky top-0 z-40 transition-all shadow-md`}>
       {/* Main App Navigation Bar */}
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Brand Logo & Tagline */}

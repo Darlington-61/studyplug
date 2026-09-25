@@ -38,9 +38,29 @@ if ($idsParam !== null) {
 }
 
 if (empty($whereClauses)) {
-    $whereClauses[] = '(LOWER(subject) = LOWER(:subject) OR LOWER(subject) LIKE :subLike)';
-    $params[':subject'] = $subject;
-    $params[':subLike'] = '%' . strtolower($subject) . '%';
+    $paper = isset($_GET['paper']) ? strtolower(trim($_GET['paper'])) : null;
+    $cleanSubject = preg_replace('/\s*\((Theory|Practical|Objectives?)\)\s*$/i', '', $subject);
+
+    if ($paper === 'theory' || stripos($subject, '(Theory)') !== false) {
+        $whereClauses[] = '(LOWER(subject) = LOWER(:theorySub) OR (LOWER(subject) = LOWER(:cleanSub) AND (LOWER(topic) LIKE "%theory%" OR LOWER(topic) LIKE "%paper 2%")))';
+        $params[':theorySub'] = $cleanSubject . ' (Theory)';
+        $params[':cleanSub'] = $cleanSubject;
+    } elseif ($paper === 'practical' || stripos($subject, '(Practical)') !== false) {
+        $whereClauses[] = '(LOWER(subject) = LOWER(:practicalSub) OR (LOWER(subject) = LOWER(:cleanSub) AND (LOWER(topic) LIKE "%practical%" OR LOWER(topic) LIKE "%paper 3%")))';
+        $params[':practicalSub'] = $cleanSubject . ' (Practical)';
+        $params[':cleanSub'] = $cleanSubject;
+    } else {
+        // Pure Paper 1 (Objectives / CBT) - STRICTLY EXCLUDE Theory and Practical!
+        $whereClauses[] = '(LOWER(subject) = LOWER(:subject) OR LOWER(subject) = LOWER(:cleanSub))';
+        $whereClauses[] = 'LOWER(subject) NOT LIKE "%(theory)%"';
+        $whereClauses[] = 'LOWER(subject) NOT LIKE "%(practical)%"';
+        $whereClauses[] = 'LOWER(topic) NOT LIKE "%theory%"';
+        $whereClauses[] = 'LOWER(topic) NOT LIKE "%paper 2%"';
+        $whereClauses[] = 'LOWER(topic) NOT LIKE "%paper 3%"';
+        $whereClauses[] = 'LOWER(topic) NOT LIKE "%practical%"';
+        $params[':subject'] = $subject;
+        $params[':cleanSub'] = $cleanSubject;
+    }
 }
 
 if ($year !== null && $year > 0) {

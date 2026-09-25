@@ -9,14 +9,14 @@
   
   body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    background-color: #061710;
-    color: #FFFFFF;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F7F9F8;
+    color: #10201D;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   ::selection {
-    background-color: #FFCC00;
-    color: #071F15;
+    background-color: #FFD600;
+    color: #004D40;
   }
 }
 
@@ -209,3 +209,328 @@
   text-shadow: 0 0 12px rgba(255,255,255,0.3);
   font-weight: 800;
 }
+
+/* ── StudyPlug 1-Click Pocket PDF Print Optimization ── */
+@media print {
+  nav,
+  header,
+  .sticky,
+  button,
+  .no-print,
+  .fixed {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+  }
+
+  .max-w-3xl, .max-w-4xl {
+    max-width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    color: #111827 !important;
+  }
+
+  h1, h2, h3, h4, p, span, li, pre {
+    color: #111827 !important;
+    text-shadow: none !important;
+  }
+
+  svg {
+    max-height: 220px !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   MODERN HD NOTE ANIMATIONS (TABLES, DIAGRAMS & CALLOUTS)
+   ══════════════════════════════════════════════════════════════════ */
+
+@keyframes shimmerLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes svgFlow {
+  from { stroke-dashoffset: 40; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes glowPulseHD {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(0, 188, 212, 0.4)) drop-shadow(0 0 16px rgba(0, 188, 212, 0.15));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(0, 188, 212, 0.8)) drop-shadow(0 0 28px rgba(0, 188, 212, 0.4));
+  }
+}
+
+@keyframes tableRowEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-shimmer-line {
+  animation: shimmerLine 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-svg-flow {
+  animation: svgFlow 1.8s linear infinite;
+}
+
+.animate-glow-hd {
+  animation: glowPulseHD 3s ease-in-out infinite;
+}
+
+.hd-table-row {
+  animation: tableRowEntrance 0.35s ease-out both;
+}
+
+/* HD Table Scroll Container Shadows */
+.hd-table-scroll {
+  background:
+    /* Shadow covers */
+    linear-gradient(to right, #081a13, rgba(8, 26, 19, 0)) 0 0,
+    linear-gradient(to left, #081a13, rgba(8, 26, 19, 0)) 100% 0,
+    /* Shadows */
+    radial-gradient(farthest-side at 0 50%, rgba(0, 188, 212, 0.25), rgba(0, 0, 0, 0)) 0 50%,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 188, 212, 0.25), rgba(0, 0, 0, 0)) 100% 50%;
+  background-repeat: no-repeat;
+  background-size: 24px 100%, 24px 100%, 12px 100%, 12px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+/* HTML Rendered Classroom Callout Styles (Crisp Black Text) */
+.note-example-callout {
+  margin: 1.5rem 0;
+  border-left: 4px solid #D97706;
+  background: #FFFBEB;
+  border-radius: 0 1rem 1rem 0;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  color: #1F2937;
+}
+.note-solution-callout {
+  margin: 1.5rem 0;
+  border-left: 4px solid #059669;
+  background: #ECFDF5;
+  border-radius: 0 1rem 1rem 0;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  color: #1F2937;
+}
+.note-concept-header {
+  margin: 1.5rem 0 0.5rem 0;
+  border-left: 4px solid #0284C7;
+  background: #F0F9FF;
+  border-radius: 0 1rem 1rem 0;
+  padding: 0.85rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  color: #0F172A;
+}
+.note-objectives-header {
+  margin: 1.5rem 0 0.5rem 0;
+  border-left: 4px solid #7C3AED;
+  background: #FAF5FF;
+  border-radius: 0 1rem 1rem 0;
+  padding: 0.85rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  color: #0F172A;
+}
+.note-badge-example {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #B45309;
+  text-transform: uppercase;
+}
+.note-badge-solution {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #047857;
+  text-transform: uppercase;
+}
+.note-badge-concept {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #0369A1;
+  text-transform: uppercase;
+}
+.note-badge-objectives {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #6D28D9;
+  text-transform: uppercase;
+}
+
+/* Styled HTML tables inside notes (Clean Light HD with Crisp Black Text) */
+.classroom-html-content {
+  color: #0F172A !important;
+}
+.classroom-html-content p,
+.classroom-html-content li,
+.classroom-html-content span {
+  color: #1E293B;
+  line-height: 1.75;
+}
+.classroom-html-content strong,
+.classroom-html-content b {
+  color: #0F172A;
+  font-weight: 700;
+}
+.classroom-html-content h1,
+.classroom-html-content h2,
+.classroom-html-content h3,
+.classroom-html-content h4 {
+  color: #0F172A !important;
+  font-weight: 800;
+}
+.classroom-html-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.classroom-html-content th {
+  background: #F1F5F9;
+  color: #0F172A;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid #CBD5E1;
+  text-align: left;
+}
+.classroom-html-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #E2E8F0;
+  font-size: 0.88rem;
+  color: #1E293B;
+  line-height: 1.6;
+}
+.classroom-html-content tr:nth-child(even) td {
+  background: #F8FAFC;
+}
+.classroom-html-content tr:hover td {
+  background: #F0FDFA;
+  color: #0F172A;
+  transition: background 0.15s ease;
+}
+
+/* ===== MODERN STUDYPLUG MOBILE APP ANIMATIONS ===== */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-page-slide {
+  animation: pageSlideRight 0.26s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-card-in {
+  animation: cardScaleIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-badge-pulse {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+.animate-subtle-float {
+  animation: subtleFloat 3s ease-in-out infinite;
+}
+
+/* Touch and button micro-interactions */
+.touch-press {
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.12s ease;
+}
+.touch-press:active {
+  transform: scale(0.96);
+  opacity: 0.88;
+}
+
+.card-hover-pop {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-hover-pop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 77, 64, 0.08);
+}
+.card-hover-pop:active {
+  transform: scale(0.98);
+}
+
+

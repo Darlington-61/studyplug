@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,43 +8,73 @@ export default {
   theme: {
     extend: {
       colors: {
+        sp: {
+          'green-900': '#004D40',
+          'green-800': '#005B4F',
+          'green-700': '#00695C',
+          'green-600': '#00897B',
+          'yellow': '#FFD600',
+          'yellow-dark': '#F5C400',
+          'blue': '#1976D2',
+          'purple': '#7E3FC7',
+          'red': '#E53935',
+          'orange': '#F57C00',
+          'teal': '#008C95',
+          'green': '#16A34A',
+          'bg': '#F7F9F8',
+          'card': '#FFFFFF',
+          'bg-secondary': '#F1F5F4',
+          'text': '#10201D',
+          'text-secondary': '#66736F',
+          'text-muted': '#8A9692',
+          'border': '#E4EAE8',
+          // Backwards-compatible aliases
+          'dark-green': '#004D40',
+          'deep-green': '#003B32',
+          'bright-yellow': '#FFD600',
+          'white': '#FFFFFF',
+          'offwhite': '#F7F9F8',
+          'light-green': '#E8F5E9',
+          'dark-text': '#10201D',
+          'secondary-text': '#66736F',
+        },
+        subj: {
+          math: '#16A34A',
+          english: '#E91E63',
+          physics: '#2563EB',
+          chemistry: '#7E22CE',
+          biology: '#F59E0B',
+          government: '#008C95',
+          history: '#673AB7',
+          economics: '#F4C20D',
+        },
         brand: {
           50: '#F0FDF4',
           100: '#DCFCE7',
           200: '#BBF7D0',
           300: '#86EFAC',
           400: '#4ADE80',
-          500: '#10B981', // Vibrant Emerald
-          600: '#0E382B', // Official StudyPlug Chalkboard Forest Green
-          700: '#0B2E23',
-          800: '#09241B',
-          900: '#061A13',
+          500: '#10B981',
+          600: '#004D40',
+          700: '#003B32',
+          800: '#002923',
+          900: '#001A16',
         },
-        gold: {
-          50: '#FFFDF0',
-          100: '#FFFBE6',
-          200: '#FFF4BF',
-          300: '#FFEB80',
-          400: '#FFE033',
-          500: '#FFCC00', // Official StudyPlug "Plug" Gold
-          600: '#E5B800',
-          700: '#B89200',
-          800: '#8C6F00',
-          900: '#665100',
-        }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
       },
       boxShadow: {
-        'card': '0 2px 14px 0 rgba(11, 46, 35, 0.05)',
-        'card-elevated': '0 6px 20px -2px rgba(11, 46, 35, 0.09)',
-        'phone': '0 25px 60px -15px rgba(11, 46, 35, 0.25), 0 0 0 1px rgba(11, 46, 35, 0.08)',
-        'brand-glow': '0 4px 14px 0 rgba(14, 56, 43, 0.35)',
-        'gold-glow': '0 4px 14px 0 rgba(255, 204, 0, 0.35)',
-        'purple-glow': '0 4px 14px 0 rgba(14, 56, 43, 0.35)', // Fallback alias
+        subtle: '0 2px 10px rgba(0,0,0,0.05)',
+        floating: '0 4px 16px rgba(0,0,0,0.08)',
+        card: '0 2px 10px rgba(0,0,0,0.05)',
       },
       borderRadius: {
+        card: '14px',
+        feature: '16px',
+        btn: '12px',
+        search: '12px',
+        icon: '12px',
         '3xl': '1.75rem',
         '4xl': '2.25rem',
       }

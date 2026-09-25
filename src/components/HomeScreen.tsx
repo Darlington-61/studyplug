@@ -1,385 +1,293 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  StudyPlugLogo,
-  HeroGraphic,
-  MockTestCardIcon,
-  PracticeCardIcon,
-  PreviousTestsCardIcon,
-  BookmarksCardIcon,
-  FlameIcon,
-  CheckCircleFilled
-} from './Icons';
+import { StudyPlugHeader, ProgressCard, BottomNavigation } from './design-system';
 
 export const HomeScreen: React.FC = () => {
-  const { testsTaken, overallAccuracy, studyStreak, setActiveView } = useApp();
+  const [isIosGuideOpen, setIsIosGuideOpen] = React.useState<boolean>(false);
+  const {
+    setActiveView,
+    setSelectedSubject,
+    openAiTutor,
+    studyStreak,
+    overallAccuracy,
+    selectedExam,
+    setSelectedExam
+  } = useApp();
+
+  const handleQuickExam = (exam: string) => {
+    setSelectedExam(exam as any);
+    setActiveView('notes');
+  };
 
   return (
-    <div className="flex-1 flex flex-col justify-between bg-[#061710] min-h-full text-white">
-      {/* Scrollable Content */}
-      <div className="px-5 pt-2 pb-4 space-y-4">
-        {/* Top Header */}
-        <div className="flex items-center justify-between pt-1">
-          {/* Hamburger Menu Button */}
-          <button
-            type="button"
-            className="w-9 h-9 flex items-center justify-center text-amber-300 hover:bg-[#0E3526] rounded-xl transition cursor-pointer"
-            aria-label="Menu"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" className="w-5 h-5">
-              <line x1="3" y1="7" x2="21" y2="7" />
-              <line x1="3" y1="12" x2="16" y2="12" />
-              <line x1="3" y1="17" x2="21" y2="17" />
-            </svg>
-          </button>
-
-          {/* Center Brand Logo & Tagline */}
+    <div className="flex-1 flex flex-col justify-between bg-[#F7F9F8] min-h-screen text-[#10201D] select-none font-sans">
+      {/* ─── Screen 1 Header: Deep Green (#004D40) with Brand Logo & Greeting ─── */}
+      <StudyPlugHeader
+        showBrand={true}
+        title="Good morning, Darlington 👋"
+        subtitle="Small steps today, big results tomorrow."
+        rightAction={
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-xl flex items-center justify-center shadow-sm border border-[#C4823F]" style={{ backgroundColor: '#071F15' }}>
-              <svg viewBox="0 0 32 32" className="w-5 h-5" fill="none">
-                <path d="M16 4L3 11L16 18L29 11L16 4Z" fill="#FFFFFF" />
-                <path d="M7 14.5V20.5C7 24.5 11 27.5 16 27.5C21 27.5 25 24.5 25 20.5V14.5" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
-                <polygon points="12,18 20,23 12,28" fill="#FFCC00" />
-              </svg>
-            </div>
-            <div className="text-left leading-tight">
-              <h1 className="font-black text-[16px] tracking-tight font-sans">
-                <span className="text-white">Study</span><span className="text-[#FFCC00]">Plug</span>
-              </h1>
-              <p className="text-[9.5px] font-bold text-amber-400 -mt-0.5">Learn Today. <span className="text-emerald-300">Ace Tomorrow.</span></p>
-            </div>
-          </div>
-
-          {/* Right Notification Bell */}
-          <button
-            type="button"
-            className="relative w-9 h-9 flex items-center justify-center text-amber-300 hover:bg-[#0E3526] rounded-xl transition cursor-pointer"
-            aria-label="Notifications"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-            {/* Notification Badge Dot */}
-            <span className="absolute top-2 right-2 w-2 h-2 bg-[#FFCC00] rounded-full ring-2 ring-[#082218]" />
-          </button>
-        </div>
-
-        {/* Hero Banner Card */}
-        <div
-          className="relative overflow-hidden rounded-[22px] p-4 text-white shadow-card-elevated"
-          style={{
-            background: 'linear-gradient(135deg, #071F15 0%, #0E382B 55%, #15503E 100%)',
-            border: '2px solid #C4823F'
-          }}
-        >
-          <div className="flex items-center justify-between">
-            {/* Text details */}
-            <div className="z-10 max-w-[52%] pr-1">
-              <div
-                className="inline-block px-2 py-0.5 rounded-full text-[8.5px] font-bold mb-1.5 shadow-sm"
-                style={{ backgroundColor: 'rgba(0,0,0,0.4)', color: '#FFCC00', border: '1px solid rgba(255,204,0,0.35)' }}
-              >
-                StudyPlug 2026 Hub
-              </div>
-              <h2 className="text-[15px] font-black leading-[1.2] tracking-tight text-white">
-                Learn Today.<br /><span style={{ color: '#FFCC00' }}>Ace Tomorrow.</span>
-              </h2>
-              <p className="text-[10px] text-emerald-100/90 font-normal leading-snug mt-1.5">
-                Authentic CBT questions with classroom board solutions.
-              </p>
-            </div>
-
-            {/* Real Student Image + 3D Visual Graphic */}
-            <div className="w-[48%] flex items-center justify-end relative">
-              {/* Real Student Photo */}
-              <div className="relative z-10 shrink-0">
-                <div
-                  className="w-[72px] h-[72px] rounded-2xl overflow-hidden shadow-lg"
-                  style={{ border: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: '#071F15' }}
-                >
-                  <img
-                    src="student.jpg"
-                    alt="Student"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Floating mini flame badge */}
-                <div className="absolute -bottom-1.5 -left-1.5 bg-white text-slate-900 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold shadow flex items-center space-x-0.5 border border-slate-100">
-                  <FlameIcon className="w-2.5 h-2.5" />
-                  <span>{studyStreak}d</span>
-                </div>
-              </div>
-
-              {/* 3D Visual Graphic alongside */}
-              <div className="-ml-5 scale-90 pointer-events-none z-0">
-                <HeroGraphic className="w-24 h-20 drop-shadow-md" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Hero Carousel Dots */}
-        <div className="flex justify-center items-center space-x-1.5 -mt-1">
-          <div className="w-4 h-1.5 bg-[#0E382B] rounded-full" />
-          <div className="w-1.5 h-1.5 bg-slate-300 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-slate-300 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-slate-300 rounded-full" />
-        </div>
-
-        {/* 95% Classroom Study Notes Feature Card */}
-        <div
-          onClick={() => setActiveView('notes')}
-          className="rounded-2xl p-3.5 bg-gradient-to-r from-amber-500 to-[#C4823F] text-slate-950 shadow-md cursor-pointer hover:shadow-lg transition flex items-center justify-between border border-amber-300"
-        >
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-slate-950 text-[#FFCC00] flex items-center justify-center text-xl shrink-0 shadow">
-              📚
-            </div>
-            <div>
-              <div className="text-[9px] font-black uppercase tracking-wider text-slate-900 bg-amber-300/60 px-1.5 py-0.2 rounded inline-block">
-                95% Score System
-              </div>
-              <h4 className="font-extrabold text-[13px] text-slate-950 leading-tight">
-                Syllabus Lesson Notes
-              </h4>
-              <p className="text-[10px] text-slate-900 font-medium leading-snug">
-                Formulas, diagrams & topic past questions
-              </p>
-            </div>
-          </div>
-          <span className="w-7 h-7 rounded-full bg-slate-950 text-[#FFCC00] flex items-center justify-center text-xs font-black shrink-0">
-            ➔
-          </span>
-        </div>
-
-        {/* Quick Start Section */}
-        <div>
-          <h3 className="font-extrabold text-[14.5px] text-white tracking-tight mb-2.5">Quick Start</h3>
-          
-          <div className="grid grid-cols-2 gap-2.5">
-            {/* Mock Test */}
-            <div
-              onClick={() => setActiveView('subjects')}
-              className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-2xl p-3.5 border-2 border-[#C4823F] shadow-lg hover:border-[#FFCC00] transition duration-200 cursor-pointer flex flex-col justify-between"
-            >
-              <div className="w-8 h-8 rounded-xl bg-[#061710] border border-[#C4823F] text-[#FFCC00] flex items-center justify-center shadow">
-                <MockTestCardIcon className="w-4 h-4" />
-              </div>
-              <div className="mt-2.5">
-                <h4 className="font-bold text-[13px] text-white leading-tight">Mock Test</h4>
-                <p className="text-[10px] text-emerald-200/70 font-normal leading-snug mt-0.5">
-                  Take a full length test simulating real exam
-                </p>
-              </div>
-            </div>
-
-            {/* Practice */}
-            <div
-              onClick={() => setActiveView('practice')}
-              className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-2xl p-3.5 border-2 border-[#C4823F] shadow-lg hover:border-[#FFCC00] transition duration-200 cursor-pointer flex flex-col justify-between"
-            >
-              <div className="w-8 h-8 rounded-xl bg-[#061710] border border-[#C4823F] text-[#34D399] flex items-center justify-center">
-                <PracticeCardIcon className="w-4 h-4" />
-              </div>
-              <div className="mt-2.5">
-                <h4 className="font-bold text-[13px] text-white leading-tight">Practice</h4>
-                <p className="text-[10px] text-emerald-200/70 font-normal leading-snug mt-0.5">
-                  Practice by topic and improve
-                </p>
-              </div>
-            </div>
-
-            {/* Previous Tests */}
-            <div
-              onClick={() => setActiveView('results')}
-              className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-2xl p-3.5 border-2 border-[#C4823F] shadow-lg hover:border-[#FFCC00] transition duration-200 cursor-pointer flex flex-col justify-between"
-            >
-              <div className="w-8 h-8 rounded-xl bg-[#061710] border border-[#C4823F] text-[#FBBF24] flex items-center justify-center">
-                <PreviousTestsCardIcon className="w-4 h-4" />
-              </div>
-              <div className="mt-2.5">
-                <h4 className="font-bold text-[13px] text-white leading-tight">Previous Tests</h4>
-                <p className="text-[10px] text-emerald-200/70 font-normal leading-snug mt-0.5">
-                  View your performance and analytics
-                </p>
-              </div>
-            </div>
-
-            {/* Bookmarks */}
-            <div
-              onClick={() => setActiveView('bookmarks')}
-              className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-2xl p-3.5 border-2 border-[#C4823F] shadow-lg hover:border-[#FFCC00] transition duration-200 cursor-pointer flex flex-col justify-between"
-            >
-              <div className="w-8 h-8 rounded-xl bg-[#061710] border border-[#C4823F] text-[#F87171] flex items-center justify-center">
-                <BookmarksCardIcon className="w-4 h-4" />
-              </div>
-              <div className="mt-2.5">
-                <h4 className="font-bold text-[13px] text-white leading-tight">Bookmarks</h4>
-                <p className="text-[10px] text-emerald-200/70 font-normal leading-snug mt-0.5">
-                  Review your bookmarked questions
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Your Progress Section */}
-        <div>
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="font-extrabold text-[14.5px] text-white tracking-tight">Your Progress</h3>
             <button
               type="button"
-              onClick={() => setActiveView('results')}
-              className="text-[11.5px] font-bold text-[#FFCC00] hover:underline cursor-pointer"
+              onClick={() => openAiTutor()}
+              className="w-8 h-8 rounded-full bg-[#003B32] border border-[#FFD600]/60 flex items-center justify-center text-[#FFD600] hover:scale-105 transition cursor-pointer"
+              title="Ask StudyPlug AI"
             >
-              View All
+              <span className="text-sm">🤖</span>
+            </button>
+            <div className="w-8 h-8 rounded-full bg-[#003B32] border border-white/30 flex items-center justify-center text-xs font-bold text-white shadow-xs">
+              D
+            </div>
+          </div>
+        }
+      />
+
+      {/* ─── Main Content Canvas in Off-White (#F7F9F8) ─── */}
+      <main className="flex-1 max-w-md w-full mx-auto px-4 pt-4 pb-6 space-y-4 sm:max-w-xl lg:max-w-4xl">
+        {/* Your Progress Card */}
+        <ProgressCard
+          percentage={overallAccuracy || 72}
+          streakDays={studyStreak || 12}
+          subjectsCount={8}
+          onClick={() => setActiveView('practice')}
+        />
+
+        {/* 2x2 Feature Grid */}
+        <div className="grid grid-cols-2 gap-3">
+          {/* 1. Study Notes (Blue #1976D2) */}
+          <div
+            onClick={() => setActiveView('notes')}
+            className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 cursor-pointer flex flex-col justify-between group active:scale-[0.99]"
+          >
+            <div className="flex items-center justify-between">
+              <div className="w-10 h-10 rounded-[12px] bg-blue-50 border border-blue-100 text-[#1976D2] flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg>
+              </div>
+              <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">›</span>
+            </div>
+            <div className="mt-3 text-left">
+              <h3 className="font-semibold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+                Study Notes
+              </h3>
+              <p className="text-[11px] text-[#66736F] font-normal mt-0.5">
+                Learn &amp; understand
+              </p>
+            </div>
+          </div>
+
+          {/* 2. Practice (Green #16A34A) */}
+          <div
+            onClick={() => setActiveView('practice')}
+            className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 cursor-pointer flex flex-col justify-between group active:scale-[0.99]"
+          >
+            <div className="flex items-center justify-between">
+              <div className="w-10 h-10 rounded-[12px] bg-emerald-50 border border-emerald-100 text-[#16A34A] flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
+              <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">›</span>
+            </div>
+            <div className="mt-3 text-left">
+              <h3 className="font-semibold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+                Practice
+              </h3>
+              <p className="text-[11px] text-[#66736F] font-normal mt-0.5">
+                Sharpen your skills
+              </p>
+            </div>
+          </div>
+
+          {/* 3. Mock Exams (Purple #7E3FC7) */}
+          <div
+            onClick={() => setActiveView('mock')}
+            className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 cursor-pointer flex flex-col justify-between group active:scale-[0.99]"
+          >
+            <div className="flex items-center justify-between">
+              <div className="w-10 h-10 rounded-[12px] bg-purple-50 border border-purple-100 text-[#7E3FC7] flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+              </div>
+              <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">›</span>
+            </div>
+            <div className="mt-3 text-left">
+              <h3 className="font-semibold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+                Mock Exams
+              </h3>
+              <p className="text-[11px] text-[#66736F] font-normal mt-0.5">
+                Simulate real exams
+              </p>
+            </div>
+          </div>
+
+          {/* 4. Motivation (Orange/Yellow #F57C00) */}
+          <div
+            onClick={() => setActiveView('motivation')}
+            className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 cursor-pointer flex flex-col justify-between group active:scale-[0.99]"
+          >
+            <div className="flex items-center justify-between">
+              <div className="w-10 h-10 rounded-[12px] bg-amber-50 border border-amber-100 text-[#F57C00] flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                  <path d="M9 18h6" />
+                  <path d="M10 22h4" />
+                  <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
+                </svg>
+              </div>
+              <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">›</span>
+            </div>
+            <div className="mt-3 text-left">
+              <h3 className="font-semibold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+                Motivation
+              </h3>
+              <p className="text-[11px] text-[#66736F] font-normal mt-0.5">
+                Stay focused
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Access Exam Circles */}
+        <div className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle space-y-3">
+          <div className="text-left font-bold text-[14px] text-[#10201D]">
+            Quick Access
+          </div>
+
+          <div className="grid grid-cols-4 gap-3 text-center">
+            {[
+              { id: 'JAMB', name: 'JAMB', color: '#008C95', bg: 'bg-teal-50' },
+              { id: 'WAEC', name: 'WAEC', color: '#16A34A', bg: 'bg-emerald-50' },
+              { id: 'NECO', name: 'NECO', color: '#1976D2', bg: 'bg-blue-50' },
+              { id: 'BECE', name: 'BECE', color: '#E53935', bg: 'bg-rose-50' }
+            ].map(exam => (
+              <button
+                key={exam.id}
+                type="button"
+                onClick={() => handleQuickExam(exam.id)}
+                className="flex flex-col items-center cursor-pointer group active:scale-95 transition"
+              >
+                <div className={`w-12 h-12 rounded-full ${exam.bg} border border-[#E4EAE8] flex items-center justify-center font-bold text-[13px] shadow-xs group-hover:scale-105 transition`} style={{ color: exam.color }}>
+                  {exam.name}
+                </div>
+                <span className="text-[11px] font-semibold text-[#66736F] mt-1.5 group-hover:text-[#10201D]">
+                  {exam.name}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile App Download & iPhone Installation Banner */}
+        <div className="bg-white rounded-[16px] p-4 sm:p-5 border border-[#E4EAE8] shadow-subtle space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <span className="text-xl">📲</span>
+              <div className="text-left">
+                <h3 className="font-bold text-[14px] text-[#10201D] leading-tight">
+                  Get the StudyPlug Mobile App
+                </h3>
+                <p className="text-[11px] text-[#66736F]">
+                  Practice offline anytime on Android and iPhone
+                </p>
+              </div>
+            </div>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-100 text-emerald-800 border border-emerald-300">
+              Free
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+            {/* Android Direct APK Download */}
+            <a
+              href="https://studyplug.com.ng/StudyPlug.apk"
+              download="StudyPlug.apk"
+              className="p-3 rounded-[12px] bg-[#004D40] hover:bg-[#003B32] text-white flex items-center justify-between transition cursor-pointer touch-press shadow-xs group"
+            >
+              <div className="flex items-center space-x-2.5">
+                <span className="text-lg">🤖</span>
+                <div className="text-left">
+                  <div className="text-xs font-bold leading-tight">Download for Android</div>
+                  <div className="text-[10px] text-emerald-200">Direct APK Download (14 MB)</div>
+                </div>
+              </div>
+              <span className="text-xs font-black text-amber-300 group-hover:translate-x-0.5 transition">↓</span>
+            </a>
+
+            {/* iPhone / iOS Guide Toggle */}
+            <button
+              type="button"
+              onClick={() => setIsIosGuideOpen(!isIosGuideOpen)}
+              className="p-3 rounded-[12px] bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-between transition cursor-pointer touch-press shadow-xs group"
+            >
+              <div className="flex items-center space-x-2.5">
+                <span className="text-lg">🍏</span>
+                <div className="text-left">
+                  <div className="text-xs font-bold leading-tight">Install on iPhone / iPad</div>
+                  <div className="text-[10px] text-slate-300">Fast 1-tap Home Screen App</div>
+                </div>
+              </div>
+              <span className="text-xs font-black text-slate-300">{isIosGuideOpen ? '▲' : '▼'}</span>
             </button>
           </div>
 
-          {/* Progress Card */}
-          <div className="bg-gradient-to-br from-[#0D3023] to-[#071D15] rounded-2xl p-4 border-2 border-[#C4823F] shadow-xl space-y-3.5 text-white">
-            {/* Top Metrics Row */}
-            <div className="flex items-start justify-between">
-              {/* Overall Accuracy */}
-              <div className="w-[50%] pr-2">
-                <span className="text-[10.5px] font-medium text-emerald-200/70 block">Overall Accuracy</span>
-                <span className="text-[17px] font-black text-white leading-tight block mt-0.5">{overallAccuracy}%</span>
-                {/* Accuracy Bar */}
-                <div className="w-full h-1.5 bg-[#061911] rounded-full overflow-hidden mt-1.5 border border-[#C4823F]/30">
-                  <div className="h-full bg-[#FFCC00] rounded-full transition-all duration-300" style={{ width: `${overallAccuracy}%` }} />
-                </div>
+          {/* Collapsible iPhone Installation Steps */}
+          {isIosGuideOpen && (
+            <div className="mt-2 p-3.5 rounded-[12px] bg-[#F7F9F8] border border-slate-200 text-left space-y-2 text-xs text-[#10201D] animate-card-in">
+              <div className="font-bold text-slate-900 flex items-center space-x-1.5">
+                <span>📱 How to install StudyPlug on iPhone / iPad:</span>
               </div>
-
-              {/* Tests Taken */}
-              <div className="w-[45%] flex items-center space-x-2.5 pl-2 border-l border-[#C4823F]/30">
-                <div className="w-8 h-8 rounded-xl bg-[#061911] border border-[#C4823F]/40 flex items-center justify-center text-[#FFCC00]">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                    <rect x="5" y="3" width="14" height="18" rx="2" />
-                    <path d="M9 7h6" />
-                    <path d="M9 11l2 2 4-4" />
-                  </svg>
-                </div>
-                <div>
-                  <span className="text-[10.5px] font-medium text-emerald-200/70 block">Tests Taken</span>
-                  <span className="text-[17px] font-black text-white leading-tight block -mt-0.5">{testsTaken}</span>
-                </div>
-              </div>
+              <ol className="space-y-1.5 text-[11.5px] text-slate-700 pl-4 list-decimal leading-relaxed">
+                <li>
+                  Open <strong>Safari</strong> on your iPhone and visit <strong>https://studyplug.com.ng</strong>.
+                </li>
+                <li>
+                  Tap the <strong>Share button</strong> at the bottom of Safari (the square box with an arrow pointing up <span className="font-mono font-bold bg-slate-200 px-1 rounded">⎋</span>).
+                </li>
+                <li>
+                  Scroll down the share options and tap <strong>"Add to Home Screen"</strong> (<span className="font-bold">➕</span>).
+                </li>
+                <li>
+                  Tap <strong>"Add"</strong> in the top-right corner. StudyPlug will instantly appear on your iPhone screen with its official app icon, opening in full screen and working 100% offline!
+                </li>
+              </ol>
             </div>
-
-            {/* Divider */}
-            <div className="h-[1px] bg-[#C4823F]/30 w-full" />
-
-            {/* Study Streak Sub-card */}
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <div>
-                  <span className="font-bold text-[12px] text-white block leading-tight">Study Streak</span>
-                  <span className="text-[9.5px] text-emerald-200/70 font-medium">Keep it up!</span>
-                </div>
-                <div className="text-right">
-                  <div className="flex items-center justify-end space-x-1">
-                    <FlameIcon className="w-3.5 h-3.5" />
-                    <span className="font-extrabold text-[12px] text-amber-300">{studyStreak} Days</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* 7 Circles Row */}
-              <div className="flex items-center justify-between pt-0.5">
-                {[1, 2, 3, 4, 5, 6].map((day) => (
-                  <div key={day} className="flex items-center justify-center">
-                    <CheckCircleFilled className="w-5 h-5" />
-                  </div>
-                ))}
-                {/* 7th Day (Sunday) */}
-                <div className="w-5 h-5 rounded-full border border-amber-300 bg-amber-950/60 flex items-center justify-center">
-                  <span className="text-[9.5px] font-bold text-amber-300">S</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
-      </div>
 
-      {/* Bottom Navigation Bar */}
-      <div className="bg-[#092218] border-t-2 border-[#C4823F] px-3 py-2 flex items-center justify-around shadow-lg">
-        {/* Home */}
-        <button
-          type="button"
-          onClick={() => setActiveView('dashboard')}
-          className="flex flex-col items-center cursor-pointer group"
+        {/* Motivation Card at Bottom */}
+        <div
+          onClick={() => setActiveView('motivation')}
+          className="rounded-[16px] p-4 bg-[#003B32] text-white shadow-subtle border border-[#FFD600]/30 cursor-pointer flex items-center justify-between space-x-3 transition hover:border-[#FFD600]/60 active:scale-[0.99]"
         >
-          <div className="w-5 h-5 flex items-center justify-center text-[#FFCC00]">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-            </svg>
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-full bg-[#FFD600]/20 flex items-center justify-center text-lg shrink-0">
+              💡
+            </div>
+            <div className="text-left">
+              <h4 className="font-bold text-[13.5px] text-[#FFD600] leading-tight">
+                Small steps make big results.
+              </h4>
+              <p className="text-[11px] text-emerald-100/90 font-normal mt-0.5">
+                Practice 10 questions today to keep your streak active!
+              </p>
+            </div>
           </div>
-          <span className="text-[9.5px] font-bold text-[#FFCC00] mt-0.5">Home</span>
-        </button>
+          <span className="text-white/80 font-bold text-lg">›</span>
+        </div>
+      </main>
 
-        {/* Courses / Subjects */}
-        <button
-          type="button"
-          onClick={() => setActiveView('subjects')}
-          className="flex flex-col items-center cursor-pointer group"
-        >
-          <div className="w-5 h-5 flex items-center justify-center text-emerald-200/70 group-hover:text-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <rect x="4" y="2" width="16" height="20" rx="2" />
-              <line x1="8" y1="6" x2="16" y2="6" />
-              <line x1="8" y1="10" x2="16" y2="10" />
-              <line x1="8" y1="14" x2="12" y2="14" />
-            </svg>
-          </div>
-          <span className="text-[9.5px] font-medium text-emerald-200/70 group-hover:text-white mt-0.5">Courses</span>
-        </button>
-
-        {/* Notes (Gold Accent) */}
-        <button
-          type="button"
-          onClick={() => setActiveView('notes')}
-          className="flex flex-col items-center cursor-pointer group"
-        >
-          <div className="w-5 h-5 flex items-center justify-center text-amber-400">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-            </svg>
-          </div>
-          <span className="text-[9.5px] font-bold text-amber-400 mt-0.5">Notes</span>
-        </button>
-
-        {/* Challenges / Practice */}
-        <button
-          type="button"
-          onClick={() => setActiveView('practice')}
-          className="flex flex-col items-center cursor-pointer group"
-        >
-          <div className="w-5 h-5 flex items-center justify-center text-emerald-200/70 group-hover:text-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-              <path d="M4 22h16" />
-              <path d="M10 14.66V17c0 .55-.45 1-1 1H7" />
-              <path d="M14 14.66V17c0 .55.45 1 1 1h2" />
-              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-            </svg>
-          </div>
-          <span className="text-[9.5px] font-medium text-emerald-200/70 group-hover:text-white mt-0.5">Challenges</span>
-        </button>
-
-        {/* Profile */}
-        <button
-          type="button"
-          onClick={() => setActiveView('bookmarks')}
-          className="flex flex-col items-center cursor-pointer group"
-        >
-          <div className="w-5 h-5 rounded-full overflow-hidden border border-[#C4823F] group-hover:border-[#FFCC00] transition shadow-xs">
-            <img src="student.jpg" alt="Profile" className="w-full h-full object-cover" />
-          </div>
-          <span className="text-[9.5px] font-medium text-emerald-200/70 group-hover:text-white mt-0.5">Profile</span>
-        </button>
-      </div>
+      {/* ─── Bottom Navigation Bar ─── */}
+      <BottomNavigation activeTab="home" />
     </div>
   );
 };

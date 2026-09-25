@@ -1,4 +1,4 @@
-﻿const https = require("https");
+const https = require("https");
 
 function fetchJson(url) {
   return new Promise((resolve) => {
@@ -17,26 +17,29 @@ function fetchJson(url) {
 }
 
 async function main() {
-  console.log("=== SAMPLE 1: JAMB Physics Motion Questions ===");
-  const p1 = await fetchJson("https://eznonews.com.ng/studyplug-api/get_questions.php?subject=Physics&topic=Motion&limit=4");
+  console.log("=== SAMPLE 1: WAEC Physics (Should be ONLY Paper 1 Objectives) ===");
+  const p1 = await fetchJson("https://eznonews.com.ng/studyplug-api/get_questions.php?subject=WAEC%20Physics&limit=6");
   (p1.questions || []).forEach((q, i) => {
     console.log(`[${i+1}] ID:${q.id} | Year:${q.year} | Topic:${q.topic}`);
-    console.log(`    Text: ${q.text}`);
-    console.log(`    Ans: ${q.correctAnswer} | Expl: ${q.explanation ? q.explanation.slice(0, 100) : "None"}\n`);
+    console.log(`    Subject in DB: ${q.subject}`);
+    console.log(`    Opt A: ${q.options[0]?.text}`);
+    console.log(`    Text: ${q.text.slice(0, 100)}...\n`);
   });
 
-  console.log("=== SAMPLE 2: WAEC Physics Questions ===");
-  const p2 = await fetchJson("https://eznonews.com.ng/studyplug-api/get_questions.php?subject=WAEC%20Physics&limit=4");
+  console.log("=== SAMPLE 2: WAEC Physics (Theory) ===");
+  const p2 = await fetchJson("https://eznonews.com.ng/studyplug-api/get_questions.php?subject=WAEC%20Physics%20(Theory)&limit=2");
   (p2.questions || []).forEach((q, i) => {
     console.log(`[${i+1}] ID:${q.id} | Year:${q.year} | Topic:${q.topic}`);
-    console.log(`    Text: ${q.text.slice(0, 150)}...\n`);
+    console.log(`    Subject in DB: ${q.subject}`);
+    console.log(`    Text: ${q.text.slice(0, 100)}...\n`);
   });
 
-  console.log("=== SAMPLE 3: NECO Physics Questions ===");
-  const p3 = await fetchJson("https://eznonews.com.ng/studyplug-api/get_questions.php?subject=NECO%20Physics&limit=4");
+  console.log("=== SAMPLE 3: WAEC Physics (Practical) ===");
+  const p3 = await fetchJson("https://eznonews.com.ng/studyplug-api/get_questions.php?subject=WAEC%20Physics%20(Practical)&limit=2");
   (p3.questions || []).forEach((q, i) => {
     console.log(`[${i+1}] ID:${q.id} | Year:${q.year} | Topic:${q.topic}`);
-    console.log(`    Text: ${q.text.slice(0, 150)}...\n`);
+    console.log(`    Subject in DB: ${q.subject}`);
+    console.log(`    Text: ${q.text.slice(0, 100)}...\n`);
   });
 }
 

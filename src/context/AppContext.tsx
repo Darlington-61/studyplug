@@ -34,8 +34,8 @@ export interface TestResult {
 
 interface AppContextType {
   // Navigation
-  activeView: 'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes';
-  setActiveView: (view: 'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes') => void;
+  activeView: 'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes' | 'mock' | 'motivation';
+  setActiveView: (view: 'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes' | 'mock' | 'motivation') => void;
 
   // Global Metrics (Persisted)
   testsTaken: number;
@@ -43,6 +43,10 @@ interface AppContextType {
   studyStreak: number;
   bookmarks: number[];
   testHistory: TestResult[];
+
+  // Target Examination ('JAMB' | 'WAEC' | 'NECO' | 'BECE')
+  selectedExam: 'JAMB' | 'WAEC' | 'NECO' | 'BECE';
+  setSelectedExam: (exam: 'JAMB' | 'WAEC' | 'NECO' | 'BECE') => void;
 
   // Subject & Year Selection
   selectedSubject: string;
@@ -86,15 +90,30 @@ interface AppContextType {
 
   // PlugAI Tutor State
   isAiTutorOpen: boolean;
-  openAiTutor: (context?: { question?: Question; userSelectedOption?: string; subject?: string; topic?: string }) => void;
+  openAiTutor: (context?: { question?: Question; userSelectedOption?: string; exam?: string; subject?: string; topic?: string; subtopic?: string; noteTitle?: string }) => void;
   closeAiTutor: () => void;
-  aiTutorContext: { question?: Question; userSelectedOption?: string; subject?: string; topic?: string } | null;
+  aiTutorContext: { question?: Question; userSelectedOption?: string; exam?: string; subject?: string; topic?: string; subtopic?: string; noteTitle?: string } | null;
+
+  // Menu Drawer, Leaderboard & Calculator
+  isMenuDrawerOpen: boolean;
+  openMenuDrawer: () => void;
+  closeMenuDrawer: () => void;
+  isLeaderboardOpen: boolean;
+  openLeaderboard: () => void;
+  closeLeaderboard: () => void;
+  isCalculatorOpen: boolean;
+  openCalculator: () => void;
+  closeCalculator: () => void;
+
+  // Dark Mode Theme
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [activeView, setActiveView] = useState<'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes'>('dashboard');
+  const [activeView, setActiveView] = useState<'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes' | 'mock' | 'motivation'>('dashboard');
 
   // Load from localStorage or initialize with design defaults
   const [testsTaken, setTestsTaken] = useState<number>(() => {
@@ -164,6 +183,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     );
   };
 
+  // Target Examination State ('JAMB' | 'WAEC' | 'NECO' | 'BECE')
+  const [selectedExam, setSelectedExamState] = useState<'JAMB' | 'WAEC' | 'NECO' | 'BECE'>(() => {
+    const saved = localStorage.getItem('sp_selected_exam');
+    return (saved as any) || 'JAMB';
+  });
+
+  const setSelectedExam = useCallback((exam: 'JAMB' | 'WAEC' | 'NECO' | 'BECE') => {
+    setSelectedExamState(exam);
+    localStorage.setItem('sp_selected_exam', exam);
+  }, []);
+
   // Subject & Multi-Subject Exam State
   const [selectedSubject, setSelectedSubject] = useState<string>('Mathematics');
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>(['Mathematics']);
@@ -187,9 +217,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // PlugAI Tutor State
   const [isAiTutorOpen, setIsAiTutorOpen] = useState<boolean>(false);
-  const [aiTutorContext, setAiTutorContext] = useState<{ question?: Question; userSelectedOption?: string; subject?: string; topic?: string } | null>(null);
+  const [aiTutorContext, setAiTutorContext] = useState<{ question?: Question; userSelectedOption?: string; exam?: string; subject?: string; topic?: string; subtopic?: string; noteTitle?: string } | null>(null);
 
-  const openAiTutor = (context?: { question?: Question; userSelectedOption?: string; subject?: string; topic?: string }) => {
+  const openAiTutor = (context?: { question?: Question; userSelectedOption?: string; exam?: string; subject?: string; topic?: string; subtopic?: string; noteTitle?: string }) => {
     setAiTutorContext(context || null);
     setIsAiTutorOpen(true);
   };
@@ -197,6 +227,47 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const closeAiTutor = () => {
     setIsAiTutorOpen(false);
   };
+
+  // Menu Drawer, Leaderboard & Calculator State
+  const [isMenuDrawerOpen, setIsMenuDrawerOpen] = useState<boolean>(false);
+  const openMenuDrawer = () => setIsMenuDrawerOpen(true);
+  const closeMenuDrawer = () => setIsMenuDrawerOpen(false);
+
+  const [isLeaderboardOpen, setIsLeaderboardOpen] = useState<boolean>(false);
+  const openLeaderboard = () => setIsLeaderboardOpen(true);
+  const closeLeaderboard = () => setIsLeaderboardOpen(false);
+
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState<boolean>(false);
+  const openCalculator = () => setIsCalculatorOpen(true);
+  const closeCalculator = () => setIsCalculatorOpen(false);
+
+  // Dark Mode State
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('studyplug_dark_mode');
+      if (saved !== null) return saved === 'true';
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('studyplug_dark_mode', String(isDarkMode));
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark-theme');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.body.classList.remove('dark-theme');
+      }
+    } catch (e) {
+      console.warn('Theme storage error:', e);
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
 
   const availableYears = ALL_OFFICIAL_YEARS;
 
@@ -215,11 +286,29 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       const res = await fetchQuestions(selectedSubject, selectedYear);
       if (res.questions && res.questions.length > 0) {
-        // Strictly verify that returned questions belong to selectedSubject
+        // Strictly verify that returned questions belong to selectedSubject and matching paper
         const normSelected = normalizeSubjectName(selectedSubject).toLowerCase();
+        const isReqTheory = normSelected.includes('(theory)');
+        const isReqPractical = normSelected.includes('(practical)');
+
         const validMatches = res.questions.filter(q => {
           const qNorm = (q.subject || '').toLowerCase();
-          return qNorm.includes(normSelected.slice(0, 4)) || normSelected.includes(qNorm.slice(0, 4));
+          const qTopic = (q.topic || '').toLowerCase();
+
+          if (!isReqTheory && (qNorm.includes('(theory)') || qTopic.includes('paper 2') || (q.options?.[0]?.text && q.options[0].text.includes('[theory')))) {
+            return false;
+          }
+          if (!isReqPractical && (qNorm.includes('(practical)') || qTopic.includes('paper 3') || (q.options?.[0]?.text && q.options[0].text.includes('[practical')))) {
+            return false;
+          }
+          if (isReqTheory && !qNorm.includes('(theory)') && !qTopic.includes('paper 2')) {
+            return false;
+          }
+          if (isReqPractical && !qNorm.includes('(practical)') && !qTopic.includes('paper 3')) {
+            return false;
+          }
+
+          return qNorm === normSelected || qNorm.includes(normSelected) || normSelected.includes(qNorm);
         });
 
         if (validMatches.length > 0) {
@@ -430,6 +519,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         studyStreak,
         bookmarks,
         testHistory,
+        selectedExam,
+        setSelectedExam,
         selectedSubject,
         setSelectedSubject,
         selectedSubjects,
@@ -466,7 +557,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         isAiTutorOpen,
         openAiTutor,
         closeAiTutor,
-        aiTutorContext
+        aiTutorContext,
+        isMenuDrawerOpen,
+        openMenuDrawer,
+        closeMenuDrawer,
+        isLeaderboardOpen,
+        openLeaderboard,
+        closeLeaderboard,
+        isCalculatorOpen,
+        openCalculator,
+        closeCalculator,
+        isDarkMode,
+        toggleDarkMode
       }}
     >
       {children}

@@ -4,17 +4,34 @@
  */
 
 export const getExamTipForQuestion = (
-  subject: string,
-  topic: string,
-  questionText: string,
-  explanation: string
+  subjectOrQuestion: any,
+  topic?: string,
+  questionText?: string,
+  explanation?: string
 ): string => {
-  const qLower = questionText.toLowerCase();
-  const topLower = topic.toLowerCase();
-  const expLower = explanation.toLowerCase();
+  let subject = '';
+  let top = '';
+  let qText = '';
+  let expl = '';
+
+  if (typeof subjectOrQuestion === 'object' && subjectOrQuestion !== null) {
+    subject = subjectOrQuestion.subject || '';
+    top = subjectOrQuestion.topic || '';
+    qText = subjectOrQuestion.text || subjectOrQuestion.question || '';
+    expl = subjectOrQuestion.explanation || '';
+  } else {
+    subject = String(subjectOrQuestion || '');
+    top = String(topic || '');
+    qText = String(questionText || '');
+    expl = String(explanation || '');
+  }
+
+  const qLower = (qText || '').toLowerCase();
+  const topLower = (top || '').toLowerCase();
+  const expLower = (expl || '').toLowerCase();
 
   // 1. If explanation already contains an explicit tip or note, highlight it
-  const tipMatch = explanation.match(/(?:tip|note|remember|caution|exam tip|shortcut|rule):\s*(.+)/i);
+  const tipMatch = expl.match(/(?:tip|note|remember|caution|exam tip|shortcut|rule):\s*(.+)/i);
   if (tipMatch && tipMatch[1]) {
     return tipMatch[1].trim();
   }

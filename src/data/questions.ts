@@ -8,15 +8,23 @@ export interface Question {
   questionNumber: number;
   subject: string;
   topic: string;
+  subtopic?: string;
   year?: number;
   difficulty: 'Easy' | 'Medium' | 'Hard';
   text: string;
+  question?: string;
   passage?: string;
   imageUrl?: string | null;
   imageSvg?: string | null;
-  options: QuestionOption[];
+  options: QuestionOption[] | Record<string, string>;
+  optionsMap?: Record<string, string>;
   correctAnswer: 'A' | 'B' | 'C' | 'D' | 'E' | string;
+  correct_option?: 'A' | 'B' | 'C' | 'D' | 'E' | string;
   explanation: string;
+  isRepeated?: boolean;
+  repeatCount?: number;
+  repeatYears?: number[];
+  repeatBadge?: string;
 }
 
 // Full 50-Question Mathematics CBT Bank (UTME / JAMB Standard)
