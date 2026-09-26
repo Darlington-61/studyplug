@@ -1,6 +1,13 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import { StudyPlugHeader, ProgressCard, BottomNavigation } from './design-system';
+import { JambLogo, WaecLogo, NecoLogo, BeceLogo } from './common/ExamLogos';
+import {
+  CARD_IMAGE_STUDY_NOTES,
+  CARD_IMAGE_PRACTICE,
+  CARD_IMAGE_MOCK_EXAM,
+  CARD_IMAGE_MOTIVATION
+} from '../data/cardImages';
 
 export const HomeScreen: React.FC = () => {
   const [isIosGuideOpen, setIsIosGuideOpen] = React.useState<boolean>(false);
@@ -87,135 +94,138 @@ export const HomeScreen: React.FC = () => {
 
         {/* 2x2 Feature Grid */}
         <div className="grid grid-cols-2 gap-3">
-          {/* 1. Study Notes (Blue #1976D2) */}
+          {/* 1. Study Notes */}
           <div
             onClick={() => setActiveView('notes')}
-            className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 cursor-pointer flex flex-col justify-between group active:scale-[0.99]"
+            className="bg-white rounded-2xl p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#004D40]/30 hover:shadow-floating transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98] overflow-hidden"
           >
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-[12px] bg-blue-50 border border-blue-100 text-[#1976D2] flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                </svg>
+            <div className="flex items-start justify-between">
+              <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden shadow-sm border border-[#E4EAE8] bg-slate-50 shrink-0">
+                <img
+                  src={CARD_IMAGE_STUDY_NOTES}
+                  alt="Study Notes"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">›</span>
+              <span className="w-7 h-7 rounded-full bg-[#F0F4F3] group-hover:bg-[#004D40] group-hover:text-white text-[#8A9692] flex items-center justify-center text-xs font-bold transition">›</span>
             </div>
-            <div className="mt-3 text-left">
-              <h3 className="font-semibold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+            <div className="mt-2.5 text-left">
+              <h3 className="font-bold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
                 Study Notes
               </h3>
-              <p className="text-[11px] text-[#66736F] font-normal mt-0.5">
+              <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
                 Learn &amp; understand
               </p>
             </div>
           </div>
 
-          {/* 2. Practice (Green #16A34A) */}
+          {/* 2. Practice */}
           <div
             onClick={() => setActiveView('practice')}
-            className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 cursor-pointer flex flex-col justify-between group active:scale-[0.99]"
+            className="bg-white rounded-2xl p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#004D40]/30 hover:shadow-floating transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98] overflow-hidden"
           >
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-[12px] bg-emerald-50 border border-emerald-100 text-[#16A34A] flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="6" />
-                  <circle cx="12" cy="12" r="2" />
-                </svg>
+            <div className="flex items-start justify-between">
+              <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden shadow-sm border border-[#E4EAE8] bg-slate-50 shrink-0">
+                <img
+                  src={CARD_IMAGE_PRACTICE}
+                  alt="Practice"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">›</span>
+              <span className="w-7 h-7 rounded-full bg-[#F0F4F3] group-hover:bg-[#004D40] group-hover:text-white text-[#8A9692] flex items-center justify-center text-xs font-bold transition">›</span>
             </div>
-            <div className="mt-3 text-left">
-              <h3 className="font-semibold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+            <div className="mt-2.5 text-left">
+              <h3 className="font-bold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
                 Practice
               </h3>
-              <p className="text-[11px] text-[#66736F] font-normal mt-0.5">
+              <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
                 Sharpen your skills
               </p>
             </div>
           </div>
 
-          {/* 3. Mock Exams (Purple #7E3FC7) */}
+          {/* 3. Mock Exams */}
           <div
             onClick={() => setActiveView('mock')}
-            className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 cursor-pointer flex flex-col justify-between group active:scale-[0.99]"
+            className="bg-white rounded-2xl p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#004D40]/30 hover:shadow-floating transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98] overflow-hidden"
           >
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-[12px] bg-purple-50 border border-purple-100 text-[#7E3FC7] flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                  <polyline points="10 9 9 9 8 9" />
-                </svg>
+            <div className="flex items-start justify-between">
+              <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden shadow-sm border border-[#E4EAE8] bg-slate-50 shrink-0">
+                <img
+                  src={CARD_IMAGE_MOCK_EXAM}
+                  alt="Mock Exams"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">›</span>
+              <span className="w-7 h-7 rounded-full bg-[#F0F4F3] group-hover:bg-[#004D40] group-hover:text-white text-[#8A9692] flex items-center justify-center text-xs font-bold transition">›</span>
             </div>
-            <div className="mt-3 text-left">
-              <h3 className="font-semibold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+            <div className="mt-2.5 text-left">
+              <h3 className="font-bold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
                 Mock Exams
               </h3>
-              <p className="text-[11px] text-[#66736F] font-normal mt-0.5">
+              <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
                 Simulate real exams
               </p>
             </div>
           </div>
 
-          {/* 4. Motivation (Orange/Yellow #F57C00) */}
+          {/* 4. Motivation */}
           <div
             onClick={() => setActiveView('motivation')}
-            className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 cursor-pointer flex flex-col justify-between group active:scale-[0.99]"
+            className="bg-white rounded-2xl p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#004D40]/30 hover:shadow-floating transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98] overflow-hidden"
           >
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-[12px] bg-amber-50 border border-amber-100 text-[#F57C00] flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                  <path d="M9 18h6" />
-                  <path d="M10 22h4" />
-                  <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
-                </svg>
+            <div className="flex items-start justify-between">
+              <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden shadow-sm border border-[#E4EAE8] bg-slate-50 shrink-0">
+                <img
+                  src={CARD_IMAGE_MOTIVATION}
+                  alt="Motivation"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">›</span>
+              <span className="w-7 h-7 rounded-full bg-[#F0F4F3] group-hover:bg-[#004D40] group-hover:text-white text-[#8A9692] flex items-center justify-center text-xs font-bold transition">›</span>
             </div>
-            <div className="mt-3 text-left">
-              <h3 className="font-semibold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+            <div className="mt-2.5 text-left">
+              <h3 className="font-bold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
                 Motivation
               </h3>
-              <p className="text-[11px] text-[#66736F] font-normal mt-0.5">
+              <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
                 Stay focused
               </p>
             </div>
           </div>
         </div>
 
-        {/* Quick Access Exam Circles */}
-        <div className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle space-y-3">
-          <div className="text-left font-bold text-[14px] text-[#10201D]">
-            Quick Access
+        {/* Quick Access Official Exam Badges */}
+        <div className="bg-white rounded-[16px] p-4 border border-[#E4EAE8] shadow-subtle space-y-3">
+          <div className="text-left font-bold text-[14px] text-[#10201D] flex items-center justify-between">
+            <span>Quick Access</span>
+            <span className="text-[11px] text-[#66736F] font-medium">Select an exam</span>
           </div>
 
-          <div className="grid grid-cols-4 gap-3 text-center">
+          <div className="grid grid-cols-4 gap-2.5 text-center">
             {[
-              { id: 'JAMB', name: 'JAMB', color: '#008C95', bg: 'bg-teal-50' },
-              { id: 'WAEC', name: 'WAEC', color: '#16A34A', bg: 'bg-emerald-50' },
-              { id: 'NECO', name: 'NECO', color: '#1976D2', bg: 'bg-blue-50' },
-              { id: 'BECE', name: 'BECE', color: '#E53935', bg: 'bg-rose-50' }
-            ].map(exam => (
-              <button
-                key={exam.id}
-                type="button"
-                onClick={() => handleQuickExam(exam.id)}
-                className="flex flex-col items-center cursor-pointer group active:scale-95 transition"
-              >
-                <div className={`w-12 h-12 rounded-full ${exam.bg} border border-[#E4EAE8] flex items-center justify-center font-bold text-[13px] shadow-xs group-hover:scale-105 transition`} style={{ color: exam.color }}>
-                  {exam.name}
-                </div>
-                <span className="text-[11px] font-semibold text-[#66736F] mt-1.5 group-hover:text-[#10201D]">
-                  {exam.name}
-                </span>
-              </button>
-            ))}
+              { id: 'JAMB', name: 'JAMB', Logo: JambLogo, bg: 'bg-emerald-50/70 border-emerald-200/60' },
+              { id: 'WAEC', name: 'WAEC', Logo: WaecLogo, bg: 'bg-blue-50/70 border-blue-200/60' },
+              { id: 'NECO', name: 'NECO', Logo: NecoLogo, bg: 'bg-teal-50/70 border-teal-200/60' },
+              { id: 'BECE', name: 'BECE', Logo: BeceLogo, bg: 'bg-cyan-50/70 border-cyan-200/60' }
+            ].map(exam => {
+              const LogoComp = exam.Logo;
+              return (
+                <button
+                  key={exam.id}
+                  type="button"
+                  onClick={() => handleQuickExam(exam.id)}
+                  className="flex flex-col items-center cursor-pointer group active:scale-95 transition"
+                >
+                  <div className={`w-13 h-13 p-1.5 rounded-2xl ${exam.bg} border flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:shadow-md transition-all duration-200`}>
+                    <LogoComp className="w-10 h-10 object-contain drop-shadow-xs" />
+                  </div>
+                  <span className="text-[11px] font-bold text-[#10201D] mt-1.5 group-hover:text-[#004D40] tracking-tight">
+                    {exam.name}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
