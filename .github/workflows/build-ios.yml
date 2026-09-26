@@ -27,11 +27,12 @@ jobs:
       - name: Build Web Application
         run: npm run bundle
 
-      - name: Sync Capacitor iOS
-        run: npx cap sync ios
+      - name: Copy Assets to Capacitor iOS
+        run: npx cap copy ios
 
       - name: Build iOS Archive (Unsigned)
         run: |
+          mkdir -p build
           xcodebuild -project ios/App/App.xcodeproj \
             -scheme App \
             -configuration Release \
