@@ -8,6 +8,7 @@ export const HomeScreen: React.FC = () => {
     setActiveView,
     setSelectedSubject,
     openAiTutor,
+    openMorningTea,
     studyStreak,
     overallAccuracy,
     selectedExam,
@@ -52,6 +53,37 @@ export const HomeScreen: React.FC = () => {
           subjectsCount={8}
           onClick={() => setActiveView('practice')}
         />
+
+        {/* ☕ Morning Tea Daily Pop-Out Card */}
+        <div
+          onClick={() => openMorningTea()}
+          className="rounded-[20px] bg-gradient-to-r from-[#003B32] via-[#004D40] to-[#0A261D] p-3.5 sm:p-4 text-white shadow-subtle border border-emerald-700/70 cursor-pointer hover:border-[#FFD600] transition active:scale-[0.99] flex items-center justify-between group relative overflow-hidden"
+        >
+          <div className="flex items-center space-x-3">
+            <div className="w-11 h-11 rounded-2xl bg-[#FFD600] text-[#003B32] flex items-center justify-center text-xl font-black shrink-0 shadow-md group-hover:scale-105 transition">
+              ☕
+            </div>
+            <div className="text-left">
+              <div className="flex items-center space-x-1.5">
+                <span className="text-[10px] font-black uppercase tracking-wider bg-[#FFD600] text-[#002820] px-2 py-0.5 rounded-full">
+                  Morning Pop-Out
+                </span>
+                <span className="text-[11px] font-bold text-emerald-200">
+                  🔥 30 Phrasal Verbs
+                </span>
+              </div>
+              <h3 className="text-sm font-black text-white tracking-tight mt-1 leading-snug">
+                30 Common Phrasal Verbs Every UTME Student Should Know
+              </h3>
+              <p className="text-[11px] text-emerald-100/80 font-medium">
+                Daily high-yield exam drop • Audio reader & practice drill
+              </p>
+            </div>
+          </div>
+          <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#FFD600] group-hover:text-[#002820] text-white flex items-center justify-center text-sm font-bold shrink-0 transition ml-2">
+            ›
+          </div>
+        </div>
 
         {/* 2x2 Feature Grid */}
         <div className="grid grid-cols-2 gap-3">

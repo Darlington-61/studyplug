@@ -18,7 +18,7 @@ export const StudyPlugHeader: React.FC<StudyPlugHeaderProps> = ({
   showBrand = false,
   rightAction,
 }) => {
-  const { setActiveView, openAiTutor, openMenuDrawer, isDarkMode, toggleDarkMode } = useApp();
+  const { setActiveView, openAiTutor, openMorningTea, openUpgradeModal, isPremium, openMenuDrawer, isDarkMode, toggleDarkMode } = useApp();
 
   return (
     <header className="w-full bg-[#004D40] text-white px-4 sm:px-6 pt-3 pb-5 transition-colors">
@@ -90,6 +90,28 @@ export const StudyPlugHeader: React.FC<StudyPlugHeaderProps> = ({
               rightAction
             ) : (
               <>
+                <button
+                  type="button"
+                  onClick={() => openUpgradeModal()}
+                  className={`h-8 px-2.5 rounded-full flex items-center space-x-1 transition cursor-pointer shadow-xs active:scale-95 text-xs font-black ${
+                    isPremium
+                      ? 'bg-amber-400 text-[#002820] border border-amber-300'
+                      : 'bg-emerald-600/80 hover:bg-emerald-500 text-white border border-emerald-400/50'
+                  }`}
+                  title={isPremium ? 'Active Premium Scholar' : 'Upgrade to Premium'}
+                >
+                  <span>{isPremium ? '👑' : '⚡'}</span>
+                  <span className="hidden sm:inline text-[11px] font-bold">{isPremium ? 'Premium' : 'Upgrade'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => openMorningTea()}
+                  className="h-8 px-2.5 rounded-full bg-[#003B32] hover:bg-[#002B24] border border-[#FFD600]/40 flex items-center space-x-1 text-[#FFD600] transition cursor-pointer shadow-xs active:scale-95"
+                  title="Daily Morning Tea • High-Yield UTME Drop"
+                >
+                  <span className="text-xs">☕</span>
+                  <span className="hidden sm:inline text-[11px] font-black text-[#FFD600]">Morning Tea</span>
+                </button>
                 <button
                   type="button"
                   onClick={toggleDarkMode}

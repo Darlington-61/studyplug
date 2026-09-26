@@ -10,3 +10,5 @@ scratch/
 *.crt
 StudyPlug.apk
 StudyPlug.ipa
+expo-app/node_modules/
+expo-app/.expo/

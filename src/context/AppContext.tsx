@@ -105,6 +105,17 @@ interface AppContextType {
   openCalculator: () => void;
   closeCalculator: () => void;
 
+  // Morning Tea Daily Pop-Out
+  isMorningTeaOpen: boolean;
+  openMorningTea: () => void;
+  closeMorningTea: () => void;
+
+  // Upgrade & Premium State (Verified via Selar Webhook)
+  isUpgradeModalOpen: boolean;
+  openUpgradeModal: () => void;
+  closeUpgradeModal: () => void;
+  isPremium: boolean;
+
   // Dark Mode Theme
   isDarkMode: boolean;
   toggleDarkMode: () => void;
@@ -240,6 +251,40 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isCalculatorOpen, setIsCalculatorOpen] = useState<boolean>(false);
   const openCalculator = () => setIsCalculatorOpen(true);
   const closeCalculator = () => setIsCalculatorOpen(false);
+
+  // Morning Tea Daily Pop-Out State
+  const [isMorningTeaOpen, setIsMorningTeaOpen] = useState<boolean>(false);
+  const openMorningTea = () => setIsMorningTeaOpen(true);
+  const closeMorningTea = () => setIsMorningTeaOpen(false);
+
+  // Auto Pop-Out Check: Pop out morning tea once every day
+  useEffect(() => {
+    try {
+      const today = new Date().toISOString().split('T')[0];
+      const seenDate = localStorage.getItem('studyplug_morning_tea_seen_date');
+      if (seenDate !== today) {
+        const timer = setTimeout(() => {
+          setIsMorningTeaOpen(true);
+        }, 1200);
+        return () => clearTimeout(timer);
+      }
+    } catch (e) {
+      console.warn('Morning tea pop-out check error:', e);
+    }
+  }, []);
+
+  // Upgrade & Premium State
+  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState<boolean>(false);
+  const openUpgradeModal = () => setIsUpgradeModalOpen(true);
+  const closeUpgradeModal = () => setIsUpgradeModalOpen(false);
+
+  const [isPremium, setIsPremium] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('studyplug_is_premium') === 'true';
+    } catch {
+      return false;
+    }
+  });
 
   // Dark Mode State
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
@@ -567,6 +612,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         isCalculatorOpen,
         openCalculator,
         closeCalculator,
+        isMorningTeaOpen,
+        openMorningTea,
+        closeMorningTea,
+        isUpgradeModalOpen,
+        openUpgradeModal,
+        closeUpgradeModal,
+        isPremium,
         isDarkMode,
         toggleDarkMode
       }}

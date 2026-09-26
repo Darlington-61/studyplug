@@ -24,6 +24,8 @@ import { PlugAiModal } from './components/PlugAiModal';
 import { MenuDrawer } from './components/common/MenuDrawer';
 import { LeaderboardModal } from './components/common/LeaderboardModal';
 import { CbtCalculatorModal } from './components/common/CbtCalculatorModal';
+import { MorningTeaModal } from './components/common/MorningTeaModal';
+import { UpgradeModal } from './components/common/UpgradeModal';
 
 const MainAppContent: React.FC = () => {
   const {
@@ -38,6 +40,10 @@ const MainAppContent: React.FC = () => {
     isCalculatorOpen,
     openCalculator,
     closeCalculator,
+    isMorningTeaOpen,
+    closeMorningTea,
+    isUpgradeModalOpen,
+    closeUpgradeModal,
     isDarkMode
   } = useApp();
   const [isCPanelModalOpen, setIsCPanelModalOpen] = useState<boolean>(false);
@@ -92,6 +98,14 @@ const MainAppContent: React.FC = () => {
         <CbtCalculatorModal
           isOpen={isCalculatorOpen}
           onClose={closeCalculator}
+        />
+        <MorningTeaModal
+          isOpen={isMorningTeaOpen}
+          onClose={closeMorningTea}
+        />
+        <UpgradeModal
+          isOpen={isUpgradeModalOpen}
+          onClose={closeUpgradeModal}
         />
 
         {/* Global Quick Back Bar for results and bookmarks only */}
@@ -191,6 +205,14 @@ const MainAppContent: React.FC = () => {
       <CbtCalculatorModal
         isOpen={isCalculatorOpen}
         onClose={closeCalculator}
+      />
+      <MorningTeaModal
+        isOpen={isMorningTeaOpen}
+        onClose={closeMorningTea}
+      />
+      <UpgradeModal
+        isOpen={isUpgradeModalOpen}
+        onClose={closeUpgradeModal}
       />
 
       {/* Main Content Area */}

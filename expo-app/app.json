@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "StudyPlug",
+    "slug": "studyplug",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#004D40"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.studyplug.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#004D40"
+      },
+      "package": "com.studyplug.app"
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    }
+  }
+}

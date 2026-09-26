@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "npx tailwindcss -i ./src/index.css -o ./style.css --minify && npx esbuild src/main.tsx --bundle --outfile=standalone.js --format=iife --minify && node build-standalone.cjs && tsc && vite build",
     "bundle": "npx tailwindcss -i ./src/index.css -o ./style.css --minify && npx esbuild src/main.tsx --bundle --outfile=standalone.js --format=iife --minify && node build-standalone.cjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "expo:start": "npm --prefix expo-app start",
+    "expo:tunnel": "npm --prefix expo-app run start -- --tunnel"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.2",

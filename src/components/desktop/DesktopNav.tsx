@@ -1,5 +1,6 @@
 import React from 'react';
 import { StudyPlugLogo } from '../Icons';
+import { useApp } from '../../context/AppContext';
 
 interface DesktopNavProps {
   currentTab: 'dashboard' | 'subjects' | 'test' | 'practice' | 'bookmarks' | 'results' | 'notes';
@@ -20,6 +21,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
   onOpenAdminPortal,
   onOpenAdvertStudio
 }) => {
+  const { openMorningTea } = useApp();
   const [isAdminOpen, setIsAdminOpen] = React.useState(false);
 
   return (
@@ -110,6 +112,15 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
             >
               <span>★</span>
               <span>Bookmarks</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => openMorningTea()}
+              className="px-3.5 py-1.5 rounded-xl text-xs font-black transition duration-150 flex items-center space-x-1.5 cursor-pointer bg-gradient-to-r from-amber-400 to-yellow-300 text-[#061710] shadow-sm hover:scale-105 active:scale-95"
+              title="Daily Morning Tea • 30 Common Phrasal Verbs"
+            >
+              <span>☕</span>
+              <span>Morning Tea</span>
             </button>
           </nav>
         </div>
