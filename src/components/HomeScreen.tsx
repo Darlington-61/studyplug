@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import { StudyPlugHeader, ProgressCard, BottomNavigation } from './design-system';
-import { JambLogo, WaecLogo, NecoLogo, BeceLogo } from './common/ExamLogos';
+import { JambLogo, WaecLogo, NecoLogo, NabtebLogo, BeceLogo } from './common/ExamLogos';
 import {
   CARD_IMAGE_STUDY_NOTES,
   CARD_IMAGE_PRACTICE,
@@ -202,11 +202,12 @@ export const HomeScreen: React.FC = () => {
             <span className="text-[11px] text-[#66736F] font-medium">Select an exam</span>
           </div>
 
-          <div className="grid grid-cols-4 gap-2.5 text-center">
+          <div className="grid grid-cols-5 gap-2 text-center">
             {[
               { id: 'JAMB', name: 'JAMB', Logo: JambLogo, bg: 'bg-emerald-50/70 border-emerald-200/60' },
               { id: 'WAEC', name: 'WAEC', Logo: WaecLogo, bg: 'bg-blue-50/70 border-blue-200/60' },
               { id: 'NECO', name: 'NECO', Logo: NecoLogo, bg: 'bg-teal-50/70 border-teal-200/60' },
+              { id: 'NABTEB', name: 'NABTEB', Logo: NabtebLogo, bg: 'bg-amber-50/70 border-amber-200/60' },
               { id: 'BECE', name: 'BECE', Logo: BeceLogo, bg: 'bg-cyan-50/70 border-cyan-200/60' }
             ].map(exam => {
               const LogoComp = exam.Logo;
@@ -217,10 +218,10 @@ export const HomeScreen: React.FC = () => {
                   onClick={() => handleQuickExam(exam.id)}
                   className="flex flex-col items-center cursor-pointer group active:scale-95 transition"
                 >
-                  <div className={`w-13 h-13 p-1.5 rounded-2xl ${exam.bg} border flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:shadow-md transition-all duration-200`}>
-                    <LogoComp className="w-10 h-10 object-contain drop-shadow-xs" />
+                  <div className={`w-12 h-12 sm:w-13 sm:h-13 p-1.5 rounded-2xl ${exam.bg} border flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:shadow-md transition-all duration-200`}>
+                    <LogoComp className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-xs" />
                   </div>
-                  <span className="text-[11px] font-bold text-[#10201D] mt-1.5 group-hover:text-[#004D40] tracking-tight">
+                  <span className="text-[10.5px] sm:text-[11px] font-bold text-[#10201D] mt-1.5 group-hover:text-[#004D40] tracking-tight truncate max-w-full">
                     {exam.name}
                   </span>
                 </button>

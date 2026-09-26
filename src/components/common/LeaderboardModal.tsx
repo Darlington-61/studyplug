@@ -22,7 +22,7 @@ interface LeaderboardEntry {
 export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onClose }) => {
   const { studyStreak, overallAccuracy, testsTaken } = useApp();
   const [filterPeriod, setFilterPeriod] = useState<'today' | 'week' | 'allTime'>('week');
-  const [filterExam, setFilterExam] = useState<'ALL' | 'JAMB' | 'WAEC' | 'NECO'>('ALL');
+  const [filterExam, setFilterExam] = useState<'ALL' | 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB'>('ALL');
 
   if (!isOpen) return null;
 
@@ -171,7 +171,7 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
 
           {/* Exam Filter Pills */}
           <div className="flex items-center space-x-1.5 overflow-x-auto no-scrollbar">
-            {(['ALL', 'JAMB', 'WAEC', 'NECO'] as const).map((ex) => (
+            {(['ALL', 'JAMB', 'WAEC', 'NECO', 'NABTEB'] as const).map((ex) => (
               <button
                 key={ex}
                 type="button"

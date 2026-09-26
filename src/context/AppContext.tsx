@@ -44,9 +44,9 @@ interface AppContextType {
   bookmarks: number[];
   testHistory: TestResult[];
 
-  // Target Examination ('JAMB' | 'WAEC' | 'NECO' | 'BECE')
-  selectedExam: 'JAMB' | 'WAEC' | 'NECO' | 'BECE';
-  setSelectedExam: (exam: 'JAMB' | 'WAEC' | 'NECO' | 'BECE') => void;
+  // Target Examination ('JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE')
+  selectedExam: 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE';
+  setSelectedExam: (exam: 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE') => void;
 
   // Subject & Year Selection
   selectedSubject: string;
@@ -194,13 +194,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     );
   };
 
-  // Target Examination State ('JAMB' | 'WAEC' | 'NECO' | 'BECE')
-  const [selectedExam, setSelectedExamState] = useState<'JAMB' | 'WAEC' | 'NECO' | 'BECE'>(() => {
+  // Target Examination State ('JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE')
+  const [selectedExam, setSelectedExamState] = useState<'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE'>(() => {
     const saved = localStorage.getItem('sp_selected_exam');
     return (saved as any) || 'JAMB';
   });
 
-  const setSelectedExam = useCallback((exam: 'JAMB' | 'WAEC' | 'NECO' | 'BECE') => {
+  const setSelectedExam = useCallback((exam: 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE') => {
     setSelectedExamState(exam);
     localStorage.setItem('sp_selected_exam', exam);
   }, []);

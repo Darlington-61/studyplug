@@ -33,6 +33,14 @@ const EXAM_OPTIONS = [
     tag: 'bg-amber-800 text-white'
   },
   {
+    id: 'NABTEB',
+    name: 'NABTEB (NBC / NTC)',
+    badge: '⚙️ National Business & Technical Board',
+    desc: 'Vocational, technical craftsmanship, and business accounting standards for polytechnics and trade mastery.',
+    color: 'border-orange-500 bg-orange-50/70 text-orange-950',
+    tag: 'bg-orange-800 text-white'
+  },
+  {
     id: 'General',
     name: 'General Understanding',
     badge: '💡 Concept Mastery',

@@ -17,6 +17,7 @@ import {
   SUBJECT_TOPICS_CATALOG
 } from './subjectQuestions';
 import { MOTION_MASTER_SECTIONS } from './motionMasterLesson';
+import { NABTEB_QUESTIONS } from './nabtebQuestions';
 
 export {
   MATHEMATICS_QUESTIONS,
@@ -33,6 +34,7 @@ export {
   GEOGRAPHY_QUESTIONS,
   AGRICULTURE_QUESTIONS,
   CIVIC_QUESTIONS,
+  NABTEB_QUESTIONS,
   SUBJECT_TOPICS_CATALOG
 };
 
@@ -157,6 +159,7 @@ export const ALL_QUESTIONS: Question[] = [
   ...GEOGRAPHY_QUESTIONS,
   ...AGRICULTURE_QUESTIONS,
   ...CIVIC_QUESTIONS,
+  ...NABTEB_QUESTIONS,
 ];
 
 export function normalizeSubjectName(subName: string): string {
@@ -167,6 +170,7 @@ export function normalizeSubjectName(subName: string): string {
   if (
     trimmed.startsWith('WAEC') ||
     trimmed.startsWith('NECO') ||
+    trimmed.startsWith('NABTEB') ||
     trimmed.startsWith('BECE') ||
     trimmed.startsWith('Post-UTME') ||
     trimmed.startsWith('UNILAG') ||
@@ -200,28 +204,29 @@ export function normalizeSubjectName(subName: string): string {
 
 export function getBaseQuestionsForSubject(subjectName: string): Question[] {
   const norm = normalizeSubjectName(subjectName).toLowerCase();
-  if (norm.includes('math')) return MATHEMATICS_QUESTIONS;
+  const nabtebSub = NABTEB_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes(norm));
+  if (norm.includes('math')) return [...MATHEMATICS_QUESTIONS, ...nabtebSub];
   if (norm.includes('phy') && !norm.includes('healt')) {
-    return [...SCREEN_6_PHYSICS_QUESTIONS, ...MOTION_MASTER_QUESTIONS, ...PHYSICS_QUESTIONS];
+    return [...SCREEN_6_PHYSICS_QUESTIONS, ...MOTION_MASTER_QUESTIONS, ...PHYSICS_QUESTIONS, ...nabtebSub];
   }
-  if (norm.includes('eng')) return ENGLISH_QUESTIONS;
-  if (norm.includes('chem')) return CHEMISTRY_QUESTIONS;
-  if (norm.includes('bio')) return BIOLOGY_QUESTIONS;
-  if (norm.includes('econ')) return ECONOMICS_QUESTIONS;
-  if (norm.includes('gov')) return GOVERNMENT_QUESTIONS;
-  if (norm.includes('comm')) return COMMERCE_QUESTIONS;
-  if (norm.includes('lit')) return LITERATURE_QUESTIONS;
-  if (norm.includes('crs') || norm.includes('christ')) return CRS_QUESTIONS;
-  if (norm.includes('account')) return ACCOUNTING_QUESTIONS;
-  if (norm.includes('geog')) return GEOGRAPHY_QUESTIONS;
-  if (norm.includes('agric')) return AGRICULTURE_QUESTIONS;
-  if (norm.includes('civic')) return CIVIC_QUESTIONS;
+  if (norm.includes('eng')) return [...ENGLISH_QUESTIONS, ...nabtebSub];
+  if (norm.includes('chem')) return [...CHEMISTRY_QUESTIONS, ...nabtebSub];
+  if (norm.includes('bio')) return [...BIOLOGY_QUESTIONS, ...nabtebSub];
+  if (norm.includes('econ')) return [...ECONOMICS_QUESTIONS, ...nabtebSub];
+  if (norm.includes('gov')) return [...GOVERNMENT_QUESTIONS, ...nabtebSub];
+  if (norm.includes('comm')) return [...COMMERCE_QUESTIONS, ...nabtebSub];
+  if (norm.includes('lit')) return [...LITERATURE_QUESTIONS, ...nabtebSub];
+  if (norm.includes('crs') || norm.includes('christ')) return [...CRS_QUESTIONS, ...nabtebSub];
+  if (norm.includes('account')) return [...ACCOUNTING_QUESTIONS, ...nabtebSub];
+  if (norm.includes('geog')) return [...GEOGRAPHY_QUESTIONS, ...nabtebSub];
+  if (norm.includes('agric')) return [...AGRICULTURE_QUESTIONS, ...nabtebSub];
+  if (norm.includes('civic')) return [...CIVIC_QUESTIONS, ...nabtebSub];
 
   return ALL_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes(norm));
 }
 
 export interface PracticeFilterOptions {
-  exam?: 'JAMB' | 'WAEC' | 'WAEC GCE' | 'NECO' | 'NECO GCE' | 'POST UTME' | 'BECE' | 'ALL';
+  exam?: 'JAMB' | 'WAEC' | 'WAEC GCE' | 'NECO' | 'NECO GCE' | 'NABTEB' | 'POST UTME' | 'BECE' | 'ALL';
   subject?: string;
   subjects?: string[];
   year?: number | 'all';
@@ -254,6 +259,20 @@ export function getFilteredQuestions(options: PracticeFilterOptions): Question[]
 
   const requestedSubject = options.subject || 'Mathematics';
   let list = getBaseQuestionsForSubject(requestedSubject);
+
+  // 0. Filter / Prioritize by Exam if specified
+  if (options.exam && options.exam !== 'ALL') {
+    const ex = options.exam.toUpperCase();
+    const examMatches = list.filter(q => 
+      (q.exam && q.exam.toUpperCase().includes(ex)) || 
+      (q.repeatBadge && q.repeatBadge.toUpperCase().includes(ex))
+    );
+    if (examMatches.length > 0) {
+      const nonMatches = list.filter(q => !examMatches.includes(q));
+      list = [...examMatches, ...nonMatches];
+    }
+  }
+
   const subjectOnlyList = [...list];
 
   // 1. Filter by Year if specified

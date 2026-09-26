@@ -15,6 +15,8 @@ export interface MasterSyllabusDatabase {
   JAMB: ExamSyllabusMap;
   WAEC: ExamSyllabusMap;
   NECO: ExamSyllabusMap;
+  NABTEB?: ExamSyllabusMap;
+  [exam: string]: ExamSyllabusMap | undefined;
 }
 
 export const SYLLABUS_DATABASE: MasterSyllabusDatabase = {
@@ -5445,11 +5447,66 @@ export const SYLLABUS_DATABASE: MasterSyllabusDatabase = {
         "title": "International Organizations"
       }
     ]
+  },
+  "NABTEB": {
+    "Mathematics": [
+      { "topic_number": 1, "section": "Core Units", "title": "Number Bases & Denary Scale" },
+      { "topic_number": 2, "section": "Core Units", "title": "Commercial Arithmetic, Simple & Compound Interest" },
+      { "topic_number": 3, "section": "Core Units", "title": "Algebra, Linear & Quadratic Equations" },
+      { "topic_number": 4, "section": "Core Units", "title": "Indices, Logarithms & Standard Form" },
+      { "topic_number": 5, "section": "Core Units", "title": "Mensuration of Plane & Solid Shapes" },
+      { "topic_number": 6, "section": "Core Units", "title": "Trigonometry & Elevation/Depression" },
+      { "topic_number": 7, "section": "Core Units", "title": "Statistics & Probability" }
+    ],
+    "Use of English": [
+      { "topic_number": 1, "section": "Grammar", "title": "Lexis, Structure & Prepositions" },
+      { "topic_number": 2, "section": "Vocabulary", "title": "Antonyms & Synonyms" },
+      { "topic_number": 3, "section": "Grammar", "title": "Question Tags & Concord Rules" },
+      { "topic_number": 4, "section": "Comprehension", "title": "Comprehension & Summary" }
+    ],
+    "Economics": [
+      { "topic_number": 1, "section": "Core Units", "title": "Scarcity, Choice & Opportunity Cost" },
+      { "topic_number": 2, "section": "Core Units", "title": "Theory of Demand, Supply & Elasticity" },
+      { "topic_number": 3, "section": "Core Units", "title": "Business Organizations & Companies" },
+      { "topic_number": 4, "section": "Core Units", "title": "Money, Central Banking & Commercial Banks" }
+    ],
+    "Accounting": [
+      { "topic_number": 1, "section": "Bookkeeping", "title": "Double Entry & Books of Prime Entry" },
+      { "topic_number": 2, "section": "Bookkeeping", "title": "Petty Cash & Imprest System" },
+      { "topic_number": 3, "section": "Accounts", "title": "Trial Balance & Error Correction" },
+      { "topic_number": 4, "section": "Accounts", "title": "Bank Reconciliation Statements" }
+    ],
+    "Physics": [
+      { "topic_number": 1, "section": "Technical Physics", "title": "Units, Calipers & Measurement" },
+      { "topic_number": 2, "section": "Technical Physics", "title": "Simple Machines, Pulley Systems & Efficiency" },
+      { "topic_number": 3, "section": "Technical Physics", "title": "Current Electricity & Resistor Networks" },
+      { "topic_number": 4, "section": "Technical Physics", "title": "Heat Energy & Specific Heat Capacity" },
+      { "topic_number": 5, "section": "Technical Drawing", "title": "Orthographic & Isometric Projections" }
+    ],
+    "Chemistry": [
+      { "topic_number": 1, "section": "Technical Chemistry", "title": "Atomic Structure & Periodic Table" },
+      { "topic_number": 2, "section": "Technical Chemistry", "title": "Acids, Bases, Salts & Neutralization" },
+      { "topic_number": 3, "section": "Technical Chemistry", "title": "Metals, Corrosion & Galvanization" }
+    ],
+    "Biology": [
+      { "topic_number": 1, "section": "General Biology", "title": "Cell Organization & Mitochondria" },
+      { "topic_number": 2, "section": "General Biology", "title": "Plant Nutrition & Photosynthesis" },
+      { "topic_number": 3, "section": "General Biology", "title": "Genetics & Mendelian Inheritance" }
+    ],
+    "Commerce": [
+      { "topic_number": 1, "section": "Home Trade", "title": "Commercial Trade Documents" },
+      { "topic_number": 2, "section": "Commercial Services", "title": "Insurance & Principle of Indemnity" }
+    ],
+    "Civic Education": [
+      { "topic_number": 1, "section": "Governance", "title": "Separation of Powers & Constitution" },
+      { "topic_number": 2, "section": "Citizenship", "title": "Civic Rights, Duties & Taxation" }
+    ]
   }
 };
 
-export function getTopicsForExamSubject(exam: 'JAMB' | 'WAEC' | 'NECO', subject: string): SyllabusTopicItem[] {
-  const examMap = SYLLABUS_DATABASE[exam];
+export function getTopicsForExamSubject(exam: 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | string, subject: string): SyllabusTopicItem[] {
+  const examKey = (exam || 'JAMB').toUpperCase();
+  const examMap = SYLLABUS_DATABASE[examKey as keyof MasterSyllabusDatabase] || SYLLABUS_DATABASE['JAMB'];
   if (!examMap) return [];
   
   // Direct match or partial search

@@ -9,7 +9,7 @@ export const NotesDashboard: React.FC = () => {
   const { setActiveView, startTestForSubject } = useApp();
   const [notes] = useState<LessonNote[]>(MASTER_LESSON_NOTES);
   const [selectedSubject, setSelectedSubject] = useState<string>('Mathematics');
-  const [selectedExam, setSelectedExam] = useState<'JAMB' | 'WAEC' | 'NECO'>('JAMB');
+  const [selectedExam, setSelectedExam] = useState<'JAMB' | 'WAEC' | 'NECO' | 'NABTEB'>('JAMB');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedTopicNote, setSelectedTopicNote] = useState<LessonNote | null>(null);
   const [readerTab, setReaderTab] = useState<'master' | 'formulas' | 'traps' | 'worked_questions'>('master');
@@ -468,7 +468,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
 
         {/* Exam Body Switcher */}
         <div className="flex items-center space-x-2 bg-[#061710] p-1.5 rounded-2xl border border-[#C4823F]/40 shrink-0">
-          {(['JAMB', 'WAEC', 'NECO'] as const).map(exam => (
+          {(['JAMB', 'WAEC', 'NECO', 'NABTEB'] as const).map(exam => (
             <button
               key={exam}
               type="button"
