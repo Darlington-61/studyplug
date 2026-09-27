@@ -34,15 +34,39 @@ export const VOICEBOX_PROFILES: VoiceboxProfile[] = [
   },
   {
     id: 'vb-chukwu',
-    name: 'Prof. Chukwu (Comprehensive Science Scholar)',
+    name: 'Prof. Chukwu (Humanities & Social Sciences Scholar)',
     gender: 'male',
-    description: 'Deep, deliberate, textbook-grade diction. Best for full crash courses and theorem derivations.',
+    description: 'Deep, deliberate, textbook-grade diction. Best for Government, Civic, CRS, and History lectures.',
     accent: 'nigerian_academic',
     stability: 0.90,
     clarity: 0.96,
     pace: 0.95
+  },
+  {
+    id: 'vb-bello',
+    name: 'Dr. Bello (Economics & Commercial Examiner)',
+    gender: 'male',
+    description: 'Analytical, practical examiner diction. Tailored for Economics, Commerce, and Financial Accounting.',
+    accent: 'nigerian_academic',
+    stability: 0.86,
+    clarity: 0.93,
+    pace: 1.02
   }
 ];
+
+export function getRecommendedVoiceProfile(subject: string): VoiceboxProfile {
+  const s = (subject || '').toLowerCase();
+  if (s.includes('eng') || s.includes('lit') || s.includes('bio')) {
+    return VOICEBOX_PROFILES[1]; // Mrs. Funke
+  }
+  if (s.includes('econ') || s.includes('comm') || s.includes('acc')) {
+    return VOICEBOX_PROFILES[4]; // Dr. Bello
+  }
+  if (s.includes('gov') || s.includes('civic') || s.includes('crs') || s.includes('irs') || s.includes('hist')) {
+    return VOICEBOX_PROFILES[3]; // Prof. Chukwu
+  }
+  return VOICEBOX_PROFILES[0]; // Dr. Adebayo (Science / Math)
+}
 
 export async function generateSceneVoiceboxAudio(
   sceneId: string,

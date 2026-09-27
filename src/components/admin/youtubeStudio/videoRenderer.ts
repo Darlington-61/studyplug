@@ -218,6 +218,18 @@ export class StudyPlugVideoRenderer {
       bgGrad.addColorStop(0, '#064E3B');
       bgGrad.addColorStop(0.5, '#022C22');
       bgGrad.addColorStop(1, '#011711');
+    } else if (scene.subjectTheme === 'literature' || scene.subjectTheme === 'english') {
+      bgGrad.addColorStop(0, '#31101E');
+      bgGrad.addColorStop(0.5, '#1E1325');
+      bgGrad.addColorStop(1, '#0A0512');
+    } else if (scene.subjectTheme === 'commercial') {
+      bgGrad.addColorStop(0, '#2D1B00');
+      bgGrad.addColorStop(0.5, '#1A180E');
+      bgGrad.addColorStop(1, '#0B0D0B');
+    } else if (scene.subjectTheme === 'government' || scene.subjectTheme === 'crs') {
+      bgGrad.addColorStop(0, '#1E1B4B');
+      bgGrad.addColorStop(0.5, '#172554');
+      bgGrad.addColorStop(1, '#0F172A');
     } else {
       // Physics & General
       bgGrad.addColorStop(0, '#004D40');

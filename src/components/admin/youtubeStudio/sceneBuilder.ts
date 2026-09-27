@@ -8,14 +8,16 @@ import {
   VideoPlanSummary,
   TitleOption,
   VideoType,
-  VideoAspectRatio
+  VideoAspectRatio,
+  TopicScale,
+  SubjectModality
 } from './types';
 
 /**
  * Maps subject name to subject theme for visual rendering
  */
 function getSubjectTheme(subject: string): VideoScene['subjectTheme'] {
-  const s = subject.toLowerCase();
+  const s = (subject || '').toLowerCase();
   if (s.includes('phys')) return 'physics';
   if (s.includes('math')) return 'mathematics';
   if (s.includes('chem')) return 'chemistry';
@@ -23,6 +25,9 @@ function getSubjectTheme(subject: string): VideoScene['subjectTheme'] {
   if (s.includes('lit')) return 'literature';
   if (s.includes('eng')) return 'english';
   if (s.includes('comm') || s.includes('acc') || s.includes('econ')) return 'commercial';
+  if (s.includes('gov') || s.includes('civic')) return 'government';
+  if (s.includes('geo')) return 'geography';
+  if (s.includes('crs') || s.includes('irs') || s.includes('irk')) return 'crs';
   return 'general';
 }
 
@@ -53,10 +58,24 @@ export function buildVideoScenes(
       visualType = 'chalkboard';
     } else if (sec.type === 'top_concept') {
       sceneType = 'concept';
-      visualType = 'split';
+      if (sec.modality === 'text_extract_based') {
+        visualType = 'text_extract';
+      } else if (sec.modality === 'process_based') {
+        visualType = 'process_flow';
+      } else {
+        visualType = 'split';
+      }
     } else if (sec.type === 'worked_example') {
       sceneType = 'example';
-      visualType = 'equation_reveal';
+      if (sec.modality === 'text_extract_based') {
+        visualType = 'text_extract';
+      } else if (sec.modality === 'process_based') {
+        visualType = 'process_flow';
+      } else if (theme === 'commercial') {
+        visualType = 'ledger_sheet';
+      } else {
+        visualType = 'equation_reveal';
+      }
     } else if (sec.type === 'section_header') {
       sceneType = 'section_header';
       visualType = 'section_banner';
@@ -117,7 +136,8 @@ export function buildVideoScenes(
       progressPercent,
       paperType: sec.paperType,
       sourceLabel: sec.sourceLabel,
-      practicalDetails: sec.practicalDetails
+      practicalDetails: sec.practicalDetails,
+      modality: sec.modality
     };
   });
 }
@@ -134,17 +154,54 @@ export function generateYouTubeSeo(options: {
   videoType: VideoType;
   questionCount?: number;
   paperTypes?: ('OBJ' | 'Theory' | 'Practical')[];
+  jambDayNumber?: number;
+  partTitle?: string;
+  targetDurationMinutes?: number;
 }): YouTubeSeoData {
-  const { exam, subject, topic, subtopic, scenes, videoType, questionCount = 5, paperTypes = ['OBJ'] } = options;
+  const {
+    exam,
+    subject,
+    topic,
+    subtopic,
+    scenes,
+    videoType,
+    questionCount = 5,
+    paperTypes = ['OBJ'],
+    jambDayNumber,
+    partTitle,
+    targetDurationMinutes = 15
+  } = options;
 
   const isMultiPaper = paperTypes.length > 1;
+  const is100Days = videoType === '100_days_jamb';
   const hasTheory = paperTypes.includes('Theory');
   const hasPractical = paperTypes.includes('Practical');
-  const hasObj = paperTypes.includes('OBJ');
 
   let titleOptions: TitleOption[] = [];
 
-  if (isMultiPaper) {
+  if (is100Days) {
+    const dayTag = jambDayNumber ? `Day ${jambDayNumber}` : 'Day 1';
+    const partTag = partTitle ? `[${partTitle}] ` : '';
+
+    titleOptions = [
+      {
+        id: 'opt-1',
+        title: `100 Days to JAMB — ${dayTag}: ${subject} — ${topic} ${partTag}Explained + Past Questions | StudyPlug`,
+        style: 'Official 100 Days Series',
+        isRecommended: true
+      },
+      {
+        id: 'opt-2',
+        title: `JAMB ${subject} Made Easy: ${topic} Complete Masterclass | 100 Days to JAMB ${dayTag}`,
+        style: 'High Click-Through & Student-Friendly'
+      },
+      {
+        id: 'opt-3',
+        title: `Master ${topic} for JAMB ${subject}: Syllabus Concepts, Demonstrations & Speed Drills`,
+        style: 'Comprehensive Academic Standard'
+      }
+    ];
+  } else if (isMultiPaper) {
     const papersTag = paperTypes.join(' + ');
     titleOptions = [
       {
@@ -217,7 +274,7 @@ export function generateYouTubeSeo(options: {
       },
       {
         id: 'opt-3',
-        title: `Master ${topic} for ${exam} ${subject}: Concepts, Formulas & Exam Traps`,
+        title: `Master ${topic} for ${exam} ${subject}: Concepts, Demonstrations & Exam Traps`,
         style: 'Academic & Examination Focused'
       }
     ];
@@ -234,7 +291,6 @@ export function generateYouTubeSeo(options: {
     const secs = currentSecond % 60;
     const timestamp = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 
-    // Clean chapter title
     let cleanTitle = scene.title
       .replace(/^\d{2}:\d{2}\s*/, '')
       .replace(/Question \d+/, 'Past Question');
@@ -250,16 +306,43 @@ export function generateYouTubeSeo(options: {
 
   // 3. YouTube Description
   const chaptersText = chapters.map(c => `${c.timestamp} ${c.title}`).join('\n');
-  const description = `Master ${topic} (${subtopic || topic}) for your upcoming ${exam} examination with official StudyPlug syllabus notes, progressive formula derivations, and verified past questions.
+  const durationLabel = targetDurationMinutes ? `${targetDurationMinutes}-Minute Masterclass` : 'Complete Masterclass';
+
+  const description = is100Days
+    ? `Welcome to 100 Days to JAMB with StudyPlug! In this comprehensive ${durationLabel}, we cover ${topic} (${subtopic || topic}) topic-by-topic under the official JAMB syllabus.
 
 📚 CHAPTER TIMESTAMPS:
 ${chaptersText}
 
-🎯 IN THIS 12-MINUTE MASTERCLASS:
+🎯 IN THIS MASTERCLASS:
+• Complete syllabus coverage of core definitions and mechanisms
+• Worked demonstration with exam-standard methodology
+• ${questionCount} verified JAMB past questions with active CBT thinking timers
+• Top examiner traps and time-saving shortcuts
+
+🚀 PRACTICE CBT DRILLS:
+Practice 50,000+ verified JAMB past questions with instant grading, timing, and AI tutor explanations:
+👉 https://studyplug.com.ng
+
+📲 DOWNLOAD STUDYPLUG APP:
+• Android APK: https://studyplug.com.ng/StudyPlug.apk
+• iOS App Store: https://apps.apple.com/app/studyplug
+
+🔔 SUBSCRIBE & HIT THE BELL ICON:
+Subscribe for daily 100 Days to JAMB lessons across all subjects!
+"Learn it. Practice it. Master it."
+
+#100DaysToJAMB #JAMB #JAMB${subject.replace(/\s+/g, '')} #${subject.replace(/\s+/g, '')} #StudyPlug #UTME2026 #NigerianStudents`
+    : `Master ${topic} (${subtopic || topic}) for your upcoming ${exam} examination with official StudyPlug syllabus notes, progressive demonstrations, and verified past questions.
+
+📚 CHAPTER TIMESTAMPS:
+${chaptersText}
+
+🎯 IN THIS ${durationLabel.toUpperCase()}:
 • Core syllabus concepts and foundational laws
-• Step-by-step worked numerical calculations
-• ${questionCount} authentic ${exam} past questions solved with 5s thinking timers
-• 3 common examiner traps and time-saving shortcuts
+• Step-by-step worked demonstrations
+• ${questionCount} authentic ${exam} past questions solved with thinking timers
+• Common examiner traps and time-saving shortcuts
 
 🚀 PRACTICE CBT DRILLS:
 Take timed CBT mock exams and practice 50,000+ past questions with instant grading and AI tutoring at:
@@ -276,7 +359,15 @@ Subscribe to StudyPlug for daily JAMB, WAEC, NECO, and BECE tutorials!
 #${exam} #${exam}${subject.replace(/\s+/g, '')} #${subject.replace(/\s+/g, '')} #StudyPlug #CBT #NigerianStudents`;
 
   // 4. Pinned Comment
-  const pinnedComment = `📌 QUICK CHECK: What was your score on the past questions solved in this video? Drop your score below! 👇
+  const pinnedComment = is100Days
+    ? `📌 100 DAYS TO JAMB CHALLENGE: What was your score on the past questions solved in this video? Drop your score in the comments below! 👇
+
+Want to test your speed with 50+ more verified JAMB CBT questions on ${topic}?
+Practice free right now:
+👉 https://studyplug.com.ng
+
+Subscribe and hit the bell for Day ${((jambDayNumber || 1) + 1)} tomorrow! 🎓🔥`
+    : `📌 QUICK CHECK: What was your score on the past questions solved in this video? Drop your score below! 👇
 
 If you want to practice 50+ more verified ${exam} questions on ${topic} with instant CBT timer and AI Tutor explanations, practice free here:
 👉 https://studyplug.com.ng
@@ -286,27 +377,24 @@ Subscribe for tomorrow's masterclass! 🎓✨`;
   // 5. Tags & Hashtags
   const tags = [
     exam,
+    is100Days ? '100 Days to JAMB' : '',
     `${exam} ${subject}`,
     `${subject} ${topic}`,
     `${topic} explained`,
     `${exam} past questions`,
-    `WAEC ${subject}`,
-    `JAMB ${subject}`,
     'StudyPlug',
-    'Nigerian secondary school',
-    'SSCE preparation',
     'UTME practice',
-    'CBT exam drill'
-  ];
+    'CBT exam drill',
+    'Nigerian secondary school'
+  ].filter(Boolean);
 
   const hashtags = [
     `#${exam}`,
+    is100Days ? '#100DaysToJAMB' : '',
     `#${subject.replace(/\s+/g, '')}`,
     `#${topic.replace(/\s+/g, '')}`,
-    '#StudyPlug',
-    '#WAEC',
-    '#JAMB'
-  ];
+    '#StudyPlug'
+  ].filter(Boolean);
 
   return {
     title: primaryTitle,
@@ -320,14 +408,18 @@ Subscribe for tomorrow's masterclass! 🎓✨`;
 }
 
 /**
- * Calculates comprehensive 12-minute video plan summary
+ * Calculates dynamic video plan summary based on actual teaching requirements
  */
 export function calculateVideoPlan(
   scenes: VideoScene[],
   scriptSections: ScriptSection[],
   questionCount: number,
   conceptsCount: number,
-  voiceProfileName: string = 'Dr. Adebayo (Senior Physics Examiner)'
+  voiceProfileName: string = 'Dr. Adebayo (Senior Science Examiner)',
+  topicScale?: TopicScale,
+  suggestedPartsCount?: number,
+  selectedPartNumber?: number,
+  primaryModality?: SubjectModality
 ): VideoPlanSummary {
   const totalSeconds = scenes.reduce((sum, s) => sum + s.durationSeconds, 0);
   const durationMinutes = Math.floor(totalSeconds / 60);
@@ -340,7 +432,7 @@ export function calculateVideoPlan(
   }, 0);
 
   return {
-    targetDurationMinutes: 12,
+    targetDurationMinutes: durationMinutes,
     estimatedDurationSeconds: totalSeconds,
     formattedDuration,
     totalScenes: scenes.length,
@@ -348,7 +440,11 @@ export function calculateVideoPlan(
     topConceptsCount: conceptsCount,
     voiceoverWordCount: totalWords,
     voiceProvider: 'Voicebox AI (Cloned Voice)',
-    voiceProfile: voiceProfileName
+    voiceProfile: voiceProfileName,
+    topicScale,
+    suggestedPartsCount,
+    selectedPartNumber,
+    primaryModality
   };
 }
 

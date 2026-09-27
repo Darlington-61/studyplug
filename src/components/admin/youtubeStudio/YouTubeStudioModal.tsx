@@ -31,7 +31,22 @@ import { validateVideoContent } from './contentValidator';
 import { buildVideoScenes, generateYouTubeSeo, calculateCostEstimate, calculateVideoPlan } from './sceneBuilder';
 import { drawThumbnailToCanvas, exportThumbnailPng } from './thumbnailGenerator';
 import { StudyPlugVideoRenderer } from './videoRenderer';
-import { VOICEBOX_PROFILES } from './voiceboxService';
+import { VOICEBOX_PROFILES, getRecommendedVoiceProfile } from './voiceboxService';
+import {
+  analyzeSubjectAndTopic,
+  analyzeSubtopicRequirements,
+  estimateTopicDurationAndScale,
+  generateTopicPartBreakdown
+} from './subjectPedagogy';
+import {
+  ALL_JAMB_SUBJECTS,
+  getAvailableSubjectsForExam,
+  getSyllabusSections,
+  getSyllabusTopicsForSection,
+  getSubtopicsForTopic,
+  getMatchingLessonNote,
+  normalizeStudioSubject
+} from './syllabusManager';
 
 import {
   UnifiedStudioQuestion,
@@ -60,25 +75,7 @@ const ALL_EXAMS: ExamCategory[] = [
   'Post-UTME'
 ];
 
-const ALL_SUBJECT_LIST: string[] = [
-  'Physics',
-  'Mathematics',
-  'Chemistry',
-  'Biology',
-  'English',
-  'Economics',
-  'Government',
-  'Literature',
-  'Commerce',
-  'Accounting',
-  'Agriculture',
-  'Geography',
-  'Civic Education',
-  'Computer Studies',
-  'CRS',
-  'IRK',
-  'History'
-];
+const ALL_SUBJECT_LIST: string[] = ALL_JAMB_SUBJECTS;
 
 export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, onClose }) => {
   // Stepper Tabs
@@ -96,14 +93,19 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
   const [activeTab, setActiveTab] = useState<StudioTab>('select_content');
 
   // STEP 1: Content Selection
-  const [selectedExam, setSelectedExam] = useState<ExamCategory>('WAEC');
+  const [is100DaysMode, setIs100DaysMode] = useState<boolean>(true);
+  const [jambDayNumber, setJambDayNumber] = useState<number>(1);
+  const [selectedExam, setSelectedExam] = useState<ExamCategory>('JAMB');
   const [compareExams, setCompareExams] = useState<boolean>(false);
-  const [selectedComparisonExams, setSelectedComparisonExams] = useState<ExamCategory[]>(['WAEC']);
-  const [selectedSubject, setSelectedSubject] = useState<string>('Physics');
-  const [selectedPaperTypes, setSelectedPaperTypes] = useState<StudioPaperType[]>(['OBJ', 'Theory']);
-  const [selectedTopic, setSelectedTopic] = useState<string>('Motion');
-  const [selectedSubtopic, setSelectedSubtopic] = useState<string>('Equations of motion');
-  const [videoType, setVideoType] = useState<VideoType>('12_minute_masterclass');
+  const [selectedComparisonExams, setSelectedComparisonExams] = useState<ExamCategory[]>(['JAMB']);
+  const [selectedSubject, setSelectedSubject] = useState<string>('Mathematics');
+  const [selectedSyllabusSection, setSelectedSyllabusSection] = useState<string>('');
+  const [selectedPaperTypes, setSelectedPaperTypes] = useState<StudioPaperType[]>(['OBJ']);
+  const [selectedTopic, setSelectedTopic] = useState<string>('Number bases');
+  const [selectedSubtopic, setSelectedSubtopic] = useState<string>('Conversion between bases');
+  const [videoType, setVideoType] = useState<VideoType>('100_days_jamb');
+  const [customDurationMinutes, setCustomDurationMinutes] = useState<number | null>(null);
+  const [selectedPartNumber, setSelectedPartNumber] = useState<number | null>(null);
   const [aspectRatio, setAspectRatio] = useState<VideoAspectRatio>('16:9');
   const [teachingTone, setTeachingTone] = useState<TeachingTone>('authoritative');
   const [questionCount, setQuestionCount] = useState<number>(5);
@@ -188,6 +190,15 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
 
   // ─── DYNAMIC DATABASE RETRIEVAL ──────────────────────────────────────────
 
+  // Keep 100 Days Mode synced
+  useEffect(() => {
+    if (is100DaysMode) {
+      setSelectedExam('JAMB');
+      setVideoType('100_days_jamb');
+      setSelectedPaperTypes(['OBJ']);
+    }
+  }, [is100DaysMode]);
+
   // Available Papers based on Exam & Subject (Subject-First Logic)
   const availablePapers = useMemo(() => {
     return getAvailablePapersForExamSubject(selectedExam, selectedSubject);
@@ -202,10 +213,25 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
     });
   }, [availablePapers]);
 
-  // Available Topics from Database & Syllabus
-  const availableTopics = useMemo(() => {
-    return getAvailableTopicsForSelection(selectedExam, selectedSubject);
+  // Available Syllabus Sections for Exam + Subject
+  const availableSyllabusSections = useMemo(() => {
+    return getSyllabusSections(selectedExam, selectedSubject);
   }, [selectedExam, selectedSubject]);
+
+  useEffect(() => {
+    if (availableSyllabusSections.length > 0 && (!selectedSyllabusSection || !availableSyllabusSections.includes(selectedSyllabusSection))) {
+      setSelectedSyllabusSection(availableSyllabusSections[0]);
+    }
+  }, [availableSyllabusSections]);
+
+  // Available Topics from Syllabus Section & Database
+  const availableTopics = useMemo(() => {
+    if (selectedSyllabusSection) {
+      const secTopics = getSyllabusTopicsForSection(selectedExam, selectedSubject, selectedSyllabusSection);
+      if (secTopics.length > 0) return secTopics;
+    }
+    return getAvailableTopicsForSelection(selectedExam, selectedSubject);
+  }, [selectedExam, selectedSubject, selectedSyllabusSection]);
 
   useEffect(() => {
     if (availableTopics.length > 0 && !availableTopics.includes(selectedTopic)) {
@@ -213,22 +239,69 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
     }
   }, [selectedSubject, availableTopics]);
 
-  // Active Lesson Note
-  const activeLessonNote = useMemo(() => {
-    const match = COMPREHENSIVE_NOTES.find(
-      n =>
-        n.subject.toLowerCase() === selectedSubject.toLowerCase() &&
-        (n.topic.toLowerCase() === selectedTopic.toLowerCase() ||
-          (n.subtopic && n.subtopic.toLowerCase().includes(selectedTopic.toLowerCase())))
-    );
-    return match || null;
-  }, [selectedSubject, selectedTopic]);
+  // Available Subtopics for selected topic
+  const availableSubtopics = useMemo(() => {
+    return getSubtopicsForTopic(selectedExam, selectedSubject, selectedTopic);
+  }, [selectedExam, selectedSubject, selectedTopic]);
 
-  // Extract Top Concepts when Topic/Note changes
   useEffect(() => {
-    const extracted = extractTopConcepts(selectedSubject, selectedTopic, selectedSubtopic, activeLessonNote);
+    if (availableSubtopics.length > 0) {
+      setSelectedSubtopic(availableSubtopics[0]);
+    } else {
+      setSelectedSubtopic(selectedTopic);
+    }
+  }, [selectedTopic, availableSubtopics]);
+
+  // Active Lesson Note from StudyPlug database
+  const activeLessonNote = useMemo(() => {
+    return getMatchingLessonNote(selectedSubject, selectedTopic, selectedSubtopic);
+  }, [selectedSubject, selectedTopic, selectedSubtopic]);
+
+  // Subject Pedagogy Profile
+  const subjectPedagogy = useMemo(() => {
+    return analyzeSubjectAndTopic(selectedSubject, selectedTopic, availableSubtopics, activeLessonNote);
+  }, [selectedSubject, selectedTopic, availableSubtopics, activeLessonNote]);
+
+  // Topic Scale & Duration Estimation
+  const topicScaleInfo = useMemo(() => {
+    return estimateTopicDurationAndScale(
+      selectedTopic,
+      availableSubtopics,
+      activeLessonNote,
+      questionCount,
+      subjectPedagogy
+    );
+  }, [selectedTopic, availableSubtopics, activeLessonNote, questionCount, subjectPedagogy]);
+
+  // Effective Target Duration
+  const effectiveTargetDurationMinutes = useMemo(() => {
+    if (customDurationMinutes !== null) return customDurationMinutes;
+    return topicScaleInfo.estimatedMinutes;
+  }, [customDurationMinutes, topicScaleInfo.estimatedMinutes]);
+
+  // Recommend voice profile on subject change
+  useEffect(() => {
+    const recVoice = getRecommendedVoiceProfile(selectedSubject);
+    if (recVoice) {
+      setVoiceboxConfig(prev => ({
+        ...prev,
+        profileId: recVoice.id,
+        profileName: recVoice.name
+      }));
+    }
+  }, [selectedSubject]);
+
+  // Extract Top Concepts
+  useEffect(() => {
+    const extracted = extractTopConcepts(
+      selectedSubject,
+      selectedTopic,
+      selectedSubtopic,
+      activeLessonNote,
+      availableSubtopics
+    );
     setTopConcepts(extracted);
-  }, [selectedSubject, selectedTopic, selectedSubtopic, activeLessonNote]);
+  }, [selectedSubject, selectedTopic, selectedSubtopic, activeLessonNote, availableSubtopics]);
 
   // Matching Database Questions using Query Engine
   const matchedDatabaseQuestions = useMemo(() => {
@@ -278,6 +351,10 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
   const handleGenerateFull12MinMasterclass = () => {
     // 1. Generate Teaching Script
     const activeExams = compareExams && selectedComparisonExams.length > 0 ? selectedComparisonExams : [selectedExam];
+    const activePart = selectedPartNumber && topicScaleInfo.partsBreakdown
+      ? topicScaleInfo.partsBreakdown.find(p => p.partNumber === selectedPartNumber)
+      : undefined;
+
     const generated = generateTeachingScript({
       exam: selectedExam,
       selectedExams: activeExams,
@@ -285,11 +362,15 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
       paperTypes: selectedPaperTypes,
       topic: selectedTopic,
       subtopic: selectedSubtopic || selectedTopic,
+      subtopics: availableSubtopics,
       lessonNote: activeLessonNote,
       questions: currentlyChosenQuestions,
-      videoType,
+      videoType: is100DaysMode ? '100_days_jamb' : videoType,
       tone: teachingTone,
-      topConcepts
+      topConcepts,
+      targetDurationMinutes: effectiveTargetDurationMinutes,
+      jambDayNumber: is100DaysMode ? jambDayNumber : undefined,
+      selectedPart: activePart
     });
     setScriptSections(generated);
 
@@ -315,7 +396,11 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
       generated,
       currentlyChosenQuestions.length,
       topConcepts.filter(c => c.isSelected).length,
-      voiceboxConfig.profileName
+      voiceboxConfig.profileName,
+      topicScaleInfo.scale,
+      topicScaleInfo.partsBreakdown?.length,
+      selectedPartNumber || undefined,
+      subjectPedagogy.primaryModality
     );
     setVideoPlan(plan);
 
@@ -329,9 +414,12 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
       topic: selectedTopic,
       subtopic: selectedSubtopic || selectedTopic,
       scenes: builtScenes,
-      videoType,
+      videoType: is100DaysMode ? '100_days_jamb' : videoType,
       questionCount: currentlyChosenQuestions.length,
-      paperTypes: selectedPaperTypes
+      paperTypes: selectedPaperTypes,
+      jambDayNumber: is100DaysMode ? jambDayNumber : undefined,
+      partTitle: activePart ? activePart.title : undefined,
+      targetDurationMinutes: effectiveTargetDurationMinutes
     });
     setSeoData(seo);
 
@@ -433,12 +521,12 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
   const handleSaveProject = (status: VideoProjectStatus = 'draft') => {
     const project: YouTubeProject = {
       id: currentProjectId,
-      title: `${selectedExam} ${selectedSubject}: ${selectedTopic}`,
+      title: is100DaysMode ? `100 Days to JAMB (Day ${jambDayNumber}): ${selectedSubject} — ${selectedTopic}` : `${selectedExam} ${selectedSubject}: ${selectedTopic}`,
       exam: selectedExam,
       subject: selectedSubject,
       topic: selectedTopic,
       subtopic: selectedSubtopic,
-      videoType,
+      videoType: is100DaysMode ? '100_days_jamb' : videoType,
       aspectRatio,
       status,
       topConcepts,
@@ -452,12 +540,29 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
         topic: selectedTopic,
         subtopic: selectedSubtopic,
         scenes: videoScenes,
-        videoType,
-        questionCount: currentlyChosenQuestions.length
+        videoType: is100DaysMode ? '100_days_jamb' : videoType,
+        questionCount: currentlyChosenQuestions.length,
+        jambDayNumber: is100DaysMode ? jambDayNumber : undefined,
+        targetDurationMinutes: effectiveTargetDurationMinutes
       }),
       voiceboxConfig,
-      videoPlan: videoPlan || calculateVideoPlan(videoScenes, scriptSections, currentlyChosenQuestions.length, topConcepts.length, voiceboxConfig.profileName),
+      videoPlan: videoPlan || calculateVideoPlan(
+        videoScenes,
+        scriptSections,
+        currentlyChosenQuestions.length,
+        topConcepts.length,
+        voiceboxConfig.profileName,
+        topicScaleInfo.scale,
+        topicScaleInfo.partsBreakdown?.length,
+        selectedPartNumber || undefined,
+        subjectPedagogy.primaryModality
+      ),
       costEstimate: costEstimate || calculateCostEstimate(videoScenes, scriptSections),
+      jambDayNumber: is100DaysMode ? jambDayNumber : undefined,
+      selectedPartNumber: selectedPartNumber || undefined,
+      topicPartsBreakdown: topicScaleInfo.partsBreakdown,
+      topicScale: topicScaleInfo.scale,
+      subjectPedagogy,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
@@ -650,103 +755,166 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
           {activeTab === 'select_content' && (
             <div className="max-w-5xl mx-auto space-y-6 animate-fadeIn text-left">
               <div className="bg-[#0D241C] p-6 rounded-[20px] border border-[#00796B]/40 space-y-5">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div>
-                    <h3 className="text-lg font-bold text-white">
-                      1. Select Curriculum Note &amp; Question Database
-                    </h3>
-                    <p className="text-xs text-emerald-200">
-                      Target Duration: <strong>10–14 minutes (~12 minutes)</strong>. Authentic Nigerian syllabus source.
-                    </p>
+                {/* ─── Mode Switcher Bar ─── */}
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-[#00382E] to-[#002A22] border border-[#00796B]/80 shadow-md">
+                  <div className="flex items-center space-x-2.5">
+                    <button
+                      type="button"
+                      onClick={() => setIs100DaysMode(true)}
+                      className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer flex items-center space-x-2 ${
+                        is100DaysMode
+                          ? 'bg-[#FFD600] text-[#004D40] shadow-md shadow-[#FFD600]/20'
+                          : 'bg-black/30 text-emerald-200 hover:bg-black/50'
+                      }`}
+                    >
+                      <span>🎓 100 Days to JAMB (Topic-by-Topic Syllabus)</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIs100DaysMode(false)}
+                      className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer flex items-center space-x-2 ${
+                        !is100DaysMode
+                          ? 'bg-[#FFD600] text-[#004D40] shadow-md shadow-[#FFD600]/20'
+                          : 'bg-black/30 text-emerald-200 hover:bg-black/50'
+                      }`}
+                    >
+                      <span>🎯 Custom / Multi-Exam Masterclass</span>
+                    </button>
                   </div>
-                  <span className="px-3 py-1 rounded-full text-xs font-black bg-[#004D40] text-[#FFD600] border border-[#FFD600]/30">
-                    Target: ~12:00
-                  </span>
-                </div>
 
-                {/* Row 1: Exam Selection & Multi-Exam Comparison */}
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      1. Examination Board
-                    </label>
-                    <label className="flex items-center space-x-2 text-xs text-amber-300 font-bold cursor-pointer">
+                  {is100DaysMode ? (
+                    <div className="flex items-center space-x-2 bg-black/40 px-3 py-1.5 rounded-xl border border-[#FFD600]/30 text-xs">
+                      <span className="text-amber-300 font-bold">Series Progress:</span>
+                      <span className="font-black text-white">Day</span>
                       <input
-                        type="checkbox"
-                        checked={compareExams}
-                        onChange={(e) => {
-                          const val = e.target.checked;
-                          setCompareExams(val);
-                          if (val && !selectedComparisonExams.includes(selectedExam)) {
-                            setSelectedComparisonExams([selectedExam]);
-                          }
-                        }}
-                        className="rounded text-[#004D40] accent-[#FFD600]"
+                        type="number"
+                        min="1"
+                        max="100"
+                        value={jambDayNumber}
+                        onChange={(e) => setJambDayNumber(Math.max(1, Math.min(100, parseInt(e.target.value) || 1)))}
+                        className="w-14 bg-[#071912] border border-[#FFD600] rounded-lg px-2 py-0.5 text-center font-black text-[#FFD600]"
                       />
-                      <span>Cross-Exam Comparison Video (e.g. JAMB vs WAEC vs NECO)</span>
-                    </label>
-                  </div>
-
-                  {!compareExams ? (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
-                      {ALL_EXAMS.map((exam) => {
-                        const isSelected = selectedExam === exam;
-                        return (
-                          <button
-                            key={exam}
-                            type="button"
-                            onClick={() => setSelectedExam(exam)}
-                            className={`p-3 rounded-xl border text-xs font-black transition cursor-pointer text-center ${
-                              isSelected
-                                ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600] shadow-md shadow-[#FFD600]/20 scale-102'
-                                : 'bg-[#071912] border-white/10 text-white hover:border-[#00796B]'
-                            }`}
-                          >
-                            {exam}
-                          </button>
-                        );
-                      })}
+                      <span className="text-slate-400">/ 100</span>
                     </div>
                   ) : (
-                    <div className="p-3 rounded-xl bg-black/40 border border-[#FFD600]/40 space-y-2">
-                      <span className="text-[11px] font-bold text-amber-200 block">
-                        Select Exams to Compare in Video:
+                    <span className="text-xs text-emerald-300 font-bold">
+                      Target: ~{effectiveTargetDurationMinutes}:00
+                    </span>
+                  )}
+                </div>
+
+                {/* ─── Subject Pedagogy & Teaching Engine Banner ─── */}
+                <div className="p-4 rounded-2xl bg-[#071912] border border-[#00796B]/60 space-y-3">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center space-x-2.5">
+                      <span className="w-2.5 h-2.5 rounded-full animate-ping" style={{ backgroundColor: subjectPedagogy.badgeColor }} />
+                      <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider text-white" style={{ backgroundColor: subjectPedagogy.badgeColor }}>
+                        {subjectPedagogy.subject} • {subjectPedagogy.primaryModality.toUpperCase().replace('_', ' ')}
                       </span>
-                      <div className="flex flex-wrap gap-2">
+                      <span className="text-xs text-emerald-200 font-bold hidden sm:inline">
+                        {subjectPedagogy.presentationStyle}
+                      </span>
+                    </div>
+                    <span className="text-[11px] text-amber-300 font-bold">
+                      🎯 Trap Focus: {subjectPedagogy.examinerTrapFocus}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-1 text-[11px] text-emerald-100">
+                    {subjectPedagogy.pedagogicalPriorities.slice(0, 3).map((p, i) => (
+                      <div key={i} className="flex items-start space-x-1.5 bg-black/30 p-2 rounded-lg border border-white/5">
+                        <span className="text-emerald-400 font-bold">✓</span>
+                        <span>{p}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Row 1: Exam Selection (If Custom Mode) */}
+                {!is100DaysMode && (
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                        1. Examination Board
+                      </label>
+                      <label className="flex items-center space-x-2 text-xs text-amber-300 font-bold cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={compareExams}
+                          onChange={(e) => {
+                            const val = e.target.checked;
+                            setCompareExams(val);
+                            if (val && !selectedComparisonExams.includes(selectedExam)) {
+                              setSelectedComparisonExams([selectedExam]);
+                            }
+                          }}
+                          className="rounded text-[#004D40] accent-[#FFD600]"
+                        />
+                        <span>Cross-Exam Comparison Video</span>
+                      </label>
+                    </div>
+
+                    {!compareExams ? (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
                         {ALL_EXAMS.map((exam) => {
-                          const isChecked = selectedComparisonExams.includes(exam);
+                          const isSelected = selectedExam === exam;
                           return (
                             <button
                               key={exam}
                               type="button"
-                              onClick={() => {
-                                setSelectedComparisonExams(prev =>
-                                  isChecked
-                                    ? (prev.length > 1 ? prev.filter(e => e !== exam) : prev)
-                                    : [...prev, exam]
-                                );
-                              }}
-                              className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition cursor-pointer ${
-                                isChecked
-                                  ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600]'
-                                  : 'bg-[#071912] text-slate-300 border-white/10'
+                              onClick={() => setSelectedExam(exam)}
+                              className={`p-3 rounded-xl border text-xs font-black transition cursor-pointer text-center ${
+                                isSelected
+                                  ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600] shadow-md shadow-[#FFD600]/20 scale-102'
+                                  : 'bg-[#071912] border-white/10 text-white hover:border-[#00796B]'
                               }`}
                             >
-                              {isChecked ? '✓ ' : '+ '}{exam}
+                              {exam}
                             </button>
                           );
                         })}
                       </div>
-                    </div>
-                  )}
-                </div>
+                    ) : (
+                      <div className="p-3 rounded-xl bg-black/40 border border-[#FFD600]/40 space-y-2">
+                        <span className="text-[11px] font-bold text-amber-200 block">
+                          Select Exams to Compare:
+                        </span>
+                        <div className="flex flex-wrap gap-2">
+                          {ALL_EXAMS.map((exam) => {
+                            const isChecked = selectedComparisonExams.includes(exam);
+                            return (
+                              <button
+                                key={exam}
+                                type="button"
+                                onClick={() => {
+                                  setSelectedComparisonExams(prev =>
+                                    isChecked
+                                      ? (prev.length > 1 ? prev.filter(e => e !== exam) : prev)
+                                      : [...prev, exam]
+                                  );
+                                }}
+                                className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition cursor-pointer ${
+                                  isChecked
+                                    ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600]'
+                                    : 'bg-[#071912] text-slate-300 border-white/10'
+                                }`}
+                              >
+                                {isChecked ? '✓ ' : '+ '}{exam}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
 
-                {/* Row 2: Subject & Dynamic Paper Types (Subject-First Logic) */}
+                {/* Row 2: Subject & Dynamic Paper Types */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
                   {/* Subject Dropdown */}
                   <div className="lg:col-span-5 space-y-1.5">
                     <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      2. Subject
+                      {is100DaysMode ? '1. Select JAMB Subject' : '2. Subject'}
                     </label>
                     <select
                       value={selectedSubject}
@@ -759,11 +927,11 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     </select>
                   </div>
 
-                  {/* Paper Types (Subject-First Logic) */}
+                  {/* Paper Types */}
                   <div className="lg:col-span-7 space-y-1.5">
                     <div className="flex items-center justify-between">
                       <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                        3. Paper Types ({selectedExam})
+                        {is100DaysMode ? 'Examination Format' : `3. Paper Types (${selectedExam})`}
                       </label>
                       {availablePapers.length > 1 && (
                         <button
@@ -793,7 +961,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                               if (selectedExam === 'JAMB') return;
                               setSelectedPaperTypes(prev => {
                                 if (isSelected) {
-                                  if (prev.length === 1) return prev; // Keep at least one
+                                  if (prev.length === 1) return prev;
                                   return prev.filter(p => p !== paper);
                                 } else {
                                   return [...prev, paper];
@@ -812,22 +980,31 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                         );
                       })}
                     </div>
-
-                    <p className="text-[11px] text-emerald-300/80">
-                      {selectedExam === 'JAMB'
-                        ? '• JAMB UTME is strictly CBT/Objective.'
-                        : availablePapers.includes('Practical')
-                        ? `• ${selectedSubject} has an official Paper 3 Practical examination.`
-                        : `• ${selectedSubject} does not have a practical component.`}
-                    </p>
                   </div>
                 </div>
 
-                {/* Row 3: Topic, Subtopic & Year Filter */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="space-y-1.5">
+                {/* Row 3: Syllabus-First Cascading Selectors (Section -> Topic -> Subtopics) */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                  {/* Syllabus Section Selector */}
+                  <div className="md:col-span-4 space-y-1.5">
                     <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      4. Syllabus Topic
+                      Syllabus Section
+                    </label>
+                    <select
+                      value={selectedSyllabusSection}
+                      onChange={(e) => setSelectedSyllabusSection(e.target.value)}
+                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-xs text-white font-bold"
+                    >
+                      {availableSyllabusSections.map(sec => (
+                        <option key={sec} value={sec}>{sec}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Topic Selector */}
+                  <div className="md:col-span-4 space-y-1.5">
+                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                      Official Syllabus Topic
                     </label>
                     <select
                       value={selectedTopic}
@@ -840,68 +1017,195 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     </select>
                   </div>
 
-                  <div className="space-y-1.5">
+                  {/* Subtopic Focus */}
+                  <div className="md:col-span-4 space-y-1.5">
                     <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      Subtopic / Focus Area
+                      Subtopic Focus
                     </label>
-                    <input
-                      type="text"
+                    <select
                       value={selectedSubtopic}
                       onChange={(e) => setSelectedSubtopic(e.target.value)}
-                      placeholder={selectedTopic}
-                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white font-medium"
-                    />
+                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-xs text-white font-bold"
+                    >
+                      {availableSubtopics.map(sub => (
+                        <option key={sub} value={sub}>{sub}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Subtopics Complete Topic Coverage Checklist */}
+                <div className="p-3.5 rounded-xl bg-black/40 border border-[#00796B]/50 space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-emerald-200">
+                      Complete Topic Coverage ({availableSubtopics.length} Syllabus Subtopics):
+                    </span>
+                    <span className="text-[11px] text-amber-300 font-bold">
+                      Zero shallow summaries • Full pedagogical depth
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {availableSubtopics.map((sub, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="px-2.5 py-1 rounded-lg bg-[#00382E] text-emerald-100 text-xs border border-white/10 flex items-center space-x-1"
+                      >
+                        <span className="text-amber-400">✓</span>
+                        <span>{sub}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ─── Dynamic Video Length & Scale Card ─── */}
+                <div className="p-4 rounded-xl bg-gradient-to-r from-[#00382E] to-[#00261F] border border-[#FFD600]/40 space-y-3">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 rounded-xl bg-[#004D40] border border-[#FFD600]/60 flex items-center justify-center text-lg">
+                        ⏱️
+                      </div>
+                      <div>
+                        <div className="flex items-center space-x-2">
+                          <h4 className="text-sm font-black text-white">
+                            Estimated Teaching Time: {topicScaleInfo.estimatedMinutes} Minutes
+                          </h4>
+                          <span className={`px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider ${
+                            topicScaleInfo.scale === 'small'
+                              ? 'bg-blue-900/80 text-blue-200'
+                              : topicScaleInfo.scale === 'medium'
+                              ? 'bg-emerald-900/80 text-emerald-200'
+                              : topicScaleInfo.scale === 'deep'
+                              ? 'bg-purple-900/80 text-purple-200'
+                              : 'bg-amber-900/80 text-amber-200'
+                          }`}>
+                            {topicScaleInfo.scale.replace('_', ' ')} Topic
+                          </span>
+                        </div>
+                        <p className="text-xs text-emerald-200/90 pt-0.5">
+                          {topicScaleInfo.rationale}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Quick Duration Buttons */}
+                    <div className="flex items-center space-x-1.5 bg-black/40 p-1 rounded-xl border border-white/10 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setCustomDurationMinutes(null)}
+                        className={`px-2.5 py-1 rounded-lg font-bold transition cursor-pointer ${
+                          customDurationMinutes === null ? 'bg-[#FFD600] text-[#004D40]' : 'text-slate-300 hover:bg-white/10'
+                        }`}
+                      >
+                        Auto: {topicScaleInfo.estimatedMinutes}m
+                      </button>
+                      {[10, 15, 20, 25, 30].map(mins => (
+                        <button
+                          key={mins}
+                          type="button"
+                          onClick={() => setCustomDurationMinutes(mins)}
+                          className={`px-2 py-1 rounded-lg font-bold transition cursor-pointer ${
+                            customDurationMinutes === mins ? 'bg-[#FFD600] text-[#004D40]' : 'text-slate-300 hover:bg-white/10'
+                          }`}
+                        >
+                          {mins}m
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Year Filter */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      5. Examination Year
-                    </label>
-                    <div className="grid grid-cols-2 gap-1.5">
-                      <select
-                        value={yearMode}
-                        onChange={(e) => setYearMode(e.target.value as any)}
-                        className="bg-[#071912] border border-[#00796B] rounded-xl px-2.5 py-2 text-xs text-white font-bold"
-                      >
-                        <option value="recent">Recent (2018–2025)</option>
-                        <option value="any">Any Year (All)</option>
-                        <option value="specific">Specific Year</option>
-                        <option value="range">Custom Range</option>
-                      </select>
-
-                      {yearMode === 'specific' ? (
-                        <select
-                          value={specificYear}
-                          onChange={(e) => setSpecificYear(parseInt(e.target.value))}
-                          className="bg-[#071912] border border-[#00796B] rounded-xl px-2.5 py-2 text-xs text-[#FFD600] font-bold"
+                  {/* Multi-Part Breakdown (If deep or very_large) */}
+                  {topicScaleInfo.partsBreakdown && topicScaleInfo.partsBreakdown.length > 1 && (
+                    <div className="pt-2 border-t border-white/10 space-y-2">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-bold text-amber-300">
+                          Suggested Multi-Part Series ({topicScaleInfo.partsBreakdown.length} Parts Available):
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedPartNumber(null)}
+                          className={`px-2 py-0.5 rounded text-[11px] font-bold ${
+                            selectedPartNumber === null ? 'bg-[#FFD600] text-[#004D40]' : 'bg-black/40 text-slate-300'
+                          }`}
                         >
-                          {availableYears.map(yr => (
-                            <option key={yr} value={yr}>{yr}</option>
-                          ))}
-                        </select>
-                      ) : yearMode === 'range' ? (
-                        <div className="flex items-center space-x-1">
-                          <input
-                            type="number"
-                            value={yearRange[0]}
-                            onChange={(e) => setYearRange([parseInt(e.target.value) || 2018, yearRange[1]])}
-                            className="w-14 bg-[#071912] border border-white/20 rounded px-1.5 py-1 text-xs text-white"
-                          />
-                          <span className="text-xs text-slate-400">–</span>
-                          <input
-                            type="number"
-                            value={yearRange[1]}
-                            onChange={(e) => setYearRange([yearRange[0], parseInt(e.target.value) || 2025])}
-                            className="w-14 bg-[#071912] border border-white/20 rounded px-1.5 py-1 text-xs text-white"
-                          />
-                        </div>
-                      ) : (
-                        <div className="px-2.5 py-2 rounded-xl bg-black/30 border border-white/10 text-[11px] text-emerald-300 font-bold flex items-center justify-center">
-                          {yearMode === 'recent' ? '2018 – 2025' : 'All Years'}
-                        </div>
-                      )}
+                          Single All-in-One Video ({effectiveTargetDurationMinutes}m)
+                        </button>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+                        {topicScaleInfo.partsBreakdown.map((part) => {
+                          const isPartSelected = selectedPartNumber === part.partNumber;
+                          return (
+                            <div
+                              key={part.partNumber}
+                              onClick={() => setSelectedPartNumber(part.partNumber)}
+                              className={`p-2.5 rounded-xl border text-left cursor-pointer transition ${
+                                isPartSelected
+                                  ? 'bg-[#004D40] border-[#FFD600] shadow-sm'
+                                  : 'bg-black/30 border-white/10 hover:border-emerald-500'
+                              }`}
+                            >
+                              <div className="flex items-center justify-between text-[11px] font-bold pb-1">
+                                <span className="text-[#FFD600]">{part.title.split('—')[0].trim()}</span>
+                                <span className="text-slate-400">{part.estimatedDurationMinutes}m</span>
+                              </div>
+                              <p className="text-xs font-bold text-white line-clamp-1">{part.title.split('—')[1]?.trim() || part.title}</p>
+                              <p className="text-[10.5px] text-emerald-300/80 line-clamp-1">{part.focus}</p>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
+                  )}
+                </div>
+
+                {/* Exam Year Filter Bar */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                    Examination Question Years Filter
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-2">
+                    <select
+                      value={yearMode}
+                      onChange={(e) => setYearMode(e.target.value as any)}
+                      className="bg-[#071912] border border-[#00796B] rounded-xl px-2.5 py-2 text-xs text-white font-bold"
+                    >
+                      <option value="recent">Recent (2018–2025)</option>
+                      <option value="any">Any Year (All)</option>
+                      <option value="specific">Specific Year</option>
+                      <option value="range">Custom Range</option>
+                    </select>
+
+                    {yearMode === 'specific' ? (
+                      <select
+                        value={specificYear}
+                        onChange={(e) => setSpecificYear(parseInt(e.target.value))}
+                        className="bg-[#071912] border border-[#00796B] rounded-xl px-2.5 py-2 text-xs text-[#FFD600] font-bold"
+                      >
+                        {availableYears.map(yr => (
+                          <option key={yr} value={yr}>{yr}</option>
+                        ))}
+                      </select>
+                    ) : yearMode === 'range' ? (
+                      <div className="flex items-center space-x-1 sm:col-span-2">
+                        <input
+                          type="number"
+                          value={yearRange[0]}
+                          onChange={(e) => setYearRange([parseInt(e.target.value) || 2018, yearRange[1]])}
+                          className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
+                        />
+                        <span className="text-xs text-slate-400">–</span>
+                        <input
+                          type="number"
+                          value={yearRange[1]}
+                          onChange={(e) => setYearRange([yearRange[0], parseInt(e.target.value) || 2025])}
+                          className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
+                        />
+                      </div>
+                    ) : (
+                      <div className="px-2.5 py-2 rounded-xl bg-black/30 border border-white/10 text-[11px] text-emerald-300 font-bold flex items-center justify-center">
+                        {yearMode === 'recent' ? '2018 – 2025 Authentic Series' : 'All Authentic Database Years'}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -1130,7 +1434,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 {/* Primary Action Button */}
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between flex-wrap gap-3">
                   <div className="text-xs text-emerald-200">
-                    Active Video Setup: <strong>{selectedExam} {selectedSubject}</strong> • Papers: <strong>{selectedPaperTypes.join(' + ')}</strong> • <strong>{currentlyChosenQuestions.length} Questions</strong>
+                    Active Video Setup: <strong>{is100DaysMode ? `100 Days to JAMB (Day ${jambDayNumber}) • ${selectedSubject}` : `${selectedExam} ${selectedSubject}`}</strong> • Topic: <strong>{selectedTopic}</strong> • <strong>{effectiveTargetDurationMinutes} Min ({topicScaleInfo.scale.replace('_', ' ')})</strong>
                   </div>
                   <button
                     type="button"
@@ -1138,7 +1442,9 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     onClick={handleGenerateFull12MinMasterclass}
                     className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFD600] to-amber-400 text-[#004D40] font-black text-sm shadow-lg hover:scale-105 active:scale-95 transition cursor-pointer flex items-center space-x-2 disabled:opacity-40 disabled:hover:scale-100"
                   >
-                    <span>⚡ CREATE 12-MINUTE VIDEO ({selectedPaperTypes.join(' + ')})</span>
+                    <span>
+                      ⚡ {is100DaysMode ? `GENERATE DAY ${jambDayNumber} VIDEO (${effectiveTargetDurationMinutes} MIN)` : `CREATE ${effectiveTargetDurationMinutes}-MINUTE VIDEO (${selectedPaperTypes.join(' + ')})`}
+                    </span>
                     <span>→</span>
                   </button>
                 </div>

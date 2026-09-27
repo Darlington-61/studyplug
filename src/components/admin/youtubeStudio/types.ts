@@ -5,12 +5,67 @@ import { UnifiedStudioQuestion, StudioPaperType, ExamCategory } from './question
 export type { UnifiedStudioQuestion, StudioPaperType, ExamCategory };
 
 export type VideoType =
+  | '100_days_jamb'
   | '12_minute_masterclass'
   | 'complete_lesson'
   | 'past_questions'
   | 'quick_revision'
   | 'exam_crash_course'
   | 'shorts';
+
+export type SubjectModality =
+  | 'conceptual'
+  | 'calculation_based'
+  | 'definition_based'
+  | 'process_based'
+  | 'diagram_based'
+  | 'text_extract_based'
+  | 'theory_based'
+  | 'interpretation_based'
+  | 'application_based'
+  | 'memorisation_heavy'
+  | 'comparison_based';
+
+export type TopicScale = 'small' | 'medium' | 'deep' | 'very_large';
+
+export interface TopicPartBreakdown {
+  partNumber: number;
+  title: string;
+  subtitle: string;
+  focus: string;
+  subtopics: string[];
+  estimatedDurationMinutes: number;
+}
+
+export interface SubtopicTeachingRequirement {
+  subtopic: string;
+  needsDefinition: boolean;
+  needsExplanation: boolean;
+  needsExample: boolean;
+  needsDiagram: boolean;
+  needsFormula: boolean;
+  needsCalculation: boolean;
+  needsProcess: boolean;
+  needsComparison: boolean;
+  needsApplication: boolean;
+  needsCommonMistake: boolean;
+  needsExamTip: boolean;
+  needsPastQuestion: boolean;
+  recommendedModality: SubjectModality;
+}
+
+export interface SubjectPedagogyProfile {
+  subject: string;
+  primaryModality: SubjectModality;
+  secondaryModality: SubjectModality;
+  pedagogicalPriorities: string[];
+  presentationStyle: string;
+  recommendedVoiceTone: TeachingTone;
+  workedExampleType: string;
+  examinerTrapFocus: string;
+  badgeColor: string;
+  iconName: string;
+}
 
 export type VideoAspectRatio = '16:9' | '9:16';
 
@@ -106,6 +161,10 @@ export interface ScriptSection {
     graphSlope?: string;
     targetFormula?: string;
   };
+  modality?: SubjectModality;
+  subtopicRef?: string;
+  topicPart?: number;
+  subjectSpecificData?: Record<string, any>;
 }
 
 export interface VideoScene {
@@ -142,8 +201,8 @@ export interface VideoScene {
     | 'outro_card';
   duration: number;
   durationSeconds: number;
-  visualType: 'split' | 'chalkboard' | 'equation_reveal' | 'cbt_terminal' | 'diagram_focus' | 'hero_card' | 'section_banner' | 'practical_sheet' | 'theory_paper';
-  subjectTheme: 'physics' | 'mathematics' | 'chemistry' | 'biology' | 'english' | 'literature' | 'commercial' | 'general';
+  visualType: 'split' | 'chalkboard' | 'equation_reveal' | 'cbt_terminal' | 'diagram_focus' | 'hero_card' | 'section_banner' | 'practical_sheet' | 'theory_paper' | 'text_extract' | 'ledger_sheet' | 'process_flow';
+  subjectTheme: 'physics' | 'mathematics' | 'chemistry' | 'biology' | 'english' | 'literature' | 'commercial' | 'general' | 'government' | 'geography' | 'crs';
   title: string;
   subtitle?: string;
   onScreenText: string;
@@ -183,15 +242,19 @@ export interface YouTubeSeoData {
 }
 
 export interface VideoPlanSummary {
-  targetDurationMinutes: number; // e.g. 12
+  targetDurationMinutes: number; // e.g. 12, 18, 24
   estimatedDurationSeconds: number;
-  formattedDuration: string; // e.g. "11 min 48 sec"
+  formattedDuration: string; // e.g. "18 min 45 sec"
   totalScenes: number;
   totalQuestions: number;
   topConceptsCount: number;
   voiceoverWordCount: number;
   voiceProvider: string; // "Voicebox AI"
   voiceProfile: string;
+  topicScale?: TopicScale;
+  suggestedPartsCount?: number;
+  selectedPartNumber?: number;
+  primaryModality?: SubjectModality;
 }
 
 export interface CostEstimate {
@@ -250,6 +313,11 @@ export interface YouTubeProject {
   videoPlan: VideoPlanSummary;
   costEstimate: CostEstimate;
   thumbnailUrl?: string;
+  jambDayNumber?: number;
+  selectedPartNumber?: number;
+  topicPartsBreakdown?: TopicPartBreakdown[];
+  topicScale?: TopicScale;
+  subjectPedagogy?: SubjectPedagogyProfile;
   createdAt: string;
   updatedAt: string;
 }
