@@ -9,6 +9,41 @@ interface QuestionOptionProps {
   onSelect: (key: string) => void;
 }
 
+/**
+ * Format option text to strip redundant prefixes (e.g. "A. ", "A - ")
+ * and format HTML tags (<ol>, <li>, etc.) cleanly with styled HTML elements.
+ */
+function cleanOptionText(text: string, optionKey: string): { hasHtml: boolean; content: string } {
+  if (!text) return { hasHtml: false, content: '' };
+  
+  let cleaned = text.trim();
+
+  // Strip redundant leading "A. ", "B. ", "A - ", "A: " matching current optionKey
+  const prefixRegex = new RegExp(`^${optionKey}[.\\-:]\\s*`, 'i');
+  cleaned = cleaned.replace(prefixRegex, '').trim();
+
+  // Check if string contains HTML tags
+  const hasHtml = /<\/?[a-z][\s\S]*>/i.test(cleaned);
+
+  if (hasHtml) {
+    // Style <ol> and <ul> tags with clean Tailwind list styles
+    cleaned = cleaned
+      .replace(/<ol>/gi, '<ol class="list-decimal pl-5 space-y-1.5 my-1.5 text-left">')
+      .replace(/<ul>/gi, '<ul class="list-disc pl-5 space-y-1.5 my-1.5 text-left">')
+      .replace(/<li>/gi, '<li class="leading-relaxed">');
+  }
+
+  // Format plain text bullets like " - Point 1 - Point 2" into line-separated items
+  if (!hasHtml) {
+    // If text contains " - " or " • ", split into neat lines
+    if (cleaned.includes(' - ') || cleaned.includes(' • ')) {
+      cleaned = cleaned.replace(/\s+[-•]\s+/g, '\n• ');
+    }
+  }
+
+  return { hasHtml, content: cleaned };
+}
+
 export const QuestionOption: React.FC<QuestionOptionProps> = ({
   optionKey,
   optionText,
@@ -40,14 +75,16 @@ export const QuestionOption: React.FC<QuestionOptionProps> = ({
     circleBg = 'bg-[#16A34A] border-[#16A34A] text-white';
   }
 
+  const { hasHtml, content } = cleanOptionText(optionText, optionKey);
+
   return (
     <button
       type="button"
       onClick={() => onSelect(optionKey)}
-      className={`w-full p-3.5 sm:p-4 rounded-[14px] border ${borderColor} ${bgColor} shadow-subtle hover:border-[#B5C9C3] transition-all duration-150 flex items-center space-x-3.5 text-left cursor-pointer active:scale-[0.99]`}
+      className={`w-full p-3.5 sm:p-4 rounded-[14px] border ${borderColor} ${bgColor} shadow-subtle hover:border-[#B5C9C3] transition-all duration-150 flex items-start space-x-3.5 text-left cursor-pointer active:scale-[0.99]`}
     >
-      {/* Circle Icon */}
-      <div className={`w-7 h-7 rounded-full border flex items-center justify-center shrink-0 font-bold text-[12px] transition ${circleBg}`}>
+      {/* Circle Icon pinned neatly at the top-left */}
+      <div className={`w-7 h-7 rounded-full border flex items-center justify-center shrink-0 self-start mt-0.5 font-bold text-[12px] transition ${circleBg}`}>
         {isSelected || (isReviewMode && isCorrect === true) ? (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
             <polyline points="20 6 9 17 4 12" />
@@ -58,9 +95,16 @@ export const QuestionOption: React.FC<QuestionOptionProps> = ({
       </div>
 
       {/* Option Text */}
-      <span className={`text-[14px] sm:text-[14.5px] font-medium leading-relaxed ${textColor} flex-1`}>
-        {optionText}
-      </span>
+      {hasHtml ? (
+        <div
+          className={`text-[14px] sm:text-[14.5px] font-medium leading-relaxed ${textColor} flex-1 overflow-x-auto`}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      ) : (
+        <span className={`text-[14px] sm:text-[14.5px] font-medium leading-relaxed ${textColor} flex-1 whitespace-pre-line select-text`}>
+          {content}
+        </span>
+      )}
     </button>
   );
 };

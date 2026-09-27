@@ -1245,20 +1245,13 @@ export const PracticeMode: React.FC = () => {
                           </div>
                         </div>
 
-                        {/* Question Text */}
-                        <p className="text-[15px] sm:text-[16px] text-[#10201D] font-medium leading-relaxed">
-                          {q.text}
-                        </p>
-
-                        {/* Passage if present */}
-                        {q.passage && (
-                          <ComprehensionPassageViewer
-                            text={q.text}
-                            passage={q.passage}
-                            subject={activeSubjectTab}
-                            defaultExpanded={false}
-                          />
-                        )}
+                        {/* Question Text & Comprehension Passage */}
+                        <ComprehensionPassageViewer
+                          text={q.text}
+                          passage={q.passage}
+                          subject={activeSubjectTab}
+                          defaultExpanded={false}
+                        />
 
                         {/* Diagram SVG if present */}
                         {q.imageSvg && (
@@ -1441,20 +1434,13 @@ export const PracticeMode: React.FC = () => {
                 </div>
               </div>
 
-              {/* Question Text */}
-              <p className="text-[15px] sm:text-[16px] text-[#10201D] font-medium leading-relaxed">
-                {currentQ.text}
-              </p>
-
-              {/* Comprehension Passage if present */}
-              {currentQ.passage && (
-                <ComprehensionPassageViewer
-                  text={currentQ.text}
-                  passage={currentQ.passage}
-                  subject={activeSubjectTab}
-                  defaultExpanded={true}
-                />
-              )}
+              {/* Question Text & Comprehension Passage */}
+              <ComprehensionPassageViewer
+                text={currentQ.text}
+                passage={currentQ.passage}
+                subject={activeSubjectTab}
+                defaultExpanded={true}
+              />
 
               {/* Diagram / Image if any */}
               {currentQ.imageSvg && (

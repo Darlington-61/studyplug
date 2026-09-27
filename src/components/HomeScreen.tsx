@@ -3,11 +3,11 @@ import { useApp } from '../context/AppContext';
 import { StudyPlugHeader, ProgressCard, BottomNavigation } from './design-system';
 import { JambLogo, WaecLogo, NecoLogo, NabtebLogo, BeceLogo } from './common/ExamLogos';
 import {
-  CARD_IMAGE_STUDY_NOTES,
-  CARD_IMAGE_PRACTICE,
-  CARD_IMAGE_MOCK_EXAM,
-  CARD_IMAGE_MOTIVATION
-} from '../data/cardImages';
+  AnimatedStudyNotesIcon,
+  AnimatedPracticeIcon,
+  AnimatedMockExamsIcon,
+  AnimatedMotivationIcon
+} from './home/AnimatedFeatureCards';
 
 export const HomeScreen: React.FC = () => {
   const [isIosGuideOpen, setIsIosGuideOpen] = React.useState<boolean>(false);
@@ -93,27 +93,32 @@ export const HomeScreen: React.FC = () => {
         </div>
 
         {/* 2x2 Feature Grid */}
+        {/* 2x2 Animated Feature Grid */}
         <div className="grid grid-cols-2 gap-3">
           {/* 1. Study Notes */}
           <div
             onClick={() => setActiveView('notes')}
-            className="bg-white rounded-2xl p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#004D40]/30 hover:shadow-floating transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98] overflow-hidden"
+            className="bg-gradient-to-b from-white to-emerald-50/30 rounded-2xl p-3.5 border border-emerald-100/90 shadow-subtle hover:border-emerald-500/50 hover:shadow-floating transition-all duration-300 cursor-pointer flex flex-col justify-between group active:scale-[0.97] relative overflow-hidden"
           >
-            <div className="flex items-start justify-between">
-              <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden shadow-sm border border-[#E4EAE8] bg-slate-50 shrink-0">
-                <img
-                  src={CARD_IMAGE_STUDY_NOTES}
-                  alt="Study Notes"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+            <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-400/10 rounded-full blur-xl pointer-events-none group-hover:bg-emerald-400/20 transition-all duration-300" />
+
+            <div className="flex items-start justify-between relative z-10">
+              <AnimatedStudyNotesIcon />
+              <div className="flex flex-col items-end space-y-1.5">
+                <span className="w-7 h-7 rounded-full bg-emerald-50 border border-emerald-200/60 group-hover:bg-[#004D40] group-hover:text-white text-[#004D40] flex items-center justify-center text-xs font-bold transition-all duration-200 shadow-2xs group-hover:translate-x-0.5">
+                  ›
+                </span>
+                <span className="text-[9.5px] font-bold text-emerald-800 bg-emerald-100/70 border border-emerald-200/80 px-1.5 py-0.5 rounded-md tracking-tight">
+                  24 Subjects
+                </span>
               </div>
-              <span className="w-7 h-7 rounded-full bg-[#F0F4F3] group-hover:bg-[#004D40] group-hover:text-white text-[#8A9692] flex items-center justify-center text-xs font-bold transition">›</span>
             </div>
-            <div className="mt-2.5 text-left">
-              <h3 className="font-bold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+
+            <div className="mt-3 text-left relative z-10">
+              <h3 className="font-extrabold text-[14.5px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
                 Study Notes
               </h3>
-              <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
+              <p className="text-[11px] text-[#66736F] font-medium mt-0.5 leading-snug">
                 Learn &amp; understand
               </p>
             </div>
@@ -122,23 +127,27 @@ export const HomeScreen: React.FC = () => {
           {/* 2. Practice */}
           <div
             onClick={() => setActiveView('practice')}
-            className="bg-white rounded-2xl p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#004D40]/30 hover:shadow-floating transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98] overflow-hidden"
+            className="bg-gradient-to-b from-white to-sky-50/30 rounded-2xl p-3.5 border border-sky-100/90 shadow-subtle hover:border-sky-500/50 hover:shadow-floating transition-all duration-300 cursor-pointer flex flex-col justify-between group active:scale-[0.97] relative overflow-hidden"
           >
-            <div className="flex items-start justify-between">
-              <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden shadow-sm border border-[#E4EAE8] bg-slate-50 shrink-0">
-                <img
-                  src={CARD_IMAGE_PRACTICE}
-                  alt="Practice"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+            <div className="absolute top-0 right-0 w-20 h-20 bg-sky-400/10 rounded-full blur-xl pointer-events-none group-hover:bg-sky-400/20 transition-all duration-300" />
+
+            <div className="flex items-start justify-between relative z-10">
+              <AnimatedPracticeIcon />
+              <div className="flex flex-col items-end space-y-1.5">
+                <span className="w-7 h-7 rounded-full bg-sky-50 border border-sky-200/60 group-hover:bg-[#0284C7] group-hover:text-white text-[#0284C7] flex items-center justify-center text-xs font-bold transition-all duration-200 shadow-2xs group-hover:translate-x-0.5">
+                  ›
+                </span>
+                <span className="text-[9.5px] font-bold text-sky-800 bg-sky-100/70 border border-sky-200/80 px-1.5 py-0.5 rounded-md tracking-tight">
+                  35k+ Qs
+                </span>
               </div>
-              <span className="w-7 h-7 rounded-full bg-[#F0F4F3] group-hover:bg-[#004D40] group-hover:text-white text-[#8A9692] flex items-center justify-center text-xs font-bold transition">›</span>
             </div>
-            <div className="mt-2.5 text-left">
-              <h3 className="font-bold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+
+            <div className="mt-3 text-left relative z-10">
+              <h3 className="font-extrabold text-[14.5px] text-[#10201D] leading-tight group-hover:text-[#0284C7] transition">
                 Practice
               </h3>
-              <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
+              <p className="text-[11px] text-[#66736F] font-medium mt-0.5 leading-snug">
                 Sharpen your skills
               </p>
             </div>
@@ -147,20 +156,24 @@ export const HomeScreen: React.FC = () => {
           {/* 3. Mock Exams */}
           <div
             onClick={() => setActiveView('mock')}
-            className="bg-white rounded-2xl p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#004D40]/30 hover:shadow-floating transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98] overflow-hidden"
+            className="bg-gradient-to-b from-white to-purple-50/30 rounded-2xl p-3.5 border border-purple-100/90 shadow-subtle hover:border-purple-500/50 hover:shadow-floating transition-all duration-300 cursor-pointer flex flex-col justify-between group active:scale-[0.97] relative overflow-hidden"
           >
-            <div className="flex items-start justify-between">
-              <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden shadow-sm border border-[#E4EAE8] bg-slate-50 shrink-0">
-                <img
-                  src={CARD_IMAGE_MOCK_EXAM}
-                  alt="Mock Exams"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+            <div className="absolute top-0 right-0 w-20 h-20 bg-purple-400/10 rounded-full blur-xl pointer-events-none group-hover:bg-purple-400/20 transition-all duration-300" />
+
+            <div className="flex items-start justify-between relative z-10">
+              <AnimatedMockExamsIcon />
+              <div className="flex flex-col items-end space-y-1.5">
+                <span className="w-7 h-7 rounded-full bg-purple-50 border border-purple-200/60 group-hover:bg-[#7E22CE] group-hover:text-white text-[#7E22CE] flex items-center justify-center text-xs font-bold transition-all duration-200 shadow-2xs group-hover:translate-x-0.5">
+                  ›
+                </span>
+                <span className="text-[9.5px] font-bold text-purple-800 bg-purple-100/70 border border-purple-200/80 px-1.5 py-0.5 rounded-md tracking-tight">
+                  Timed CBT
+                </span>
               </div>
-              <span className="w-7 h-7 rounded-full bg-[#F0F4F3] group-hover:bg-[#004D40] group-hover:text-white text-[#8A9692] flex items-center justify-center text-xs font-bold transition">›</span>
             </div>
-            <div className="mt-2.5 text-left">
-              <h3 className="font-bold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+
+            <div className="mt-3 text-left relative z-10">
+              <h3 className="font-extrabold text-[14.5px] text-[#10201D] leading-tight group-hover:text-[#7E22CE] transition">
                 Mock Exams
               </h3>
               <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
@@ -172,20 +185,24 @@ export const HomeScreen: React.FC = () => {
           {/* 4. Motivation */}
           <div
             onClick={() => setActiveView('motivation')}
-            className="bg-white rounded-2xl p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#004D40]/30 hover:shadow-floating transition-all duration-200 cursor-pointer flex flex-col justify-between group active:scale-[0.98] overflow-hidden"
+            className="bg-gradient-to-b from-white to-amber-50/30 rounded-2xl p-3.5 border border-amber-100/90 shadow-subtle hover:border-amber-500/50 hover:shadow-floating transition-all duration-300 cursor-pointer flex flex-col justify-between group active:scale-[0.97] relative overflow-hidden"
           >
-            <div className="flex items-start justify-between">
-              <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-xl overflow-hidden shadow-sm border border-[#E4EAE8] bg-slate-50 shrink-0">
-                <img
-                  src={CARD_IMAGE_MOTIVATION}
-                  alt="Motivation"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+            <div className="absolute top-0 right-0 w-20 h-20 bg-amber-400/10 rounded-full blur-xl pointer-events-none group-hover:bg-amber-400/20 transition-all duration-300" />
+
+            <div className="flex items-start justify-between relative z-10">
+              <AnimatedMotivationIcon />
+              <div className="flex flex-col items-end space-y-1.5">
+                <span className="w-7 h-7 rounded-full bg-amber-50 border border-amber-200/60 group-hover:bg-[#D97706] group-hover:text-white text-[#D97706] flex items-center justify-center text-xs font-bold transition-all duration-200 shadow-2xs group-hover:translate-x-0.5">
+                  ›
+                </span>
+                <span className="text-[9.5px] font-bold text-amber-800 bg-amber-100/70 border border-amber-200/80 px-1.5 py-0.5 rounded-md tracking-tight">
+                  Daily Sparks
+                </span>
               </div>
-              <span className="w-7 h-7 rounded-full bg-[#F0F4F3] group-hover:bg-[#004D40] group-hover:text-white text-[#8A9692] flex items-center justify-center text-xs font-bold transition">›</span>
             </div>
-            <div className="mt-2.5 text-left">
-              <h3 className="font-bold text-[14px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+
+            <div className="mt-3 text-left relative z-10">
+              <h3 className="font-extrabold text-[14.5px] text-[#10201D] leading-tight group-hover:text-[#D97706] transition">
                 Motivation
               </h3>
               <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
