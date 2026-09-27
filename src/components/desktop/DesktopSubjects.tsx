@@ -34,7 +34,7 @@ export const DesktopSubjects: React.FC<DesktopSubjectsProps> = ({
   onSelectMathematics,
   onBackToDashboard
 }) => {
-  const { startTestForSubject, startMultiSubjectTest, setActiveView, availableYears, setSelectedSubject, setSelectedSubjects } = useApp();
+  const { startTestForSubject, startMultiSubjectTest, setActiveView, availableYears, setSelectedSubject, setSelectedSubjects, openDareToDare } = useApp();
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedPhysicsYear, setSelectedPhysicsYear] = useState<number | 'all'>(2024);
@@ -1061,6 +1061,14 @@ export const DesktopSubjects: React.FC<DesktopSubjectsProps> = ({
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
           </div>
+          <button
+            type="button"
+            onClick={() => openDareToDare({ subject: 'Mathematics' })}
+            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 active:scale-95 transition flex items-center space-x-2 border border-amber-300/40 cursor-pointer shrink-0"
+          >
+            <span className="animate-pulse">🔥</span>
+            <span>DARE TO DARE (60s GAME)</span>
+          </button>
         </div>
       </div>
 

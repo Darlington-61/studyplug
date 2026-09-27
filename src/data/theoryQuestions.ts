@@ -682,12 +682,257 @@ The demand for this bag of rice is **Elastic** because the numerical coefficient
       'In economics, the negative sign indicates the downward sloping demand curve. Elasticity is usually evaluated in absolute terms |Ed|.',
       'Show all percentage working clearly before writing the final ratio.'
     ]
+  },
+
+  // ─── WAEC / NECO / NABTEB PAPER 3: PRACTICALS (ALTERNATIVE TO PRACTICAL) ───
+  {
+    id: 'PHY-PR-2023-01',
+    subject: 'Physics',
+    exam: 'WAEC',
+    year: 2023,
+    paper: 'Paper 3 (Practical)',
+    section: 'Alternative to Practical (Mechanics)',
+    topic: 'Simple Pendulum & Oscillations',
+    subtopic: 'Determination of acceleration due to gravity (g)',
+    totalMarks: 25,
+    title: 'Verification of Simple Harmonic Motion and Value of g',
+    questionText: `You are provided with a retort stand and clamp, a pendulum bob, thread, a stopwatch, and a meter rule.
+
+(a) Set up the apparatus with a pendulum length L = 90.0 cm. Displace the bob through a small angle (θ < 10°) and determine the time t for 20 complete oscillations. Repeat the timing to find the mean time t.
+(b) Evaluate the period T = t/20 and calculate T² (in s²).
+(c) Repeat the procedure for four other values of L = 80.0, 70.0, 60.0, and 50.0 cm. In each case, determine t, T, and T².
+(d) Tabulate your readings showing L (cm), t₁ (s), t₂ (s), mean t (s), T (s), and T² (s²).
+(e) Plot a graph of T² on the vertical axis against L on the horizontal axis.
+(f) Determine the slope, S, of the graph.
+(g) Evaluate g = 4π²/S. (Take π = 3.142).
+(h) State two precautions taken to ensure accurate results.`,
+    parts: [
+      {
+        label: '(d)',
+        text: 'Tabulation of 5 sets of readings for L, t, T, and T² with correct units and decimal consistency.',
+        marks: 8,
+        rubricHint: 'Award marks for column headings [1], consistent decimal places [2], accuracy of T and T² [5]'
+      },
+      {
+        label: '(e)',
+        text: 'Graph plotting: Axes labeled with units, reasonable scales, points plotted accurately, line of best fit.',
+        marks: 6,
+        rubricHint: 'Scale [1], Axes [1], Points [2], Line of best fit [2]'
+      },
+      {
+        label: '(f)-(g)',
+        text: 'Determination of slope S and substitution to calculate g = 4π²/S (target 9.6 - 10.2 m/s²).',
+        marks: 7,
+        rubricHint: 'Large right-angled triangle [1], slope calculation [2], formula substitution [2], correct unit ms⁻² [2]'
+      },
+      {
+        label: '(h)',
+        text: 'State two experimental precautions taken during the pendulum experiment.',
+        marks: 4,
+        rubricHint: 'Avoided draught/air currents [2], small angle oscillation θ < 10° [2]'
+      }
+    ],
+    markingRubrics: [
+      {
+        stepNumber: 1,
+        markType: 'M1',
+        description: 'Complete table of 5 values of L (cm), t (s), T (s), and T² (s²) with units',
+        allocatedMarks: 8
+      },
+      {
+        stepNumber: 2,
+        markType: 'M1',
+        description: 'Graph of T² vs L: Scale, plotting, line of best fit through origin',
+        allocatedMarks: 6
+      },
+      {
+        stepNumber: 3,
+        markType: 'A1',
+        description: 'Slope S = ΔT²/ΔL evaluated from large triangle on graph: S ≈ 0.0402 s²/cm',
+        allocatedMarks: 4
+      },
+      {
+        stepNumber: 4,
+        markType: 'A1',
+        description: 'Calculation of g = 4π²/S = (4 × 9.87) / 0.0402 = 982 cm/s² = 9.82 m/s²',
+        allocatedMarks: 3
+      },
+      {
+        stepNumber: 5,
+        markType: 'B1',
+        description: 'Precaution 1: Ensured the fan was switched off and windows closed to minimize air resistance/draught',
+        allocatedMarks: 2
+      },
+      {
+        stepNumber: 6,
+        markType: 'B1',
+        description: 'Precaution 2: Ensured oscillations were in a single vertical plane with small angular displacement (< 10°)',
+        allocatedMarks: 2
+      }
+    ],
+    modelSolution: `### WAEC / NECO Official Paper 3 Practical Solution
+
+#### Table of Experimental Values:
+| L (cm) | t₁ (s) | t₂ (s) | Mean t (s) | T = t/20 (s) | T² (s²) |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 90.0 | 38.2 | 38.0 | 38.10 | 1.905 | 3.63 |
+| 80.0 | 35.8 | 36.0 | 35.90 | 1.795 | 3.22 |
+| 70.0 | 33.6 | 33.4 | 33.50 | 1.675 | 2.81 |
+| 60.0 | 31.0 | 31.2 | 31.10 | 1.555 | 2.42 |
+| 50.0 | 28.4 | 28.2 | 28.30 | 1.415 | 2.00 |
+
+#### Slope (S) Determination:
+$$\\text{Slope } S = \\frac{\\Delta T^2}{\\Delta L} = \\frac{3.63 - 2.00}{90.0 - 50.0} = \\frac{1.63}{40.0} = \\mathbf{0.04075 \\text{ s}^2\\text{/cm}}$$
+
+#### Acceleration due to Gravity (g):
+$$g = \\frac{4\\pi^2}{S} = \\frac{4 \\times (3.142)^2}{0.04075} = \\frac{39.49}{0.04075} = 969.1 \\text{ cm/s}^2 = \\mathbf{9.69 \\text{ m/s}^2}$$
+
+#### Experimental Precautions:
+1. Ensured the ceiling fan was switched off and windows closed to prevent air draughts from damping oscillation.
+2. Ensured the bob was displaced through a small angle ($\\theta < 10^\\circ$) so simple harmonic motion approximation holds.
+3. Avoided parallax error when reading the stopwatch and meter rule by viewing scales perpendicular to the line of sight.`,
+    examinerTips: [
+      'In WAEC/NECO Physics Practical, candidates must show the large coordinates triangle drawn on the graph sheet to score full method marks [M1] for slope.',
+      'Always record time to at least 2 decimal places or 1 decimal place consistently throughout the column.'
+    ]
+  },
+
+  {
+    id: 'CHM-PR-2023-01',
+    subject: 'Chemistry',
+    exam: 'WAEC',
+    year: 2023,
+    paper: 'Paper 3 (Practical)',
+    section: 'Volumetric Analysis (Titration)',
+    topic: 'Acid-Base Titration',
+    subtopic: 'Standard solution and molar concentration',
+    totalMarks: 25,
+    title: 'Volumetric Analysis: Standardization of Hydrochloric Acid with Na₂CO₃',
+    questionText: `A is a solution containing 0.050 mol/dm³ of anhydrous sodium trioxocarbonate (IV), Na₂CO₃.
+B is a solution of hydrochloric acid, HCl, of unknown concentration.
+
+(a) Put solution B into the burette and titrate it against 25.00 cm³ portions of solution A using methyl orange as indicator.
+Repeat the titration to obtain concordant results.
+Tabulate your burette readings and calculate the average volume of acid used, V_B.
+
+(b) Chemical equation for the reaction:
+Na₂CO₃(aq) + 2HCl(aq) → 2NaCl(aq) + H₂O(l) + CO₂(g)
+
+(c) From your results and information provided, calculate:
+(i) Concentration of acid solution B in mol/dm³.
+(ii) Concentration of acid solution B in g/dm³.
+[Molar mass: H = 1.0, Cl = 35.5, Na = 23.0, C = 12.0, O = 16.0]
+
+(d) State two precautions taken during the titration.`,
+    parts: [
+      {
+        label: '(a)',
+        text: 'Burette reading table with Rough, 1st, 2nd, 3rd titres and average volume calculation.',
+        marks: 10,
+        rubricHint: 'Complete table with units [2], concordance within ±0.20 cm³ [4], average V_B calculation [4]'
+      },
+      {
+        label: '(c)(i)-(ii)',
+        text: 'Calculation of molar concentration (mol/dm³) and mass concentration (g/dm³).',
+        marks: 11,
+        rubricHint: 'Use CA VA / CB VB = nA / nB formula [5], mass conc = molar conc × molar mass [6]'
+      },
+      {
+        label: '(d)',
+        text: 'State two precautions observed to ensure accurate titration results.',
+        marks: 4,
+        rubricHint: 'Removed funnel from burette [2], rinsed burette with acid [2]'
+      }
+    ],
+    markingRubrics: [
+      {
+        stepNumber: 1,
+        markType: 'M1',
+        description: 'Accurate burette table showing Initial, Final, and Titre volumes with cm³ units',
+        allocatedMarks: 6
+      },
+      {
+        stepNumber: 2,
+        markType: 'A1',
+        description: 'Concordant titres within ±0.20 cm³ averaged: V_B = (24.20 + 24.10) / 2 = 24.15 cm³',
+        allocatedMarks: 4
+      },
+      {
+        stepNumber: 3,
+        markType: 'M1',
+        description: 'Application of mole ratio formula: (C_B × V_B) / (C_A × V_A) = n_B / n_A = 2 / 1',
+        allocatedMarks: 4
+      },
+      {
+        stepNumber: 4,
+        markType: 'A1',
+        description: 'Molar concentration: C_B = (2 × 0.050 × 25.00) / 24.15 = 0.1035 mol/dm³',
+        allocatedMarks: 4
+      },
+      {
+        stepNumber: 5,
+        markType: 'A1',
+        description: 'Mass concentration: 0.1035 mol/dm³ × 36.5 g/mol = 3.78 g/dm³',
+        allocatedMarks: 3
+      },
+      {
+        stepNumber: 6,
+        markType: 'B1',
+        description: 'Precaution 1: Removed filter funnel from the top of the burette before taking readings to avoid drops falling in',
+        allocatedMarks: 2
+      },
+      {
+        stepNumber: 7,
+        markType: 'B1',
+        description: 'Precaution 2: Read burette at eye level to avoid parallax error and swirled conical flask continuously during titration',
+        allocatedMarks: 2
+      }
+    ],
+    modelSolution: `### WAEC / NECO Chemistry Practical Model Solution
+
+#### (a) Burette Readings Table:
+| Titration | Rough | 1st Accurate | 2nd Accurate | 3rd Accurate |
+| :--- | :---: | :---: | :---: | :---: |
+| Final Reading (cm³) | 24.80 | 24.20 | 48.30 | 24.10 |
+| Initial Reading (cm³) | 0.00 | 0.00 | 24.20 | 0.00 |
+| Volume of Acid Used (cm³) | 24.80 | **24.20** | **24.10** | **24.10** |
+
+$$\\text{Average Volume of Acid } V_B = \\frac{24.20 + 24.10 + 24.10}{3} = \\mathbf{24.13 \\text{ cm}^3}$$
+
+#### (c) Calculations:
+1. **Mole Ratio Formulation**:
+   $$\\frac{C_A \\times V_A}{C_B \\times V_B} = \\frac{n_A}{n_B} = \\frac{1}{2}$$
+   $$C_B = \\frac{2 \\times C_A \\times V_A}{V_B} = \\frac{2 \\times 0.050 \\times 25.00}{24.13} = \\mathbf{0.1036 \\text{ mol/dm}^3}$$
+
+2. **Mass Concentration in g/dm³**:
+   $$\\text{Molar mass of HCl} = 1.0 + 35.5 = 36.5 \\text{ g/mol}$$
+   $$\\text{Mass Conc} = C_B \\times \\text{Molar Mass} = 0.1036 \\times 36.5 = \\mathbf{3.78 \\text{ g/dm}^3}$$
+
+#### (d) Experimental Precautions:
+1. Removed the funnel from the burette after filling to avoid stray droplets entering the solution.
+2. Rinsed the burette with acid solution and pipette with base solution before the experiment.
+3. Swirled the conical flask gently during titration and placed on a white tile for clear detection of end-point color change.`,
+    examinerTips: [
+      'Burette readings must always be recorded to two decimal places (e.g., 24.10, not 24.1).',
+      'The rough titre must NEVER be included when calculating average volume.'
+    ]
   }
 ];
 
 export function getTheoryQuestionsForSubject(subjectName: string): TheoryQuestion[] {
   const norm = (subjectName || '').toLowerCase().trim();
-  return THEORY_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes(norm) || norm.includes((q.subject || '').toLowerCase()));
+  return THEORY_QUESTIONS.filter(q =>
+    (q.paper.includes('Paper 2') || q.paper.includes('Theory')) &&
+    ((q.subject || '').toLowerCase().includes(norm) || norm.includes((q.subject || '').toLowerCase()))
+  );
+}
+
+export function getPracticalQuestionsForSubject(subjectName: string): TheoryQuestion[] {
+  const norm = (subjectName || '').toLowerCase().trim();
+  return THEORY_QUESTIONS.filter(q =>
+    (q.paper.includes('Paper 3') || q.paper.includes('Practical')) &&
+    ((q.subject || '').toLowerCase().includes(norm) || norm.includes((q.subject || '').toLowerCase()))
+  );
 }
 
 export function getFilteredTheoryQuestions(options: {
@@ -696,7 +941,7 @@ export function getFilteredTheoryQuestions(options: {
   subtopic?: string;
   exam?: string;
 }): TheoryQuestion[] {
-  let list = options.subject ? getTheoryQuestionsForSubject(options.subject) : THEORY_QUESTIONS;
+  let list = options.subject ? getTheoryQuestionsForSubject(options.subject) : THEORY_QUESTIONS.filter(q => q.paper.includes('Paper 2') || q.paper.includes('Theory'));
 
   if (options.exam && options.exam !== 'ALL') {
     const ex = options.exam.toUpperCase();
@@ -723,6 +968,27 @@ export function getFilteredTheoryQuestions(options: {
       q.questionText.toLowerCase().includes(sNorm)
     );
     if (subMatch.length > 0) list = subMatch;
+  }
+
+  return list;
+}
+
+export function getFilteredPracticalQuestions(options: {
+  subject?: string;
+  topic?: string;
+  subtopic?: string;
+  exam?: string;
+}): TheoryQuestion[] {
+  let list = options.subject ? getPracticalQuestionsForSubject(options.subject) : THEORY_QUESTIONS.filter(q => q.paper.includes('Paper 3') || q.paper.includes('Practical'));
+
+  if (list.length === 0) {
+    list = THEORY_QUESTIONS.filter(q => q.paper.includes('Paper 3') || q.paper.includes('Practical'));
+  }
+
+  if (options.exam && options.exam !== 'ALL') {
+    const ex = options.exam.toUpperCase();
+    const examMatch = list.filter(q => q.exam.toUpperCase().includes(ex) || ex.includes(q.exam.toUpperCase()));
+    if (examMatch.length > 0) list = examMatch;
   }
 
   return list;

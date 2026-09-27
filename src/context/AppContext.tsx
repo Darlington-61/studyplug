@@ -110,6 +110,20 @@ interface AppContextType {
   openMorningTea: () => void;
   closeMorningTea: () => void;
 
+  // Dare to Dare Challenge Game
+  isDareToDareOpen: boolean;
+  dareToDareContext: { subject?: string; topic?: string; exam?: string; mode?: 'blitz' | 'survival' | 'master' } | null;
+  openDareToDare: (context?: { subject?: string; topic?: string; exam?: string; mode?: 'blitz' | 'survival' | 'master' }) => void;
+  closeDareToDare: () => void;
+
+  // WAEC / NECO / NABTEB Standard Exam Papers ('OBJ' | 'Theory' | 'Practical')
+  selectedExamPapers: ('OBJ' | 'Theory' | 'Practical')[];
+  setSelectedExamPapers: React.Dispatch<React.SetStateAction<('OBJ' | 'Theory' | 'Practical')[]>>;
+  isPaperSelectorOpen: boolean;
+  paperSelectorExam: string;
+  openPaperSelector: (exam?: string) => void;
+  closePaperSelector: () => void;
+
   // Upgrade & Premium State (Verified via Selar Webhook)
   isUpgradeModalOpen: boolean;
   openUpgradeModal: () => void;
@@ -200,9 +214,41 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return (saved as any) || 'JAMB';
   });
 
+  // WAEC / NECO / NABTEB Standard Exam Papers ('OBJ' | 'Theory' | 'Practical')
+  const [selectedExamPapers, setSelectedExamPapers] = useState<('OBJ' | 'Theory' | 'Practical')[]>(() => {
+    try {
+      const saved = localStorage.getItem('sp_selected_exam_papers');
+      return saved ? JSON.parse(saved) : ['OBJ', 'Theory', 'Practical'];
+    } catch {
+      return ['OBJ', 'Theory', 'Practical'];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('sp_selected_exam_papers', JSON.stringify(selectedExamPapers));
+    } catch {}
+  }, [selectedExamPapers]);
+
+  const [isPaperSelectorOpen, setIsPaperSelectorOpen] = useState<boolean>(false);
+  const [paperSelectorExam, setPaperSelectorExam] = useState<string>('WAEC');
+
+  const openPaperSelector = useCallback((exam?: string) => {
+    if (exam) setPaperSelectorExam(exam);
+    setIsPaperSelectorOpen(true);
+  }, []);
+
+  const closePaperSelector = useCallback(() => {
+    setIsPaperSelectorOpen(false);
+  }, []);
+
   const setSelectedExam = useCallback((exam: 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE') => {
     setSelectedExamState(exam);
     localStorage.setItem('sp_selected_exam', exam);
+    if (exam === 'WAEC' || exam === 'NECO' || exam === 'NABTEB') {
+      setPaperSelectorExam(exam);
+      setIsPaperSelectorOpen(true);
+    }
   }, []);
 
   // Subject & Multi-Subject Exam State
@@ -256,6 +302,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isMorningTeaOpen, setIsMorningTeaOpen] = useState<boolean>(false);
   const openMorningTea = () => setIsMorningTeaOpen(true);
   const closeMorningTea = () => setIsMorningTeaOpen(false);
+
+  // Dare to Dare Challenge Game State
+  const [isDareToDareOpen, setIsDareToDareOpen] = useState<boolean>(false);
+  const [dareToDareContext, setDareToDareContext] = useState<{ subject?: string; topic?: string; exam?: string; mode?: 'blitz' | 'survival' | 'master' } | null>(null);
+
+  const openDareToDare = (context?: { subject?: string; topic?: string; exam?: string; mode?: 'blitz' | 'survival' | 'master' }) => {
+    setDareToDareContext(context || null);
+    setIsDareToDareOpen(true);
+  };
+  const closeDareToDare = () => {
+    setIsDareToDareOpen(false);
+  };
 
   // Auto Pop-Out Check: Pop out morning tea once every day
   useEffect(() => {
@@ -615,6 +673,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         isMorningTeaOpen,
         openMorningTea,
         closeMorningTea,
+        isDareToDareOpen,
+        dareToDareContext,
+        openDareToDare,
+        closeDareToDare,
+        selectedExamPapers,
+        setSelectedExamPapers,
+        isPaperSelectorOpen,
+        paperSelectorExam,
+        openPaperSelector,
+        closePaperSelector,
         isUpgradeModalOpen,
         openUpgradeModal,
         closeUpgradeModal,

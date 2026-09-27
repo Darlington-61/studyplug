@@ -6,15 +6,17 @@ interface MenuDrawerProps {
   onClose: () => void;
   onOpenLeaderboard: () => void;
   onOpenCalculator: () => void;
+  onOpenYouTubeStudio?: () => void;
 }
 
 export const MenuDrawer: React.FC<MenuDrawerProps> = ({
   isOpen,
   onClose,
   onOpenLeaderboard,
-  onOpenCalculator
+  onOpenCalculator,
+  onOpenYouTubeStudio
 }) => {
-  const { setActiveView, studyStreak, testsTaken, overallAccuracy, openAiTutor, isDarkMode, toggleDarkMode } = useApp();
+  const { setActiveView, studyStreak, testsTaken, overallAccuracy, openAiTutor, openDareToDare, isDarkMode, toggleDarkMode } = useApp();
 
   if (!isOpen) return null;
 
@@ -119,6 +121,27 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
             </div>
           </button>
 
+          {/* 2. DARE TO DARE Challenge */}
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              openDareToDare();
+            }}
+            className="w-full flex items-center space-x-3 p-3 rounded-[12px] bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 text-white font-bold text-[13.5px] transition cursor-pointer shadow-xs group"
+          >
+            <span className="text-xl">🔥</span>
+            <div className="flex-1 text-left">
+              <div className="flex items-center justify-between">
+                <span>Dare to Dare Challenge</span>
+                <span className="px-2 py-0.5 rounded-full text-[9.5px] font-black bg-white text-red-700 uppercase">
+                  HOT
+                </span>
+              </div>
+              <p className="text-[11px] text-amber-100 font-normal">60s rapid CBT challenge across subjects</p>
+            </div>
+          </button>
+
           {/* 2. Home Dashboard */}
           <button
             type="button"
@@ -214,6 +237,26 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
             <span className="text-lg">🤖</span>
             <span>Ask StudyPlug AI</span>
           </button>
+
+          {/* 11. Admin YouTube Studio */}
+          {onOpenYouTubeStudio && (
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                onOpenYouTubeStudio();
+              }}
+              className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] bg-gradient-to-r from-red-600/10 via-amber-600/10 to-emerald-600/10 hover:bg-amber-500/20 text-[#004D40] dark:text-emerald-300 font-extrabold text-[13.5px] transition cursor-pointer border border-amber-500/30"
+            >
+              <span className="text-lg">🎥</span>
+              <div className="flex-1 flex items-center justify-between text-left">
+                <span>YouTube Studio</span>
+                <span className="px-1.5 py-0.5 rounded bg-amber-400 text-stone-900 text-[9px] font-black uppercase">
+                  Admin
+                </span>
+              </div>
+            </button>
+          )}
         </div>
 
         {/* Bottom Drawer Footer */}
@@ -224,7 +267,33 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
               ✓ 100% Offline
             </span>
           </div>
-          <div className="text-[10px] opacity-75">
+          {/* Direct App Downloads */}
+          <div className="pt-2 border-t border-black/5 space-y-1.5">
+            <div className="text-[10px] font-bold opacity-60 uppercase tracking-wider">
+              Download Native Apps:
+            </div>
+            <div className="grid grid-cols-2 gap-1.5">
+              <a
+                href="https://studyplug.com.ng/StudyPlug.apk"
+                download="StudyPlug.apk"
+                className="p-2 rounded-[10px] bg-[#004D40] hover:bg-[#003B32] text-white text-[11px] font-bold flex items-center justify-center space-x-1 shadow-xs transition"
+              >
+                <span>🤖</span>
+                <span>Android APK</span>
+              </a>
+              <a
+                href="https://apps.apple.com/app/studyplug"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-[10px] bg-black hover:bg-slate-900 text-white text-[11px] font-bold flex items-center justify-center space-x-1 shadow-xs transition border border-white/20"
+              >
+                <span>🍏</span>
+                <span>iOS App Store</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="text-[10px] opacity-75 pt-0.5">
             StudyPlug v2.0 • JAMB, WAEC, NECO &amp; BECE
           </div>
         </div>

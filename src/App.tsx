@@ -26,6 +26,9 @@ import { LeaderboardModal } from './components/common/LeaderboardModal';
 import { CbtCalculatorModal } from './components/common/CbtCalculatorModal';
 import { MorningTeaModal } from './components/common/MorningTeaModal';
 import { UpgradeModal } from './components/common/UpgradeModal';
+import { DareToDareGameModal } from './components/common/DareToDareGameModal';
+import { ExamPaperSelectorModal } from './components/common/ExamPaperSelectorModal';
+import { YouTubeStudioModal } from './components/admin/youtubeStudio/YouTubeStudioModal';
 
 const MainAppContent: React.FC = () => {
   const {
@@ -49,6 +52,7 @@ const MainAppContent: React.FC = () => {
   const [isCPanelModalOpen, setIsCPanelModalOpen] = useState<boolean>(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState<boolean>(false);
   const [isAdvertModalOpen, setIsAdvertModalOpen] = useState<boolean>(false);
+  const [isYouTubeStudioOpen, setIsYouTubeStudioOpen] = useState<boolean>(false);
 
   const [isMobileDevice, setIsMobileDevice] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
@@ -79,10 +83,15 @@ const MainAppContent: React.FC = () => {
         <AdminQuestionModal
           isOpen={isAdminModalOpen}
           onClose={() => setIsAdminModalOpen(false)}
+          onOpenYouTubeStudio={() => setIsYouTubeStudioOpen(true)}
         />
         <AdvertVideoModal
           isOpen={isAdvertModalOpen}
           onClose={() => setIsAdvertModalOpen(false)}
+        />
+        <YouTubeStudioModal
+          isOpen={isYouTubeStudioOpen}
+          onClose={() => setIsYouTubeStudioOpen(false)}
         />
         <PlugAiModal />
         <MenuDrawer
@@ -90,6 +99,7 @@ const MainAppContent: React.FC = () => {
           onClose={closeMenuDrawer}
           onOpenLeaderboard={openLeaderboard}
           onOpenCalculator={openCalculator}
+          onOpenYouTubeStudio={() => setIsYouTubeStudioOpen(true)}
         />
         <LeaderboardModal
           isOpen={isLeaderboardOpen}
@@ -107,6 +117,8 @@ const MainAppContent: React.FC = () => {
           isOpen={isUpgradeModalOpen}
           onClose={closeUpgradeModal}
         />
+        <DareToDareGameModal />
+        <ExamPaperSelectorModal />
 
         {/* Global Quick Back Bar for results and bookmarks only */}
         {(activeView === 'results' || activeView === 'bookmarks') && (
@@ -169,6 +181,7 @@ const MainAppContent: React.FC = () => {
         onOpenCPanelSettings={() => setIsCPanelModalOpen(true)}
         onOpenAdminPortal={() => setIsAdminModalOpen(true)}
         onOpenAdvertStudio={() => setIsAdvertModalOpen(true)}
+        onOpenYouTubeStudio={() => setIsYouTubeStudioOpen(true)}
       />
 
       {/* cPanel Cloud Database Settings Modal */}
@@ -182,12 +195,19 @@ const MainAppContent: React.FC = () => {
       <AdminQuestionModal
         isOpen={isAdminModalOpen}
         onClose={() => setIsAdminModalOpen(false)}
+        onOpenYouTubeStudio={() => setIsYouTubeStudioOpen(true)}
       />
 
       {/* Commercial Advert Studio Modal */}
       <AdvertVideoModal
         isOpen={isAdvertModalOpen}
         onClose={() => setIsAdvertModalOpen(false)}
+      />
+
+      {/* YouTube Video Generator Studio Pro Modal */}
+      <YouTubeStudioModal
+        isOpen={isYouTubeStudioOpen}
+        onClose={() => setIsYouTubeStudioOpen(false)}
       />
 
       {/* PlugAI 100% Free Offline AI Tutor Modal */}
@@ -197,6 +217,7 @@ const MainAppContent: React.FC = () => {
         onClose={closeMenuDrawer}
         onOpenLeaderboard={openLeaderboard}
         onOpenCalculator={openCalculator}
+        onOpenYouTubeStudio={() => setIsYouTubeStudioOpen(true)}
       />
       <LeaderboardModal
         isOpen={isLeaderboardOpen}
@@ -214,6 +235,8 @@ const MainAppContent: React.FC = () => {
         isOpen={isUpgradeModalOpen}
         onClose={closeUpgradeModal}
       />
+      <DareToDareGameModal />
+      <ExamPaperSelectorModal />
 
       {/* Main Content Area */}
       <main className={`flex-1 w-full ${activeView === 'notes' ? 'pb-0' : 'pb-16'}`}>

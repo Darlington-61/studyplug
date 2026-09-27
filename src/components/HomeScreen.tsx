@@ -10,12 +10,12 @@ import {
 } from './home/AnimatedFeatureCards';
 
 export const HomeScreen: React.FC = () => {
-  const [isIosGuideOpen, setIsIosGuideOpen] = React.useState<boolean>(false);
   const {
     setActiveView,
     setSelectedSubject,
     openAiTutor,
     openMorningTea,
+    openDareToDare,
     studyStreak,
     overallAccuracy,
     selectedExam,
@@ -212,6 +212,32 @@ export const HomeScreen: React.FC = () => {
           </div>
         </div>
 
+        {/* ─── DARE TO DARE Banner on HomeScreen ─── */}
+        <div
+          onClick={() => openDareToDare({ subject: 'Mathematics' })}
+          className="w-full rounded-[18px] bg-gradient-to-r from-[#061F17] via-[#0B3528] to-[#124B3B] p-4 text-white border border-emerald-500/30 shadow-subtle cursor-pointer relative overflow-hidden group hover:border-amber-400/50 transition-all duration-200 active:scale-[0.99]"
+        >
+          <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
+          <div className="flex items-center justify-between relative z-10 gap-3">
+            <div className="space-y-1 text-left flex-1">
+              <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 text-white text-[10px] font-black uppercase tracking-wider shadow-xs">
+                <span className="animate-pulse">🔥</span>
+                <span>DARE TO DARE</span>
+                <span className="bg-white text-red-700 px-1 py-0.1 rounded text-[9px] font-black">GAME</span>
+              </div>
+              <h3 className="text-[14.5px] font-black text-white group-hover:text-[#FFD600] transition">
+                Dare to take the 60-Second Challenge?
+              </h3>
+              <p className="text-[11.5px] text-emerald-200 leading-snug">
+                Rapid past questions • Speed run • Beat the clock &amp; dare friends!
+              </p>
+            </div>
+            <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 group-hover:rotate-6 transition">
+              <span className="text-xl">⚡</span>
+            </div>
+          </div>
+        </div>
+
         {/* Quick Access Official Exam Badges */}
         <div className="bg-white rounded-[16px] p-4 border border-[#E4EAE8] shadow-subtle space-y-3">
           <div className="text-left font-bold text-[14px] text-[#10201D] flex items-center justify-between">
@@ -245,83 +271,6 @@ export const HomeScreen: React.FC = () => {
               );
             })}
           </div>
-        </div>
-
-        {/* Mobile App Download & iPhone Installation Banner */}
-        <div className="bg-white rounded-[16px] p-4 sm:p-5 border border-[#E4EAE8] shadow-subtle space-y-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <span className="text-xl">📲</span>
-              <div className="text-left">
-                <h3 className="font-bold text-[14px] text-[#10201D] leading-tight">
-                  Get the StudyPlug Mobile App
-                </h3>
-                <p className="text-[11px] text-[#66736F]">
-                  Practice offline anytime on Android and iPhone
-                </p>
-              </div>
-            </div>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-100 text-emerald-800 border border-emerald-300">
-              Free
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-            {/* Android Direct APK Download */}
-            <a
-              href="https://studyplug.com.ng/StudyPlug.apk"
-              download="StudyPlug.apk"
-              className="p-3 rounded-[12px] bg-[#004D40] hover:bg-[#003B32] text-white flex items-center justify-between transition cursor-pointer touch-press shadow-xs group"
-            >
-              <div className="flex items-center space-x-2.5">
-                <span className="text-lg">🤖</span>
-                <div className="text-left">
-                  <div className="text-xs font-bold leading-tight">Download for Android</div>
-                  <div className="text-[10px] text-emerald-200">Direct APK Download (14 MB)</div>
-                </div>
-              </div>
-              <span className="text-xs font-black text-amber-300 group-hover:translate-x-0.5 transition">↓</span>
-            </a>
-
-            {/* iPhone / iOS Guide Toggle */}
-            <button
-              type="button"
-              onClick={() => setIsIosGuideOpen(!isIosGuideOpen)}
-              className="p-3 rounded-[12px] bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-between transition cursor-pointer touch-press shadow-xs group"
-            >
-              <div className="flex items-center space-x-2.5">
-                <span className="text-lg">🍏</span>
-                <div className="text-left">
-                  <div className="text-xs font-bold leading-tight">Install on iPhone / iPad</div>
-                  <div className="text-[10px] text-slate-300">Fast 1-tap Home Screen App</div>
-                </div>
-              </div>
-              <span className="text-xs font-black text-slate-300">{isIosGuideOpen ? '▲' : '▼'}</span>
-            </button>
-          </div>
-
-          {/* Collapsible iPhone Installation Steps */}
-          {isIosGuideOpen && (
-            <div className="mt-2 p-3.5 rounded-[12px] bg-[#F7F9F8] border border-slate-200 text-left space-y-2 text-xs text-[#10201D] animate-card-in">
-              <div className="font-bold text-slate-900 flex items-center space-x-1.5">
-                <span>📱 How to install StudyPlug on iPhone / iPad:</span>
-              </div>
-              <ol className="space-y-1.5 text-[11.5px] text-slate-700 pl-4 list-decimal leading-relaxed">
-                <li>
-                  Open <strong>Safari</strong> on your iPhone and visit <strong>https://studyplug.com.ng</strong>.
-                </li>
-                <li>
-                  Tap the <strong>Share button</strong> at the bottom of Safari (the square box with an arrow pointing up <span className="font-mono font-bold bg-slate-200 px-1 rounded">⎋</span>).
-                </li>
-                <li>
-                  Scroll down the share options and tap <strong>"Add to Home Screen"</strong> (<span className="font-bold">➕</span>).
-                </li>
-                <li>
-                  Tap <strong>"Add"</strong> in the top-right corner. StudyPlug will instantly appear on your iPhone screen with its official app icon, opening in full screen and working 100% offline!
-                </li>
-              </ol>
-            </div>
-          )}
         </div>
 
         {/* Motivation Card at Bottom */}

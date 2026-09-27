@@ -12,6 +12,7 @@ export interface SubjectConfig {
 interface SubjectCardProps {
   subject: SubjectConfig;
   onClick: () => void;
+  onDare?: () => void;
 }
 
 export const getSubjectColor = (subjectName: string): string => {
@@ -27,7 +28,7 @@ export const getSubjectColor = (subjectName: string): string => {
   return '#16A34A';
 };
 
-export const SubjectCard: React.FC<SubjectCardProps> = ({ subject, onClick }) => {
+export const SubjectCard: React.FC<SubjectCardProps> = ({ subject, onClick, onDare }) => {
   const color = subject.color || getSubjectColor(subject.name);
 
   const renderIcon = () => {
@@ -133,10 +134,26 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({ subject, onClick }) =>
         </div>
       </div>
 
-      {/* Right subtle arrow */}
-      <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">
-        ›
-      </span>
+      {/* Right actions: Dare button & arrow */}
+      <div className="flex items-center space-x-2">
+        {onDare && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onDare();
+            }}
+            className="px-2 py-1 rounded-[8px] bg-gradient-to-r from-amber-500 to-red-500 text-white font-extrabold text-[10.5px] uppercase tracking-wider hover:brightness-110 active:scale-95 transition shadow-xs flex items-center space-x-1"
+            title={`Dare to Dare Challenge in ${subject.name}`}
+          >
+            <span>⚡</span>
+            <span>Dare</span>
+          </button>
+        )}
+        <span className="text-[#8A9692] text-sm group-hover:text-[#10201D] group-hover:translate-x-0.5 transition">
+          ›
+        </span>
+      </div>
     </div>
   );
 };

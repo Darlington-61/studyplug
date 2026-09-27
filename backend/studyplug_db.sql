@@ -62,6 +62,29 @@ CREATE TABLE IF NOT EXISTS `exam_sessions` (
   KEY `idx_subject_date` (`subject`,`completed_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE IF NOT EXISTS `youtube_projects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `project_uuid` varchar(64) NOT NULL UNIQUE,
+  `title` varchar(255) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `exam` varchar(30) NOT NULL,
+  `topic` varchar(150) NOT NULL,
+  `subtopic` varchar(150) DEFAULT NULL,
+  `video_type` varchar(50) NOT NULL,
+  `aspect_ratio` varchar(10) NOT NULL DEFAULT '16:9',
+  `status` enum('draft','script_ready','rendering','ready_for_review','published') DEFAULT 'draft',
+  `script_json` mediumtext DEFAULT NULL,
+  `scenes_json` mediumtext DEFAULT NULL,
+  `seo_json` mediumtext DEFAULT NULL,
+  `cost_estimate_naira` decimal(10,2) DEFAULT '0.00',
+  `duration_seconds` int(11) DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_subject_topic` (`subject`,`topic`),
+  KEY `idx_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 INSERT INTO `questions` (`subject`, `exam_year`, `question_num`, `text`, `image_url`, `image_svg`, `option_a`, `option_b`, `option_c`, `option_d`, `correct_answer`, `explanation`, `topic`, `difficulty`) VALUES
 ('Physics', 1983, 1, 'In a resonance tube experiment, a tube of fixed length is closed at one end and several tuning forks of increasing frequency are used to obtain resonance at the open end. If the tuning fork with the lowest frequency which gave resonance had a frequency f₁ and the next tuning fork to give resonance had a frequency f₂, find the ratio f₂ / f₁.', NULL, NULL, '8', '3', '2', '1/2', 'B', 'For a pipe closed at one end, only odd harmonics are present. The fundamental frequency is f₁ = v / (4L). The next resonant frequency (the first overtone or 3rd harmonic) is f₂ = 3v / (4L). Therefore, the ratio f₂ / f₁ = 3.', 'Waves & Sound', 'Medium'),
 ('Physics', 1983, 2, 'Which of the following physical quantities is NOT a vector quantity?', NULL, NULL, 'Force', 'Altitude', 'Weight', 'Displacement', 'B', 'Altitude represents a vertical height (magnitude only) without directional vector orientation, making it a scalar quantity. Force, weight, and displacement are all vector quantities possessing both magnitude and direction.', 'Units & Vectors', 'Easy'),

@@ -10,6 +10,7 @@ interface DesktopNavProps {
   onOpenCPanelSettings?: () => void;
   onOpenAdminPortal?: () => void;
   onOpenAdvertStudio?: () => void;
+  onOpenYouTubeStudio?: () => void;
 }
 
 export const DesktopNav: React.FC<DesktopNavProps> = ({
@@ -19,7 +20,8 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
   onSwitchDeviceMode,
   onOpenCPanelSettings,
   onOpenAdminPortal,
-  onOpenAdvertStudio
+  onOpenAdvertStudio,
+  onOpenYouTubeStudio
 }) => {
   const { openMorningTea } = useApp();
   const [isAdminOpen, setIsAdminOpen] = React.useState(false);
@@ -198,6 +200,14 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
                 >
                   <span className="text-base">🎬</span>
                   <span>Advert Studio HD</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={onOpenYouTubeStudio}
+                  className="w-full px-3.5 py-2 text-left text-xs font-bold text-[#FFD600] hover:bg-[#0E3526] flex items-center space-x-2.5 transition cursor-pointer border-t border-white/10"
+                >
+                  <span className="text-base">🎥</span>
+                  <span>YouTube Video Studio</span>
                 </button>
               </div>
             )}

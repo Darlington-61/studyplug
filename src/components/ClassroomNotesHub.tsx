@@ -7,8 +7,15 @@ import { ConfettiCelebration } from './common/ConfettiCelebration';
 import { StudentPersonalNotebook } from './common/StudentPersonalNotebook';
 import { getBaseQuestionsForSubject, getFilteredQuestions } from '../data/allQuestionsHub';
 import { MASTER_LESSON_NOTES, LessonNote } from '../data/masterLessonNotes';
-import { TheoryQuestion, getFilteredTheoryQuestions, getTheoryQuestionsForSubject } from '../data/theoryQuestions';
+import {
+  TheoryQuestion,
+  getFilteredTheoryQuestions,
+  getTheoryQuestionsForSubject,
+  getFilteredPracticalQuestions,
+  getPracticalQuestionsForSubject
+} from '../data/theoryQuestions';
 import { TheoryAnswerMarkerModal } from './TheoryAnswerMarkerModal';
+import { InlineInteractiveQuestionCard } from './common/InlineInteractiveQuestionCard';
 import {
   StudyPlugHeader,
   BottomNavigation,
@@ -48,8 +55,11 @@ export const ClassroomNotesHub: React.FC = () => {
     setSelectedSubject,
     setActiveView,
     openAiTutor,
+    openDareToDare,
     selectedExam: appSelectedExam,
-    setSelectedExam: setAppSelectedExam
+    setSelectedExam: setAppSelectedExam,
+    selectedExamPapers,
+    openPaperSelector
   } = useApp();
 
   // Selected subject & exam
@@ -90,6 +100,7 @@ export const ClassroomNotesHub: React.FC = () => {
   // Aligned practice questions & theory questions
   const [alignedQuestions, setAlignedQuestions] = useState<Question[]>([]);
   const [alignedTheoryQuestions, setAlignedTheoryQuestions] = useState<TheoryQuestion[]>([]);
+  const [alignedPracticalQuestions, setAlignedPracticalQuestions] = useState<TheoryQuestion[]>([]);
   const [activeTheoryQuestionForMarker, setActiveTheoryQuestionForMarker] = useState<TheoryQuestion | null>(null);
   const [isTheoryMarkerOpen, setIsTheoryMarkerOpen] = useState<boolean>(false);
   const [expandedTheorySchemeId, setExpandedTheorySchemeId] = useState<string | null>(null);
@@ -172,6 +183,19 @@ export const ClassroomNotesHub: React.FC = () => {
       theoryQs && theoryQs.length > 0
         ? theoryQs
         : getTheoryQuestionsForSubject(selectedNote.subject).slice(0, 5)
+    );
+
+    // 3. Fetch authentic practical questions for WAEC/NECO/NABTEB Paper 3
+    const practicalQs = getFilteredPracticalQuestions({
+      exam: activeExamTab,
+      subject: selectedNote.subject,
+      topic: selectedNote.topic,
+      subtopic: selectedNote.subtopic
+    });
+    setAlignedPracticalQuestions(
+      practicalQs && practicalQs.length > 0
+        ? practicalQs
+        : getPracticalQuestionsForSubject(selectedNote.subject)
     );
   }, [selectedNote, activeExamTab]);
 
@@ -428,13 +452,37 @@ export const ClassroomNotesHub: React.FC = () => {
 
           {/* Right Column (8 cols): Note Content, Resources, & Topic Questions */}
           <div className="lg:col-span-8 space-y-4">
-            {/* Top 4-Tab Switcher */}
-            <div className="max-w-md">
+            {/* Standard Exam Papers Config Indicator (WAEC / NECO / NABTEB) */}
+            {(activeExamTab === 'WAEC' || activeExamTab === 'NECO' || activeExamTab === 'NABTEB') && (
+              <div className="flex items-center justify-between p-2.5 rounded-[14px] bg-amber-50/90 border border-amber-300 text-amber-950 text-xs shadow-xs animate-fadeIn">
+                <div className="flex items-center space-x-2">
+                  <span className="text-base">📑</span>
+                  <div>
+                    <span className="font-bold">{activeExamTab} Standard Papers Active: </span>
+                    <span className="font-extrabold text-[#004D40]">{selectedExamPapers.join(' • ')}</span>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => openPaperSelector(activeExamTab)}
+                  className="px-2.5 py-1 rounded-[8px] bg-[#004D40] hover:bg-[#003B32] text-white text-[11px] font-bold transition cursor-pointer flex items-center space-x-1"
+                >
+                  <span>Select Papers (OBJ / Theory / Practical)</span>
+                  <span className="text-[10px]">⚙️</span>
+                </button>
+              </div>
+            )}
+
+            {/* Top Multi-Tab Switcher */}
+            <div className="max-w-xl">
               <TopicTabs
                 activeTab={activeNoteTab}
                 onTabChange={setActiveNoteTab}
                 questionsCount={alignedQuestions.length}
                 theoryCount={alignedTheoryQuestions.length}
+                practicalCount={alignedPracticalQuestions.length}
+                isStandardExam={activeExamTab === 'WAEC' || activeExamTab === 'NECO' || activeExamTab === 'NABTEB'}
+                selectedPapers={selectedExamPapers}
               />
             </div>
 
@@ -583,13 +631,42 @@ export const ClassroomNotesHub: React.FC = () => {
             {/* TAB 3: Questions View */}
             {activeNoteTab === 'questions' && (
               <div className="space-y-4">
+                {/* 🔥 Dare to Dare Challenge on Topic Banner */}
+                <div
+                  onClick={() => openDareToDare({ subject: selectedNote.subject, topic: selectedNote.topic, exam: activeExamTab })}
+                  className="p-3.5 rounded-[16px] bg-gradient-to-r from-[#061F17] via-[#0B3528] to-[#124B3B] text-white border border-emerald-500/30 flex items-center justify-between cursor-pointer hover:border-amber-400/50 transition shadow-sm active:scale-[0.99]"
+                >
+                  <div className="flex items-center space-x-3 text-left">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center font-black text-white text-lg shadow-xs shrink-0">
+                      ⚡
+                    </div>
+                    <div>
+                      <div className="flex items-center space-x-1.5">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-red-600 text-white font-extrabold uppercase tracking-wider">
+                          DARE TO DARE
+                        </span>
+                        <span className="text-[11px] text-amber-300 font-bold">Rapid Topic Challenge</span>
+                      </div>
+                      <p className="text-[13.5px] font-bold text-white leading-snug">
+                        Dare to take a 60s Speed Run on {selectedNote.subtopic || selectedNote.topic}?
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className="px-3.5 py-1.5 rounded-[10px] bg-gradient-to-r from-amber-500 to-red-500 text-white font-extrabold text-[11.5px] uppercase tracking-wider shadow-xs hover:brightness-110 shrink-0"
+                  >
+                    Accept Dare 🚀
+                  </button>
+                </div>
+
                 <div className="bg-white p-4 rounded-[14px] border border-[#E4EAE8] shadow-subtle flex items-center justify-between">
                   <div>
                     <h3 className="text-[15px] font-bold text-[#10201D]">
                       {selectedNote.subtopic || selectedNote.topic} Questions
                     </h3>
                     <p className="text-[12px] text-[#66736F]">
-                      {activeExamTab} Past Questions • {alignedQuestions.length} Questions
+                      {activeExamTab} Past Questions • Answer directly below or start CBT Practice
                     </p>
                   </div>
                   <button
@@ -597,21 +674,33 @@ export const ClassroomNotesHub: React.FC = () => {
                     onClick={handleStartTopicPractice}
                     className="px-4 py-2 rounded-[12px] bg-[#004D40] text-white text-[12px] font-bold shadow-xs hover:bg-[#003B32] transition cursor-pointer touch-press"
                   >
-                    ▶ Start Practice
+                    ▶ Start CBT Practice
                   </button>
                 </div>
 
-                <div className="space-y-2.5">
+                <div className="space-y-3">
                   {alignedQuestions.map((q, idx) => (
-                    <QuestionCard
+                    <InlineInteractiveQuestionCard
                       key={q.id || idx}
                       index={idx + 1}
-                      questionText={q.text || (q as any).question_text || (q as any).question}
+                      question={q}
                       exam={activeExamTab}
                       year={q.year || '2022'}
                       subtopic={q.subtopic}
                       difficulty={idx % 2 === 0 ? 'Medium' : 'Easy'}
-                      onClick={handleStartTopicPractice}
+                      userAnswer={userSelectedOptions[q.id || idx]}
+                      onSelectAnswer={(key) => setUserSelectedOptions(prev => ({ ...prev, [q.id || idx]: key }))}
+                      onOpenAiTutor={(question, userOpt) => {
+                        openAiTutor({
+                          question,
+                          userSelectedOption: userOpt,
+                          exam: activeExamTab,
+                          subject: selectedNote.subject,
+                          topic: selectedNote.topic,
+                          subtopic: selectedNote.subtopic,
+                          noteTitle: selectedNote.topic
+                        });
+                      }}
                     />
                   ))}
                 </div>
@@ -755,6 +844,144 @@ export const ClassroomNotesHub: React.FC = () => {
                 </div>
               </div>
             )}
+
+            {/* TAB 5: Practical View (Paper 3) for WAEC, NECO & NABTEB */}
+            {activeNoteTab === 'practical' && (
+              <div className="space-y-4">
+                <div className="bg-white p-4 rounded-[14px] border border-[#E4EAE8] shadow-subtle flex items-center justify-between">
+                  <div>
+                    <h3 className="text-[15px] font-bold text-[#10201D]">
+                      {selectedNote.subtopic || selectedNote.topic} Paper 3 (Practical)
+                    </h3>
+                    <p className="text-[12px] text-[#66736F]">
+                      {activeExamTab} Official Practical &amp; Alternative to Practical • {alignedPracticalQuestions.length} Questions
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (alignedPracticalQuestions.length > 0) {
+                        setActiveTheoryQuestionForMarker(alignedPracticalQuestions[0]);
+                        setIsTheoryMarkerOpen(true);
+                      } else {
+                        alert('Select a practical question below to snap and mark your paper.');
+                      }
+                    }}
+                    className="px-4 py-2 rounded-[12px] bg-[#004D40] text-white text-[12px] font-bold shadow-xs hover:bg-[#003B32] transition cursor-pointer flex items-center space-x-1.5"
+                  >
+                    <span>📸</span>
+                    <span>Snap &amp; Mark Practical</span>
+                  </button>
+                </div>
+
+                <div className="space-y-3">
+                  {alignedPracticalQuestions.length === 0 ? (
+                    <div className="bg-white rounded-[16px] p-8 text-center border border-[#E4EAE8] space-y-3">
+                      <div className="text-3xl">🔬</div>
+                      <h4 className="text-sm font-bold text-[#10201D]">No explicit Practical questions for this specific subtopic yet</h4>
+                      <p className="text-xs text-[#66736F] max-w-sm mx-auto">
+                        Explore all {selectedNote.subject} practical past questions with WAEC / NECO experimental rubrics.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const allSubjectPrac = getPracticalQuestionsForSubject(selectedNote.subject);
+                          if (allSubjectPrac.length > 0) {
+                            setAlignedPracticalQuestions(allSubjectPrac);
+                          }
+                        }}
+                        className="px-4 py-1.5 rounded-[10px] bg-[#004D40] text-white text-xs font-bold"
+                      >
+                        Load All {selectedNote.subject} Practical Questions
+                      </button>
+                    </div>
+                  ) : (
+                    alignedPracticalQuestions.map((pq, idx) => (
+                      <div
+                        key={pq.id || idx}
+                        className="bg-white rounded-[16px] p-5 border border-[#E4EAE8] shadow-subtle space-y-3 text-left hover:border-[#004D40]/30 transition"
+                      >
+                        <div className="flex items-center justify-between border-b border-[#E4EAE8] pb-2.5">
+                          <div className="flex items-center space-x-2">
+                            <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-900 font-bold text-xs flex items-center justify-center">
+                              {idx + 1}
+                            </span>
+                            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-blue-800 border border-blue-200">
+                              {pq.exam} {pq.year} • {pq.paper}
+                            </span>
+                            <span className="text-[12px] font-semibold text-[#66736F] truncate max-w-[200px]">
+                              {pq.section}
+                            </span>
+                          </div>
+                          <span className="font-bold text-[12px] text-[#004D40] bg-[#E8F5E9] px-2.5 py-0.5 rounded-full border border-[#004D40]/20">
+                            {pq.totalMarks} Marks
+                          </span>
+                        </div>
+
+                        <div className="space-y-1">
+                          <h4 className="text-[14px] font-bold text-[#10201D] leading-snug">
+                            {pq.title}
+                          </h4>
+                          <p className="text-[13px] text-[#2C3E3A] whitespace-pre-line leading-relaxed font-sans">
+                            {pq.questionText}
+                          </p>
+                        </div>
+
+                        <div className="p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] space-y-2">
+                          <span className="text-[11px] font-bold text-[#66736F] uppercase tracking-wider block">
+                            Question Parts &amp; Mark Breakdown:
+                          </span>
+                          {pq.parts.map((p, pIdx) => (
+                            <div key={pIdx} className="flex items-start justify-between text-xs gap-2">
+                              <div className="space-x-1">
+                                <span className="font-bold text-[#004D40]">{p.label}</span>
+                                <span className="text-[#10201D]">{p.text}</span>
+                              </div>
+                              <span className="font-bold text-[#66736F] shrink-0">[{p.marks} Marks]</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="flex items-center gap-2 pt-1">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setActiveTheoryQuestionForMarker(pq);
+                              setIsTheoryMarkerOpen(true);
+                            }}
+                            className="flex-1 py-2 px-3 rounded-[10px] bg-[#004D40] text-white text-xs font-bold hover:bg-[#003B32] transition cursor-pointer flex items-center justify-center space-x-1.5 shadow-xs"
+                          >
+                            <span>📸</span>
+                            <span>Snap &amp; Mark My Practical Work</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setExpandedTheorySchemeId(expandedTheorySchemeId === pq.id ? null : pq.id);
+                            }}
+                            className="py-2 px-3 rounded-[10px] border border-[#E4EAE8] bg-[#F7F9F8] hover:bg-[#E4EAE8] text-xs font-semibold text-[#10201D] transition cursor-pointer"
+                          >
+                            {expandedTheorySchemeId === pq.id ? 'Hide Practical Solution' : '👁️ View Practical Solution & Rubric'}
+                          </button>
+                        </div>
+
+                        {expandedTheorySchemeId === pq.id && (
+                          <div className="p-3.5 rounded-[12px] bg-[#F8FAFC] border border-[#CBD5E1] space-y-2 animate-card-in">
+                            <div className="flex items-center justify-between text-xs font-bold text-[#004D40]">
+                              <span>📋 Official Practical Solution &amp; Table</span>
+                              <span>Total: {pq.totalMarks} Marks</span>
+                            </div>
+                            <div className="text-xs text-[#1E293B] whitespace-pre-line leading-relaxed">
+                              {pq.modelSolution}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -805,12 +1032,32 @@ export const ClassroomNotesHub: React.FC = () => {
           {/* SCREEN 4, 5, 6: Note Detail / Tabs View */}
           {viewLevel === 'note-detail' && (
             <div className="space-y-4 pb-12">
-              {/* 4-Tab Switcher: Note | Resources | Questions | Theory */}
+              {/* Standard Exam Papers Indicator (WAEC, NECO, NABTEB) */}
+              {(activeExamTab === 'WAEC' || activeExamTab === 'NECO' || activeExamTab === 'NABTEB') && (
+                <div className="bg-[#E8F5E9] border border-[#004D40]/20 rounded-[12px] p-2.5 flex items-center justify-between text-xs text-[#004D40]">
+                  <div className="flex items-center space-x-1.5 truncate">
+                    <span>📑</span>
+                    <span className="font-bold truncate">{activeExamTab}: <span className="font-extrabold">{selectedExamPapers.join(' • ')}</span></span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => openPaperSelector(activeExamTab)}
+                    className="px-2 py-0.5 rounded-[6px] bg-[#004D40] text-white text-[10px] font-bold shrink-0 ml-1 cursor-pointer"
+                  >
+                    Change ⚙️
+                  </button>
+                </div>
+              )}
+
+              {/* 5-Tab Switcher: Note | Resources | Questions (Paper 1) | Theory (Paper 2) | Practical (Paper 3) */}
               <TopicTabs
                 activeTab={activeNoteTab}
                 onTabChange={setActiveNoteTab}
                 questionsCount={alignedQuestions.length}
                 theoryCount={alignedTheoryQuestions.length}
+                practicalCount={alignedPracticalQuestions.length}
+                isStandardExam={activeExamTab === 'WAEC' || activeExamTab === 'NECO' || activeExamTab === 'NABTEB'}
+                selectedPapers={selectedExamPapers}
               />
 
               {/* SCREEN 4: Note Tab */}
@@ -980,6 +1227,35 @@ export const ClassroomNotesHub: React.FC = () => {
                     </p>
                   </div>
 
+                  {/* 🔥 Mobile Dare to Dare Challenge on Topic Banner */}
+                  <div
+                    onClick={() => openDareToDare({ subject: selectedNote.subject, topic: selectedNote.topic, exam: activeExamTab })}
+                    className="p-3 rounded-[14px] bg-gradient-to-r from-[#061F17] via-[#0B3528] to-[#124B3B] text-white border border-emerald-500/30 flex items-center justify-between cursor-pointer hover:border-amber-400/50 transition shadow-xs active:scale-[0.99]"
+                  >
+                    <div className="flex items-center space-x-2.5 text-left">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center font-black text-white text-sm shadow-xs shrink-0">
+                        ⚡
+                      </div>
+                      <div>
+                        <div className="flex items-center space-x-1">
+                          <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-red-600 text-white font-black uppercase">
+                            DARE
+                          </span>
+                          <span className="text-[10.5px] text-amber-300 font-bold">60s Challenge</span>
+                        </div>
+                        <p className="text-[12px] font-bold text-white leading-snug">
+                          Dare to take a 60s Speed Run?
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      className="px-2.5 py-1 rounded-[8px] bg-gradient-to-r from-amber-500 to-red-500 text-white font-extrabold text-[10.5px] uppercase tracking-wider shadow-xs shrink-0"
+                    >
+                      Dare Me 🚀
+                    </button>
+                  </div>
+
                   {/* Filter Pills */}
                   <ExamPills
                     exams={['JAMB', 'WAEC', 'NECO', 'BECE']}
@@ -1014,18 +1290,30 @@ export const ClassroomNotesHub: React.FC = () => {
                     </label>
                   </div>
 
-                  {/* Question cards list */}
-                  <div className="space-y-2.5 pb-16">
+                  {/* Question cards list - Answer Straight in Note */}
+                  <div className="space-y-3 pb-24">
                     {alignedQuestions.map((q, idx) => (
-                      <QuestionCard
+                      <InlineInteractiveQuestionCard
                         key={q.id || idx}
                         index={idx + 1}
-                        questionText={q.text || (q as any).question_text || (q as any).question}
+                        question={q}
                         exam={activeExamTab}
                         year={q.year || '2022'}
                         subtopic={q.subtopic}
                         difficulty={idx % 2 === 0 ? 'Medium' : 'Easy'}
-                        onClick={handleStartTopicPractice}
+                        userAnswer={userSelectedOptions[q.id || idx]}
+                        onSelectAnswer={(key) => setUserSelectedOptions(prev => ({ ...prev, [q.id || idx]: key }))}
+                        onOpenAiTutor={(question, userOpt) => {
+                          openAiTutor({
+                            question,
+                            userSelectedOption: userOpt,
+                            exam: activeExamTab,
+                            subject: selectedNote.subject,
+                            topic: selectedNote.topic,
+                            subtopic: selectedNote.subtopic,
+                            noteTitle: selectedNote.topic
+                          });
+                        }}
                       />
                     ))}
                   </div>
@@ -1177,6 +1465,119 @@ export const ClassroomNotesHub: React.FC = () => {
                               ))}
                             </div>
                           )}
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* SCREEN 8: Practical Tab (Paper 3) */}
+              {activeNoteTab === 'practical' && (
+                <div className="space-y-3 pb-16 text-left animate-page-enter">
+                  <div className="bg-white p-3.5 rounded-[12px] border border-[#E4EAE8] shadow-subtle flex items-center justify-between">
+                    <div>
+                      <h3 className="text-[13px] font-bold text-[#10201D]">
+                        {selectedNote.subtopic || selectedNote.topic} Paper 3 (Practical)
+                      </h3>
+                      <p className="text-[11px] text-[#66736F]">
+                        {activeExamTab} Official Practical Rubrics • {alignedPracticalQuestions.length} Questions
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (alignedPracticalQuestions.length > 0) {
+                          setActiveTheoryQuestionForMarker(alignedPracticalQuestions[0]);
+                          setIsTheoryMarkerOpen(true);
+                        } else {
+                          alert('Select a practical question below to snap and mark your paper.');
+                        }
+                      }}
+                      className="px-2.5 py-1.5 rounded-[10px] bg-[#004D40] text-white text-[11px] font-bold shadow-xs hover:bg-[#003B32] transition cursor-pointer flex items-center space-x-1 shrink-0"
+                    >
+                      <span>📸</span>
+                      <span>Snap &amp; Mark</span>
+                    </button>
+                  </div>
+
+                  <div className="space-y-3">
+                    {alignedPracticalQuestions.length === 0 ? (
+                      <div className="bg-white rounded-[14px] p-6 text-center border border-[#E4EAE8] space-y-2">
+                        <div className="text-2xl">🔬</div>
+                        <h4 className="text-xs font-bold text-[#10201D]">No explicit Practical questions for this subtopic</h4>
+                        <p className="text-[11px] text-[#66736F]">
+                          Explore all {selectedNote.subject} practical past questions.
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const allSubjectPrac = getPracticalQuestionsForSubject(selectedNote.subject);
+                            if (allSubjectPrac.length > 0) {
+                              setAlignedPracticalQuestions(allSubjectPrac);
+                            }
+                          }}
+                          className="px-3 py-1 rounded-[8px] bg-[#004D40] text-white text-[11px] font-bold"
+                        >
+                          Load All {selectedNote.subject} Practical Questions
+                        </button>
+                      </div>
+                    ) : (
+                      alignedPracticalQuestions.map((pq, idx) => (
+                        <div
+                          key={pq.id || idx}
+                          className="bg-white rounded-[14px] p-4 border border-[#E4EAE8] shadow-subtle space-y-2.5 text-left"
+                        >
+                          <div className="flex items-center justify-between border-b border-[#E4EAE8] pb-2">
+                            <div className="flex items-center space-x-1.5">
+                              <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-900 font-bold text-[10px] flex items-center justify-center">
+                                {idx + 1}
+                              </span>
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-800 border border-blue-200">
+                                {pq.exam} {pq.year} • {pq.paper}
+                              </span>
+                            </div>
+                            <span className="font-bold text-[11px] text-[#004D40] bg-[#E8F5E9] px-2 py-0.5 rounded-full">
+                              {pq.totalMarks} Marks
+                            </span>
+                          </div>
+
+                          <div className="space-y-1">
+                            <h4 className="text-[13px] font-bold text-[#10201D]">
+                              {pq.title}
+                            </h4>
+                            <p className="text-[12px] text-[#2C3E3A] whitespace-pre-line leading-relaxed">
+                              {pq.questionText}
+                            </p>
+                          </div>
+
+                          <div className="p-2.5 rounded-[10px] bg-[#F7F9F8] border border-[#E4EAE8] space-y-1.5">
+                            <span className="text-[10px] font-bold text-[#66736F] uppercase tracking-wider block">
+                              Question Parts &amp; Mark Breakdown:
+                            </span>
+                            {pq.parts.map((p, pIdx) => (
+                              <div key={pIdx} className="flex items-start justify-between text-[11px] gap-2">
+                                <div className="space-x-1">
+                                  <span className="font-bold text-[#004D40]">{p.label}</span>
+                                  <span className="text-[#10201D]">{p.text}</span>
+                                </div>
+                                <span className="font-bold text-[#66736F] shrink-0">[{p.marks} M]</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="flex items-center gap-2 pt-1">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setActiveTheoryQuestionForMarker(pq);
+                                setIsTheoryMarkerOpen(true);
+                              }}
+                              className="w-full py-2 rounded-[10px] bg-[#004D40] text-white text-[11px] font-bold shadow-xs hover:bg-[#003B32] transition cursor-pointer flex items-center justify-center space-x-1"
+                            >
+                              <span>📸 Snap &amp; Mark Practical Paper</span>
+                            </button>
+                          </div>
                         </div>
                       ))
                     )}

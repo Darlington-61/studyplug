@@ -12,9 +12,10 @@ import { useApp } from '../../context/AppContext';
 interface AdminQuestionModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenYouTubeStudio?: () => void;
 }
 
-export const AdminQuestionModal: React.FC<AdminQuestionModalProps> = ({ isOpen, onClose }) => {
+export const AdminQuestionModal: React.FC<AdminQuestionModalProps> = ({ isOpen, onClose, onOpenYouTubeStudio }) => {
   const { reloadQuestions } = useApp();
 
   // Authentication
@@ -255,6 +256,19 @@ export const AdminQuestionModal: React.FC<AdminQuestionModalProps> = ({ isOpen, 
               >
                 ✏️ Add Question
               </button>
+              {onOpenYouTubeStudio && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    onOpenYouTubeStudio();
+                  }}
+                  className="ml-auto my-auto px-3 py-1.5 text-xs font-extrabold rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white hover:brightness-110 shadow-xs flex items-center space-x-1.5 transition cursor-pointer"
+                >
+                  <span>🎥</span>
+                  <span>YouTube Studio</span>
+                </button>
+              )}
             </div>
 
             {/* Tab Body */}
