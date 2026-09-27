@@ -52,12 +52,16 @@ switch ($action) {
         handleVoiceboxGenerate();
         break;
 
+    case 'query_questions':
+        handleQueryQuestions();
+        break;
+
     default:
         http_response_code(400);
         echo json_encode([
             'success' => false,
             'error' => 'Unknown action: ' . htmlspecialchars($action),
-            'supported_actions' => ['list_projects', 'save_project', 'delete_project', 'estimate_cost', 'voicebox_generate']
+            'supported_actions' => ['list_projects', 'save_project', 'delete_project', 'estimate_cost', 'voicebox_generate', 'query_questions']
         ]);
         break;
 }
@@ -253,4 +257,114 @@ function handleVoiceboxGenerate() {
         'audio_url' => '', // Web Speech / Web Audio synthesizer handles immediate offline audio playback
         'provider' => 'Voicebox Cloned Audio Engine'
     ]);
+}
+
+function handleQueryQuestions() {
+    $db = getDbConnection();
+
+    $exam = isset($_REQUEST['exam']) ? trim($_REQUEST['exam']) : 'WAEC';
+    $subject = isset($_REQUEST['subject']) ? trim($_REQUEST['subject']) : 'Physics';
+    $paperType = isset($_REQUEST['paper_type']) ? trim($_REQUEST['paper_type']) : 'OBJ';
+    $topic = isset($_REQUEST['topic']) ? trim($_REQUEST['topic']) : '';
+    $year = isset($_REQUEST['year']) && is_numeric($_REQUEST['year']) ? (int)$_REQUEST['year'] : null;
+    $startYear = isset($_REQUEST['start_year']) && is_numeric($_REQUEST['start_year']) ? (int)$_REQUEST['start_year'] : null;
+    $endYear = isset($_REQUEST['end_year']) && is_numeric($_REQUEST['end_year']) ? (int)$_REQUEST['end_year'] : null;
+    $difficulty = isset($_REQUEST['difficulty']) ? trim($_REQUEST['difficulty']) : '';
+    $limit = isset($_REQUEST['limit']) ? max(1, min(50, (int)$_REQUEST['limit'])) : 10;
+
+    $where = [];
+    $params = [];
+
+    // Subject filter
+    $cleanSub = preg_replace('/\s*\((Theory|Practical|Objectives?)\)\s*$/i', '', $subject);
+
+    if (strcasecmp($paperType, 'Theory') === 0) {
+        $where[] = '(LOWER(subject) = LOWER(:thSub) OR (LOWER(subject) = LOWER(:cleanSub) AND (LOWER(topic) LIKE "%theory%" OR LOWER(topic) LIKE "%paper 2%")))';
+        $params[':thSub'] = $cleanSub . ' (Theory)';
+        $params[':cleanSub'] = $cleanSub;
+    } elseif (strcasecmp($paperType, 'Practical') === 0) {
+        $where[] = '(LOWER(subject) = LOWER(:prSub) OR (LOWER(subject) = LOWER(:cleanSub) AND (LOWER(topic) LIKE "%practical%" OR LOWER(topic) LIKE "%paper 3%")))';
+        $params[':prSub'] = $cleanSub . ' (Practical)';
+        $params[':cleanSub'] = $cleanSub;
+    } else {
+        $where[] = '(LOWER(subject) = LOWER(:cleanSub) AND LOWER(subject) NOT LIKE "%(theory)%" AND LOWER(subject) NOT LIKE "%(practical)%")';
+        $params[':cleanSub'] = $cleanSub;
+    }
+
+    // Topic filter
+    if (!empty($topic) && strcasecmp($topic, 'all') !== 0) {
+        $where[] = '(LOWER(topic) LIKE :topic OR LOWER(text) LIKE :topicText)';
+        $params[':topic'] = '%' . strtolower($topic) . '%';
+        $params[':topicText'] = '%' . strtolower($topic) . '%';
+    }
+
+    // Year filter
+    if ($year !== null) {
+        $where[] = 'exam_year = :year';
+        $params[':year'] = $year;
+    } elseif ($startYear !== null && $endYear !== null) {
+        $where[] = 'exam_year BETWEEN :startYear AND :endYear';
+        $params[':startYear'] = $startYear;
+        $params[':endYear'] = $endYear;
+    }
+
+    // Difficulty
+    if (!empty($difficulty) && strcasecmp($difficulty, 'All') !== 0 && in_array($difficulty, ['Easy', 'Medium', 'Hard'])) {
+        $where[] = 'difficulty = :diff';
+        $params[':diff'] = $difficulty;
+    }
+
+    $whereSql = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : '';
+    $sql = "SELECT id, subject, exam_year, question_num, text, image_url, image_svg, option_a, option_b, option_c, option_d, correct_answer, explanation, topic, difficulty FROM `questions` {$whereSql} ORDER BY exam_year DESC, question_num ASC LIMIT {$limit}";
+
+    try {
+        $stmt = $db->prepare($sql);
+        $stmt->execute($params);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $questions = [];
+        foreach ($rows as $r) {
+            $questions[] = [
+                'id' => (int)$r['id'],
+                'exam' => $exam,
+                'subject' => $cleanSub,
+                'paperType' => $paperType,
+                'year' => (int)$r['exam_year'],
+                'questionNumber' => (int)$r['question_num'],
+                'topic' => $r['topic'] ?: $topic,
+                'difficulty' => $r['difficulty'],
+                'sourceLabel' => strtoupper("{$exam} • {$cleanSub} • {$paperType} • {$r['exam_year']}"),
+                'text' => $r['text'],
+                'imageUrl' => $r['image_url'],
+                'imageSvg' => $r['image_svg'],
+                'options' => [
+                    ['key' => 'A', 'text' => $r['option_a']],
+                    ['key' => 'B', 'text' => $r['option_b']],
+                    ['key' => 'C', 'text' => $r['option_c']],
+                    ['key' => 'D', 'text' => $r['option_d']],
+                ],
+                'correctAnswer' => $r['correct_answer'],
+                'explanation' => $r['explanation'] ?: ''
+            ];
+        }
+
+        echo json_encode([
+            'success' => true,
+            'count' => count($questions),
+            'questions' => $questions,
+            'filters' => [
+                'exam' => $exam,
+                'subject' => $cleanSub,
+                'paper_type' => $paperType,
+                'topic' => $topic,
+                'year' => $year
+            ]
+        ]);
+    } catch (PDOException $e) {
+        http_response_code(500);
+        echo json_encode([
+            'success' => false,
+            'error' => 'Database error: ' . $e->getMessage()
+        ]);
+    }
 }
