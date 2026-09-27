@@ -33,15 +33,29 @@ import { drawThumbnailToCanvas, exportThumbnailPng } from './thumbnailGenerator'
 import { StudyPlugVideoRenderer } from './videoRenderer';
 import { VOICEBOX_PROFILES } from './voiceboxService';
 
+import {
+  UnifiedStudioQuestion,
+  StudioPaperType,
+  ExamCategory,
+  QuestionSelectionMode,
+  YearFilterMode,
+  getAvailablePapersForExamSubject,
+  getAvailableTopicsForSelection,
+  getAvailableYearsForQuestions,
+  getRecommendedQuestionCount,
+  queryStudioQuestions
+} from './questionSelector';
+
 interface YouTubeStudioModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ALL_EXAMS: ('JAMB' | 'WAEC' | 'NECO' | 'BECE' | 'Post-UTME')[] = [
+const ALL_EXAMS: ExamCategory[] = [
   'JAMB',
   'WAEC',
   'NECO',
+  'NABTEB',
   'BECE',
   'Post-UTME'
 ];
@@ -82,17 +96,25 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
   const [activeTab, setActiveTab] = useState<StudioTab>('select_content');
 
   // STEP 1: Content Selection
-  const [selectedExam, setSelectedExam] = useState<'JAMB' | 'WAEC' | 'NECO' | 'BECE' | 'Post-UTME'>('JAMB');
+  const [selectedExam, setSelectedExam] = useState<ExamCategory>('WAEC');
+  const [compareExams, setCompareExams] = useState<boolean>(false);
+  const [selectedComparisonExams, setSelectedComparisonExams] = useState<ExamCategory[]>(['WAEC']);
   const [selectedSubject, setSelectedSubject] = useState<string>('Physics');
+  const [selectedPaperTypes, setSelectedPaperTypes] = useState<StudioPaperType[]>(['OBJ', 'Theory']);
   const [selectedTopic, setSelectedTopic] = useState<string>('Motion');
-  const [selectedSubtopic, setSelectedSubtopic] = useState<string>('Motion in a Straight Line');
+  const [selectedSubtopic, setSelectedSubtopic] = useState<string>('Equations of motion');
   const [videoType, setVideoType] = useState<VideoType>('12_minute_masterclass');
   const [aspectRatio, setAspectRatio] = useState<VideoAspectRatio>('16:9');
   const [teachingTone, setTeachingTone] = useState<TeachingTone>('authoritative');
   const [questionCount, setQuestionCount] = useState<number>(5);
   const [questionTimerSeconds, setQuestionTimerSeconds] = useState<number>(5);
   const [difficultyFilter, setDifficultyFilter] = useState<'All' | 'Easy' | 'Medium' | 'Hard'>('All');
-  const [selectedQuestionIds, setSelectedQuestionIds] = useState<number[]>([]);
+  const [yearMode, setYearMode] = useState<YearFilterMode>('recent');
+  const [specificYear, setSpecificYear] = useState<number>(2023);
+  const [yearRange, setYearRange] = useState<[number, number]>([2018, 2025]);
+  const [selectionMode, setSelectionMode] = useState<QuestionSelectionMode>('auto');
+  const [selectedQuestionIds, setSelectedQuestionIds] = useState<string[]>([]);
+  const [isReviewQuestionsOpen, setIsReviewQuestionsOpen] = useState<boolean>(false);
 
   // STEP 2: Top Concepts State
   const [topConcepts, setTopConcepts] = useState<TopConcept[]>([]);
@@ -166,17 +188,24 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
 
   // ─── DYNAMIC DATABASE RETRIEVAL ──────────────────────────────────────────
 
-  // Available Topics
+  // Available Papers based on Exam & Subject (Subject-First Logic)
+  const availablePapers = useMemo(() => {
+    return getAvailablePapersForExamSubject(selectedExam, selectedSubject);
+  }, [selectedExam, selectedSubject]);
+
+  // Ensure selectedPaperTypes stays valid when Exam or Subject changes
+  useEffect(() => {
+    setSelectedPaperTypes(prev => {
+      const valid = prev.filter(p => availablePapers.includes(p));
+      if (valid.length > 0) return valid;
+      return [availablePapers[0] || 'OBJ'];
+    });
+  }, [availablePapers]);
+
+  // Available Topics from Database & Syllabus
   const availableTopics = useMemo(() => {
-    const norm = normalizeSubjectName(selectedSubject);
-    if (SUBJECT_TOPICS_CATALOG[norm] && SUBJECT_TOPICS_CATALOG[norm].length > 0) {
-      return SUBJECT_TOPICS_CATALOG[norm];
-    }
-    const notesTopics = COMPREHENSIVE_NOTES
-      .filter(n => n.subject.toLowerCase() === selectedSubject.toLowerCase())
-      .map(n => n.topic);
-    return Array.from(new Set(notesTopics));
-  }, [selectedSubject]);
+    return getAvailableTopicsForSelection(selectedExam, selectedSubject);
+  }, [selectedExam, selectedSubject]);
 
   useEffect(() => {
     if (availableTopics.length > 0 && !availableTopics.includes(selectedTopic)) {
@@ -201,29 +230,44 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
     setTopConcepts(extracted);
   }, [selectedSubject, selectedTopic, selectedSubtopic, activeLessonNote]);
 
-  // Matching Database Questions
+  // Matching Database Questions using Query Engine
   const matchedDatabaseQuestions = useMemo(() => {
-    const list = getFilteredQuestions({
+    const activeExams = compareExams && selectedComparisonExams.length > 0 ? selectedComparisonExams : [selectedExam];
+    return queryStudioQuestions({
+      exams: activeExams,
       subject: selectedSubject,
+      paperTypes: selectedPaperTypes,
       topic: selectedTopic,
-      difficulty: difficultyFilter === 'All' ? undefined : difficultyFilter,
-      limit: 25
+      yearMode,
+      specificYear,
+      yearRange,
+      difficulty: difficultyFilter === 'All' ? undefined : difficultyFilter
     });
+  }, [selectedExam, compareExams, selectedComparisonExams, selectedSubject, selectedPaperTypes, selectedTopic, yearMode, specificYear, yearRange, difficultyFilter]);
 
-    if (list.length > 0) return list;
+  // Recommended question count based on paper types
+  const recommendedInfo = useMemo(() => {
+    return getRecommendedQuestionCount(selectedPaperTypes);
+  }, [selectedPaperTypes]);
 
-    return getFilteredQuestions({
-      subject: selectedSubject,
-      limit: 15
-    });
-  }, [selectedSubject, selectedTopic, difficultyFilter]);
+  // Real available years present in matching questions
+  const availableYears = useMemo(() => {
+    return getAvailableYearsForQuestions(matchedDatabaseQuestions);
+  }, [matchedDatabaseQuestions]);
 
-  // Keep question selection updated (4-7 questions default for 12 mins)
+  // Auto / Random / Manual selection
   useEffect(() => {
-    if (matchedDatabaseQuestions.length > 0 && selectedQuestionIds.length === 0) {
-      setSelectedQuestionIds(matchedDatabaseQuestions.slice(0, questionCount).map(q => q.id));
+    if (matchedDatabaseQuestions.length > 0) {
+      if (selectionMode === 'auto') {
+        setSelectedQuestionIds(matchedDatabaseQuestions.slice(0, questionCount).map(q => q.id));
+      } else if (selectionMode === 'random') {
+        const shuffled = [...matchedDatabaseQuestions].sort(() => 0.5 - Math.random());
+        setSelectedQuestionIds(shuffled.slice(0, questionCount).map(q => q.id));
+      }
+    } else {
+      setSelectedQuestionIds([]);
     }
-  }, [matchedDatabaseQuestions, questionCount]);
+  }, [matchedDatabaseQuestions, questionCount, selectionMode]);
 
   const currentlyChosenQuestions = useMemo(() => {
     return matchedDatabaseQuestions.filter(q => selectedQuestionIds.includes(q.id));
@@ -233,9 +277,12 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
 
   const handleGenerateFull12MinMasterclass = () => {
     // 1. Generate Teaching Script
+    const activeExams = compareExams && selectedComparisonExams.length > 0 ? selectedComparisonExams : [selectedExam];
     const generated = generateTeachingScript({
       exam: selectedExam,
+      selectedExams: activeExams,
       subject: selectedSubject,
+      paperTypes: selectedPaperTypes,
       topic: selectedTopic,
       subtopic: selectedSubtopic || selectedTopic,
       lessonNote: activeLessonNote,
@@ -283,7 +330,8 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
       subtopic: selectedSubtopic || selectedTopic,
       scenes: builtScenes,
       videoType,
-      questionCount: currentlyChosenQuestions.length
+      questionCount: currentlyChosenQuestions.length,
+      paperTypes: selectedPaperTypes
     });
     setSeoData(seo);
 
@@ -616,40 +664,175 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   </span>
                 </div>
 
-                {/* Primary Selectors */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase">Exam</label>
-                    <select
-                      value={selectedExam}
-                      onChange={(e) => setSelectedExam(e.target.value as any)}
-                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white"
-                    >
-                      {ALL_EXAMS.map(exam => (
-                        <option key={exam} value={exam}>{exam}</option>
-                      ))}
-                    </select>
+                {/* Row 1: Exam Selection & Multi-Exam Comparison */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                      1. Examination Board
+                    </label>
+                    <label className="flex items-center space-x-2 text-xs text-amber-300 font-bold cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={compareExams}
+                        onChange={(e) => {
+                          const val = e.target.checked;
+                          setCompareExams(val);
+                          if (val && !selectedComparisonExams.includes(selectedExam)) {
+                            setSelectedComparisonExams([selectedExam]);
+                          }
+                        }}
+                        className="rounded text-[#004D40] accent-[#FFD600]"
+                      />
+                      <span>Cross-Exam Comparison Video (e.g. JAMB vs WAEC vs NECO)</span>
+                    </label>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase">Subject</label>
+                  {!compareExams ? (
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+                      {ALL_EXAMS.map((exam) => {
+                        const isSelected = selectedExam === exam;
+                        return (
+                          <button
+                            key={exam}
+                            type="button"
+                            onClick={() => setSelectedExam(exam)}
+                            className={`p-3 rounded-xl border text-xs font-black transition cursor-pointer text-center ${
+                              isSelected
+                                ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600] shadow-md shadow-[#FFD600]/20 scale-102'
+                                : 'bg-[#071912] border-white/10 text-white hover:border-[#00796B]'
+                            }`}
+                          >
+                            {exam}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="p-3 rounded-xl bg-black/40 border border-[#FFD600]/40 space-y-2">
+                      <span className="text-[11px] font-bold text-amber-200 block">
+                        Select Exams to Compare in Video:
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {ALL_EXAMS.map((exam) => {
+                          const isChecked = selectedComparisonExams.includes(exam);
+                          return (
+                            <button
+                              key={exam}
+                              type="button"
+                              onClick={() => {
+                                setSelectedComparisonExams(prev =>
+                                  isChecked
+                                    ? (prev.length > 1 ? prev.filter(e => e !== exam) : prev)
+                                    : [...prev, exam]
+                                );
+                              }}
+                              className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition cursor-pointer ${
+                                isChecked
+                                  ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600]'
+                                  : 'bg-[#071912] text-slate-300 border-white/10'
+                              }`}
+                            >
+                              {isChecked ? '✓ ' : '+ '}{exam}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Row 2: Subject & Dynamic Paper Types (Subject-First Logic) */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                  {/* Subject Dropdown */}
+                  <div className="lg:col-span-5 space-y-1.5">
+                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                      2. Subject
+                    </label>
                     <select
                       value={selectedSubject}
                       onChange={(e) => setSelectedSubject(e.target.value)}
-                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white"
+                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white font-bold"
                     >
-                      {ALL_SUBJECT_LIST.map(sub => (
+                      {ALL_SUBJECT_LIST.map((sub) => (
                         <option key={sub} value={sub}>{sub}</option>
                       ))}
                     </select>
                   </div>
 
+                  {/* Paper Types (Subject-First Logic) */}
+                  <div className="lg:col-span-7 space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                        3. Paper Types ({selectedExam})
+                      </label>
+                      {availablePapers.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => setSelectedPaperTypes(availablePapers)}
+                          className="text-[11px] text-[#FFD600] hover:underline font-bold"
+                        >
+                          Select All ({availablePapers.length}) Papers
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {availablePapers.map((paper) => {
+                        const isSelected = selectedPaperTypes.includes(paper);
+                        const paperLabel = paper === 'OBJ'
+                          ? (selectedExam === 'JAMB' ? 'CBT / Objective' : 'Objective / OBJ')
+                          : paper === 'Theory'
+                          ? 'Theory / Essay'
+                          : 'Practical (Paper 3)';
+
+                        return (
+                          <button
+                            key={paper}
+                            type="button"
+                            onClick={() => {
+                              if (selectedExam === 'JAMB') return;
+                              setSelectedPaperTypes(prev => {
+                                if (isSelected) {
+                                  if (prev.length === 1) return prev; // Keep at least one
+                                  return prev.filter(p => p !== paper);
+                                } else {
+                                  return [...prev, paper];
+                                }
+                              });
+                            }}
+                            className={`px-3 py-2 rounded-xl border text-xs font-black transition cursor-pointer flex items-center space-x-1.5 ${
+                              isSelected
+                                ? 'bg-[#00796B] text-white border-[#34D399] shadow-sm'
+                                : 'bg-[#071912] border-white/10 text-slate-300 hover:border-emerald-500'
+                            }`}
+                          >
+                            <span>{isSelected ? '✓' : '+'}</span>
+                            <span>{paperLabel}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <p className="text-[11px] text-emerald-300/80">
+                      {selectedExam === 'JAMB'
+                        ? '• JAMB UTME is strictly CBT/Objective.'
+                        : availablePapers.includes('Practical')
+                        ? `• ${selectedSubject} has an official Paper 3 Practical examination.`
+                        : `• ${selectedSubject} does not have a practical component.`}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Row 3: Topic, Subtopic & Year Filter */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase">Topic</label>
+                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                      4. Syllabus Topic
+                    </label>
                     <select
                       value={selectedTopic}
                       onChange={(e) => setSelectedTopic(e.target.value)}
-                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white"
+                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white font-bold"
                     >
                       {availableTopics.map(t => (
                         <option key={t} value={t}>{t}</option>
@@ -658,172 +841,414 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase">Subtopic Focus</label>
+                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                      Subtopic / Focus Area
+                    </label>
                     <input
                       type="text"
                       value={selectedSubtopic}
                       onChange={(e) => setSelectedSubtopic(e.target.value)}
                       placeholder={selectedTopic}
-                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white"
+                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white font-medium"
                     />
                   </div>
+
+                  {/* Year Filter */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                      5. Examination Year
+                    </label>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <select
+                        value={yearMode}
+                        onChange={(e) => setYearMode(e.target.value as any)}
+                        className="bg-[#071912] border border-[#00796B] rounded-xl px-2.5 py-2 text-xs text-white font-bold"
+                      >
+                        <option value="recent">Recent (2018–2025)</option>
+                        <option value="any">Any Year (All)</option>
+                        <option value="specific">Specific Year</option>
+                        <option value="range">Custom Range</option>
+                      </select>
+
+                      {yearMode === 'specific' ? (
+                        <select
+                          value={specificYear}
+                          onChange={(e) => setSpecificYear(parseInt(e.target.value))}
+                          className="bg-[#071912] border border-[#00796B] rounded-xl px-2.5 py-2 text-xs text-[#FFD600] font-bold"
+                        >
+                          {availableYears.map(yr => (
+                            <option key={yr} value={yr}>{yr}</option>
+                          ))}
+                        </select>
+                      ) : yearMode === 'range' ? (
+                        <div className="flex items-center space-x-1">
+                          <input
+                            type="number"
+                            value={yearRange[0]}
+                            onChange={(e) => setYearRange([parseInt(e.target.value) || 2018, yearRange[1]])}
+                            className="w-14 bg-[#071912] border border-white/20 rounded px-1.5 py-1 text-xs text-white"
+                          />
+                          <span className="text-xs text-slate-400">–</span>
+                          <input
+                            type="number"
+                            value={yearRange[1]}
+                            onChange={(e) => setYearRange([yearRange[0], parseInt(e.target.value) || 2025])}
+                            className="w-14 bg-[#071912] border border-white/20 rounded px-1.5 py-1 text-xs text-white"
+                          />
+                        </div>
+                      ) : (
+                        <div className="px-2.5 py-2 rounded-xl bg-black/30 border border-white/10 text-[11px] text-emerald-300 font-bold flex items-center justify-center">
+                          {yearMode === 'recent' ? '2018 – 2025' : 'All Years'}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
-                {/* 12-Minute Lesson Blueprint Banner */}
-                <div className="p-4 rounded-xl bg-gradient-to-r from-[#00382E] to-[#0D241C] border border-[#FFD600]/30 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="font-extrabold text-xs text-[#FFD600] uppercase tracking-wider flex items-center space-x-1.5">
-                      <span>⏱️</span>
-                      <span>12-Minute Lesson Video Structure:</span>
-                    </span>
-                    <span className="text-[11px] text-emerald-300">~1,600 Words • 30–38 Scenes</span>
-                  </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 text-[10.5px]">
-                    <div className="p-2 rounded bg-black/40 border border-white/5">
-                      <span className="text-[#FFD600] block font-bold">00:00–00:30</span>
-                      <span className="text-white">Opening Hook</span>
-                    </div>
-                    <div className="p-2 rounded bg-black/40 border border-white/5">
-                      <span className="text-[#FFD600] block font-bold">00:30–01:00</span>
-                      <span className="text-white">Objectives</span>
-                    </div>
-                    <div className="p-2 rounded bg-black/40 border border-white/5">
-                      <span className="text-[#FFD600] block font-bold">01:00–04:00</span>
-                      <span className="text-white">Top Concepts</span>
-                    </div>
-                    <div className="p-2 rounded bg-black/40 border border-white/5">
-                      <span className="text-[#FFD600] block font-bold">04:00–06:00</span>
-                      <span className="text-white">Worked Calculations</span>
-                    </div>
-                    <div className="p-2 rounded bg-black/40 border border-white/5">
-                      <span className="text-[#FFD600] block font-bold">06:00–10:00</span>
-                      <span className="text-white">Past Questions</span>
-                    </div>
-                    <div className="p-2 rounded bg-black/40 border border-white/5">
-                      <span className="text-[#FFD600] block font-bold">10:00–11:15</span>
-                      <span className="text-white">Exam Tips &amp; Traps</span>
-                    </div>
-                    <div className="p-2 rounded bg-black/40 border border-white/5">
-                      <span className="text-[#FFD600] block font-bold">11:15–12:00</span>
-                      <span className="text-white">Recap &amp; CTA</span>
-                    </div>
-                  </div>
-                </div>
+                {/* Row 4: Question Selection Mode, Difficulty & Count */}
+                <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-3">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {/* Selection Mode */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                        Question Selection Mode
+                      </label>
+                      <div className="flex items-center space-x-3 text-xs text-white font-medium pt-1">
+                        <label className="flex items-center space-x-1.5 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="selMode"
+                            checked={selectionMode === 'auto'}
+                            onChange={() => setSelectionMode('auto')}
+                            className="text-[#004D40] accent-[#FFD600]"
+                          />
+                          <span className={selectionMode === 'auto' ? 'text-[#FFD600] font-bold' : ''}>Auto Select</span>
+                        </label>
 
-                {/* Question Thinking Timer Setting */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase">
-                      Question Thinking Timer (Countdown)
-                    </label>
-                    <div className="grid grid-cols-2 gap-3">
-                      <button
-                        type="button"
-                        onClick={() => setQuestionTimerSeconds(5)}
-                        className={`p-2.5 rounded-xl border text-xs font-bold transition cursor-pointer ${
-                          questionTimerSeconds === 5
-                            ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600]'
-                            : 'bg-[#071912] border-white/10 text-white'
-                        }`}
-                      >
-                        ⏱️ 5 Seconds (Standard MCQs)
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setQuestionTimerSeconds(10)}
-                        className={`p-2.5 rounded-xl border text-xs font-bold transition cursor-pointer ${
-                          questionTimerSeconds === 10
-                            ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600]'
-                            : 'bg-[#071912] border-white/10 text-white'
-                        }`}
-                      >
-                        ⏱️ 10 Seconds (Numerical Calculations)
-                      </button>
-                    </div>
-                  </div>
+                        <label className="flex items-center space-x-1.5 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="selMode"
+                            checked={selectionMode === 'manual'}
+                            onChange={() => setSelectionMode('manual')}
+                            className="text-[#004D40] accent-[#FFD600]"
+                          />
+                          <span className={selectionMode === 'manual' ? 'text-[#FFD600] font-bold' : ''}>Manual Select</span>
+                        </label>
 
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase">
-                      Questions to Include (Suggested: 4–7)
-                    </label>
-                    <div className="flex items-center space-x-3">
+                        <label className="flex items-center space-x-1.5 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="selMode"
+                            checked={selectionMode === 'random'}
+                            onChange={() => setSelectionMode('random')}
+                            className="text-[#004D40] accent-[#FFD600]"
+                          />
+                          <span className={selectionMode === 'random' ? 'text-[#FFD600] font-bold' : ''}>Random</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Difficulty */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                        Difficulty
+                      </label>
+                      <select
+                        value={difficultyFilter}
+                        onChange={(e) => setDifficultyFilter(e.target.value as any)}
+                        className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2 text-xs text-white font-bold"
+                      >
+                        <option value="All">Mixed / Standard</option>
+                        <option value="Easy">Easy Level</option>
+                        <option value="Medium">Medium Level</option>
+                        <option value="Hard">Hard / Advanced Level</option>
+                      </select>
+                    </div>
+
+                    {/* Question Count */}
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                          Number of Questions: {questionCount}
+                        </label>
+                        <span className="text-[10px] text-amber-300 font-bold">
+                          Max: 10
+                        </span>
+                      </div>
                       <input
                         type="range"
-                        min="3"
-                        max="8"
+                        min="1"
+                        max="10"
                         value={questionCount}
                         onChange={(e) => setQuestionCount(parseInt(e.target.value))}
-                        className="flex-1 accent-[#FFD600]"
+                        className="w-full accent-[#FFD600]"
                       />
-                      <span className="px-3 py-1 rounded bg-[#071912] border border-white/10 text-xs font-bold text-[#FFD600]">
-                        {questionCount} Questions
-                      </span>
                     </div>
+                  </div>
+
+                  {/* Recommendation Badge */}
+                  <div className="p-2.5 rounded-lg bg-[#004D40]/50 border border-[#00796B]/50 flex items-center justify-between text-xs">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-amber-300 text-sm">💡</span>
+                      <span className="text-emerald-100">{recommendedInfo.reason}</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setQuestionCount(recommendedInfo.count)}
+                      className="px-2 py-1 rounded bg-[#FFD600] text-[#004D40] font-bold text-[10.5px] shrink-0 hover:bg-amber-300"
+                    >
+                      Use Recommended ({recommendedInfo.count})
+                    </button>
                   </div>
                 </div>
 
-                {/* Question Selector List */}
-                <div className="space-y-2 pt-2">
-                  <div className="flex items-center justify-between">
-                    <label className="text-xs font-bold text-emerald-200 uppercase">
-                      Select Verified Database Questions ({currentlyChosenQuestions.length} Active):
-                    </label>
-                    <span className="text-[11px] text-slate-400">
-                      Preserves authentic exam year, options &amp; diagrams
-                    </span>
+                {/* Row 5: Matching Past Questions Summary Bar */}
+                <div className="p-4 rounded-xl border transition space-y-3 bg-[#071912] border-[#00796B]/60">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center space-x-2">
+                      <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
+                      <h4 className="text-sm font-black text-white">
+                        {matchedDatabaseQuestions.length} MATCHING PAST QUESTIONS FOUND
+                      </h4>
+                      <span className="text-xs text-emerald-300 font-bold">
+                        ({currentlyChosenQuestions.length} Selected for Video)
+                      </span>
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                      <button
+                        type="button"
+                        onClick={() => setIsReviewQuestionsOpen(true)}
+                        className="px-3 py-1.5 rounded-lg bg-[#004D40] hover:bg-[#00796B] text-[#FFD600] font-bold text-xs border border-[#FFD600]/30 transition"
+                      >
+                        🔍 Review All {matchedDatabaseQuestions.length} Questions
+                      </button>
+                    </div>
                   </div>
 
-                  <div className="max-h-52 overflow-y-auto space-y-2 pr-1">
-                    {matchedDatabaseQuestions.map((q) => {
-                      const isChecked = selectedQuestionIds.includes(q.id);
-                      return (
-                        <div
-                          key={q.id}
-                          onClick={() => {
-                            setSelectedQuestionIds(prev =>
-                              isChecked ? prev.filter(id => id !== q.id) : [...prev, q.id]
-                            );
-                          }}
-                          className={`p-3 rounded-xl border text-left transition cursor-pointer flex items-start space-x-3 ${
-                            isChecked
-                              ? 'bg-[#004D40]/80 border-[#FFD600]'
-                              : 'bg-[#071912] border-white/10 hover:border-emerald-500'
-                          }`}
+                  {/* Empty State when 0 questions match */}
+                  {matchedDatabaseQuestions.length === 0 ? (
+                    <div className="p-5 rounded-xl bg-amber-950/40 border border-amber-500/40 text-left space-y-3">
+                      <div className="flex items-center space-x-2 text-amber-300 font-bold text-sm">
+                        <span>⚠️</span>
+                        <span>No matching past questions found for this topic and paper combination.</span>
+                      </div>
+                      <p className="text-xs text-amber-100/90 leading-relaxed">
+                        StudyPlug strictly pulls authentic questions from the database and will <strong>never fabricate or hallucinate</strong> past examination questions.
+                      </p>
+                      <div className="flex items-center gap-2 flex-wrap pt-1">
+                        <button
+                          type="button"
+                          onClick={() => setYearMode('any')}
+                          className="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-200 border border-amber-500/40 text-xs font-bold hover:bg-amber-500/30"
                         >
-                          <input
-                            type="checkbox"
-                            checked={isChecked}
-                            readOnly
-                            className="mt-1 rounded text-[#004D40]"
-                          />
-                          <div className="flex-1 text-xs">
-                            <div className="flex items-center justify-between pb-1">
-                              <span className="font-bold text-[#FFD600]">
-                                {q.exam || selectedExam} {q.year || 'PAST QUESTION'} • Q#{q.questionNumber || q.id}
-                              </span>
-                              <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 text-[10px] font-bold">
-                                Correct: Option {q.correctAnswer}
-                              </span>
+                          Broaden to Any Year
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedPaperTypes(['OBJ', 'Theory'])}
+                          className="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-200 border border-amber-500/40 text-xs font-bold hover:bg-amber-500/30"
+                        >
+                          Include Objective &amp; Theory
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedExam('WAEC')}
+                          className="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-200 border border-amber-500/40 text-xs font-bold hover:bg-amber-500/30"
+                        >
+                          Switch to WAEC
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Question List Cards */
+                    <div className="max-h-64 overflow-y-auto space-y-2 pr-1">
+                      {matchedDatabaseQuestions.map((q) => {
+                        const isChecked = selectedQuestionIds.includes(q.id);
+                        return (
+                          <div
+                            key={q.id}
+                            onClick={() => {
+                              setSelectedQuestionIds(prev =>
+                                isChecked ? prev.filter(id => id !== q.id) : [...prev, q.id]
+                              );
+                            }}
+                            className={`p-3 rounded-xl border text-left transition cursor-pointer flex items-start space-x-3 ${
+                              isChecked
+                                ? 'bg-[#004D40]/80 border-[#FFD600]'
+                                : 'bg-[#071912] border-white/10 hover:border-emerald-500'
+                            }`}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              readOnly
+                              className="mt-1 rounded text-[#004D40] accent-[#FFD600]"
+                            />
+                            <div className="flex-1 text-xs space-y-1">
+                              <div className="flex items-center justify-between pb-1 flex-wrap gap-1">
+                                <span className="px-2 py-0.5 rounded font-black text-[10px] tracking-wider uppercase bg-[#FFD600] text-[#004D40]">
+                                  {q.sourceLabel}
+                                </span>
+                                <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                                  q.paperType === 'Practical'
+                                    ? 'bg-purple-900/80 text-purple-200 border border-purple-500/40'
+                                    : q.paperType === 'Theory'
+                                    ? 'bg-blue-900/80 text-blue-200 border border-blue-500/40'
+                                    : 'bg-emerald-900/80 text-emerald-200 border border-emerald-500/40'
+                                }`}>
+                                  {q.paperName}
+                                </span>
+                              </div>
+
+                              <p className="text-white line-clamp-2 font-medium">{q.text}</p>
+
+                              {q.paperType === 'OBJ' && (
+                                <div className="text-[11px] text-emerald-300 font-bold">
+                                  Correct Answer: Option {q.correctAnswer}
+                                </div>
+                              )}
+                              {q.paperType === 'Theory' && (
+                                <div className="text-[11px] text-blue-300 font-bold">
+                                  Theory Breakdown: {q.parts?.length || 1} Parts • {q.totalMarks || 10} Total Marks
+                                </div>
+                              )}
+                              {q.paperType === 'Practical' && (
+                                <div className="text-[11px] text-purple-300 font-bold">
+                                  Practical Experiment: Apparatus, Observations, Graph &amp; Precautions
+                                </div>
+                              )}
                             </div>
-                            <p className="text-white line-clamp-2">{q.text}</p>
                           </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
 
                 {/* Primary Action Button */}
-                <div className="pt-4 border-t border-white/10 flex justify-end">
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between flex-wrap gap-3">
+                  <div className="text-xs text-emerald-200">
+                    Active Video Setup: <strong>{selectedExam} {selectedSubject}</strong> • Papers: <strong>{selectedPaperTypes.join(' + ')}</strong> • <strong>{currentlyChosenQuestions.length} Questions</strong>
+                  </div>
                   <button
                     type="button"
+                    disabled={currentlyChosenQuestions.length === 0}
                     onClick={handleGenerateFull12MinMasterclass}
-                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFD600] to-amber-400 text-[#004D40] font-black text-sm shadow-lg hover:scale-105 active:scale-95 transition cursor-pointer flex items-center space-x-2"
+                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFD600] to-amber-400 text-[#004D40] font-black text-sm shadow-lg hover:scale-105 active:scale-95 transition cursor-pointer flex items-center space-x-2 disabled:opacity-40 disabled:hover:scale-100"
                   >
-                    <span>⚡ Generate 12-Minute Lesson Plan &amp; Script</span>
+                    <span>⚡ CREATE 12-MINUTE VIDEO ({selectedPaperTypes.join(' + ')})</span>
                     <span>→</span>
                   </button>
                 </div>
+
+                {/* Detailed Question Review Modal Drawer */}
+                {isReviewQuestionsOpen && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+                    <div className="relative w-full max-w-3xl bg-[#0D241C] border border-[#00796B] rounded-[24px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+                      <div className="bg-[#004D40] p-4 text-white flex items-center justify-between">
+                        <div>
+                          <h3 className="text-base font-bold text-white flex items-center space-x-2">
+                            <span>🔍 Review &amp; Select Questions</span>
+                            <span className="px-2 py-0.5 rounded bg-[#FFD600] text-[#004D40] text-xs font-black">
+                              {currentlyChosenQuestions.length} of {matchedDatabaseQuestions.length} Chosen
+                            </span>
+                          </h3>
+                          <p className="text-xs text-emerald-200">
+                            {selectedExam} • {selectedSubject} • {selectedTopic}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setIsReviewQuestionsOpen(false)}
+                          className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center text-sm font-bold"
+                        >
+                          ✕
+                        </button>
+                      </div>
+
+                      <div className="p-4 overflow-y-auto space-y-3 flex-1 text-left">
+                        {matchedDatabaseQuestions.map((q) => {
+                          const isChecked = selectedQuestionIds.includes(q.id);
+                          return (
+                            <div
+                              key={q.id}
+                              onClick={() => {
+                                setSelectedQuestionIds(prev =>
+                                  isChecked ? prev.filter(id => id !== q.id) : [...prev, q.id]
+                                );
+                              }}
+                              className={`p-4 rounded-xl border transition cursor-pointer space-y-2 ${
+                                isChecked
+                                  ? 'bg-[#004D40]/90 border-[#FFD600]'
+                                  : 'bg-[#071912] border-white/10 hover:border-emerald-500'
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="px-2.5 py-0.5 rounded text-xs font-black uppercase bg-[#FFD600] text-[#004D40]">
+                                  {q.sourceLabel}
+                                </span>
+                                <input
+                                  type="checkbox"
+                                  checked={isChecked}
+                                  readOnly
+                                  className="rounded text-[#004D40] accent-[#FFD600] scale-125"
+                                />
+                              </div>
+
+                              <p className="text-sm font-bold text-white leading-relaxed">{q.text}</p>
+
+                              {q.paperType === 'OBJ' && q.options && (
+                                <div className="grid grid-cols-2 gap-2 text-xs pt-1">
+                                  {q.options.map(opt => (
+                                    <div
+                                      key={opt.key}
+                                      className={`p-2 rounded border ${
+                                        opt.key === q.correctAnswer
+                                          ? 'bg-emerald-950/80 border-emerald-400 text-emerald-300 font-bold'
+                                          : 'bg-black/30 border-white/5 text-slate-300'
+                                      }`}
+                                    >
+                                      <strong>{opt.key}:</strong> {opt.text}
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+
+                              {q.paperType === 'Theory' && q.parts && (
+                                <div className="space-y-1.5 pt-1 text-xs">
+                                  {q.parts.map(part => (
+                                    <div key={part.label} className="p-2 rounded bg-black/40 border border-white/5 text-slate-200">
+                                      <strong className="text-amber-300">{part.label}</strong> {part.text} <span className="text-emerald-400 font-bold">[{part.marks} Marks]</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+
+                              {q.paperType === 'Practical' && (
+                                <div className="p-2 rounded bg-purple-950/40 border border-purple-500/30 text-xs text-purple-200 space-y-1">
+                                  <div><strong>Apparatus:</strong> {q.apparatus?.join(', ')}</div>
+                                  <div><strong>Precautions:</strong> {q.precautions?.slice(0, 2).join('; ')}</div>
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      <div className="p-4 bg-[#071912] border-t border-white/10 flex justify-end">
+                        <button
+                          type="button"
+                          onClick={() => setIsReviewQuestionsOpen(false)}
+                          className="px-5 py-2 rounded-xl bg-[#FFD600] text-[#004D40] font-black text-xs hover:bg-amber-300"
+                        >
+                          Confirm Selection ({currentlyChosenQuestions.length} Questions)
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

@@ -5,7 +5,8 @@ export interface QuestionOption {
 
 export interface Question {
   id: number;
-  questionNumber: number;
+  questionNumber?: number;
+  exam?: string;
   subject: string;
   topic: string;
   subtopic?: string;
@@ -25,6 +26,8 @@ export interface Question {
   repeatCount?: number;
   repeatYears?: number[];
   repeatBadge?: string;
+  sourceLabel?: string;
+  paperType?: string;
 }
 
 // Full 50-Question Mathematics CBT Bank (UTME / JAMB Standard)

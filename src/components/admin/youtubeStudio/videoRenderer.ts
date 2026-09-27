@@ -286,6 +286,8 @@ export class StudyPlugVideoRenderer {
       this.renderHookCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
     } else if (scene.sceneType === 'objectives') {
       this.renderObjectives(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+    } else if (scene.sceneType === 'section_header') {
+      this.renderSectionBanner(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
     } else if (scene.sceneType === 'concept' || scene.sceneType === 'definition' || scene.sceneType === 'formula') {
       this.renderConceptSlide(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
     } else if (scene.sceneType === 'example') {
@@ -294,6 +296,16 @@ export class StudyPlugVideoRenderer {
       this.renderQuestionCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
     } else if (scene.sceneType === 'solution') {
       this.renderAnswerReveal(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+    } else if (scene.sceneType === 'theory_card') {
+      this.renderTheoryCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+    } else if (scene.sceneType === 'theory_solution') {
+      this.renderTheorySolution(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+    } else if (scene.sceneType === 'practical_setup') {
+      this.renderPracticalSetup(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+    } else if (scene.sceneType === 'practical_graph') {
+      this.renderPracticalGraph(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+    } else if (scene.sceneType === 'practical_precautions') {
+      this.renderPracticalPrecautions(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
     } else if (scene.sceneType === 'exam_tip' || scene.sceneType === 'recap') {
       this.renderExamTips(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
     } else if (scene.sceneType === 'cta' || scene.sceneType === 'outro_card') {
@@ -503,8 +515,16 @@ export class StudyPlugVideoRenderer {
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
 
-    const qText = q ? q.text : 'Study the question on screen and choose the correct option.';
-    this.drawWrappedText(ctx, qText, x + 30, y + 25, cardW - 60, isShorts ? 38 : 30);
+    const srcLabel = scene.sourceLabel || (q as any)?.sourceLabel || (scene.subtitle ? scene.subtitle.toUpperCase() : null);
+
+    if (srcLabel) {
+      ctx.fillStyle = '#FFD600';
+      ctx.font = `900 ${isShorts ? '18px' : '14px'} sans-serif`;
+      ctx.fillText(`• ${srcLabel}`, x + 30, y + 18);
+    }
+
+    const qText = q ? (q as any).text : 'Study the question on screen and choose the correct option.';
+    this.drawWrappedText(ctx, qText, x + 30, y + (srcLabel ? 42 : 25), cardW - 60, isShorts ? 38 : 30);
 
     // Thinking Timer (5s or 10s countdown)
     const countdownTotal = scene.timerSeconds || 5;
@@ -708,6 +728,281 @@ export class StudyPlugVideoRenderer {
       ctx.font = `700 ${isShorts ? '28px' : '21px'} sans-serif`;
       ctx.fillText(act, centerX, outY + (i * (isShorts ? 70 : 50)));
     });
+  }
+
+  private renderSectionBanner(
+    ctx: CanvasRenderingContext2D,
+    scene: VideoScene,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    isShorts: boolean,
+    t: number
+  ) {
+    const cardW = w - (x * 2);
+    const cardH = isShorts ? 700 : 420;
+
+    // Glowing Section Transition Box
+    const grad = ctx.createLinearGradient(x, y, x + cardW, y + cardH);
+    grad.addColorStop(0, 'rgba(0, 77, 64, 0.95)');
+    grad.addColorStop(0.5, 'rgba(0, 46, 38, 0.95)');
+    grad.addColorStop(1, 'rgba(2, 6, 23, 0.95)');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    roundRect(ctx, x, y, cardW, cardH, 24);
+    ctx.fill();
+    ctx.strokeStyle = '#FFD600';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+
+    const centerX = x + (cardW / 2);
+    const centerY = y + (cardH / 2);
+
+    // Section Icon
+    ctx.fillStyle = '#FFD600';
+    ctx.beginPath();
+    ctx.arc(centerX, centerY - (isShorts ? 100 : 70), isShorts ? 60 : 45, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#004D40';
+    ctx.font = `900 ${isShorts ? '40px' : '30px'} sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const icon = scene.paperType === 'Practical' ? '🔬' : scene.paperType === 'Theory' ? '📝' : '⚡';
+    ctx.fillText(icon, centerX, centerY - (isShorts ? 100 : 70));
+
+    // Big Section Title
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = `900 ${isShorts ? '46px' : '36px'} sans-serif`;
+    ctx.fillText(scene.title, centerX, centerY + (isShorts ? 20 : 15));
+
+    // Subtitle Bullet Highlights
+    ctx.fillStyle = '#A7F3D0';
+    ctx.font = `700 ${isShorts ? '26px' : '20px'} sans-serif`;
+    const subText = scene.onScreenText || 'Speed & Accuracy Standard Drills';
+    this.drawWrappedText(ctx, subText, x + 40, centerY + (isShorts ? 80 : 60), cardW - 80, isShorts ? 40 : 30);
+  }
+
+  private renderTheoryCard(
+    ctx: CanvasRenderingContext2D,
+    scene: VideoScene,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    isShorts: boolean,
+    t: number
+  ) {
+    const q = scene.questionData as any;
+    const cardW = w - (x * 2);
+    const cardH = isShorts ? 820 : 500;
+
+    ctx.fillStyle = 'rgba(0, 24, 18, 0.9)';
+    ctx.beginPath();
+    roundRect(ctx, x, y, cardW, cardH, 18);
+    ctx.fill();
+    ctx.strokeStyle = '#34D399';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Source Label & Total Marks Header Bar
+    const src = scene.sourceLabel || q?.sourceLabel || 'WAEC • THEORY EXAMINATION';
+    const marks = q?.totalMarks || 10;
+    ctx.fillStyle = '#004D40';
+    ctx.beginPath();
+    roundRect(ctx, x + 15, y + 15, cardW - 30, isShorts ? 55 : 42, 10);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFD600';
+    ctx.font = `900 ${isShorts ? '20px' : '15px'} sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(src, x + 35, y + 15 + (isShorts ? 28 : 21));
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.textAlign = 'right';
+    ctx.fillText(`[TOTAL: ${marks} MARKS]`, x + cardW - 35, y + 15 + (isShorts ? 28 : 21));
+
+    // Question Text & Parts
+    let curY = y + (isShorts ? 90 : 75);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = `700 ${isShorts ? '25px' : '19px'} sans-serif`;
+    const fullText = q?.text || scene.onScreenText || '';
+    this.drawWrappedText(ctx, fullText, x + 30, curY, cardW - 60, isShorts ? 36 : 28);
+  }
+
+  private renderTheorySolution(
+    ctx: CanvasRenderingContext2D,
+    scene: VideoScene,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    isShorts: boolean,
+    t: number
+  ) {
+    const cardW = w - (x * 2);
+    const cardH = isShorts ? 820 : 500;
+
+    ctx.fillStyle = 'rgba(0, 30, 24, 0.92)';
+    ctx.beginPath();
+    roundRect(ctx, x, y, cardW, cardH, 18);
+    ctx.fill();
+    ctx.strokeStyle = '#FFD600';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Header: Marking Scheme Breakdown
+    ctx.fillStyle = '#059669';
+    ctx.beginPath();
+    roundRect(ctx, x + 15, y + 15, cardW - 30, isShorts ? 55 : 42, 10);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = `900 ${isShorts ? '22px' : '16px'} sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('OFFICIAL MARKING SCHEME & STEP-BY-STEP DERIVATION', x + (cardW / 2), y + 15 + (isShorts ? 28 : 21));
+
+    // Rubric Steps
+    let solY = y + (isShorts ? 90 : 75);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = '#E2E8F0';
+    ctx.font = `600 ${isShorts ? '22px' : '17px'} sans-serif`;
+
+    const solText = scene.onScreenText || 'Complete examiner marking breakdown';
+    this.drawWrappedText(ctx, solText, x + 30, solY, cardW - 60, isShorts ? 34 : 26);
+  }
+
+  private renderPracticalSetup(
+    ctx: CanvasRenderingContext2D,
+    scene: VideoScene,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    isShorts: boolean,
+    t: number
+  ) {
+    const cardW = w - (x * 2);
+    const cardH = isShorts ? 820 : 500;
+
+    ctx.fillStyle = 'rgba(2, 44, 34, 0.92)';
+    ctx.beginPath();
+    roundRect(ctx, x, y, cardW, cardH, 18);
+    ctx.fill();
+    ctx.strokeStyle = '#38BDF8';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Lab Banner
+    ctx.fillStyle = '#0369A1';
+    ctx.beginPath();
+    roundRect(ctx, x + 15, y + 15, cardW - 30, isShorts ? 55 : 42, 10);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = `900 ${isShorts ? '22px' : '16px'} sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('🔬 PAPER 3: EXPERIMENTAL SETUP & APPARATUS', x + (cardW / 2), y + 15 + (isShorts ? 28 : 21));
+
+    let pY = y + (isShorts ? 90 : 75);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = '#F0FDF4';
+    ctx.font = `600 ${isShorts ? '23px' : '18px'} sans-serif`;
+
+    this.drawWrappedText(ctx, scene.onScreenText || 'Apparatus & procedure steps', x + 30, pY, cardW - 60, isShorts ? 36 : 28);
+  }
+
+  private renderPracticalGraph(
+    ctx: CanvasRenderingContext2D,
+    scene: VideoScene,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    isShorts: boolean,
+    t: number
+  ) {
+    const cardW = w - (x * 2);
+    const cardH = isShorts ? 820 : 500;
+
+    ctx.fillStyle = 'rgba(2, 44, 34, 0.92)';
+    ctx.beginPath();
+    roundRect(ctx, x, y, cardW, cardH, 18);
+    ctx.fill();
+    ctx.strokeStyle = '#F59E0B';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Graph & Table Header
+    ctx.fillStyle = '#B45309';
+    ctx.beginPath();
+    roundRect(ctx, x + 15, y + 15, cardW - 30, isShorts ? 55 : 42, 10);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = `900 ${isShorts ? '22px' : '16px'} sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('📊 EXPERIMENTAL READINGS TABLE & GRAPH DERIVATION', x + (cardW / 2), y + 15 + (isShorts ? 28 : 21));
+
+    let gY = y + (isShorts ? 90 : 75);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = '#FEF3C7';
+    ctx.font = `600 ${isShorts ? '23px' : '18px'} monospace, sans-serif`;
+
+    this.drawWrappedText(ctx, scene.onScreenText || 'Readings & Slope Evaluation', x + 30, gY, cardW - 60, isShorts ? 36 : 28);
+  }
+
+  private renderPracticalPrecautions(
+    ctx: CanvasRenderingContext2D,
+    scene: VideoScene,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    isShorts: boolean,
+    t: number
+  ) {
+    const cardW = w - (x * 2);
+    const cardH = isShorts ? 820 : 500;
+
+    ctx.fillStyle = 'rgba(0, 35, 27, 0.92)';
+    ctx.beginPath();
+    roundRect(ctx, x, y, cardW, cardH, 18);
+    ctx.fill();
+    ctx.strokeStyle = '#10B981';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Precautions Header
+    ctx.fillStyle = '#047857';
+    ctx.beginPath();
+    roundRect(ctx, x + 15, y + 15, cardW - 30, isShorts ? 55 : 42, 10);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFD600';
+    ctx.font = `900 ${isShorts ? '22px' : '16px'} sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('⚠️ CHIEF EXAMINER EXPERIMENTAL PRECAUTIONS [4 MARKS]', x + (cardW / 2), y + 15 + (isShorts ? 28 : 21));
+
+    let prY = y + (isShorts ? 90 : 75);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = `700 ${isShorts ? '24px' : '18px'} sans-serif`;
+
+    this.drawWrappedText(ctx, scene.onScreenText || 'Examiner precautions in past tense', x + 30, prY, cardW - 60, isShorts ? 38 : 28);
   }
 
   private drawWrappedText(

@@ -1,5 +1,8 @@
 import { Question } from '../../../data/questions';
 import { LessonNote } from '../../../data/masterLessonNotes';
+import { UnifiedStudioQuestion, StudioPaperType, ExamCategory } from './questionSelector';
+
+export type { UnifiedStudioQuestion, StudioPaperType, ExamCategory };
 
 export type VideoType =
   | '12_minute_masterclass'
@@ -62,6 +65,14 @@ export interface ScriptSection {
     | 'worked_example'
     | 'past_question'
     | 'solution_breakdown'
+    | 'section_header'
+    | 'theory_question'
+    | 'theory_solution'
+    | 'practical_setup'
+    | 'practical_procedure'
+    | 'practical_table'
+    | 'practical_graph'
+    | 'practical_precautions'
     | 'exam_tips'
     | 'quick_recap'
     | 'cta'
@@ -80,9 +91,21 @@ export interface ScriptSection {
   visualCue: string;
   durationSeconds: number;
   calculationSteps?: string[];
-  questionData?: Question;
+  questionData?: UnifiedStudioQuestion | Question;
   diagramId?: string;
   timerDurationSeconds?: number; // 5s or 10s
+  paperType?: StudioPaperType;
+  sourceLabel?: string;
+  sectionHeaderTitle?: string;
+  sectionHeaderSubtitle?: string;
+  practicalDetails?: {
+    apparatus?: string[];
+    procedure?: string[];
+    observationTable?: { headers: string[]; rows: string[][] };
+    precautions?: string[];
+    graphSlope?: string;
+    targetFormula?: string;
+  };
 }
 
 export interface VideoScene {
@@ -100,6 +123,13 @@ export interface VideoScene {
     | 'countdown'
     | 'answer'
     | 'solution'
+    | 'section_header'
+    | 'theory_card'
+    | 'theory_solution'
+    | 'practical_setup'
+    | 'practical_table'
+    | 'practical_graph'
+    | 'practical_precautions'
     | 'exam_tip'
     | 'recap'
     | 'cta'
@@ -112,13 +142,13 @@ export interface VideoScene {
     | 'outro_card';
   duration: number;
   durationSeconds: number;
-  visualType: 'split' | 'chalkboard' | 'equation_reveal' | 'cbt_terminal' | 'diagram_focus' | 'hero_card';
+  visualType: 'split' | 'chalkboard' | 'equation_reveal' | 'cbt_terminal' | 'diagram_focus' | 'hero_card' | 'section_banner' | 'practical_sheet' | 'theory_paper';
   subjectTheme: 'physics' | 'mathematics' | 'chemistry' | 'biology' | 'english' | 'literature' | 'commercial' | 'general';
   title: string;
   subtitle?: string;
   onScreenText: string;
   narrationText: string;
-  questionId?: number;
+  questionId?: number | string;
   lessonId?: string;
   animation?: 'fade' | 'slide_left' | 'step_reveal' | 'zoom' | 'pulse';
   image?: string;
@@ -129,10 +159,13 @@ export interface VideoScene {
   keyPoints: string[];
   equation?: string;
   calculationSteps?: string[];
-  questionData?: Question;
+  questionData?: UnifiedStudioQuestion | Question;
   timerSeconds?: number;
   progressPercent: number;
   audioBlobUrl?: string; // Voicebox cached audio
+  paperType?: StudioPaperType;
+  sourceLabel?: string;
+  practicalDetails?: ScriptSection['practicalDetails'];
 }
 
 export interface YouTubeSeoData {
@@ -198,15 +231,17 @@ export interface VoiceboxConfig {
 export interface YouTubeProject {
   id: string;
   title: string;
-  exam: 'JAMB' | 'WAEC' | 'NECO' | 'BECE' | 'Post-UTME';
+  exam: ExamCategory;
+  selectedExams?: ExamCategory[];
   subject: string;
+  selectedPaperTypes?: StudioPaperType[];
   topic: string;
   subtopic: string;
   videoType: VideoType;
   aspectRatio: VideoAspectRatio;
   status: VideoProjectStatus;
   topConcepts: TopConcept[];
-  selectedQuestions: Question[];
+  selectedQuestions: (UnifiedStudioQuestion | Question)[];
   lessonNote: LessonNote | null;
   scriptSections: ScriptSection[];
   scenes: VideoScene[];

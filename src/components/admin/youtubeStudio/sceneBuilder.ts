@@ -57,11 +57,29 @@ export function buildVideoScenes(
     } else if (sec.type === 'worked_example') {
       sceneType = 'example';
       visualType = 'equation_reveal';
+    } else if (sec.type === 'section_header') {
+      sceneType = 'section_header';
+      visualType = 'section_banner';
     } else if (sec.type === 'past_question') {
       sceneType = 'question';
       visualType = 'cbt_terminal';
     } else if (sec.type === 'solution_breakdown') {
       sceneType = 'solution';
+      visualType = 'chalkboard';
+    } else if (sec.type === 'theory_question') {
+      sceneType = 'theory_card';
+      visualType = 'theory_paper';
+    } else if (sec.type === 'theory_solution') {
+      sceneType = 'theory_solution';
+      visualType = 'chalkboard';
+    } else if (sec.type === 'practical_setup') {
+      sceneType = 'practical_setup';
+      visualType = 'practical_sheet';
+    } else if (sec.type === 'practical_graph') {
+      sceneType = 'practical_graph';
+      visualType = 'practical_sheet';
+    } else if (sec.type === 'practical_precautions') {
+      sceneType = 'practical_precautions';
       visualType = 'chalkboard';
     } else if (sec.type === 'exam_tips') {
       sceneType = 'exam_tip';
@@ -84,19 +102,22 @@ export function buildVideoScenes(
       visualType,
       subjectTheme: theme,
       title: sec.title,
-      subtitle: sec.type === 'past_question' ? `${sec.questionData?.exam || ''} ${sec.questionData?.year || ''}` : undefined,
+      subtitle: sec.sourceLabel || (sec.questionData as any)?.sourceLabel || (sec.type === 'past_question' ? `${(sec.questionData as any)?.exam || ''} ${(sec.questionData as any)?.year || ''}` : undefined),
       onScreenText: sec.onScreenText,
       narrationText: sec.narrationText || sec.spokenNarration,
-      questionId: sec.questionData?.id,
-      keyPoints: keyPoints.slice(0, 5),
+      questionId: (sec.questionData as any)?.id,
+      keyPoints: keyPoints.slice(0, 6),
       calculationSteps: sec.calculationSteps,
       questionData: sec.questionData,
       diagramId: sec.diagramId,
-      diagramSvg: sec.questionData?.image_svg,
+      diagramSvg: (sec.questionData as any)?.image_svg,
       timerSeconds: sec.timerDurationSeconds || 5,
       animation: idx % 2 === 0 ? 'step_reveal' : 'fade',
       transition: 'crossfade',
-      progressPercent
+      progressPercent,
+      paperType: sec.paperType,
+      sourceLabel: sec.sourceLabel,
+      practicalDetails: sec.practicalDetails
     };
   });
 }
@@ -112,28 +133,95 @@ export function generateYouTubeSeo(options: {
   scenes: VideoScene[];
   videoType: VideoType;
   questionCount?: number;
+  paperTypes?: ('OBJ' | 'Theory' | 'Practical')[];
 }): YouTubeSeoData {
-  const { exam, subject, topic, subtopic, scenes, videoType, questionCount = 5 } = options;
+  const { exam, subject, topic, subtopic, scenes, videoType, questionCount = 5, paperTypes = ['OBJ'] } = options;
 
-  // 1. Generate 3 YouTube Title Options
-  const titleOptions: TitleOption[] = [
-    {
-      id: 'opt-1',
-      title: `${exam} ${subject}: ${topic} Explained + ${questionCount} Past Questions | StudyPlug`,
-      style: 'Direct & Comprehensive',
-      isRecommended: true
-    },
-    {
-      id: 'opt-2',
-      title: `${topic} in ${subject} Made Easy | ${exam} Past Questions Solved Step-by-Step`,
-      style: 'High Click-Through & Student-Friendly'
-    },
-    {
-      id: 'opt-3',
-      title: `Master ${topic} for ${exam} ${subject}: Concepts, Formulas & Exam Traps`,
-      style: 'Academic & Examination Focused'
-    }
-  ];
+  const isMultiPaper = paperTypes.length > 1;
+  const hasTheory = paperTypes.includes('Theory');
+  const hasPractical = paperTypes.includes('Practical');
+  const hasObj = paperTypes.includes('OBJ');
+
+  let titleOptions: TitleOption[] = [];
+
+  if (isMultiPaper) {
+    const papersTag = paperTypes.join(' + ');
+    titleOptions = [
+      {
+        id: 'opt-1',
+        title: `${exam} ${subject}: ${topic} — ${papersTag} Past Questions Explained | StudyPlug`,
+        style: 'All-in-One Multi-Paper',
+        isRecommended: true
+      },
+      {
+        id: 'opt-2',
+        title: `Stop Failing ${topic} in ${exam} ${subject}: Complete OBJ, Theory & Practical Breakdown`,
+        style: 'High Click-Through & Student-Friendly'
+      },
+      {
+        id: 'opt-3',
+        title: `${exam} ${subject} Masterclass: Master ${topic} Across All Exam Papers`,
+        style: 'Academic & Examination Focused'
+      }
+    ];
+  } else if (hasPractical) {
+    titleOptions = [
+      {
+        id: 'opt-1',
+        title: `${exam} ${subject} Practical: ${topic} Experiment, Table, Graph & Precautions | StudyPlug`,
+        style: 'Practical Specialist',
+        isRecommended: true
+      },
+      {
+        id: 'opt-2',
+        title: `How to Score 25/25 in ${exam} ${subject} Practical: ${topic} Step-by-Step`,
+        style: 'Score-Boosting Guide'
+      },
+      {
+        id: 'opt-3',
+        title: `${exam} ${subject} Paper 3: ${topic} Laboratory Investigation & Calculations`,
+        style: 'Academic Syllabus Standard'
+      }
+    ];
+  } else if (hasTheory) {
+    titleOptions = [
+      {
+        id: 'opt-1',
+        title: `${exam} ${subject} Theory: ${topic} Questions & Marking Scheme Rubrics | StudyPlug`,
+        style: 'Marking Scheme Specialist',
+        isRecommended: true
+      },
+      {
+        id: 'opt-2',
+        title: `${exam} ${subject} Theory Questions Students Must Understand on ${topic}`,
+        style: 'High Click-Through & Student-Friendly'
+      },
+      {
+        id: 'opt-3',
+        title: `Master ${exam} ${subject} Essay Questions: ${topic} Step-by-Step Derivations`,
+        style: 'Comprehensive Derivation'
+      }
+    ];
+  } else {
+    titleOptions = [
+      {
+        id: 'opt-1',
+        title: `${exam} ${subject}: ${topic} Explained + ${questionCount} Past Questions | StudyPlug`,
+        style: 'Direct & Comprehensive',
+        isRecommended: true
+      },
+      {
+        id: 'opt-2',
+        title: `${topic} in ${subject} Made Easy | ${exam} Past Questions Solved Step-by-Step`,
+        style: 'High Click-Through & Student-Friendly'
+      },
+      {
+        id: 'opt-3',
+        title: `Master ${topic} for ${exam} ${subject}: Concepts, Formulas & Exam Traps`,
+        style: 'Academic & Examination Focused'
+      }
+    ];
+  }
 
   const primaryTitle = titleOptions[0].title;
 
