@@ -981,7 +981,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   <div className="lg:col-span-7 space-y-1.5">
                     <div className="flex items-center justify-between">
                       <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                        {is100DaysMode ? 'Examination Format' : `3. Paper Types (${selectedExam})`}
+                        {is100DaysMode ? 'Examination Format' : `2. Paper Type (${selectedExam})`}
                       </label>
                       {availablePapers.length > 1 && (
                         <button
@@ -1033,54 +1033,152 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   </div>
                 </div>
 
-                {/* Row 3: Syllabus-First Cascading Selectors (Section -> Topic -> Subtopics) */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                  {/* Syllabus Section Selector */}
-                  <div className="md:col-span-4 space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      Syllabus Section
-                    </label>
-                    <select
-                      value={selectedSyllabusSection}
-                      onChange={(e) => setSelectedSyllabusSection(e.target.value)}
-                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-xs text-white font-bold"
-                    >
-                      {availableSyllabusSections.map(sec => (
-                        <option key={sec} value={sec}>{sec}</option>
-                      ))}
-                    </select>
-                  </div>
+                {/* ─── STEP 3: Filter by Year (Custom Mode Only) ─── */}
+                {!is100DaysMode && (
+                  <div className="p-4 rounded-xl bg-[#071912] border border-[#FFD600]/40 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-black text-[#FFD600] uppercase tracking-wider">
+                        3. Filter by Exam Year
+                      </label>
+                      <span className={`text-[10px] font-bold ${
+                        yearMode === 'any' ? 'text-emerald-400' : 'text-amber-300'
+                      }`}>
+                        {yearMode === 'any' && 'All years — showing every question'}
+                        {yearMode === 'specific' && `Showing ${specificYear} only`}
+                        {yearMode === 'range' && `Showing ${yearRange[0]}–${yearRange[1]}`}
+                      </span>
+                    </div>
 
-                  {/* Topic Selector */}
-                  <div className="md:col-span-4 space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      Official Syllabus Topic
-                    </label>
-                    <select
-                      value={selectedTopic}
-                      onChange={(e) => setSelectedTopic(e.target.value)}
-                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white font-bold"
-                    >
-                      {availableTopics.map(t => (
-                        <option key={t} value={t}>{t}</option>
-                      ))}
-                    </select>
-                  </div>
+                    {/* Year chips — tap to filter instantly */}
+                    <div className="flex flex-wrap gap-2 items-center">
+                      {/* All Years chip */}
+                      <button
+                        type="button"
+                        onClick={() => setYearMode('any')}
+                        className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
+                          yearMode === 'any'
+                            ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600] shadow-sm'
+                            : 'bg-black/30 text-slate-300 border-white/20 hover:border-emerald-400 hover:text-white'
+                        }`}
+                      >
+                        All Years
+                      </button>
 
-                  {/* Subtopic Focus */}
-                  <div className="md:col-span-4 space-y-1.5">
-                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      Subtopic Focus
-                    </label>
-                    <select
-                      value={selectedSubtopic}
-                      onChange={(e) => setSelectedSubtopic(e.target.value)}
-                      className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-xs text-white font-bold"
-                    >
-                      {availableSubtopics.map(sub => (
-                        <option key={sub} value={sub}>{sub}</option>
+                      {/* Individual year chips from real data */}
+                      {availableYears.map(yr => (
+                        <button
+                          key={yr}
+                          type="button"
+                          onClick={() => {
+                            setYearMode('specific');
+                            setSpecificYear(yr);
+                          }}
+                          className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
+                            yearMode === 'specific' && specificYear === yr
+                              ? 'bg-emerald-500 text-white border-emerald-400 shadow-sm'
+                              : 'bg-black/30 text-slate-300 border-white/20 hover:border-emerald-400 hover:text-white'
+                          }`}
+                        >
+                          {yr}
+                        </button>
                       ))}
-                    </select>
+
+                      {/* Custom range toggle */}
+                      <button
+                        type="button"
+                        onClick={() => setYearMode('range')}
+                        className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
+                          yearMode === 'range'
+                            ? 'bg-purple-600 text-white border-purple-400 shadow-sm'
+                            : 'bg-black/30 text-slate-300 border-white/20 hover:border-purple-400 hover:text-white'
+                        }`}
+                      >
+                        Range…
+                      </button>
+                    </div>
+
+                    {/* Range inputs shown inline when range is active */}
+                    {yearMode === 'range' && (
+                      <div className="flex items-center space-x-2 pt-1">
+                        <span className="text-xs text-slate-400">From</span>
+                        <input
+                          type="number"
+                          value={yearRange[0]}
+                          onChange={(e) => setYearRange([parseInt(e.target.value) || 2018, yearRange[1]])}
+                          className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
+                        />
+                        <span className="text-xs text-slate-400">to</span>
+                        <input
+                          type="number"
+                          value={yearRange[1]}
+                          onChange={(e) => setYearRange([yearRange[0], parseInt(e.target.value) || 2025])}
+                          className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
+                        />
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* ─── STEP 4: Filter by Topic ─── */}
+                <div className="space-y-3">
+                  {!is100DaysMode && (
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-black text-[#FFD600] uppercase tracking-wider">
+                        4. Filter by Topic
+                      </label>
+                      <span className="text-[10px] text-emerald-300 font-bold">
+                        {matchedDatabaseQuestions.length} questions match current filters
+                      </span>
+                    </div>
+                  )}
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                    {/* Syllabus Section Selector */}
+                    <div className="md:col-span-4 space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                        {is100DaysMode ? 'Syllabus Section' : 'Section'}
+                      </label>
+                      <select
+                        value={selectedSyllabusSection}
+                        onChange={(e) => setSelectedSyllabusSection(e.target.value)}
+                        className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-xs text-white font-bold"
+                      >
+                        {availableSyllabusSections.map(sec => (
+                          <option key={sec} value={sec}>{sec}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Topic Selector */}
+                    <div className="md:col-span-4 space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                        {is100DaysMode ? 'Official Syllabus Topic' : 'Topic (filters questions)'}
+                      </label>
+                      <select
+                        value={selectedTopic}
+                        onChange={(e) => setSelectedTopic(e.target.value)}
+                        className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-sm text-white font-bold"
+                      >
+                        {availableTopics.map(t => (
+                          <option key={t} value={t}>{t}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Subtopic Focus */}
+                    <div className="md:col-span-4 space-y-1.5">
+                      <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                        Subtopic Focus
+                      </label>
+                      <select
+                        value={selectedSubtopic}
+                        onChange={(e) => setSelectedSubtopic(e.target.value)}
+                        className="w-full bg-[#071912] border border-[#00796B] rounded-xl px-3 py-2.5 text-xs text-white font-bold"
+                      >
+                        {availableSubtopics.map(sub => (
+                          <option key={sub} value={sub}>{sub}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                 </div>
 
@@ -1208,97 +1306,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   )}
                 </div>
 
-                {/* Exam Year Filter Bar — Chip Picker */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                      📅 Filter by Year
-                    </label>
-                    {yearMode === 'specific' && (
-                      <span className="text-[10px] text-amber-300 font-bold">
-                        Showing {specificYear} only
-                      </span>
-                    )}
-                    {yearMode === 'any' && (
-                      <span className="text-[10px] text-emerald-400 font-bold">
-                        All years selected
-                      </span>
-                    )}
-                    {yearMode === 'range' && (
-                      <span className="text-[10px] text-emerald-400 font-bold">
-                        {yearRange[0]}–{yearRange[1]}
-                      </span>
-                    )}
-                  </div>
 
-                  {/* Year chips — tap to filter instantly */}
-                  <div className="flex flex-wrap gap-2 items-center">
-                    {/* All Years chip */}
-                    <button
-                      type="button"
-                      onClick={() => setYearMode('any')}
-                      className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
-                        yearMode === 'any'
-                          ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600] shadow-sm'
-                          : 'bg-black/30 text-slate-300 border-white/20 hover:border-emerald-400 hover:text-white'
-                      }`}
-                    >
-                      All Years
-                    </button>
-
-                    {/* Individual year chips from real data */}
-                    {availableYears.map(yr => (
-                      <button
-                        key={yr}
-                        type="button"
-                        onClick={() => {
-                          setYearMode('specific');
-                          setSpecificYear(yr);
-                        }}
-                        className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
-                          yearMode === 'specific' && specificYear === yr
-                            ? 'bg-emerald-500 text-white border-emerald-400 shadow-sm'
-                            : 'bg-black/30 text-slate-300 border-white/20 hover:border-emerald-400 hover:text-white'
-                        }`}
-                      >
-                        {yr}
-                      </button>
-                    ))}
-
-                    {/* Custom range toggle */}
-                    <button
-                      type="button"
-                      onClick={() => setYearMode('range')}
-                      className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
-                        yearMode === 'range'
-                          ? 'bg-purple-600 text-white border-purple-400 shadow-sm'
-                          : 'bg-black/30 text-slate-300 border-white/20 hover:border-purple-400 hover:text-white'
-                      }`}
-                    >
-                      Range…
-                    </button>
-                  </div>
-
-                  {/* Range inputs shown inline when range is active */}
-                  {yearMode === 'range' && (
-                    <div className="flex items-center space-x-2 pt-1">
-                      <span className="text-xs text-slate-400">From</span>
-                      <input
-                        type="number"
-                        value={yearRange[0]}
-                        onChange={(e) => setYearRange([parseInt(e.target.value) || 2018, yearRange[1]])}
-                        className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
-                      />
-                      <span className="text-xs text-slate-400">to</span>
-                      <input
-                        type="number"
-                        value={yearRange[1]}
-                        onChange={(e) => setYearRange([yearRange[0], parseInt(e.target.value) || 2025])}
-                        className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
-                      />
-                    </div>
-                  )}
-                </div>
 
                 {/* Row 4: Question Selection Mode, Difficulty & Count */}
                 <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-3">
