@@ -63,7 +63,8 @@ async function main() {
     "get_overall_coverage.php",
     "get_questions.php",
     "get_subtopic_exam_matrix.php",
-    "populate_gce_questions.php"
+    "populate_gce_questions.php",
+    "populate_nabteb_questions.php"
   ];
   for (const f of filesToDeploy) {
     if (fs.existsSync("studyplug-api/" + f)) {
