@@ -9,7 +9,7 @@ interface BottomNavigationProps {
 }
 
 export const BottomNavigation: React.FC<BottomNavigationProps> = ({ activeTab, onTabChange }) => {
-  const { activeView, setActiveView } = useApp();
+  const { activeView, setActiveView, openAiTutor } = useApp();
 
   // Resolve current active tab
   const current: BottomNavTab = activeTab || (() => {
@@ -105,6 +105,21 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({ activeTab, o
           <span className={`text-[10px] mt-1 ${current === 'practice' ? 'font-bold text-[#004D40]' : 'font-medium'}`}>
             Practice
           </span>
+        </button>
+
+        {/* AI Button — center FAB */}
+        <button
+          type="button"
+          onClick={() => openAiTutor()}
+          aria-label="Ask AI"
+          className="relative -top-5 flex flex-col items-center justify-center w-14 h-14 rounded-full bg-[#004D40] shadow-lg shadow-[#004D40]/40 active:scale-95 transition-transform duration-150 cursor-pointer border-4 border-white"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+            <path d="M12 2a7 7 0 0 1 7 7c0 3.5-2.5 5.9-3 7H8c-.5-1.1-3-3.5-3-7a7 7 0 0 1 7-7z" />
+            <path d="M9 21h6" />
+            <path d="M9.7 17a6.94 6.94 0 0 1-.7-3" />
+          </svg>
+          <span className="text-[9px] text-white font-bold mt-0.5 leading-none">AI</span>
         </button>
 
         {/* Mock */}
