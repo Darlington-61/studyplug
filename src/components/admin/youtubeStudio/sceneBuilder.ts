@@ -129,7 +129,7 @@ export function buildVideoScenes(
       calculationSteps: sec.calculationSteps,
       questionData: sec.questionData,
       diagramId: sec.diagramId,
-      diagramSvg: (sec.questionData as any)?.image_svg,
+      diagramSvg: (sec.questionData as any)?.imageSvg ?? (sec.questionData as any)?.image_svg,
       timerSeconds: sec.timerDurationSeconds || 5,
       animation: idx % 2 === 0 ? 'step_reveal' : 'fade',
       transition: 'crossfade',

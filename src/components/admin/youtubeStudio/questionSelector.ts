@@ -23,6 +23,10 @@ export interface UnifiedStudioQuestion {
   sourceLabel: string; // e.g. "WAEC • PHYSICS • THEORY • 2023"
   isAiGenerated?: boolean;
 
+  // Image support
+  imageUrl?: string | null;
+  imageSvg?: string | null;
+
   // Objective fields
   text: string;
   options: { key: string; text: string }[];
@@ -104,22 +108,31 @@ export function normalizeObjectiveQuestion(q: Question, defaultExam: ExamCategor
         { key: 'D', text: 'Option D' }
       ];
 
+  // Respect stored paperType — some OBJ data-files may tag a question as Theory/Essay
+  const rawPaperType = (q as any).paperType as string | undefined;
+  const resolvedPaperType: StudioPaperType =
+    rawPaperType && /theory|essay/i.test(rawPaperType) ? 'Theory' : 'OBJ';
+  const resolvedPaperName =
+    resolvedPaperType === 'Theory' ? 'Paper 2 (Theory)' : 'Paper 1 (Objective / CBT)';
+
   return {
     id: `obj-${q.id || Math.random().toString(36).substring(2, 9)}`,
     originalId: q.id,
     exam: ex,
     subject: sub,
-    paperType: 'OBJ',
-    paperName: 'Paper 1 (Objective / CBT)',
+    paperType: resolvedPaperType,
+    paperName: resolvedPaperName,
     year: yr,
     topic: q.topic || 'General',
     subtopic: q.subtopic || q.topic || 'General',
     difficulty: q.difficulty || 'Medium',
-    sourceLabel: `${ex} • ${sub.toUpperCase()} • ${paperLabel} • ${yr}`,
-    text: q.text || q.question || '',
+    sourceLabel: `${ex} • ${sub.toUpperCase()} • ${resolvedPaperType === 'Theory' ? 'THEORY' : paperLabel} • ${yr}`,
+    text: q.text || (q as any).question || '',
     options: opts,
     correctAnswer: q.correctAnswer || (q as any).correct_option || 'A',
-    explanation: q.explanation || 'Detailed syllabus explanation.'
+    explanation: q.explanation || 'Detailed syllabus explanation.',
+    imageUrl: q.imageUrl ?? null,
+    imageSvg: q.imageSvg ?? null
   };
 }
 
@@ -219,9 +232,9 @@ export function queryStudioQuestions(filter: {
   const normSub = (filter.subject || '').toLowerCase().trim();
   const normTopic = filter.topic && filter.topic !== 'all' ? filter.topic.toLowerCase().trim() : '';
 
-  // 1. Objective Questions from ALL_QUESTIONS & NABTEB_QUESTIONS
+  // 1. Objective Questions from ALL_QUESTIONS (which already includes NABTEB_QUESTIONS)
   if (filter.paperTypes.includes('OBJ')) {
-    const rawObjList = [...ALL_QUESTIONS, ...NABTEB_QUESTIONS];
+    const rawObjList = [...ALL_QUESTIONS]; // NABTEB_QUESTIONS already included via ALL_QUESTIONS
 
     rawObjList.forEach(q => {
       const qSub = (q.subject || '').toLowerCase().trim();

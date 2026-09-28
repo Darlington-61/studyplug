@@ -77,6 +77,56 @@ const ALL_EXAMS: ExamCategory[] = [
 
 const ALL_SUBJECT_LIST: string[] = ALL_JAMB_SUBJECTS;
 
+/**
+ * Safely renders a question's text field.
+ * Some questions store their content as a raw <img src="..."> HTML string (e.g. diagram-based Qs).
+ * Instead of blindly using dangerouslySetInnerHTML we parse the src and render a real <img>.
+ * Falls back to a plain text span for all other question texts.
+ */
+function renderQuestionText(
+  text: string,
+  imageUrl?: string | null,
+  imageSvg?: string | null,
+  className?: string
+): React.ReactNode {
+  const trimmed = (text || '').trim();
+
+  // 1. imageSvg takes highest priority (inline SVG markup)
+  if (imageSvg) {
+    return (
+      <span className={className}>
+        <span dangerouslySetInnerHTML={{ __html: imageSvg }} />
+      </span>
+    );
+  }
+
+  // 2. imageUrl from a separate field
+  if (imageUrl) {
+    return (
+      <span className={className}>
+        <img src={imageUrl} alt="Question diagram" className="max-w-full rounded mb-1 inline-block" />
+        {trimmed && !trimmed.startsWith('<img') && <span className="block mt-1">{trimmed}</span>}
+      </span>
+    );
+  }
+
+  // 3. text IS an <img …> tag — extract src and render properly
+  if (trimmed.startsWith('<img') || trimmed.startsWith('<IMG')) {
+    const srcMatch = trimmed.match(/src\s*=\s*["']([^"']+)["']/i);
+    if (srcMatch?.[1]) {
+      return (
+        <span className={className}>
+          <img src={srcMatch[1]} alt="Question diagram" className="max-w-full rounded mb-1 inline-block" />
+        </span>
+      );
+    }
+  }
+
+  // 4. Plain text
+  return <span className={className}>{trimmed}</span>;
+}
+
+
 export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, onClose }) => {
   // Stepper Tabs
   type StudioTab =
@@ -1406,7 +1456,9 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                                 </span>
                               </div>
 
-                              <p className="text-white line-clamp-2 font-medium">{q.text}</p>
+                              <p className="text-white line-clamp-2 font-medium">
+                                {renderQuestionText(q.text, q.imageUrl, q.imageSvg)}
+                              </p>
 
                               {q.paperType === 'OBJ' && (
                                 <div className="text-[11px] text-emerald-300 font-bold">
@@ -1503,7 +1555,9 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                                 />
                               </div>
 
-                              <p className="text-sm font-bold text-white leading-relaxed">{q.text}</p>
+                              <p className="text-sm font-bold text-white leading-relaxed">
+                                {renderQuestionText(q.text, q.imageUrl, q.imageSvg)}
+                              </p>
 
                               {q.paperType === 'OBJ' && q.options && (
                                 <div className="grid grid-cols-2 gap-2 text-xs pt-1">
