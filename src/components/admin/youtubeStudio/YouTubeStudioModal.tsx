@@ -161,7 +161,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
   const [questionCount, setQuestionCount] = useState<number>(5);
   const [questionTimerSeconds, setQuestionTimerSeconds] = useState<number>(5);
   const [difficultyFilter, setDifficultyFilter] = useState<'All' | 'Easy' | 'Medium' | 'Hard'>('All');
-  const [yearMode, setYearMode] = useState<YearFilterMode>('recent');
+  const [yearMode, setYearMode] = useState<YearFilterMode>('any');
   const [specificYear, setSpecificYear] = useState<number>(2023);
   const [yearRange, setYearRange] = useState<[number, number]>([2018, 2025]);
   const [selectionMode, setSelectionMode] = useState<QuestionSelectionMode>('auto');
@@ -1208,55 +1208,96 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   )}
                 </div>
 
-                {/* Exam Year Filter Bar */}
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
-                    Examination Question Years Filter
-                  </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-2">
-                    <select
-                      value={yearMode}
-                      onChange={(e) => setYearMode(e.target.value as any)}
-                      className="bg-[#071912] border border-[#00796B] rounded-xl px-2.5 py-2 text-xs text-white font-bold"
-                    >
-                      <option value="recent">Recent (2018–2025)</option>
-                      <option value="any">Any Year (All)</option>
-                      <option value="specific">Specific Year</option>
-                      <option value="range">Custom Range</option>
-                    </select>
-
-                    {yearMode === 'specific' ? (
-                      <select
-                        value={specificYear}
-                        onChange={(e) => setSpecificYear(parseInt(e.target.value))}
-                        className="bg-[#071912] border border-[#00796B] rounded-xl px-2.5 py-2 text-xs text-[#FFD600] font-bold"
-                      >
-                        {availableYears.map(yr => (
-                          <option key={yr} value={yr}>{yr}</option>
-                        ))}
-                      </select>
-                    ) : yearMode === 'range' ? (
-                      <div className="flex items-center space-x-1 sm:col-span-2">
-                        <input
-                          type="number"
-                          value={yearRange[0]}
-                          onChange={(e) => setYearRange([parseInt(e.target.value) || 2018, yearRange[1]])}
-                          className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
-                        />
-                        <span className="text-xs text-slate-400">–</span>
-                        <input
-                          type="number"
-                          value={yearRange[1]}
-                          onChange={(e) => setYearRange([yearRange[0], parseInt(e.target.value) || 2025])}
-                          className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
-                        />
-                      </div>
-                    ) : (
-                      <div className="px-2.5 py-2 rounded-xl bg-black/30 border border-white/10 text-[11px] text-emerald-300 font-bold flex items-center justify-center">
-                        {yearMode === 'recent' ? '2018 – 2025 Authentic Series' : 'All Authentic Database Years'}
-                      </div>
+                {/* Exam Year Filter Bar — Chip Picker */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                      📅 Filter by Year
+                    </label>
+                    {yearMode === 'specific' && (
+                      <span className="text-[10px] text-amber-300 font-bold">
+                        Showing {specificYear} only
+                      </span>
+                    )}
+                    {yearMode === 'any' && (
+                      <span className="text-[10px] text-emerald-400 font-bold">
+                        All years selected
+                      </span>
+                    )}
+                    {yearMode === 'range' && (
+                      <span className="text-[10px] text-emerald-400 font-bold">
+                        {yearRange[0]}–{yearRange[1]}
+                      </span>
                     )}
                   </div>
+
+                  {/* Year chips — tap to filter instantly */}
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {/* All Years chip */}
+                    <button
+                      type="button"
+                      onClick={() => setYearMode('any')}
+                      className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
+                        yearMode === 'any'
+                          ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600] shadow-sm'
+                          : 'bg-black/30 text-slate-300 border-white/20 hover:border-emerald-400 hover:text-white'
+                      }`}
+                    >
+                      All Years
+                    </button>
+
+                    {/* Individual year chips from real data */}
+                    {availableYears.map(yr => (
+                      <button
+                        key={yr}
+                        type="button"
+                        onClick={() => {
+                          setYearMode('specific');
+                          setSpecificYear(yr);
+                        }}
+                        className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
+                          yearMode === 'specific' && specificYear === yr
+                            ? 'bg-emerald-500 text-white border-emerald-400 shadow-sm'
+                            : 'bg-black/30 text-slate-300 border-white/20 hover:border-emerald-400 hover:text-white'
+                        }`}
+                      >
+                        {yr}
+                      </button>
+                    ))}
+
+                    {/* Custom range toggle */}
+                    <button
+                      type="button"
+                      onClick={() => setYearMode('range')}
+                      className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
+                        yearMode === 'range'
+                          ? 'bg-purple-600 text-white border-purple-400 shadow-sm'
+                          : 'bg-black/30 text-slate-300 border-white/20 hover:border-purple-400 hover:text-white'
+                      }`}
+                    >
+                      Range…
+                    </button>
+                  </div>
+
+                  {/* Range inputs shown inline when range is active */}
+                  {yearMode === 'range' && (
+                    <div className="flex items-center space-x-2 pt-1">
+                      <span className="text-xs text-slate-400">From</span>
+                      <input
+                        type="number"
+                        value={yearRange[0]}
+                        onChange={(e) => setYearRange([parseInt(e.target.value) || 2018, yearRange[1]])}
+                        className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
+                      />
+                      <span className="text-xs text-slate-400">to</span>
+                      <input
+                        type="number"
+                        value={yearRange[1]}
+                        onChange={(e) => setYearRange([yearRange[0], parseInt(e.target.value) || 2025])}
+                        className="w-20 bg-[#071912] border border-white/20 rounded-xl px-2 py-1 text-xs text-white"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Row 4: Question Selection Mode, Difficulty & Count */}
@@ -1376,7 +1417,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                         onClick={() => setIsReviewQuestionsOpen(true)}
                         className="px-3 py-1.5 rounded-lg bg-[#004D40] hover:bg-[#00796B] text-[#FFD600] font-bold text-xs border border-[#FFD600]/30 transition"
                       >
-                        🔍 Review All {matchedDatabaseQuestions.length} Questions
+                        🔍 Review &amp; Pick from All {matchedDatabaseQuestions.length}
                       </button>
                     </div>
                   </div>
@@ -1416,69 +1457,73 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                       </div>
                     </div>
                   ) : (
-                    /* Question List Cards */
-                    <div className="max-h-64 overflow-y-auto space-y-2 pr-1">
-                      {matchedDatabaseQuestions.map((q) => {
-                        const isChecked = selectedQuestionIds.includes(q.id);
-                        return (
-                          <div
-                            key={q.id}
-                            onClick={() => {
-                              setSelectedQuestionIds(prev =>
-                                isChecked ? prev.filter(id => id !== q.id) : [...prev, q.id]
-                              );
-                            }}
-                            className={`p-3 rounded-xl border text-left transition cursor-pointer flex items-start space-x-3 ${
-                              isChecked
-                                ? 'bg-[#004D40]/80 border-[#FFD600]'
-                                : 'bg-[#071912] border-white/10 hover:border-emerald-500'
-                            }`}
-                          >
-                            <input
-                              type="checkbox"
-                              checked={isChecked}
-                              readOnly
-                              className="mt-1 rounded text-[#004D40] accent-[#FFD600]"
-                            />
-                            <div className="flex-1 text-xs space-y-1">
-                              <div className="flex items-center justify-between pb-1 flex-wrap gap-1">
-                                <span className="px-2 py-0.5 rounded font-black text-[10px] tracking-wider uppercase bg-[#FFD600] text-[#004D40]">
-                                  {q.sourceLabel}
-                                </span>
-                                <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                                  q.paperType === 'Practical'
-                                    ? 'bg-purple-900/80 text-purple-200 border border-purple-500/40'
-                                    : q.paperType === 'Theory'
-                                    ? 'bg-blue-900/80 text-blue-200 border border-blue-500/40'
-                                    : 'bg-emerald-900/80 text-emerald-200 border border-emerald-500/40'
-                                }`}>
-                                  {q.paperName}
-                                </span>
+                    /* Selected Questions Preview — shows only chosen questions */
+                    <div className="space-y-2">
+                      {currentlyChosenQuestions.length === 0 ? (
+                        <div className="p-3 rounded-xl bg-black/40 border border-white/10 text-xs text-slate-400 text-center">
+                          No questions selected yet. Use "Review &amp; Pick" to choose manually, or switch to Auto Select above.
+                        </div>
+                      ) : (
+                        <div className="max-h-64 overflow-y-auto space-y-2 pr-1">
+                          {currentlyChosenQuestions.map((q) => {
+                            const isChecked = selectedQuestionIds.includes(q.id);
+                            return (
+                              <div
+                                key={q.id}
+                                onClick={() => {
+                                  setSelectedQuestionIds(prev =>
+                                    isChecked ? prev.filter(id => id !== q.id) : [...prev, q.id]
+                                  );
+                                }}
+                                className="p-3 rounded-xl border text-left transition cursor-pointer flex items-start space-x-3 bg-[#004D40]/80 border-[#FFD600]"
+                              >
+                                <input
+                                  type="checkbox"
+                                  checked={true}
+                                  readOnly
+                                  className="mt-1 rounded text-[#004D40] accent-[#FFD600]"
+                                />
+                                <div className="flex-1 text-xs space-y-1">
+                                  <div className="flex items-center justify-between pb-1 flex-wrap gap-1">
+                                    <span className="px-2 py-0.5 rounded font-black text-[10px] tracking-wider uppercase bg-[#FFD600] text-[#004D40]">
+                                      {q.sourceLabel}
+                                    </span>
+                                    <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                                      q.paperType === 'Practical'
+                                        ? 'bg-purple-900/80 text-purple-200 border border-purple-500/40'
+                                        : q.paperType === 'Theory'
+                                        ? 'bg-blue-900/80 text-blue-200 border border-blue-500/40'
+                                        : 'bg-emerald-900/80 text-emerald-200 border border-emerald-500/40'
+                                    }`}>
+                                      {q.paperName}
+                                    </span>
+                                  </div>
+
+                                  <p className="text-white line-clamp-2 font-medium">
+                                    {renderQuestionText(q.text, q.imageUrl, q.imageSvg)}
+                                  </p>
+
+                                  {q.paperType === 'OBJ' && (
+                                    <div className="text-[11px] text-emerald-300 font-bold">
+                                      Correct Answer: Option {q.correctAnswer}
+                                    </div>
+                                  )}
+                                  {q.paperType === 'Theory' && (
+                                    <div className="text-[11px] text-blue-300 font-bold">
+                                      Theory Breakdown: {q.parts?.length || 1} Parts • {q.totalMarks || 10} Total Marks
+                                    </div>
+                                  )}
+                                  {q.paperType === 'Practical' && (
+                                    <div className="text-[11px] text-purple-300 font-bold">
+                                      Practical Experiment: Apparatus, Observations, Graph &amp; Precautions
+                                    </div>
+                                  )}
+                                </div>
                               </div>
-
-                              <p className="text-white line-clamp-2 font-medium">
-                                {renderQuestionText(q.text, q.imageUrl, q.imageSvg)}
-                              </p>
-
-                              {q.paperType === 'OBJ' && (
-                                <div className="text-[11px] text-emerald-300 font-bold">
-                                  Correct Answer: Option {q.correctAnswer}
-                                </div>
-                              )}
-                              {q.paperType === 'Theory' && (
-                                <div className="text-[11px] text-blue-300 font-bold">
-                                  Theory Breakdown: {q.parts?.length || 1} Parts • {q.totalMarks || 10} Total Marks
-                                </div>
-                              )}
-                              {q.paperType === 'Practical' && (
-                                <div className="text-[11px] text-purple-300 font-bold">
-                                  Practical Experiment: Apparatus, Observations, Graph &amp; Precautions
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
