@@ -17,6 +17,7 @@ import { LEKKI_HEADMASTER_QUESTIONS } from './lekkiHeadmaster';
 import { WAEC_LITERATURE_2026_QUESTIONS } from './waecLiterature2026';
 import { POST_UTME_QUESTIONS } from './postUtme';
 import { CURRENT_AFFAIRS_QUESTIONS } from './currentAffairs';
+import { JAMB_2026_STUDENT_RECALLED_QUESTIONS } from './jamb2026StudentRecalled';
 
 export {
   MATHEMATICS_QUESTIONS,
@@ -37,6 +38,7 @@ export {
   WAEC_LITERATURE_2026_QUESTIONS,
   POST_UTME_QUESTIONS,
   CURRENT_AFFAIRS_QUESTIONS,
+  JAMB_2026_STUDENT_RECALLED_QUESTIONS,
 };
 
 export const SUBJECT_TOPICS_CATALOG: Record<string, string[]> = {
