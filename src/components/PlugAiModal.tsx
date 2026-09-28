@@ -55,7 +55,7 @@ const HIGH_YIELD_DIAGRAMS = [
 ];
 
 export const PlugAiModal: React.FC = () => {
-  const { isAiTutorOpen, closeAiTutor, aiTutorContext, isDarkMode, toggleDarkMode } = useApp();
+  const { isAiTutorOpen, closeAiTutor, aiTutorContext } = useApp();
   
   const [messages, setMessages] = useState<AiChatMessage[]>([]);
   const [inputText, setInputText] = useState('');
@@ -387,21 +387,19 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
         }
       }}
     >
-      <div className={`relative w-full max-w-2xl ${
-        isDarkMode ? 'bg-[#0A1613] text-[#E6F1EE] border-[#18362D]' : 'bg-white text-[#10201D] border-slate-300'
-      } rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col h-[92vh] max-h-[92vh] sm:h-[86vh] sm:max-h-[760px] overflow-hidden border my-auto transition-colors duration-200`}>
+      <div className={`relative w-full max-w-2xl bg-white text-[#10201D] border-slate-300 rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col h-[92vh] max-h-[92vh] sm:h-[86vh] sm:max-h-[760px] overflow-hidden border my-auto transition-colors duration-200`}>
 
         {/* Exit Confirmation Dialog */}
         {showExitConfirm && (
           <div className="absolute inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
             <div className={`w-full max-w-sm p-5 rounded-2xl shadow-2xl border text-center animate-card-scale-in ${
-              isDarkMode ? 'bg-[#0E201B] border-emerald-800/60 text-white' : 'bg-white border-slate-200 text-slate-800'
+              'bg-white border-slate-200 text-slate-800'
             }`}>
               <div className="w-12 h-12 rounded-full bg-emerald-500/15 text-2xl flex items-center justify-center mx-auto mb-3 border border-emerald-500/30">
                 🎓
               </div>
               <h3 className="font-bold text-base tracking-tight">Exit AI Tutor Session?</h3>
-              <p className={`text-xs mt-1.5 mb-4 leading-relaxed ${isDarkMode ? 'text-emerald-200/80' : 'text-slate-500'}`}>
+              <p className={`text-xs mt-1.5 mb-4 leading-relaxed ${'text-slate-500'}`}>
                 Your AI chat history and syllabus drills are safely saved. Continue practicing anytime!
               </p>
               <div className="flex items-center space-x-2">
@@ -409,9 +407,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   type="button"
                   onClick={() => setShowExitConfirm(false)}
                   className={`flex-1 py-2.5 rounded-xl border font-bold text-xs transition cursor-pointer ${
-                    isDarkMode
-                      ? 'border-slate-700 bg-slate-800/80 text-slate-200 hover:bg-slate-700'
-                      : 'border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    'border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                 >
                   Continue Studying
@@ -435,14 +431,14 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
         {showDiagramPicker && (
           <div className="absolute inset-0 z-40 bg-black/70 backdrop-blur-xs flex flex-col justify-end sm:justify-center items-center p-2 sm:p-4">
             <div className={`w-full max-w-lg rounded-2xl sm:rounded-3xl border shadow-2xl p-4 flex flex-col max-h-[82vh] overflow-hidden ${
-              isDarkMode ? 'bg-[#0E201B] border-emerald-800/60 text-white' : 'bg-white border-slate-200 text-slate-800'
+              'bg-white border-slate-200 text-slate-800'
             }`}>
               <div className="flex items-center justify-between pb-3 border-b border-white/10 shrink-0">
                 <div className="flex items-center space-x-2">
                   <span className="text-xl">🖼️</span>
                   <div>
                     <h3 className="font-bold text-sm leading-tight">Search Diagrams &amp; Page Images</h3>
-                    <p className={`text-[11px] ${isDarkMode ? 'text-emerald-300/80' : 'text-slate-500'}`}>
+                    <p className={`text-[11px] ${'text-slate-500'}`}>
                       Select a syllabus diagram or snap/upload from your camera
                     </p>
                   </div>
@@ -479,9 +475,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   value={diagramSearchTerm}
                   onChange={(e) => setDiagramSearchTerm(e.target.value)}
                   className={`w-full px-3 py-2 rounded-xl text-xs border focus:outline-none transition ${
-                    isDarkMode
-                      ? 'bg-[#142A24] border-[#1C3E34] text-white placeholder-slate-400 focus:border-emerald-500'
-                      : 'bg-slate-50 border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[#004D40]'
+                    'bg-slate-50 border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[#004D40]'
                   }`}
                 />
               </div>
@@ -497,9 +491,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                       setShowDiagramPicker(false);
                     }}
                     className={`p-2.5 rounded-xl border flex items-center space-x-3 cursor-pointer transition ${
-                      isDarkMode
-                        ? 'border-[#1C3E34] bg-[#122822] hover:border-emerald-500/80 hover:bg-[#16332B]'
-                        : 'border-slate-200 bg-slate-50 hover:border-[#004D40] hover:bg-white shadow-xs'
+                      'border-slate-200 bg-slate-50 hover:border-[#004D40] hover:bg-white shadow-xs'
                     }`}
                   >
                     <div
@@ -513,7 +505,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                           {diag.subject}
                         </span>
                       </div>
-                      <p className={`text-[10.5px] mt-0.5 truncate ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                      <p className={`text-[10.5px] mt-0.5 truncate ${'text-slate-500'}`}>
                         {diag.caption}
                       </p>
                     </div>
@@ -557,12 +549,12 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
             {/* Dark Mode Theme Toggle */}
             <button
               type="button"
-              onClick={toggleDarkMode}
+              onClick={() => {}}
               className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm transition cursor-pointer border border-white/15"
-              title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              title='Toggle Theme'
               aria-label="Toggle Dark Mode"
             >
-              <span>{isDarkMode ? '☀️' : '🌙'}</span>
+              <span>🌙</span>
             </button>
 
             {/* Offline Brain Manager Button */}
@@ -588,7 +580,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
         </div>
 
         {/* Engine Switcher Bar */}
-        <div className={`${isDarkMode ? 'bg-[#0A1A16] border-[#163028]' : 'bg-slate-50 border-slate-200'} border-b px-3 sm:px-4 py-2 flex items-center justify-between text-xs shrink-0`}>
+        <div className={`${'bg-slate-50 border-slate-200'} border-b px-3 sm:px-4 py-2 flex items-center justify-between text-xs shrink-0`}>
           <div className="flex items-center space-x-2">
             <button
               type="button"
@@ -596,7 +588,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
               className={`px-2.5 sm:px-3 py-1 rounded-lg font-bold transition cursor-pointer text-xs ${
                 activeEngineMode === 'instant'
                   ? 'bg-[#004D40] text-white shadow-sm'
-                  : isDarkMode ? 'text-slate-300 hover:bg-white/5' : 'text-slate-600 hover:bg-slate-200'
+                  : 'text-slate-600 hover:bg-slate-200'
               }`}
             >
               ⚡ Instant 0MB Mode
@@ -613,7 +605,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
               className={`px-2.5 sm:px-3 py-1 rounded-lg font-bold transition cursor-pointer flex items-center gap-1.5 text-xs ${
                 activeEngineMode === 'neural'
                   ? 'bg-[#004D40] text-white shadow-sm'
-                  : isDarkMode ? 'text-slate-300 hover:bg-white/5' : 'text-slate-600 hover:bg-slate-200'
+                  : 'text-slate-600 hover:bg-slate-200'
               }`}
             >
               <span>🧠 Neural Brain</span>
@@ -625,20 +617,20 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
             </button>
           </div>
 
-          <span className={`text-[10.5px] font-medium hidden sm:inline ${isDarkMode ? 'text-emerald-400/80' : 'text-slate-400'}`}>
+          <span className={`text-[10.5px] font-medium hidden sm:inline ${'text-slate-400'}`}>
             Zero Server Cost • Zero Data
           </span>
         </div>
 
         {/* Model Manager Drawer / Card */}
         {showModelManager && (
-          <div className={`${isDarkMode ? 'bg-[#0E241E] border-emerald-800 text-emerald-100' : 'bg-amber-50/90 border-amber-200 text-amber-900'} border-b px-4 py-3 shrink-0 text-xs`}>
+          <div className={`${'bg-amber-50/90 border-amber-200 text-amber-900'} border-b px-4 py-3 shrink-0 text-xs`}>
             <div className="flex items-start justify-between">
               <div>
-                <h4 className={`font-bold text-sm ${isDarkMode ? 'text-emerald-100' : 'text-amber-950'}`}>
+                <h4 className={`font-bold text-sm ${'text-amber-950'}`}>
                   Download PlugAI Neural Brain for 100% Offline Chat
                 </h4>
-                <p className={`text-[11.5px] mt-0.5 ${isDarkMode ? 'text-emerald-300/80' : 'text-amber-800'}`}>
+                <p className={`text-[11.5px] mt-0.5 ${'text-amber-800'}`}>
                   Downloads StudyPlug proprietary offline neural weights into your device memory. Zero mobile data needed after download!
                 </p>
               </div>
@@ -659,19 +651,19 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   onClick={() => !isDownloading && setSelectedModelId(m.id)}
                   className={`p-2 rounded-xl border cursor-pointer transition ${
                     selectedModelId === m.id
-                      ? isDarkMode ? 'border-emerald-400 bg-[#143329] shadow-sm font-semibold' : 'border-[#004D40] bg-white shadow-sm font-semibold'
-                      : isDarkMode ? 'border-emerald-800/60 bg-[#0C1E19] hover:bg-[#122A23]' : 'border-amber-200 bg-white/60 hover:bg-white'
+                      ? 'border-[#004D40] bg-white shadow-sm font-semibold'
+                      : 'border-amber-200 bg-white/60 hover:bg-white'
                   }`}
                 >
                   <div className="flex justify-between items-center">
-                    <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{m.name}</span>
+                    <span className={`font-bold ${'text-slate-900'}`}>{m.name}</span>
                     <span className={`text-[10.5px] font-extrabold px-1.5 py-0.5 rounded ${
-                      isDarkMode ? 'bg-emerald-950 text-emerald-300' : 'bg-slate-100 text-slate-700'
+                      'bg-slate-100 text-slate-700'
                     }`}>
                       ~{m.sizeMb} MB
                     </span>
                   </div>
-                  <p className={`text-[10px] mt-1 leading-tight ${isDarkMode ? 'text-slate-300' : 'text-slate-500'}`}>{m.description}</p>
+                  <p className={`text-[10px] mt-1 leading-tight ${'text-slate-500'}`}>{m.description}</p>
                 </div>
               ))}
             </div>
@@ -680,7 +672,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
             <div className="mt-3 flex items-center gap-3">
               {isDownloading ? (
                 <div className="flex-1 space-y-1">
-                  <div className={`flex justify-between text-[11px] font-bold ${isDarkMode ? 'text-emerald-200' : 'text-amber-950'}`}>
+                  <div className={`flex justify-between text-[11px] font-bold ${'text-amber-950'}`}>
                     <span>{downloadStatusText || 'Downloading model weights...'}</span>
                     <span>{downloadProgress}%</span>
                   </div>
@@ -721,20 +713,20 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
         )}
 
         {/* Chat Messages */}
-        <div className={`flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 ${isDarkMode ? 'bg-[#071310]' : 'bg-[#F7F9F8]'}`}>
+        <div className={`flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 ${'bg-[#F7F9F8]'}`}>
           {/* Screen 10 Initial Greeting & 2x2 Actions (Shown when conversation is beginning) */}
           {messages.length <= 1 && (
             <div className="space-y-3 pb-2 text-left">
               {/* Greeting Card */}
               <div className={`rounded-[14px] p-3.5 border shadow-subtle flex items-center space-x-3 ${
-                isDarkMode ? 'bg-[#0F201C] border-[#18362D]' : 'bg-white border-[#E4EAE8]'
+                'bg-white border-[#E4EAE8]'
               }`}>
                 <div className="w-10 h-10 rounded-full bg-[#E8F5E9] border border-[#004D40]/15 flex items-center justify-center text-lg shrink-0">
                   🤖
                 </div>
                 <div>
-                  <h3 className={`font-bold text-[14px] ${isDarkMode ? 'text-white' : 'text-[#10201D]'}`}>Hi Darlington! 👋</h3>
-                  <p className={`text-[11.5px] ${isDarkMode ? 'text-slate-300' : 'text-[#66736F]'}`}>
+                  <h3 className={`font-bold text-[14px] ${'text-[#10201D]'}`}>Hi Darlington! 👋</h3>
+                  <p className={`text-[11.5px] text-[#66736F]`}>
                     {aiTutorContext?.topic
                       ? `Studying ${aiTutorContext.topic}? What would you like help with?`
                       : 'What would you like to understand today?'}
@@ -751,11 +743,11 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                     setTimeout(() => handleSendMessage(), 50);
                   }}
                   className={`p-3 rounded-[12px] border shadow-subtle text-left transition cursor-pointer flex items-center space-x-2.5 group active:scale-[0.98] ${
-                    isDarkMode ? 'bg-[#0F201C] border-[#18362D] hover:border-emerald-500/50' : 'bg-white border-[#E4EAE8] hover:border-[#D0DBD8]'
+                    'bg-white border-[#E4EAE8] hover:border-[#D0DBD8]'
                   }`}
                 >
                   <span className="text-base text-[#1976D2]">📖</span>
-                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${isDarkMode ? 'text-white' : 'text-[#10201D]'}`}>
+                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${'text-[#10201D]'}`}>
                     Explain a topic
                   </span>
                 </button>
@@ -767,11 +759,11 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                     setTimeout(() => handleSendMessage(), 50);
                   }}
                   className={`p-3 rounded-[12px] border shadow-subtle text-left transition cursor-pointer flex items-center space-x-2.5 group active:scale-[0.98] ${
-                    isDarkMode ? 'bg-[#0F201C] border-[#18362D] hover:border-emerald-500/50' : 'bg-white border-[#E4EAE8] hover:border-[#D0DBD8]'
+                    'bg-white border-[#E4EAE8] hover:border-[#D0DBD8]'
                   }`}
                 >
                   <span className="text-base text-[#16A34A]">🧮</span>
-                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${isDarkMode ? 'text-white' : 'text-[#10201D]'}`}>
+                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${'text-[#10201D]'}`}>
                     Solve a question
                   </span>
                 </button>
@@ -783,11 +775,11 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                     setTimeout(() => handleSendMessage(), 50);
                   }}
                   className={`p-3 rounded-[12px] border shadow-subtle text-left transition cursor-pointer flex items-center space-x-2.5 group active:scale-[0.98] ${
-                    isDarkMode ? 'bg-[#0F201C] border-[#18362D] hover:border-emerald-500/50' : 'bg-white border-[#E4EAE8] hover:border-[#D0DBD8]'
+                    'bg-white border-[#E4EAE8] hover:border-[#D0DBD8]'
                   }`}
                 >
                   <span className="text-base text-[#7E3FC7]">📅</span>
-                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${isDarkMode ? 'text-white' : 'text-[#10201D]'}`}>
+                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${'text-[#10201D]'}`}>
                     Give me a study plan
                   </span>
                 </button>
@@ -799,11 +791,11 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                     setTimeout(() => handleSendMessage(), 50);
                   }}
                   className={`p-3 rounded-[12px] border shadow-subtle text-left transition cursor-pointer flex items-center space-x-2.5 group active:scale-[0.98] ${
-                    isDarkMode ? 'bg-[#0F201C] border-[#18362D] hover:border-emerald-500/50' : 'bg-white border-[#E4EAE8] hover:border-[#D0DBD8]'
+                    'bg-white border-[#E4EAE8] hover:border-[#D0DBD8]'
                   }`}
                 >
                   <span className="text-base text-[#F57C00]">⭐</span>
-                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${isDarkMode ? 'text-white' : 'text-[#10201D]'}`}>
+                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${'text-[#10201D]'}`}>
                     Motivate me
                   </span>
                 </button>
@@ -811,17 +803,17 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
 
               {/* Mascot Banner from Screen 10 */}
               <div className={`rounded-[14px] p-3.5 border flex items-center justify-between ${
-                isDarkMode ? 'bg-[#0B1E19] border-[#18382E]' : 'bg-gradient-to-r from-[#E0F2FE] to-[#F0FDF4] border-sky-100'
+                'bg-gradient-to-r from-[#E0F2FE] to-[#F0FDF4] border-sky-100'
               }`}>
                 <div className="flex items-center space-x-2.5">
                   <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-xl shadow-xs">
                     🤖
                   </div>
                   <div>
-                    <h4 className={`font-bold text-[12.5px] ${isDarkMode ? 'text-emerald-300' : 'text-[#0369A1]'}`}>
+                    <h4 className={`font-bold text-[12.5px] ${'text-[#0369A1]'}`}>
                       &ldquo;Small efforts create big results&rdquo;
                     </h4>
-                    <p className={`text-[10.5px] ${isDarkMode ? 'text-emerald-200/80' : 'text-[#0284C7]'}`}>
+                    <p className={`text-[10.5px] ${'text-[#0284C7]'}`}>
                       Ask any question or concept anytime
                     </p>
                   </div>
@@ -842,9 +834,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   className={`max-w-[92%] sm:max-w-[85%] rounded-[14px] p-3 sm:p-3.5 text-[13px] leading-relaxed shadow-subtle ${
                     isUser
                       ? 'bg-[#004D40] text-white rounded-br-none'
-                      : isDarkMode
-                        ? 'bg-[#10241E] text-[#E6F1EE] border border-[#183A30] rounded-bl-none'
-                        : 'bg-white text-[#10201D] border border-[#E4EAE8] rounded-bl-none'
+                      : 'bg-white text-[#10201D] border border-[#E4EAE8] rounded-bl-none'
                   }`}
                 >
                   {/* Attached Question / Diagram Image */}
@@ -863,7 +853,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   ) : (
                     <ChatMessageRenderer text={m.text} />
                   )}
-                  <span className={`text-[9.5px] block mt-1.5 ${isUser ? 'text-white/70 text-right' : isDarkMode ? 'text-slate-400' : 'text-[#8A9692]'}`}>
+                  <span className={`text-[9.5px] block mt-1.5 ${isUser ? 'text-white/70 text-right' : 'text-[#8A9692]'}`}>
                     {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </span>
                 </div>
@@ -876,7 +866,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
         {/* Quick Action Pills (If question context attached) */}
         {aiTutorContext?.question && (
           <div className={`px-3 sm:px-4 py-2 border-t flex items-center space-x-1.5 overflow-x-auto no-scrollbar shrink-0 ${
-            isDarkMode ? 'bg-[#0A1814] border-[#143026]' : 'bg-white border-slate-100'
+            'bg-white border-slate-100'
           }`}>
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider shrink-0">
               Quick:
@@ -915,7 +905,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
         {/* Attached Image Thumbnail Bar */}
         {attachedImage && (
           <div className={`px-3 py-1.5 flex items-center justify-between border-t text-xs ${
-            isDarkMode ? 'bg-[#0C1E19] border-[#18382E] text-emerald-200' : 'bg-emerald-50 border-emerald-200 text-emerald-900'
+            'bg-emerald-50 border-emerald-200 text-emerald-900'
           }`}>
             <div className="flex items-center space-x-2 truncate">
               <img
@@ -942,16 +932,14 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
 
         {/* Search Image Bar & Input Bar */}
         <div className={`p-2.5 sm:p-3 border-t flex items-center space-x-2 shrink-0 ${
-          isDarkMode ? 'bg-[#0A1713] border-[#163329]' : 'bg-white border-slate-200'
+          'bg-white border-slate-200'
         }`}>
           {/* Search Diagram or Snap Image Button */}
           <button
             type="button"
             onClick={() => setShowDiagramPicker(true)}
             className={`p-2 sm:p-2.5 rounded-xl border transition cursor-pointer flex items-center justify-center shrink-0 ${
-              isDarkMode
-                ? 'bg-[#122620] border-[#1C3E34] text-emerald-300 hover:bg-[#18362D]'
-                : 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
+              'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
             }`}
             title="Search Diagrams or Snap Question Page"
             aria-label="Search Image or Page Diagram"
@@ -973,9 +961,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
             className={`flex-1 px-3 py-2.5 rounded-xl text-xs focus:outline-none transition ${
-              isDarkMode
-                ? 'bg-[#122620] border border-[#1C3E34] text-white placeholder-slate-400 focus:border-emerald-500 focus:bg-[#163028]'
-                : 'bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[#004D40] focus:bg-white'
+              'bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[#004D40] focus:bg-white'
             }`}
           />
 
@@ -998,9 +984,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
             type="button"
             onClick={() => setShowExitConfirm(true)}
             className={`px-2.5 py-2.5 rounded-xl transition cursor-pointer shrink-0 border text-xs font-bold flex items-center gap-1 ${
-              isDarkMode
-                ? 'bg-[#122620] border-[#1C3E34] text-slate-300 hover:bg-[#18362D]'
-                : 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
+              'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
             }`}
             title="Exit Study Session"
           >

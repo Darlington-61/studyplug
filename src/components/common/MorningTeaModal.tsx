@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { MORNING_TEA_EDITIONS, MorningTeaEdition } from '../../data/morningTeaData';
 import { useApp } from '../../context/AppContext';
 
@@ -8,7 +8,7 @@ interface MorningTeaModalProps {
 }
 
 export const MorningTeaModal: React.FC<MorningTeaModalProps> = ({ isOpen, onClose }) => {
-  const { setActiveView, setSelectedSubject, isDarkMode } = useApp();
+  const { setActiveView, setSelectedSubject } = useApp();
 
   const [selectedEditionId, setSelectedEditionId] = useState<string>('phrasal-verbs');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -128,7 +128,7 @@ export const MorningTeaModal: React.FC<MorningTeaModalProps> = ({ isOpen, onClos
 
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-page-enter">
-      <div className={`w-full max-w-2xl rounded-[24px] border ${isDarkMode ? 'bg-[#0A1A16] border-emerald-800/80 text-[#E6F1EE]' : 'bg-white border-[#E4EAE8] text-[#10201D]'} shadow-2xl flex flex-col max-h-[92vh] overflow-hidden`}>
+      <div className={`w-full max-w-2xl rounded-[24px] border ${'bg-white border-[#E4EAE8] text-[#10201D]'} shadow-2xl flex flex-col max-h-[92vh] overflow-hidden`}>
         {/* ─── Top Header: Warm Morning Tea Banner ─── */}
         <div className="bg-gradient-to-r from-[#003B32] via-[#004D40] to-[#0A261D] text-white p-4 sm:p-5 flex flex-col space-y-3 shrink-0 relative overflow-hidden">
           {/* Decorative background glow */}
@@ -207,7 +207,7 @@ export const MorningTeaModal: React.FC<MorningTeaModalProps> = ({ isOpen, onClos
         </div>
 
         {/* ─── Search & Count Bar ─── */}
-        <div className={`p-3 px-4 sm:px-5 border-b flex items-center justify-between gap-3 ${isDarkMode ? 'bg-[#0E201B] border-emerald-900/60' : 'bg-[#F7F9F8] border-[#E4EAE8]'} shrink-0`}>
+        <div className={`p-3 px-4 sm:px-5 border-b flex items-center justify-between gap-3 ${'bg-[#F7F9F8] border-[#E4EAE8]'} shrink-0`}>
           <div className="relative flex-1">
             <span className="absolute left-3 top-2.5 text-xs text-gray-400">🔍</span>
             <input
@@ -216,17 +216,17 @@ export const MorningTeaModal: React.FC<MorningTeaModalProps> = ({ isOpen, onClos
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={`Search ${activeEdition.items.length} ${activeEdition.subject} items...`}
               className={`w-full pl-8 pr-3 py-1.5 rounded-xl border text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#004D40] transition ${
-                isDarkMode ? 'bg-[#071713] border-emerald-800 text-white placeholder-emerald-400/40' : 'bg-white border-slate-200 text-[#10201D] placeholder-slate-400'
+                'bg-white border-slate-200 text-[#10201D] placeholder-slate-400'
               }`}
             />
           </div>
-          <span className={`text-[11px] font-bold shrink-0 ${isDarkMode ? 'text-emerald-300' : 'text-[#66736F]'}`}>
+          <span className={`text-[11px] font-bold shrink-0 ${'text-[#66736F]'}`}>
             Showing {filteredItems.length} of {activeEdition.items.length}
           </span>
         </div>
 
         {/* ─── Knowledge Items Scrollable List ─── */}
-        <div className={`flex-1 p-4 sm:p-5 overflow-y-auto space-y-3.5 ${isDarkMode ? 'bg-[#071713]' : 'bg-[#F7F9F8]'}`}>
+        <div className={`flex-1 p-4 sm:p-5 overflow-y-auto space-y-3.5 ${'bg-[#F7F9F8]'}`}>
           {filteredItems.length === 0 ? (
             <div className="p-8 text-center bg-white dark:bg-[#0A1A16] rounded-2xl border border-slate-200 dark:border-emerald-800/60 space-y-2">
               <span className="text-3xl">☕</span>
@@ -246,9 +246,7 @@ export const MorningTeaModal: React.FC<MorningTeaModalProps> = ({ isOpen, onClos
               <div
                 key={item.id}
                 className={`p-4 rounded-[18px] border transition shadow-xs space-y-2 text-left ${
-                  isDarkMode
-                    ? 'bg-[#0A1A16] border-emerald-900/80 hover:border-emerald-700'
-                    : 'bg-white border-[#E4EAE8] hover:border-emerald-200 hover:shadow-subtle'
+                  'bg-white border-[#E4EAE8] hover:border-emerald-200 hover:shadow-subtle'
                 }`}
               >
                 {/* Header row: Number + Phrase + Copy button */}
@@ -268,8 +266,6 @@ export const MorningTeaModal: React.FC<MorningTeaModalProps> = ({ isOpen, onClos
                     className={`px-2 py-1 rounded-lg text-[10.5px] font-bold border transition cursor-pointer touch-press ${
                       copiedId === item.id
                         ? 'bg-emerald-500 text-white border-emerald-500'
-                        : isDarkMode
-                        ? 'border-emerald-800 text-emerald-300 hover:bg-emerald-900/60'
                         : 'border-slate-200 text-slate-500 hover:bg-slate-100'
                     }`}
                     title="Copy to clipboard"
@@ -303,7 +299,7 @@ export const MorningTeaModal: React.FC<MorningTeaModalProps> = ({ isOpen, onClos
         </div>
 
         {/* ─── Bottom Actions Bar ─── */}
-        <div className={`p-3.5 sm:p-4 px-4 sm:px-5 border-t flex flex-wrap items-center justify-between gap-2.5 ${isDarkMode ? 'bg-[#0A1A16] border-emerald-900/60' : 'bg-white border-[#E4EAE8]'} shrink-0`}>
+        <div className={`p-3.5 sm:p-4 px-4 sm:px-5 border-t flex flex-wrap items-center justify-between gap-2.5 ${'bg-white border-[#E4EAE8]'} shrink-0`}>
           <div className="flex items-center space-x-1 text-xs text-slate-500 dark:text-emerald-300/70 font-semibold">
             <span>✨</span>
             <span>StudyPlug Morning Tea • Daily Routine</span>
