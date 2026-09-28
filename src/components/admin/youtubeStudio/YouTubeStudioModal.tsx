@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   VideoType,
   VideoAspectRatio,
@@ -1430,35 +1430,35 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     </div>
                   </div>
 
-                  {/* Empty State when 0 questions match */}
+                    {/* Empty State when 0 questions match */}
                   {matchedDatabaseQuestions.length === 0 ? (
-                    <div className="p-5 rounded-xl bg-amber-950/40 border border-amber-500/40 text-left space-y-3">
-                      <div className="flex items-center space-x-2 text-amber-300 font-bold text-sm">
+                    <div className="p-5 rounded-xl bg-amber-50 border border-amber-200 text-left space-y-3">
+                      <div className="flex items-center space-x-2 text-amber-900 font-bold text-sm">
                         <span>⚠️</span>
                         <span>No matching past questions found for this topic and paper combination.</span>
                       </div>
-                      <p className="text-xs text-amber-100/90 leading-relaxed">
-                        StudyPlug strictly pulls authentic questions from the database and will <strong>never fabricate or hallucinate</strong> past examination questions.
+                      <p className="text-xs text-amber-800 leading-relaxed">
+                        No official questions found for this specific filter yet. Try choosing another year or broadening your exam filter to find relevant questions.
                       </p>
                       <div className="flex items-center gap-2 flex-wrap pt-1">
                         <button
                           type="button"
                           onClick={() => setYearMode('any')}
-                          className="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-200 border border-amber-500/40 text-xs font-bold hover:bg-amber-500/30"
+                          className="px-3 py-1.5 rounded-lg bg-white text-amber-900 border border-amber-300 text-xs font-bold hover:bg-amber-100 shadow-2xs transition"
                         >
                           Broaden to Any Year
                         </button>
                         <button
                           type="button"
                           onClick={() => setSelectedPaperTypes(['OBJ', 'Theory'])}
-                          className="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-200 border border-amber-500/40 text-xs font-bold hover:bg-amber-500/30"
+                          className="px-3 py-1.5 rounded-lg bg-white text-amber-900 border border-amber-300 text-xs font-bold hover:bg-amber-100 shadow-2xs transition"
                         >
                           Include Objective &amp; Theory
                         </button>
                         <button
                           type="button"
                           onClick={() => setSelectedExam('WAEC')}
-                          className="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-200 border border-amber-500/40 text-xs font-bold hover:bg-amber-500/30"
+                          className="px-3 py-1.5 rounded-lg bg-white text-amber-900 border border-amber-300 text-xs font-bold hover:bg-amber-100 shadow-2xs transition"
                         >
                           Switch to WAEC
                         </button>

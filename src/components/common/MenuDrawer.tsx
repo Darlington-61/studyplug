@@ -34,7 +34,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
       />
 
       {/* Drawer Body (slides from left) */}
-      <div className={`relative w-80 max-w-[85vw] ${isDarkMode ? 'bg-[#0A1613] text-[#E6F1EE] border-[#163029]' : 'bg-white text-[#10201D] border-[#E4EAE8]'} h-full shadow-2xl flex flex-col justify-between z-10 animate-slide-right border-r`}>
+      <div className="relative w-80 max-w-[85vw] bg-white text-[#10201D] border-[#E4EAE8] h-full shadow-2xl flex flex-col justify-between z-10 animate-slide-right border-r">
         {/* Top Header Card: Primary Dark Green #004D40 */}
         <div className="bg-[#004D40] text-white p-5 space-y-4">
           <div className="flex items-center justify-between">
@@ -43,8 +43,8 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 <span className="text-lg">🎓</span>
               </div>
               <div>
-                <h3 className="font-bold text-[15px] text-white leading-tight">StudyPlug Ai</h3>
-                <span className="text-[10px] text-emerald-200">Nigerian CBT &amp; Syllabus Prep</span>
+                <h3 className="font-bold text-[15px] text-white leading-tight">StudyPlug</h3>
+                <span className="text-[10px] text-emerald-200">Learn Today, Ace Tomorrow.</span>
               </div>
             </div>
             <button
@@ -75,28 +75,26 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
 
         {/* Scrollable Navigation Items */}
         <div className="flex-1 overflow-y-auto py-3 px-3 space-y-1 text-left">
-          {/* Dark Mode Switch Item */}
+          {/* Theme Switch Item */}
           <div className="pb-2">
             <button
               type="button"
               onClick={toggleDarkMode}
               className={`w-full flex items-center justify-between p-2.5 rounded-[12px] border transition cursor-pointer ${
                 isDarkMode
-                  ? 'bg-[#132A23] border-emerald-500/30 text-emerald-100'
-                  : 'bg-emerald-50 border-emerald-200 text-[#004D40]'
+                  ? 'bg-emerald-50 border-emerald-300 text-[#004D40]'
+                  : 'bg-slate-50 border-slate-200 text-slate-700'
               }`}
             >
               <div className="flex items-center space-x-2.5">
                 <span className="text-lg">{isDarkMode ? '🌙' : '☀️'}</span>
                 <div className="text-left leading-tight">
-                  <div className="font-bold text-[13px]">{isDarkMode ? 'Dark Mode (Night)' : 'Light Mode (Day)'}</div>
-                  <div className="text-[10.5px] opacity-75">{isDarkMode ? 'Obsidian Chalkboard Theme' : 'Clean Daylight Theme'}</div>
+                  <div className="font-bold text-[13px]">{isDarkMode ? 'Night Theme' : 'Daylight Theme'}</div>
+                  <div className="text-[10.5px] text-slate-500">Tap to toggle comfort mode</div>
                 </div>
               </div>
-              <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${
-                isDarkMode ? 'bg-emerald-400 text-[#071914]' : 'bg-[#004D40] text-[#FFD600]'
-              }`}>
-                {isDarkMode ? 'ACTIVE' : 'SWITCH'}
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#004D40] text-[#FFD600]">
+                {isDarkMode ? 'NIGHT' : 'DAY'}
               </span>
             </button>
           </div>
@@ -234,8 +232,8 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
             }}
             className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#E8F5E9] text-[#004D40] font-bold text-[13.5px] transition cursor-pointer"
           >
-            <span className="text-lg">🤖</span>
-            <span>Ask StudyPlug AI</span>
+            <span className="text-lg">🎓</span>
+            <span>Personal Study Tutor</span>
           </button>
 
           {/* 11. Admin YouTube Studio */}
@@ -246,7 +244,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 onClose();
                 onOpenYouTubeStudio();
               }}
-              className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] bg-gradient-to-r from-red-600/10 via-amber-600/10 to-emerald-600/10 hover:bg-amber-500/20 text-[#004D40] dark:text-emerald-300 font-extrabold text-[13.5px] transition cursor-pointer border border-amber-500/30"
+              className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] bg-gradient-to-r from-red-600/10 via-amber-600/10 to-emerald-600/10 hover:bg-amber-500/20 text-[#004D40] font-extrabold text-[13.5px] transition cursor-pointer border border-amber-500/30"
             >
               <span className="text-lg">🎥</span>
               <div className="flex-1 flex items-center justify-between text-left">
@@ -260,10 +258,10 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
         </div>
 
         {/* Bottom Drawer Footer */}
-        <div className={`p-4 ${isDarkMode ? 'bg-[#071310] border-[#163029] text-[#8A9692]' : 'bg-[#F7F9F8] border-[#E4EAE8] text-[#66736F]'} border-t space-y-2 text-left`}>
+        <div className="p-4 bg-[#F7F9F8] border-[#E4EAE8] text-[#66736F] border-t space-y-2 text-left">
           <div className="flex items-center justify-between text-[11px]">
             <span>Offline Ready</span>
-            <span className={`px-2 py-0.5 rounded-full ${isDarkMode ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-emerald-100 text-[#004D40]'} font-bold`}>
+            <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-[#004D40] font-bold">
               ✓ 100% Offline
             </span>
           </div>
@@ -278,14 +276,14 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 download="StudyPlug.apk"
                 className="p-2 rounded-[10px] bg-[#004D40] hover:bg-[#003B32] text-white text-[11px] font-bold flex items-center justify-center space-x-1 shadow-xs transition"
               >
-                <span>🤖</span>
+                <span>📱</span>
                 <span>Android APK</span>
               </a>
               <a
                 href="https://apps.apple.com/app/studyplug"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-[10px] bg-black hover:bg-slate-900 text-white text-[11px] font-bold flex items-center justify-center space-x-1 shadow-xs transition border border-white/20"
+                className="p-2 rounded-[10px] bg-slate-900 hover:bg-black text-white text-[11px] font-bold flex items-center justify-center space-x-1 shadow-xs transition border border-slate-700"
               >
                 <span>🍏</span>
                 <span>iOS App Store</span>

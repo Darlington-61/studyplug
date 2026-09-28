@@ -96,17 +96,14 @@ export const ChatMessageRenderer: React.FC<ChatMessageRendererProps> = ({ text }
       return;
     }
 
-    // H3 Header (e.g. ### 🤖 PlugAI Detailed Solution...)
+    // H3 Header
     if (trimmed.startsWith('### ')) {
       const heading = trimmed.replace(/^###\s*/, '').trim();
       elements.push(
-        <div key={`h3-${i}`} className="my-2 p-2.5 rounded-xl bg-gradient-to-r from-[#0E382B] to-[#165844] text-white shadow-sm flex items-center justify-between">
-          <h3 className="font-extrabold text-xs sm:text-[13px] tracking-tight flex items-center space-x-1.5">
-            <span>{heading}</span>
+        <div key={`h3-${i}`} className="my-2 pb-1 border-b border-slate-100 flex items-center justify-between">
+          <h3 className="font-bold text-sm text-[#004D40] tracking-tight">
+            {formatInlineText(heading)}
           </h3>
-          <span className="text-[10px] font-bold bg-white/20 text-white px-2 py-0.5 rounded-md">
-            Exam Solution
-          </span>
         </div>
       );
       return;

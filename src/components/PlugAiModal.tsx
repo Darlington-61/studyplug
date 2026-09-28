@@ -152,13 +152,14 @@ ${aiTutorContext?.userSelectedOption ? `Student Selected: (${aiTutorContext.user
         {
           id: 'welcome',
           sender: 'assistant',
-          text: `### 🤖 Welcome to PlugAI — Your 100% Free Offline Exam Tutor!
+          text: `### Hi, Darlington! 👋
+What would you like to learn today?
 
-I am ready to help you score **95%+** in JAMB UTME, WAEC, NECO, BECE, and Post-UTME.
+• Ask me to explain any difficult concept or formula
+• Ask a past question for step-by-step working and solutions
+• Get high-yield memory tricks and study techniques
 
-- **Ask me any question** or tap a quick action button below.
-- I break down complex calculations step-by-step, explain tricky options, and give you high-yield memory tricks!
-- **⚡ 100% Offline:** Operates entirely on your local device with zero mobile data.`,
+Type your question below or tap any of the quick guides to start.`,
           timestamp: Date.now()
         }
       ]);
@@ -270,7 +271,7 @@ ${aiTutorContext?.userSelectedOption ? `Student Choice: (${aiTutorContext.userSe
       return;
     }
 
-    setMessages(prev => [...prev, { id: asstId, sender: 'assistant', text: 'Thinking & analyzing...', timestamp: Date.now() }]);
+    setMessages(prev => [...prev, { id: asstId, sender: 'assistant', text: '__TYPING__', timestamp: Date.now() }]);
 
     try {
       if (activeEngineMode === 'neural' && isModelCached) {
@@ -525,101 +526,36 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
           className="hidden"
         />
 
-        {/* Sticky Top Header (Matching Screen 10) */}
-        <div className="bg-[#004D40] text-white px-4 sm:px-5 py-3 flex items-center justify-between border-b border-white/10 shrink-0 shadow-subtle">
+        {/* Sticky Top Header (Matching Image 1 Design System) */}
+        <div className="bg-[#004D40] text-white px-4 sm:px-5 py-3.5 flex items-center justify-between border-b border-white/10 shrink-0 shadow-subtle">
           <div className="flex items-center space-x-2.5">
-            <div className="w-8 h-8 rounded-full bg-[#003B32] border border-[#FFD600]/60 flex items-center justify-center text-sm shadow-xs">
-              🤖
+            <div className="w-9 h-9 rounded-xl bg-[#003B32] border border-[#FFD600]/40 flex items-center justify-center text-base shadow-xs">
+              🎓
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <h2 className="font-bold text-[15px] tracking-tight text-white">StudyPlug AI</h2>
-                <span className="text-[10px] font-semibold text-emerald-300 flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Online
+                <h2 className="font-bold text-[15px] tracking-tight text-white">StudyPlug Tutor</h2>
+                <span className="text-[10px] font-semibold text-emerald-200 bg-[#003B32] px-2 py-0.5 rounded-full border border-white/10">
+                  JAMB • WAEC
                 </span>
               </div>
-              <p className="text-[10.5px] text-emerald-100/80 truncate max-w-[180px] sm:max-w-xs">
-                {aiTutorContext?.subject ? `${aiTutorContext.subject} • ` : ''}Your 24/7 Educational Tutor
+              <p className="text-[11px] text-emerald-100/90 truncate max-w-[200px] sm:max-w-xs">
+                {aiTutorContext?.subject ? `${aiTutorContext.subject} • ` : ''}Your Personal Exam Guide
               </p>
             </div>
           </div>
 
           <div className="flex items-center space-x-2 shrink-0">
-            {/* Dark Mode Theme Toggle */}
-            <button
-              type="button"
-              onClick={() => {}}
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm transition cursor-pointer border border-white/15"
-              title='Toggle Theme'
-              aria-label="Toggle Dark Mode"
-            >
-              <span>🌙</span>
-            </button>
-
-            {/* Offline Brain Manager Button */}
-            <button
-              type="button"
-              onClick={() => setShowModelManager(!showModelManager)}
-              className="text-[11px] font-semibold bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-[10px] text-white transition flex items-center gap-1 cursor-pointer border border-white/15"
-              title="Manage Offline Neural Brain"
-            >
-              <span>{isModelCached ? '🧠 Offline' : '📥 Brain'}</span>
-            </button>
-
             {/* Close / Exit Button */}
             <button
               type="button"
               onClick={() => setShowExitConfirm(true)}
               className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs flex items-center justify-center transition cursor-pointer"
-              aria-label="Close AI"
+              aria-label="Close Tutor"
             >
               ✕
             </button>
           </div>
-        </div>
-
-        {/* Engine Switcher Bar */}
-        <div className={`${'bg-slate-50 border-slate-200'} border-b px-3 sm:px-4 py-2 flex items-center justify-between text-xs shrink-0`}>
-          <div className="flex items-center space-x-2">
-            <button
-              type="button"
-              onClick={() => setActiveEngineMode('instant')}
-              className={`px-2.5 sm:px-3 py-1 rounded-lg font-bold transition cursor-pointer text-xs ${
-                activeEngineMode === 'instant'
-                  ? 'bg-[#004D40] text-white shadow-sm'
-                  : 'text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              ⚡ Instant 0MB Mode
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                if (!isModelCached) {
-                  setShowModelManager(true);
-                } else {
-                  setActiveEngineMode('neural');
-                }
-              }}
-              className={`px-2.5 sm:px-3 py-1 rounded-lg font-bold transition cursor-pointer flex items-center gap-1.5 text-xs ${
-                activeEngineMode === 'neural'
-                  ? 'bg-[#004D40] text-white shadow-sm'
-                  : 'text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              <span>🧠 Neural Brain</span>
-              {isModelCached ? (
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              ) : (
-                <span className="text-[10px] bg-amber-200 text-amber-900 px-1 rounded font-bold">1-Click</span>
-              )}
-            </button>
-          </div>
-
-          <span className={`text-[10.5px] font-medium hidden sm:inline ${'text-slate-400'}`}>
-            Zero Server Cost • Zero Data
-          </span>
         </div>
 
         {/* Model Manager Drawer / Card */}
@@ -722,7 +658,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                 'bg-white border-[#E4EAE8]'
               }`}>
                 <div className="w-10 h-10 rounded-full bg-[#E8F5E9] border border-[#004D40]/15 flex items-center justify-center text-lg shrink-0">
-                  🤖
+                  🎓
                 </div>
                 <div>
                   <h3 className={`font-bold text-[14px] ${'text-[#10201D]'}`}>Hi Darlington! 👋</h3>
@@ -747,7 +683,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   }`}
                 >
                   <span className="text-base text-[#1976D2]">📖</span>
-                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${'text-[#10201D]'}`}>
+                  <span className={`text-[12px] font-semibold group-hover:text-emerald-700 ${'text-[#10201D]'}`}>
                     Explain a topic
                   </span>
                 </button>
@@ -763,7 +699,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   }`}
                 >
                   <span className="text-base text-[#16A34A]">🧮</span>
-                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${'text-[#10201D]'}`}>
+                  <span className={`text-[12px] font-semibold group-hover:text-emerald-700 ${'text-[#10201D]'}`}>
                     Solve a question
                   </span>
                 </button>
@@ -779,7 +715,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   }`}
                 >
                   <span className="text-base text-[#7E3FC7]">📅</span>
-                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${'text-[#10201D]'}`}>
+                  <span className={`text-[12px] font-semibold group-hover:text-emerald-700 ${'text-[#10201D]'}`}>
                     Give me a study plan
                   </span>
                 </button>
@@ -795,30 +731,30 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   }`}
                 >
                   <span className="text-base text-[#F57C00]">⭐</span>
-                  <span className={`text-[12px] font-semibold group-hover:text-emerald-400 ${'text-[#10201D]'}`}>
+                  <span className={`text-[12px] font-semibold group-hover:text-emerald-700 ${'text-[#10201D]'}`}>
                     Motivate me
                   </span>
                 </button>
               </div>
 
-              {/* Mascot Banner from Screen 10 */}
-              <div className={`rounded-[14px] p-3.5 border flex items-center justify-between ${
-                'bg-gradient-to-r from-[#E0F2FE] to-[#F0FDF4] border-sky-100'
-              }`}>
+              {/* Motivational Banner (Matching Image 1 Design System) */}
+              <div className="rounded-[14px] p-3.5 bg-gradient-to-r from-[#00382E] to-[#004D40] text-white border border-[#FFD600]/30 flex items-center justify-between shadow-xs">
                 <div className="flex items-center space-x-2.5">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-xl shadow-xs">
-                    🤖
+                  <div className="w-9 h-9 rounded-xl bg-[#002820] border border-[#FFD600]/40 flex items-center justify-center text-lg shrink-0">
+                    💡
                   </div>
                   <div>
-                    <h4 className={`font-bold text-[12.5px] ${'text-[#0369A1]'}`}>
-                      &ldquo;Small efforts create big results&rdquo;
+                    <h4 className="font-bold text-[12.5px] text-white tracking-tight">
+                      Small steps make big results.
                     </h4>
-                    <p className={`text-[10.5px] ${'text-[#0284C7]'}`}>
-                      Ask any question or concept anytime
+                    <p className="text-[10.5px] text-emerald-200/90 font-medium">
+                      Ask any question, formula, or concept anytime
                     </p>
                   </div>
                 </div>
-                <span className="text-lg">👑</span>
+                <span className="text-[10px] font-bold text-[#FFD600] px-2 py-0.5 rounded-full bg-[#002820] border border-[#FFD600]/30">
+                  Study Tip
+                </span>
               </div>
             </div>
           )}
@@ -850,6 +786,12 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
 
                   {isUser ? (
                     <div className="whitespace-pre-wrap font-medium">{m.text}</div>
+                  ) : m.text === '__TYPING__' || m.text === 'Thinking & analyzing...' ? (
+                    <div className="flex items-center space-x-1.5 py-1.5 px-2">
+                      <span className="w-2 h-2 rounded-full bg-[#004D40] animate-bounce [animation-delay:-0.3s]" />
+                      <span className="w-2 h-2 rounded-full bg-[#004D40] animate-bounce [animation-delay:-0.15s]" />
+                      <span className="w-2 h-2 rounded-full bg-[#004D40] animate-bounce" />
+                    </div>
                   ) : (
                     <ChatMessageRenderer text={m.text} />
                   )}
