@@ -3,7 +3,7 @@ import { useApp } from '../context/AppContext';
 import { RichNoteRenderer } from './common/RichNoteRenderer';
 import { SYLLABUS_DATABASE, SyllabusTopicItem } from '../data/syllabusStructure';
 import { MASTER_LESSON_NOTES, LessonNote } from '../data/masterLessonNotes';
-import { ChalkboardContainer } from './common/BoardExplanation';
+
 
 export const NotesDashboard: React.FC = () => {
   const { setActiveView, startTestForSubject } = useApp();
@@ -217,28 +217,25 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
   };
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // CHALKBOARD NOTE READER VIEW (When user clicks a topic)
+  // NOTE READER VIEW (When user clicks a topic)
   // ═══════════════════════════════════════════════════════════════════════════
   if (selectedTopicNote) {
     return (
-      <div className="max-w-5xl mx-auto px-4 py-6 space-y-6 text-white animate-fade-up">
-        {/* Floating Mobile Navigation Buttons (Always visible on mobile) */}
-        <div className="fixed bottom-6 left-4 z-50 flex items-center space-x-2 sm:hidden shadow-2xl">
+      <div className="max-w-5xl mx-auto px-4 py-6 space-y-5 animate-fade-up">
+        {/* Floating Mobile Navigation Buttons */}
+        <div className="fixed bottom-20 left-4 z-50 flex items-center space-x-2 sm:hidden">
           <button
             type="button"
             onClick={() => setSelectedTopicNote(null)}
-            className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#FFCC00] text-[#061710] font-black text-xs border-2 border-[#061710] active:scale-95 shadow-lg cursor-pointer"
+            className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#004D40] text-white font-black text-xs shadow-lg cursor-pointer active:scale-95"
           >
             <span>←</span>
             <span>Topics</span>
           </button>
           <button
             type="button"
-            onClick={() => {
-              setSelectedTopicNote(null);
-              setActiveView('dashboard');
-            }}
-            className="flex items-center space-x-1.5 px-3.5 py-2.5 rounded-full bg-[#071F15] text-[#FFCC00] font-black text-xs border-2 border-[#C4823F] active:scale-95 shadow-lg cursor-pointer"
+            onClick={() => { setSelectedTopicNote(null); setActiveView('dashboard'); }}
+            className="flex items-center space-x-1.5 px-3.5 py-2.5 rounded-full bg-white text-[#004D40] font-black text-xs border border-[#E4EAE8] shadow-lg cursor-pointer active:scale-95"
           >
             <span>🏠</span>
             <span>Home</span>
@@ -246,40 +243,36 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
         </div>
 
         {/* Sticky Top Breadcrumb & Action Bar */}
-        <div className="sticky top-0 z-40 p-3.5 rounded-2xl bg-[#071F15]/95 backdrop-blur-md border-2 border-[#C4823F] shadow-xl flex flex-wrap items-center justify-between gap-3">
+        <div className="sticky top-0 z-40 p-3 rounded-2xl bg-white border border-[#E4EAE8] shadow-md flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center space-x-2">
             <button
               type="button"
               onClick={() => setSelectedTopicNote(null)}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#061710] border border-[#C4823F] text-[#FFCC00] font-bold text-xs hover:bg-[#FFCC00] hover:text-[#061710] transition cursor-pointer"
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] text-[#004D40] font-bold text-xs hover:bg-[#004D40] hover:text-white transition cursor-pointer"
             >
               <span>←</span>
               <span>Back to Topics</span>
             </button>
             <button
               type="button"
-              onClick={() => {
-                setSelectedTopicNote(null);
-                setActiveView('dashboard');
-              }}
-              className="flex items-center space-x-1 px-2.5 py-1.5 rounded-xl bg-[#061710] border border-white/20 text-white/80 font-bold text-xs hover:bg-white/10 hover:text-white transition cursor-pointer"
+              onClick={() => { setSelectedTopicNote(null); setActiveView('dashboard'); }}
+              className="flex items-center space-x-1 px-2.5 py-1.5 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] text-[#66736F] font-bold text-xs hover:text-[#10201D] transition cursor-pointer"
             >
               <span>🏠</span>
               <span>Home</span>
             </button>
           </div>
-
           <div className="flex items-center space-x-2">
-            <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-[#C4823F] text-[#061710]">
+            <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-[#004D40] text-white">
               {selectedTopicNote.subject}
             </span>
-            <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-[#134633] text-[#FFCC00] border border-[#FFCC00]/40">
+            <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-[#FFD600] text-[#10201D]">
               {selectedExam} Aligned
             </span>
             <button
               type="button"
               onClick={() => toggleBookmark(selectedTopicNote.id)}
-              className="p-1.5 rounded-xl bg-[#061710] border border-[#C4823F]/40 text-[#FFCC00] hover:scale-105 transition cursor-pointer text-sm"
+              className="p-1.5 rounded-xl border border-[#E4EAE8] text-[#FFD600] hover:scale-105 transition cursor-pointer text-sm bg-white"
               title="Bookmark Note"
             >
               {bookmarkedNotes.includes(selectedTopicNote.id) ? '★' : '☆'}
@@ -287,196 +280,156 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
           </div>
         </div>
 
-        {/* The Authentic Classroom Chalkboard Container */}
-        <ChalkboardContainer
-          subject={selectedTopicNote.subject}
-          topic={selectedTopicNote.topic}
-          sectionTitle={selectedTopicNote.topic}
-          subtopic={selectedTopicNote.subtopic || 'Official Syllabus Unit'}
-          sectionBadge="95% Masterclass"
-        >
-          {/* Reader Sub-Tabs */}
-          <div className="flex flex-wrap gap-2 mb-6 border-b border-[#C4823F]/30 pb-4">
+        {/* Reader Sub-Tabs */}
+        <div className="flex flex-wrap gap-2 border-b border-[#E4EAE8] pb-4">
+          {[
+            { key: 'master', label: '📖 Full Lesson' },
+            { key: 'formulas', label: '📐 Formulas' },
+            { key: 'traps', label: '⚠️ Traps' },
+            { key: 'worked_questions', label: '🎯 Past Questions' },
+          ].map(tab => (
             <button
+              key={tab.key}
               type="button"
-              onClick={() => setReaderTab('master')}
-              className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer ${
-                readerTab === 'master'
-                  ? 'bg-[#FFCC00] text-[#061710] shadow'
-                  : 'bg-black/30 text-white/70 hover:text-white hover:bg-white/10'
+              onClick={() => setReaderTab(tab.key as any)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
+                readerTab === tab.key
+                  ? 'bg-[#004D40] text-white shadow'
+                  : 'bg-[#F7F9F8] text-[#66736F] border border-[#E4EAE8] hover:text-[#10201D]'
               }`}
             >
-              📖 Full Board Lesson
+              {tab.label}
             </button>
-            <button
-              type="button"
-              onClick={() => setReaderTab('formulas')}
-              className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer ${
-                readerTab === 'formulas'
-                  ? 'bg-[#FFCC00] text-[#061710] shadow'
-                  : 'bg-black/30 text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              📐 Formula Vault
-            </button>
-            <button
-              type="button"
-              onClick={() => setReaderTab('traps')}
-              className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer ${
-                readerTab === 'traps'
-                  ? 'bg-[#FFCC00] text-[#061710] shadow'
-                  : 'bg-black/30 text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              ⚠️ Examiner Traps
-            </button>
-            <button
-              type="button"
-              onClick={() => setReaderTab('worked_questions')}
-              className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer ${
-                readerTab === 'worked_questions'
-                  ? 'bg-[#FFCC00] text-[#061710] shadow'
-                  : 'bg-black/30 text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              🎯 Worked Past Questions
-            </button>
+          ))}
+        </div>
+
+        {/* Topic Title */}
+        <div className="bg-white rounded-2xl border border-[#E4EAE8] p-5 shadow-xs">
+          <h2 className="text-xl font-black text-[#004D40]">{selectedTopicNote.topic}</h2>
+          <p className="text-xs text-[#66736F] mt-1">{selectedTopicNote.subtopic || 'Official Syllabus Unit'}</p>
+        </div>
+
+        {/* Tab 1: Full Master Lesson Content */}
+        {readerTab === 'master' && (
+          <div className="bg-white rounded-2xl border border-[#E4EAE8] p-5 shadow-xs prose max-w-none">
+            <RichNoteRenderer content={selectedTopicNote.content || ''} chalkboard={false} />
           </div>
+        )}
 
-          {/* Tab 1: Full Master Lesson Content */}
-          {readerTab === 'master' && (
-            <div className="prose prose-invert max-w-none space-y-6">
-              <RichNoteRenderer content={selectedTopicNote.content || ''} chalkboard={true} />
+        {/* Tab 2: Formula Vault */}
+        {readerTab === 'formulas' && (
+          <div className="bg-white rounded-2xl border border-[#E4EAE8] p-5 shadow-xs space-y-4">
+            <div className="flex items-center space-x-2 text-[#004D40] font-black text-sm">
+              <span>📐</span>
+              <span>Key Formulas & Equations</span>
             </div>
-          )}
+            <div className="p-4 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] font-mono text-sm text-[#004D40] leading-relaxed whitespace-pre-line">
+              {selectedTopicNote.key_formulas || 'Standard syllabus formulas apply for this unit.'}
+            </div>
+          </div>
+        )}
 
-          {/* Tab 2: Formula Vault */}
-          {readerTab === 'formulas' && (
-            <div className="p-6 rounded-2xl bg-[#061710] border-2 border-[#C4823F] space-y-4">
-              <div className="flex items-center space-x-2 text-[#FFCC00] font-black text-sm">
-                <span>📐</span>
-                <span>KEY FORMULAS & MATHEMATICAL PROOFS</span>
-              </div>
-              <p className="text-xs text-white/70">
-                Memorize and apply these standard equations for {selectedTopicNote.topic}:
+        {/* Tab 3: Examiner Traps */}
+        {readerTab === 'traps' && (
+          <div className="bg-amber-50 rounded-2xl border border-amber-200 p-5 shadow-xs space-y-4">
+            <div className="flex items-center space-x-2 text-amber-700 font-black text-sm">
+              <span>⚠️</span>
+              <span>Chief Examiner Traps & Common Pitfalls</span>
+            </div>
+            <p className="text-xs text-amber-800 leading-relaxed">
+              {selectedTopicNote.pro_tips_95 || 'Over 60% of students lose easy marks by confusing base SI units.'}
+            </p>
+            <div className="p-4 rounded-xl bg-white border border-amber-200 text-xs text-amber-900 space-y-2">
+              <div>• <strong>Unit Conversion:</strong> Always convert mm/cm to meters before applying equations.</div>
+              <div>• <strong>Sign Convention:</strong> Assign consistent positive/negative directions for vectors.</div>
+              <div>• <strong>CBT Negatives:</strong> Watch out for "Which of the following is NOT..." questions.</div>
+            </div>
+          </div>
+        )}
+
+        {/* Tab 4: Worked Questions */}
+        {readerTab === 'worked_questions' && (
+          <div className="space-y-4">
+            <div className="bg-white rounded-2xl border border-[#E4EAE8] p-5 shadow-xs space-y-4">
+              <h4 className="font-bold text-sm text-[#10201D]">Sample Examination Question:</h4>
+              <p className="text-xs text-[#66736F] leading-relaxed">
+                Calculate the final velocity of a particle moving with an acceleration of 2 m/s² from rest over a distance of 16 meters.
               </p>
-              <div className="p-4 rounded-xl bg-black/40 border border-[#C4823F]/40 font-mono text-sm text-[#34D399] leading-relaxed whitespace-pre-line">
-                {selectedTopicNote.key_formulas || 'Standard syllabus formulas apply for this unit.'}
-              </div>
-            </div>
-          )}
-
-          {/* Tab 3: Examiner Traps */}
-          {readerTab === 'traps' && (
-            <div className="p-6 rounded-2xl bg-[#1F1005] border-2 border-amber-500 space-y-4">
-              <div className="flex items-center space-x-2 text-amber-300 font-black text-sm">
-                <span>⚠️</span>
-                <span>CHIEF EXAMINER TRAPS & COMMON PITFALLS</span>
-              </div>
-              <p className="text-xs text-amber-100/80 leading-relaxed">
-                {selectedTopicNote.pro_tips_95 || 'Over 60% of students lose easy marks by confusing base SI units and misreading CBT question negatives.'}
-              </p>
-              <div className="p-4 rounded-xl bg-black/50 border border-amber-500/30 text-xs text-amber-200 space-y-2">
-                <div>• <strong>Unit Conversion Trap:</strong> Always convert mm or cm to meters before applying kinematic or force equations.</div>
-                <div>• <strong>Sign Convention Trap:</strong> Assign consistent positive and negative directions for vectors.</div>
-                <div>• <strong>CBT Negative Trap:</strong> Watch out for questions asking "Which of the following is NOT...".</div>
-              </div>
-            </div>
-          )}
-
-          {/* Tab 4: Worked Questions */}
-          {readerTab === 'worked_questions' && (
-            <div className="space-y-4">
-              <div className="p-4 rounded-2xl bg-[#092218] border border-[#C4823F]/40 flex items-center justify-between">
-                <span className="font-bold text-xs text-[#FFCC00]">Authentic CBT & Theory Practice Problems</span>
-                <span className="text-[10px] text-white/60">Step-by-step solutions verified by top tutors</span>
-              </div>
-              <div className="p-6 rounded-2xl bg-[#061710] border-2 border-[#C4823F] space-y-4">
-                <h4 className="font-bold text-sm text-white">Sample Authentic Examination Question:</h4>
-                <p className="text-xs text-white/80 leading-relaxed">
-                  Calculate the final velocity of a particle moving with an acceleration of 2 m/s² from rest over a distance of 16 meters.
-                </p>
-                <div className="p-4 rounded-xl bg-black/40 border border-[#34D399]/40 space-y-2">
-                  <div className="text-xs font-bold text-[#34D399]">Board Solution:</div>
-                  <div className="text-xs font-mono text-white/80">
-                    Given: u = 0 m/s, a = 2 m/s², s = 16 m<br />
-                    Formula: v² = u² + 2as<br />
-                    v² = 0 + 2(2)(16) = 64<br />
-                    v = √64 = <strong>8 m/s</strong>
-                  </div>
+              <div className="p-4 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] space-y-2">
+                <div className="text-xs font-bold text-[#004D40]">Step-by-Step Solution:</div>
+                <div className="text-xs font-mono text-[#10201D]">
+                  Given: u = 0 m/s, a = 2 m/s², s = 16 m<br />
+                  Formula: v² = u² + 2as<br />
+                  v² = 0 + 2(2)(16) = 64<br />
+                  v = √64 = <strong>8 m/s</strong>
                 </div>
               </div>
             </div>
-          )}
-
-          {/* Bottom Action: Launch CBT Practice */}
-          <div className="mt-8 pt-6 border-t border-[#C4823F]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <button
-              type="button"
-              onClick={() => setSelectedTopicNote(null)}
-              className="text-xs text-white/60 hover:text-white cursor-pointer"
-            >
-              ← Back to topic list
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedTopicNote(null);
-                startTestForSubject(selectedTopicNote.subject);
-              }}
-              className="px-6 py-3 rounded-xl bg-[#FFCC00] text-[#061710] font-black text-xs hover:bg-yellow-300 transition flex items-center space-x-2 shadow-lg cursor-pointer"
-            >
-              <span>🧪</span>
-              <span>Practice Questions on {selectedTopicNote.topic}</span>
-              <span>→</span>
-            </button>
           </div>
-        </ChalkboardContainer>
+        )}
+
+        {/* Bottom Action */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+          <button
+            type="button"
+            onClick={() => setSelectedTopicNote(null)}
+            className="text-xs text-[#66736F] hover:text-[#10201D] cursor-pointer"
+          >
+            ← Back to topic list
+          </button>
+          <button
+            type="button"
+            onClick={() => { setSelectedTopicNote(null); startTestForSubject(selectedTopicNote.subject); }}
+            className="px-6 py-3 rounded-xl bg-[#004D40] hover:bg-[#003B32] text-white font-black text-xs transition flex items-center space-x-2 shadow-md cursor-pointer"
+          >
+            <span>🧪</span>
+            <span>Practice Questions on {selectedTopicNote.topic}</span>
+            <span>→</span>
+          </button>
+        </div>
       </div>
     );
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // MAIN DASHBOARD: CLEAN, ORGANIZED TOPIC LISTING
+  // MAIN DASHBOARD: CLEAN TOPIC LISTING (matches app theme)
   // ═══════════════════════════════════════════════════════════════════════════
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-8 text-white">
-      {/* Clean Header Bar */}
-      <div className="p-6 rounded-3xl bg-[#092218] border-2 border-[#C4823F] shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+      {/* Header Bar */}
+      <div className="bg-gradient-to-r from-[#003B32] via-[#004D40] to-[#0A261D] rounded-2xl p-5 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-md">
         <div>
           <button
             type="button"
             onClick={() => setActiveView('dashboard')}
-            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#061710] border border-[#C4823F]/70 text-[#FFCC00] font-black text-xs hover:bg-[#FFCC00] hover:text-[#061710] transition mb-3 cursor-pointer shadow-sm"
+            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition mb-3 cursor-pointer"
           >
             <span>←</span>
             <span>Back to Dashboard</span>
           </button>
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#061710] border border-[#C4823F]/50 text-xs font-bold text-[#FFCC00] mb-2">
-            <span>📚</span>
-            <span>Classroom Study Notes</span>
-            <span>•</span>
-            <span className="text-white">Official Curriculum</span>
+          <div className="flex items-center space-x-2 mb-1">
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-black bg-[#FFD600] text-[#002820]">📚 Study Notes</span>
+            <span className="text-[11px] text-emerald-200 font-medium">Official Curriculum</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-            Syllabus Topics & Classroom Derivations
+          <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+            Syllabus Topics & Lesson Notes
           </h1>
-          <p className="text-xs sm:text-sm text-white/70 mt-1 max-w-2xl">
-            Select your subject below to explore official prescribed units, step-by-step chalkboard proofs, formula vaults, and examiner trap alerts.
+          <p className="text-xs text-emerald-100/80 mt-1">
+            Select a subject to explore notes, formulas, and past questions.
           </p>
         </div>
 
         {/* Exam Body Switcher */}
-        <div className="flex items-center space-x-2 bg-[#061710] p-1.5 rounded-2xl border border-[#C4823F]/40 shrink-0">
+        <div className="flex items-center gap-1.5 bg-white/10 p-1.5 rounded-xl shrink-0">
           {(['JAMB', 'WAEC', 'NECO', 'NABTEB'] as const).map(exam => (
             <button
               key={exam}
               type="button"
               onClick={() => setSelectedExam(exam)}
-              className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-black transition cursor-pointer ${
                 selectedExam === exam
-                  ? 'bg-[#FFCC00] text-[#061710] shadow font-black'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#FFD600] text-[#002820] shadow'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
               }`}
             >
               {exam}
@@ -485,7 +438,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
         </div>
       </div>
 
-      {/* 5 Subject Selector Pills (Horizontal Row) */}
+      {/* Subject Selector */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
         {subjectList.map((subj) => {
           const isSelected = selectedSubject === subj.name;
@@ -496,21 +449,21 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
               onClick={() => setSelectedSubject(subj.name)}
               className={`p-4 rounded-2xl border-2 transition-all cursor-pointer text-left flex flex-col justify-between group ${
                 isSelected
-                  ? 'bg-[#0E382B] border-[#FFCC00] shadow-lg ring-2 ring-[#FFCC00]/40 -translate-y-0.5'
-                  : 'bg-[#092218] border-[#C4823F]/40 hover:border-[#C4823F] hover:bg-[#0C2E20]'
+                  ? 'bg-white border-[#004D40] shadow-md ring-2 ring-[#004D40]/20 -translate-y-0.5'
+                  : 'bg-white border-[#E4EAE8] hover:border-[#004D40]/40 hover:shadow-sm'
               }`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-2xl">{subj.icon}</span>
                 <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
-                  isSelected ? 'bg-[#FFCC00] text-[#061710]' : 'bg-[#061710] text-white/50 border border-white/10'
+                  isSelected ? 'bg-[#FFD600] text-[#10201D]' : 'bg-[#F7F9F8] text-[#66736F] border border-[#E4EAE8]'
                 }`}>
-                  {subj.count} Units
+                  {subj.count}
                 </span>
               </div>
               <div className="mt-3">
                 <h3 className={`font-black text-xs sm:text-sm leading-tight transition ${
-                  isSelected ? 'text-[#FFCC00]' : 'text-white group-hover:text-[#FFCC00]'
+                  isSelected ? 'text-[#004D40]' : 'text-[#10201D] group-hover:text-[#004D40]'
                 }`}>
                   {subj.name}
                 </h3>
@@ -520,94 +473,81 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
         })}
       </div>
 
-      {/* Search Input for Topics */}
+      {/* Search Input */}
       <div className="relative">
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder={`Search ${selectedSubject} topics, formulas, or syllabus units...`}
-          className="w-full pl-11 pr-4 py-3 bg-[#092218] border-2 border-[#C4823F]/50 rounded-2xl text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#FFCC00] transition"
+          placeholder={`Search ${selectedSubject} topics...`}
+          className="w-full pl-11 pr-4 py-3 bg-white border border-[#E4EAE8] rounded-2xl text-sm text-[#10201D] placeholder-[#66736F]/60 focus:outline-none focus:ring-2 focus:ring-[#004D40] transition shadow-xs"
         />
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="w-5 h-5 text-[#FFCC00] absolute left-4 top-3.5 pointer-events-none"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+          className="w-5 h-5 text-[#004D40] absolute left-4 top-3.5 pointer-events-none">
           <circle cx="11" cy="11" r="8" />
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
       </div>
 
-      {/* Organized Syllabus Sections & Topics */}
-      <div className="space-y-6">
+      {/* Syllabus Sections & Topics */}
+      <div className="space-y-4">
         {Object.keys(syllabusSections).length === 0 ? (
-          <div className="p-12 text-center text-white/50 bg-[#092218] rounded-3xl border border-[#C4823F]/30">
-            No topics found matching "{searchQuery}". Try a different search term.
+          <div className="p-12 text-center text-[#66736F] bg-white rounded-2xl border border-[#E4EAE8]">
+            No topics found matching "{searchQuery}".
           </div>
         ) : (
           Object.keys(syllabusSections).map((sectionName) => (
-            <div
-              key={sectionName}
-              className="rounded-3xl border-2 border-[#C4823F] overflow-hidden bg-[#092218] shadow-lg"
-            >
+            <div key={sectionName} className="rounded-2xl border border-[#E4EAE8] overflow-hidden bg-white shadow-xs">
               {/* Section Header */}
-              <div className="px-6 py-3.5 bg-[#061710] border-b border-[#C4823F]/40 flex items-center justify-between">
+              <div className="px-5 py-3 bg-[#F7F9F8] border-b border-[#E4EAE8] flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FFCC00]" />
-                  <span className="font-black text-xs sm:text-sm text-[#FFCC00] uppercase tracking-wider">
-                    {sectionName}
-                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#004D40]" />
+                  <span className="font-black text-xs text-[#004D40] uppercase tracking-wider">{sectionName}</span>
                 </div>
-                <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#C4823F]/20 text-[#C4823F] border border-[#C4823F]/30">
+                <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#004D40]/10 text-[#004D40]">
                   {syllabusSections[sectionName].length} Topics
                 </span>
               </div>
 
-              {/* Topics in this Section */}
-              <div className="divide-y divide-[#C4823F]/20">
+              {/* Topics */}
+              <div className="divide-y divide-[#E4EAE8]">
                 {syllabusSections[sectionName].map((topicItem, idx) => (
                   <div
                     key={`${topicItem.topic_number}-${idx}`}
-                    className="p-5 hover:bg-[#0C2E20] transition flex flex-col md:flex-row md:items-center justify-between gap-4 group"
+                    className="p-4 hover:bg-[#F7F9F8] transition flex flex-col md:flex-row md:items-center justify-between gap-3 group"
                   >
-                    {/* Topic Info */}
-                    <div className="flex items-start space-x-4 min-w-0">
-                      <span className="w-8 h-8 rounded-xl bg-[#061710] border border-[#C4823F] text-[#FFCC00] flex items-center justify-center text-xs font-black shrink-0 mt-0.5 shadow-sm">
+                    <div className="flex items-start space-x-3 min-w-0">
+                      <span className="w-7 h-7 rounded-lg bg-[#004D40]/10 text-[#004D40] flex items-center justify-center text-xs font-black shrink-0 mt-0.5">
                         {topicItem.topic_number || idx + 1}
                       </span>
-                      <div className="min-w-0 space-y-1">
+                      <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
-                          <h4 className="font-extrabold text-sm sm:text-base text-white group-hover:text-[#FFCC00] transition leading-snug">
+                          <h4 className="font-bold text-sm text-[#10201D] group-hover:text-[#004D40] transition leading-snug">
                             {topicItem.title}
                           </h4>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#34D399]/20 text-[#34D399] border border-[#34D399]/40">
-                            {selectedExam} Prescribed
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            {selectedExam}
                           </span>
                         </div>
-                        <p className="text-xs text-white/60 line-clamp-1">
-                          Official curriculum unit with formulas, derivations, examiner traps, and authentic CBT past questions.
+                        <p className="text-xs text-[#66736F] mt-0.5 line-clamp-1">
+                          Formulas, derivations, examiner traps & past questions
                         </p>
                       </div>
                     </div>
 
-                    {/* Actions */}
                     <div className="flex items-center space-x-2 shrink-0 self-end md:self-center">
                       <button
                         type="button"
                         onClick={() => openNote(topicItem.title, selectedSubject)}
-                        className="px-4 py-2 rounded-xl bg-[#FFCC00] hover:bg-yellow-300 text-[#061710] font-black text-xs transition flex items-center space-x-1.5 shadow-md cursor-pointer hover:scale-105"
+                        className="px-4 py-2 rounded-xl bg-[#004D40] hover:bg-[#003B32] text-white font-black text-xs transition flex items-center space-x-1.5 shadow-sm cursor-pointer"
                       >
                         <span>📖</span>
-                        <span>Read Note</span>
+                        <span>Read</span>
                       </button>
                       <button
                         type="button"
                         onClick={() => startTestForSubject(selectedSubject)}
-                        className="px-3.5 py-2 rounded-xl bg-[#061710] border border-[#C4823F] hover:border-[#34D399] text-white/80 hover:text-white font-bold text-xs transition flex items-center space-x-1 cursor-pointer"
-                        title="Practice CBT questions on this subject"
+                        className="px-3.5 py-2 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] hover:border-[#004D40] text-[#66736F] hover:text-[#004D40] font-bold text-xs transition flex items-center space-x-1 cursor-pointer"
                       >
                         <span>🧪</span>
                         <span>Practice</span>
@@ -621,12 +561,12 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
         )}
       </div>
 
-      {/* Floating Mobile Return to Dashboard Button */}
-      <div className="fixed bottom-6 left-4 z-50 sm:hidden shadow-2xl">
+      {/* Floating Mobile Return Button */}
+      <div className="fixed bottom-20 left-4 z-50 sm:hidden">
         <button
           type="button"
           onClick={() => setActiveView('dashboard')}
-          className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#FFCC00] text-[#061710] font-black text-xs border-2 border-[#061710] active:scale-95 shadow-lg cursor-pointer"
+          className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#004D40] text-white font-black text-xs shadow-lg cursor-pointer active:scale-95"
         >
           <span>←</span>
           <span>Dashboard</span>
