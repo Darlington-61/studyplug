@@ -14,6 +14,10 @@ import {
   GEOGRAPHY_QUESTIONS,
   AGRICULTURE_QUESTIONS,
   CIVIC_QUESTIONS,
+  LEKKI_HEADMASTER_QUESTIONS,
+  WAEC_LITERATURE_2026_QUESTIONS,
+  POST_UTME_QUESTIONS,
+  CURRENT_AFFAIRS_QUESTIONS,
   SUBJECT_TOPICS_CATALOG
 } from './subjectQuestions';
 import { MOTION_MASTER_SECTIONS } from './motionMasterLesson';
@@ -34,6 +38,10 @@ export {
   GEOGRAPHY_QUESTIONS,
   AGRICULTURE_QUESTIONS,
   CIVIC_QUESTIONS,
+  LEKKI_HEADMASTER_QUESTIONS,
+  WAEC_LITERATURE_2026_QUESTIONS,
+  POST_UTME_QUESTIONS,
+  CURRENT_AFFAIRS_QUESTIONS,
   NABTEB_QUESTIONS,
   SUBJECT_TOPICS_CATALOG
 };
@@ -159,6 +167,10 @@ export const ALL_QUESTIONS: Question[] = [
   ...GEOGRAPHY_QUESTIONS,
   ...AGRICULTURE_QUESTIONS,
   ...CIVIC_QUESTIONS,
+  ...LEKKI_HEADMASTER_QUESTIONS,
+  ...WAEC_LITERATURE_2026_QUESTIONS,
+  ...POST_UTME_QUESTIONS,
+  ...CURRENT_AFFAIRS_QUESTIONS,
   ...NABTEB_QUESTIONS,
 ];
 
@@ -209,18 +221,20 @@ export function getBaseQuestionsForSubject(subjectName: string): Question[] {
   if (norm.includes('phy') && !norm.includes('healt')) {
     return [...SCREEN_6_PHYSICS_QUESTIONS, ...MOTION_MASTER_QUESTIONS, ...PHYSICS_QUESTIONS, ...nabtebSub];
   }
-  if (norm.includes('eng')) return [...ENGLISH_QUESTIONS, ...nabtebSub];
+  if (norm.includes('eng')) return [...ENGLISH_QUESTIONS, ...LEKKI_HEADMASTER_QUESTIONS, ...nabtebSub];
   if (norm.includes('chem')) return [...CHEMISTRY_QUESTIONS, ...nabtebSub];
   if (norm.includes('bio')) return [...BIOLOGY_QUESTIONS, ...nabtebSub];
   if (norm.includes('econ')) return [...ECONOMICS_QUESTIONS, ...nabtebSub];
   if (norm.includes('gov')) return [...GOVERNMENT_QUESTIONS, ...nabtebSub];
   if (norm.includes('comm')) return [...COMMERCE_QUESTIONS, ...nabtebSub];
-  if (norm.includes('lit')) return [...LITERATURE_QUESTIONS, ...nabtebSub];
+  if (norm.includes('lit')) return [...LITERATURE_QUESTIONS, ...WAEC_LITERATURE_2026_QUESTIONS, ...nabtebSub];
   if (norm.includes('crs') || norm.includes('christ')) return [...CRS_QUESTIONS, ...nabtebSub];
   if (norm.includes('account')) return [...ACCOUNTING_QUESTIONS, ...nabtebSub];
   if (norm.includes('geog')) return [...GEOGRAPHY_QUESTIONS, ...nabtebSub];
   if (norm.includes('agric')) return [...AGRICULTURE_QUESTIONS, ...nabtebSub];
   if (norm.includes('civic')) return [...CIVIC_QUESTIONS, ...nabtebSub];
+  if (norm.includes('post-utme') || norm.includes('post utme')) return [...POST_UTME_QUESTIONS];
+  if (norm.includes('current affairs')) return [...CURRENT_AFFAIRS_QUESTIONS];
 
   return ALL_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes(norm));
 }

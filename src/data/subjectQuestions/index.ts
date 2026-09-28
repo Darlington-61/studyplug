@@ -13,6 +13,10 @@ import { ACCOUNTING_QUESTIONS } from './accounting';
 import { GEOGRAPHY_QUESTIONS } from './geography';
 import { AGRICULTURE_QUESTIONS } from './agriculture';
 import { CIVIC_QUESTIONS } from './civic';
+import { LEKKI_HEADMASTER_QUESTIONS } from './lekkiHeadmaster';
+import { WAEC_LITERATURE_2026_QUESTIONS } from './waecLiterature2026';
+import { POST_UTME_QUESTIONS } from './postUtme';
+import { CURRENT_AFFAIRS_QUESTIONS } from './currentAffairs';
 
 export {
   MATHEMATICS_QUESTIONS,
@@ -29,6 +33,10 @@ export {
   GEOGRAPHY_QUESTIONS,
   AGRICULTURE_QUESTIONS,
   CIVIC_QUESTIONS,
+  LEKKI_HEADMASTER_QUESTIONS,
+  WAEC_LITERATURE_2026_QUESTIONS,
+  POST_UTME_QUESTIONS,
+  CURRENT_AFFAIRS_QUESTIONS,
 };
 
 export const SUBJECT_TOPICS_CATALOG: Record<string, string[]> = {
