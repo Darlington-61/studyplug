@@ -26,7 +26,13 @@ async function main() {
   const fileContent = fs.readFileSync(ipaPath);
   console.log(`Uploading StudyPlug.ipa (${(fileContent.length / (1024 * 1024)).toFixed(2)} MB)...`);
 
-  const postData = querystring.stringify({ user: 'ooezylpj', pass: 'M23risM3r+6YQ*' });
+  const user = process.env.CPANEL_USER;
+  const pass = process.env.CPANEL_PASS;
+  if (!user || !pass) {
+    console.log('CPANEL_USER or CPANEL_PASS not set in environment. Skipping direct cPanel upload.');
+    return;
+  }
+  const postData = querystring.stringify({ user, pass });
   const loginRes = await cpanelRequest(
     {
       hostname: '156.232.88.10',

@@ -27,8 +27,8 @@ jobs:
       - name: Build Web Application
         run: npm run bundle
 
-      - name: Copy Assets to Capacitor iOS
-        run: npx cap copy ios
+      - name: Sync Assets to Capacitor iOS
+        run: npx cap sync ios
 
       - name: Build iOS Archive (Unsigned)
         run: |
@@ -51,7 +51,10 @@ jobs:
           zip -r -q StudyPlug.ipa Payload
           ls -lh StudyPlug.ipa
 
-      - name: Deploy IPA to studyplug.com.ng
+      - name: Deploy IPA to studyplug.com.ng (Optional)
+        env:
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_PASS: ${{ secrets.CPANEL_PASS }}
         run: |
           node upload_ipa.cjs build/StudyPlug.ipa
         continue-on-error: true
