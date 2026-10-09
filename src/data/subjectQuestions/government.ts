@@ -3120,5 +3120,4305 @@ export const GOVERNMENT_QUESTIONS: Question[] = [
     "repeatCount": 1,
     "repeatYears": [],
     "repeatBadge": ""
+  },
+{
+    "id": 73,
+    "questionNumber": 1,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "A key characteristic of the civil service is",
+    "options": [
+      {
+        "key": "A",
+        "text": "Merit system."
+      },
+      {
+        "key": "B",
+        "text": "Patriotism."
+      },
+      {
+        "key": "C",
+        "text": "Quota system."
+      },
+      {
+        "key": "D",
+        "text": "Transparency."
+      }
+    ],
+    "optionsMap": {
+      "A": "Merit system.",
+      "B": "Patriotism.",
+      "C": "Quota system.",
+      "D": "Transparency."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Merit system.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Merit system. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 74,
+    "questionNumber": 2,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "A major cause of inefficiency in public corporations is",
+    "options": [
+      {
+        "key": "A",
+        "text": "inadequate patronage by members of the public"
+      },
+      {
+        "key": "B",
+        "text": "absence of an enabling Act or law"
+      },
+      {
+        "key": "C",
+        "text": "political interference"
+      },
+      {
+        "key": "D",
+        "text": "competition from private firms"
+      }
+    ],
+    "optionsMap": {
+      "A": "inadequate patronage by members of the public",
+      "B": "absence of an enabling Act or law",
+      "C": "political interference",
+      "D": "competition from private firms"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"political interference\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: political interference is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 75,
+    "questionNumber": 3,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "A major distinction between public corporations and private companies is that",
+    "options": [
+      {
+        "key": "A",
+        "text": "Public corporations provide important services"
+      },
+      {
+        "key": "B",
+        "text": "Public corporations are large organizations"
+      },
+      {
+        "key": "C",
+        "text": "Public corporations are financed and controlled by government"
+      },
+      {
+        "key": "D",
+        "text": "Public corporations are not involved in production of tangible goods"
+      }
+    ],
+    "optionsMap": {
+      "A": "Public corporations provide important services",
+      "B": "Public corporations are large organizations",
+      "C": "Public corporations are financed and controlled by government",
+      "D": "Public corporations are not involved in production of tangible goods"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Public corporations are financed and controlled by government\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Public corporations are financed and controlled by government is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 76,
+    "questionNumber": 4,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "A primary agency of political socialization is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "the government"
+      },
+      {
+        "key": "B",
+        "text": "the family"
+      },
+      {
+        "key": "C",
+        "text": "the mass media"
+      },
+      {
+        "key": "D",
+        "text": "the School"
+      }
+    ],
+    "optionsMap": {
+      "A": "the government",
+      "B": "the family",
+      "C": "the mass media",
+      "D": "the School"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"the family\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: the family is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 77,
+    "questionNumber": 5,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "A process that seeks to transfer ownership and control of public corporations to private individuals or organizations is called",
+    "options": [
+      {
+        "key": "A",
+        "text": "Indigenization"
+      },
+      {
+        "key": "B",
+        "text": "Commercialization"
+      },
+      {
+        "key": "C",
+        "text": "Privatization"
+      },
+      {
+        "key": "D",
+        "text": "Acquisition"
+      }
+    ],
+    "optionsMap": {
+      "A": "Indigenization",
+      "B": "Commercialization",
+      "C": "Privatization",
+      "D": "Acquisition"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Privatization\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Privatization is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 78,
+    "questionNumber": 6,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Adult male suffrage means that",
+    "options": [
+      {
+        "key": "A",
+        "text": "All men who pay tax can vote."
+      },
+      {
+        "key": "B",
+        "text": "All adult males can vote."
+      },
+      {
+        "key": "C",
+        "text": "All men can vote."
+      },
+      {
+        "key": "D",
+        "text": "All adults can vote."
+      }
+    ],
+    "optionsMap": {
+      "A": "All men who pay tax can vote.",
+      "B": "All adult males can vote.",
+      "C": "All men can vote.",
+      "D": "All adults can vote."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"All adult males can vote.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: All adult males can vote. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 79,
+    "questionNumber": 7,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "All of the following are obligations of citizens, except",
+    "options": [
+      {
+        "key": "A",
+        "text": "Obedience to laws."
+      },
+      {
+        "key": "B",
+        "text": "Voting."
+      },
+      {
+        "key": "C",
+        "text": "Giving alms to beggars."
+      },
+      {
+        "key": "D",
+        "text": "Payment of taxes."
+      }
+    ],
+    "optionsMap": {
+      "A": "Obedience to laws.",
+      "B": "Voting.",
+      "C": "Giving alms to beggars.",
+      "D": "Payment of taxes."
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Giving alms to beggars.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Giving alms to beggars. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 80,
+    "questionNumber": 8,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "An electoral district is",
+    "options": [
+      {
+        "key": "A",
+        "text": "A local government area."
+      },
+      {
+        "key": "B",
+        "text": "A ward."
+      },
+      {
+        "key": "C",
+        "text": "A polling booth."
+      },
+      {
+        "key": "D",
+        "text": "A constituency."
+      }
+    ],
+    "optionsMap": {
+      "A": "A local government area.",
+      "B": "A ward.",
+      "C": "A polling booth.",
+      "D": "A constituency."
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"A constituency.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: A constituency. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 81,
+    "questionNumber": 9,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Fascism was practiced in Italy under:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Benito Masollini"
+      },
+      {
+        "key": "B",
+        "text": "Benito Mubarak"
+      },
+      {
+        "key": "C",
+        "text": "Benito Mussolini"
+      },
+      {
+        "key": "D",
+        "text": "Benito Mandela"
+      }
+    ],
+    "optionsMap": {
+      "A": "Benito Masollini",
+      "B": "Benito Mubarak",
+      "C": "Benito Mussolini",
+      "D": "Benito Mandela"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Benito Mussolini\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Benito Mussolini is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 82,
+    "questionNumber": 10,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Governmental powers are _________ in the US presidential system",
+    "options": [
+      {
+        "key": "A",
+        "text": "absolutely separated"
+      },
+      {
+        "key": "B",
+        "text": "fused"
+      },
+      {
+        "key": "C",
+        "text": "absolutely fused"
+      },
+      {
+        "key": "D",
+        "text": "separated"
+      }
+    ],
+    "optionsMap": {
+      "A": "absolutely separated",
+      "B": "fused",
+      "C": "absolutely fused",
+      "D": "separated"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"separated\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: separated is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 83,
+    "questionNumber": 11,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "In a democracy, franchise is limited by",
+    "options": [
+      {
+        "key": "A",
+        "text": "Age."
+      },
+      {
+        "key": "B",
+        "text": "Sex."
+      },
+      {
+        "key": "C",
+        "text": "Wealth."
+      },
+      {
+        "key": "D",
+        "text": "Education."
+      }
+    ],
+    "optionsMap": {
+      "A": "Age.",
+      "B": "Sex.",
+      "C": "Wealth.",
+      "D": "Education."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Age.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Age. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 84,
+    "questionNumber": 12,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "In the civil service, anonymity means that civil servants must",
+    "options": [
+      {
+        "key": "A",
+        "text": "Not receive the credit or blame for any good."
+      },
+      {
+        "key": "B",
+        "text": "Serve any government impartially."
+      },
+      {
+        "key": "C",
+        "text": "Avoid nepotism and favouritism."
+      },
+      {
+        "key": "D",
+        "text": "Be politically neutral."
+      }
+    ],
+    "optionsMap": {
+      "A": "Not receive the credit or blame for any good.",
+      "B": "Serve any government impartially.",
+      "C": "Avoid nepotism and favouritism.",
+      "D": "Be politically neutral."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Not receive the credit or blame for any good.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Not receive the credit or blame for any good. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 85,
+    "questionNumber": 13,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "In which of the following set of countries is a dominant two-party system operated.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Nigeria and Ghana."
+      },
+      {
+        "key": "B",
+        "text": "The United States and the United Kingdom."
+      },
+      {
+        "key": "C",
+        "text": "France and Germany."
+      },
+      {
+        "key": "D",
+        "text": "India and China."
+      }
+    ],
+    "optionsMap": {
+      "A": "Nigeria and Ghana.",
+      "B": "The United States and the United Kingdom.",
+      "C": "France and Germany.",
+      "D": "India and China."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"The United States and the United Kingdom.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: The United States and the United Kingdom. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 86,
+    "questionNumber": 14,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "One of the advantages of direct election is that:",
+    "options": [
+      {
+        "key": "A",
+        "text": "it is too expensive and difficult to conduct"
+      },
+      {
+        "key": "B",
+        "text": "illiterates vote intelligently for their leaders"
+      },
+      {
+        "key": "C",
+        "text": "it makes representatives accountable to the electors"
+      },
+      {
+        "key": "D",
+        "text": "it offers an opportunity to the electorate to demand for money"
+      }
+    ],
+    "optionsMap": {
+      "A": "it is too expensive and difficult to conduct",
+      "B": "illiterates vote intelligently for their leaders",
+      "C": "it makes representatives accountable to the electors",
+      "D": "it offers an opportunity to the electorate to demand for money"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"it makes representatives accountable to the electors\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: it makes representatives accountable to the electors is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 87,
+    "questionNumber": 15,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "One of the following is not a feature of a modern state",
+    "options": [
+      {
+        "key": "A",
+        "text": "Territorial landmass"
+      },
+      {
+        "key": "B",
+        "text": "Population of People"
+      },
+      {
+        "key": "C",
+        "text": "Defined Territory"
+      },
+      {
+        "key": "D",
+        "text": "Sovereignty"
+      }
+    ],
+    "optionsMap": {
+      "A": "Territorial landmass",
+      "B": "Population of People",
+      "C": "Defined Territory",
+      "D": "Sovereignty"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Territorial landmass\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Territorial landmass is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 88,
+    "questionNumber": 16,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "One of the following is not a source of constitution?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Customs and conventions"
+      },
+      {
+        "key": "B",
+        "text": "civil service regulations"
+      },
+      {
+        "key": "C",
+        "text": "historical documents"
+      },
+      {
+        "key": "D",
+        "text": "judicial precedents."
+      }
+    ],
+    "optionsMap": {
+      "A": "Customs and conventions",
+      "B": "civil service regulations",
+      "C": "historical documents",
+      "D": "judicial precedents."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"civil service regulations\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: civil service regulations is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 89,
+    "questionNumber": 17,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "One of the objectives of a multiparty system is to",
+    "options": [
+      {
+        "key": "A",
+        "text": "Eliminate corruption."
+      },
+      {
+        "key": "B",
+        "text": "Prevent rigging."
+      },
+      {
+        "key": "C",
+        "text": "Provide alternatives."
+      },
+      {
+        "key": "D",
+        "text": "Avoid ethnicity."
+      }
+    ],
+    "optionsMap": {
+      "A": "Eliminate corruption.",
+      "B": "Prevent rigging.",
+      "C": "Provide alternatives.",
+      "D": "Avoid ethnicity."
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Provide alternatives.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Provide alternatives. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 90,
+    "questionNumber": 18,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Political sovereignty lies with:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Head of State"
+      },
+      {
+        "key": "B",
+        "text": "Head of Government"
+      },
+      {
+        "key": "C",
+        "text": "the Parliament"
+      },
+      {
+        "key": "D",
+        "text": "the electorate\nD\n\nwww.myschoolgist.com"
+      }
+    ],
+    "optionsMap": {
+      "A": "Head of State",
+      "B": "Head of Government",
+      "C": "the Parliament",
+      "D": "the electorate\nD\n\nwww.myschoolgist.com"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Head of State\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Head of State is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 91,
+    "questionNumber": 19,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Public corporations are established principally to",
+    "options": [
+      {
+        "key": "A",
+        "text": "compete with private firms"
+      },
+      {
+        "key": "B",
+        "text": "Raise revenue for the government"
+      },
+      {
+        "key": "C",
+        "text": "provide essential services for the public"
+      },
+      {
+        "key": "D",
+        "text": "Promote public accountability"
+      }
+    ],
+    "optionsMap": {
+      "A": "compete with private firms",
+      "B": "Raise revenue for the government",
+      "C": "provide essential services for the public",
+      "D": "Promote public accountability"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"provide essential services for the public\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: provide essential services for the public is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 92,
+    "questionNumber": 20,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Public opinion helps a government to",
+    "options": [
+      {
+        "key": "A",
+        "text": "Monitor its socio-cultural policy."
+      },
+      {
+        "key": "B",
+        "text": "Monitor the economic situation in the country."
+      },
+      {
+        "key": "C",
+        "text": "Punish opposition to its policies."
+      },
+      {
+        "key": "D",
+        "text": "Develop the country in line with the people’s aspirations."
+      }
+    ],
+    "optionsMap": {
+      "A": "Monitor its socio-cultural policy.",
+      "B": "Monitor the economic situation in the country.",
+      "C": "Punish opposition to its policies.",
+      "D": "Develop the country in line with the people’s aspirations."
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"Develop the country in line with the people’s aspirations.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Develop the country in line with the people’s aspirations. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 93,
+    "questionNumber": 21,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Roles that are expected to be performed by an individual in a country are",
+    "options": [
+      {
+        "key": "A",
+        "text": "Elections."
+      },
+      {
+        "key": "B",
+        "text": "Duties."
+      },
+      {
+        "key": "C",
+        "text": "Rights."
+      },
+      {
+        "key": "D",
+        "text": "Services."
+      }
+    ],
+    "optionsMap": {
+      "A": "Elections.",
+      "B": "Duties.",
+      "C": "Rights.",
+      "D": "Services."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Duties.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Duties. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 94,
+    "questionNumber": 22,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Separation of powers denotes __________________",
+    "options": [
+      {
+        "key": "A",
+        "text": "Separation of governmental powers but not separation of persons"
+      },
+      {
+        "key": "B",
+        "text": "Separation of governmental powers and Separation of persons"
+      },
+      {
+        "key": "C",
+        "text": "Separation of persons only"
+      },
+      {
+        "key": "D",
+        "text": "Separation of powers of government only"
+      }
+    ],
+    "optionsMap": {
+      "A": "Separation of governmental powers but not separation of persons",
+      "B": "Separation of governmental powers and Separation of persons",
+      "C": "Separation of persons only",
+      "D": "Separation of powers of government only"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Separation of governmental powers and Separation of persons\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Separation of governmental powers and Separation of persons is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 95,
+    "questionNumber": 23,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The assent of the President is required to convert a/an ____ to law",
+    "options": [
+      {
+        "key": "A",
+        "text": "Bill"
+      },
+      {
+        "key": "B",
+        "text": "Edict"
+      },
+      {
+        "key": "C",
+        "text": "Proclamation"
+      },
+      {
+        "key": "D",
+        "text": "Decree"
+      }
+    ],
+    "optionsMap": {
+      "A": "Bill",
+      "B": "Edict",
+      "C": "Proclamation",
+      "D": "Decree"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Bill\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Bill is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 96,
+    "questionNumber": 24,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The branch of Government that sets agenda for other organs is known as:",
+    "options": [
+      {
+        "key": "A",
+        "text": "the bureaucracy"
+      },
+      {
+        "key": "B",
+        "text": "the legislature"
+      },
+      {
+        "key": "C",
+        "text": "the executive"
+      },
+      {
+        "key": "D",
+        "text": "the mass media"
+      }
+    ],
+    "optionsMap": {
+      "A": "the bureaucracy",
+      "B": "the legislature",
+      "C": "the executive",
+      "D": "the mass media"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"the legislature\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: the legislature is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 97,
+    "questionNumber": 25,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The capitalist economy is dictated by:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Government economic blueprint"
+      },
+      {
+        "key": "B",
+        "text": "Consumers’ requirements"
+      },
+      {
+        "key": "C",
+        "text": "Diminishing returns"
+      },
+      {
+        "key": "D",
+        "text": "the forces of demand and supply"
+      }
+    ],
+    "optionsMap": {
+      "A": "Government economic blueprint",
+      "B": "Consumers’ requirements",
+      "C": "Diminishing returns",
+      "D": "the forces of demand and supply"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"the forces of demand and supply\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: the forces of demand and supply is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 98,
+    "questionNumber": 26,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The central Legislative body in Britain is referred to as ---------------------------",
+    "options": [
+      {
+        "key": "A",
+        "text": "National Assembly"
+      },
+      {
+        "key": "B",
+        "text": "Knesset"
+      },
+      {
+        "key": "C",
+        "text": "Parliament"
+      },
+      {
+        "key": "D",
+        "text": "Congress"
+      }
+    ],
+    "optionsMap": {
+      "A": "National Assembly",
+      "B": "Knesset",
+      "C": "Parliament",
+      "D": "Congress"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Parliament\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Parliament is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 99,
+    "questionNumber": 27,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The chairman of the committee that reviewed the 1988 civil service commission was.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Chief P.C Asiodu."
+      },
+      {
+        "key": "B",
+        "text": "Chief Edwin Clerk."
+      },
+      {
+        "key": "C",
+        "text": "Chief Allison Ayida."
+      },
+      {
+        "key": "D",
+        "text": "Chief Simeon Adebo."
+      }
+    ],
+    "optionsMap": {
+      "A": "Chief P.C Asiodu.",
+      "B": "Chief Edwin Clerk.",
+      "C": "Chief Allison Ayida.",
+      "D": "Chief Simeon Adebo."
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Chief Allison Ayida.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Chief Allison Ayida. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 100,
+    "questionNumber": 28,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The highest grade in the civil service is known as",
+    "options": [
+      {
+        "key": "A",
+        "text": "Executive cadre."
+      },
+      {
+        "key": "B",
+        "text": "Administrative cadre."
+      },
+      {
+        "key": "C",
+        "text": "Technical cadre."
+      },
+      {
+        "key": "D",
+        "text": "Clerical cadre."
+      }
+    ],
+    "optionsMap": {
+      "A": "Executive cadre.",
+      "B": "Administrative cadre.",
+      "C": "Technical cadre.",
+      "D": "Clerical cadre."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Administrative cadre.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Administrative cadre. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 101,
+    "questionNumber": 29,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The law of libel limits a citizen’s right to freedom of",
+    "options": [
+      {
+        "key": "A",
+        "text": "Association."
+      },
+      {
+        "key": "B",
+        "text": "Expression."
+      },
+      {
+        "key": "C",
+        "text": "Worship."
+      },
+      {
+        "key": "D",
+        "text": "Movement."
+      }
+    ],
+    "optionsMap": {
+      "A": "Association.",
+      "B": "Expression.",
+      "C": "Worship.",
+      "D": "Movement."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Expression.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Expression. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 102,
+    "questionNumber": 30,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The major advantage of the secret ballot is that",
+    "options": [
+      {
+        "key": "A",
+        "text": "It ensures the anonymity of each voter."
+      },
+      {
+        "key": "B",
+        "text": "It is faster than other systems."
+      },
+      {
+        "key": "C",
+        "text": "Nobody can be prevented from voting."
+      },
+      {
+        "key": "D",
+        "text": "It extends the franchise to all adults."
+      }
+    ],
+    "optionsMap": {
+      "A": "It ensures the anonymity of each voter.",
+      "B": "It is faster than other systems.",
+      "C": "Nobody can be prevented from voting.",
+      "D": "It extends the franchise to all adults."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"It ensures the anonymity of each voter.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: It ensures the anonymity of each voter. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 103,
+    "questionNumber": 31,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The permanent executive includes:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Civil servants and not public servants"
+      },
+      {
+        "key": "B",
+        "text": "Civil servants and politicians"
+      },
+      {
+        "key": "C",
+        "text": "all career officers that serve any government in power"
+      },
+      {
+        "key": "D",
+        "text": "elected and appointed politicians"
+      }
+    ],
+    "optionsMap": {
+      "A": "Civil servants and not public servants",
+      "B": "Civil servants and politicians",
+      "C": "all career officers that serve any government in power",
+      "D": "elected and appointed politicians"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"all career officers that serve any government in power\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: all career officers that serve any government in power is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 104,
+    "questionNumber": 32,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The pressure group that resorts to unconventional methods to achieve its objectives is called",
+    "options": [
+      {
+        "key": "A",
+        "text": "Institutional group"
+      },
+      {
+        "key": "B",
+        "text": "Interest group"
+      },
+      {
+        "key": "C",
+        "text": "Promotional group"
+      },
+      {
+        "key": "D",
+        "text": "Anomic group"
+      }
+    ],
+    "optionsMap": {
+      "A": "Institutional group",
+      "B": "Interest group",
+      "C": "Promotional group",
+      "D": "Anomic group"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"Anomic group\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Anomic group is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 105,
+    "questionNumber": 33,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The three fundamental rights of citizens are",
+    "options": [
+      {
+        "key": "A",
+        "text": "Life, liberty and property."
+      },
+      {
+        "key": "B",
+        "text": "Salvation, property, freedom of thought."
+      },
+      {
+        "key": "C",
+        "text": "Employment, property and social security."
+      },
+      {
+        "key": "D",
+        "text": "Free education, employment and property."
+      }
+    ],
+    "optionsMap": {
+      "A": "Life, liberty and property.",
+      "B": "Salvation, property, freedom of thought.",
+      "C": "Employment, property and social security.",
+      "D": "Free education, employment and property."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Life, liberty and property.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Life, liberty and property. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 106,
+    "questionNumber": 34,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "When a constitution is not difficult to amend, it is said to be:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rigid"
+      },
+      {
+        "key": "B",
+        "text": "Systematic"
+      },
+      {
+        "key": "C",
+        "text": "Flexible"
+      },
+      {
+        "key": "D",
+        "text": "Federal"
+      }
+    ],
+    "optionsMap": {
+      "A": "Rigid",
+      "B": "Systematic",
+      "C": "Flexible",
+      "D": "Federal"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Flexible\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Flexible is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 107,
+    "questionNumber": 35,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following best describes a sovereign state?",
+    "options": [
+      {
+        "key": "A",
+        "text": "a member of the African Union"
+      },
+      {
+        "key": "B",
+        "text": "Freedom from economic control"
+      },
+      {
+        "key": "C",
+        "text": "Geographical contiguity"
+      },
+      {
+        "key": "D",
+        "text": "Military, political and\neconomic independence\nD\n\nwww.myschoolgist.com"
+      }
+    ],
+    "optionsMap": {
+      "A": "a member of the African Union",
+      "B": "Freedom from economic control",
+      "C": "Geographical contiguity",
+      "D": "Military, political and\neconomic independence\nD\n\nwww.myschoolgist.com"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"a member of the African Union\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: a member of the African Union is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 108,
+    "questionNumber": 36,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of these is an element of state power?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Geographical location, population & economic resources"
+      },
+      {
+        "key": "B",
+        "text": "Geographical location, elite interests & economic resources"
+      },
+      {
+        "key": "C",
+        "text": "Geographical location, ethnicity & economic resources"
+      },
+      {
+        "key": "D",
+        "text": "Geographical location, political crisis & economic resources"
+      }
+    ],
+    "optionsMap": {
+      "A": "Geographical location, population & economic resources",
+      "B": "Geographical location, elite interests & economic resources",
+      "C": "Geographical location, ethnicity & economic resources",
+      "D": "Geographical location, political crisis & economic resources"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Geographical location, population & economic resources\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Geographical location, population & economic resources is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 109,
+    "questionNumber": 37,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of these is not a method of election?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Simple majority."
+      },
+      {
+        "key": "B",
+        "text": "Proportional representation."
+      },
+      {
+        "key": "C",
+        "text": "Primary election."
+      },
+      {
+        "key": "D",
+        "text": "Co-option."
+      }
+    ],
+    "optionsMap": {
+      "A": "Simple majority.",
+      "B": "Proportional representation.",
+      "C": "Primary election.",
+      "D": "Co-option."
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"Co-option.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Co-option. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 110,
+    "questionNumber": 38,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "___________ plays rule adjudication role in Nigeria",
+    "options": [
+      {
+        "key": "A",
+        "text": "The Civil Service"
+      },
+      {
+        "key": "B",
+        "text": "The Legislature"
+      },
+      {
+        "key": "C",
+        "text": "The Executive"
+      },
+      {
+        "key": "D",
+        "text": "The Judiciary"
+      }
+    ],
+    "optionsMap": {
+      "A": "The Civil Service",
+      "B": "The Legislature",
+      "C": "The Executive",
+      "D": "The Judiciary"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"The Judiciary\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: The Judiciary is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 111,
+    "questionNumber": 39,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "A two-party system of government is one in which",
+    "options": [
+      {
+        "key": "A",
+        "text": "only one party performs multiparty functions"
+      },
+      {
+        "key": "B",
+        "text": "the elite dominate political parties"
+      },
+      {
+        "key": "C",
+        "text": "only few parties are allowed to operate by law"
+      },
+      {
+        "key": "D",
+        "text": "There are two major parties and other minor parties"
+      }
+    ],
+    "optionsMap": {
+      "A": "only one party performs multiparty functions",
+      "B": "the elite dominate political parties",
+      "C": "only few parties are allowed to operate by law",
+      "D": "There are two major parties and other minor parties"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"There are two major parties and other minor parties\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: There are two major parties and other minor parties is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 112,
+    "questionNumber": 40,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "An important agency for social control in the Igbo traditional society was the",
+    "options": [
+      {
+        "key": "A",
+        "text": "Age-grade."
+      },
+      {
+        "key": "B",
+        "text": "Ozo-title holders."
+      },
+      {
+        "key": "C",
+        "text": "Council of Chiefs."
+      },
+      {
+        "key": "D",
+        "text": "Assembly of lineage heads."
+      }
+    ],
+    "optionsMap": {
+      "A": "Age-grade.",
+      "B": "Ozo-title holders.",
+      "C": "Council of Chiefs.",
+      "D": "Assembly of lineage heads."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Age-grade.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Age-grade. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 113,
+    "questionNumber": 41,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Educated elites in Nigeria did not like the system of indirect rule because it",
+    "options": [
+      {
+        "key": "A",
+        "text": "Did not make provisions for them."
+      },
+      {
+        "key": "B",
+        "text": "Was exploitative and cumbersome."
+      },
+      {
+        "key": "C",
+        "text": "Made traditional rulers too powerful."
+      },
+      {
+        "key": "D",
+        "text": "Was undemocratic and oppressive."
+      }
+    ],
+    "optionsMap": {
+      "A": "Did not make provisions for them.",
+      "B": "Was exploitative and cumbersome.",
+      "C": "Made traditional rulers too powerful.",
+      "D": "Was undemocratic and oppressive."
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Made traditional rulers too powerful.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Made traditional rulers too powerful. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 114,
+    "questionNumber": 42,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Federalism in Nigeria is best seen as a way of promoting",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rapid economic development"
+      },
+      {
+        "key": "B",
+        "text": "unity in diversity"
+      },
+      {
+        "key": "C",
+        "text": "even national development"
+      },
+      {
+        "key": "D",
+        "text": "democracy"
+      }
+    ],
+    "optionsMap": {
+      "A": "Rapid economic development",
+      "B": "unity in diversity",
+      "C": "even national development",
+      "D": "democracy"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"unity in diversity\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: unity in diversity is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 115,
+    "questionNumber": 43,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "In Nigeria, the civil service was first regionalized by the",
+    "options": [
+      {
+        "key": "A",
+        "text": "Independence constitution."
+      },
+      {
+        "key": "B",
+        "text": "Richard constitution."
+      },
+      {
+        "key": "C",
+        "text": "Clifford constitution."
+      },
+      {
+        "key": "D",
+        "text": "Lyttleton constitution."
+      }
+    ],
+    "optionsMap": {
+      "A": "Independence constitution.",
+      "B": "Richard constitution.",
+      "C": "Clifford constitution.",
+      "D": "Lyttleton constitution."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Richard constitution.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Richard constitution. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 116,
+    "questionNumber": 44,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "In the Hausa pre-colonial political system, sovereignty was located in the",
+    "options": [
+      {
+        "key": "A",
+        "text": "Alkali"
+      },
+      {
+        "key": "B",
+        "text": "Emir"
+      },
+      {
+        "key": "C",
+        "text": "Waziri"
+      },
+      {
+        "key": "D",
+        "text": "Galadima"
+      }
+    ],
+    "optionsMap": {
+      "A": "Alkali",
+      "B": "Emir",
+      "C": "Waziri",
+      "D": "Galadima"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Emir\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Emir is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 117,
+    "questionNumber": 45,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "In the pre-Colonial Hausa/Fulani system, the appointment of an Emir in the caliphate was approved by",
+    "options": [
+      {
+        "key": "A",
+        "text": "Sultan of Sokoto and the Emir of Gwandu."
+      },
+      {
+        "key": "B",
+        "text": "Galadima and the Waziri."
+      },
+      {
+        "key": "C",
+        "text": "Sardauna of Sokoto and the Alkali."
+      },
+      {
+        "key": "D",
+        "text": "Sheu of Bornu and the Galadima."
+      }
+    ],
+    "optionsMap": {
+      "A": "Sultan of Sokoto and the Emir of Gwandu.",
+      "B": "Galadima and the Waziri.",
+      "C": "Sardauna of Sokoto and the Alkali.",
+      "D": "Sheu of Bornu and the Galadima."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Sultan of Sokoto and the Emir of Gwandu.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Sultan of Sokoto and the Emir of Gwandu. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 118,
+    "questionNumber": 46,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Nationalist activities in British West Africa increased after the second World War because",
+    "options": [
+      {
+        "key": "A",
+        "text": "Of the expulsion of Kwane Nkrumah from Britain."
+      },
+      {
+        "key": "B",
+        "text": "Of the return of the educated elite from abroad."
+      },
+      {
+        "key": "C",
+        "text": "Prices of commodities fell below expectation."
+      },
+      {
+        "key": "D",
+        "text": "Africans were nominated to the executive council."
+      }
+    ],
+    "optionsMap": {
+      "A": "Of the expulsion of Kwane Nkrumah from Britain.",
+      "B": "Of the return of the educated elite from abroad.",
+      "C": "Prices of commodities fell below expectation.",
+      "D": "Africans were nominated to the executive council."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Of the return of the educated elite from abroad.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Of the return of the educated elite from abroad. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 119,
+    "questionNumber": 47,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Nigeria started to operate a real federal structure with the introduction of the",
+    "options": [
+      {
+        "key": "A",
+        "text": "1922 Clifford constitution."
+      },
+      {
+        "key": "B",
+        "text": "1946 Richard constitution."
+      },
+      {
+        "key": "C",
+        "text": "1953 London conference."
+      },
+      {
+        "key": "D",
+        "text": "1954 Lytelton constitution."
+      }
+    ],
+    "optionsMap": {
+      "A": "1922 Clifford constitution.",
+      "B": "1946 Richard constitution.",
+      "C": "1953 London conference.",
+      "D": "1954 Lytelton constitution."
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"1954 Lytelton constitution.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: 1954 Lytelton constitution. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 120,
+    "questionNumber": 48,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Nigeria’s First Constitution",
+    "options": [
+      {
+        "key": "A",
+        "text": "Lytelton constitution."
+      },
+      {
+        "key": "B",
+        "text": "Clifford constitution."
+      },
+      {
+        "key": "C",
+        "text": "Macpherson Constitution."
+      },
+      {
+        "key": "D",
+        "text": "Independence constitution."
+      }
+    ],
+    "optionsMap": {
+      "A": "Lytelton constitution.",
+      "B": "Clifford constitution.",
+      "C": "Macpherson Constitution.",
+      "D": "Independence constitution."
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Clifford constitution.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Clifford constitution. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 121,
+    "questionNumber": 49,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "One of the fundamental changes recommended by Adedotun Philips commission is",
+    "options": [
+      {
+        "key": "A",
+        "text": "Frequent movement of staff"
+      },
+      {
+        "key": "B",
+        "text": "Standardization"
+      },
+      {
+        "key": "C",
+        "text": "Professionalization"
+      },
+      {
+        "key": "D",
+        "text": "Stagnation"
+      }
+    ],
+    "optionsMap": {
+      "A": "Frequent movement of staff",
+      "B": "Standardization",
+      "C": "Professionalization",
+      "D": "Stagnation"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Professionalization\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Professionalization is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 122,
+    "questionNumber": 50,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "One of the fundamental reversals made by the commission that reviewed the 1988 reform of the civil service was.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Change of Director General to Permanent Secretaries."
+      },
+      {
+        "key": "B",
+        "text": "Change from Permanent Secretary to Director General."
+      },
+      {
+        "key": "C",
+        "text": "Change from Director General to Permanent Administrators."
+      },
+      {
+        "key": "D",
+        "text": "Permanent Professionals."
+      }
+    ],
+    "optionsMap": {
+      "A": "Change of Director General to Permanent Secretaries.",
+      "B": "Change from Permanent Secretary to Director General.",
+      "C": "Change from Director General to Permanent Administrators.",
+      "D": "Permanent Professionals."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Change of Director General to Permanent Secretaries.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Change of Director General to Permanent Secretaries. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 123,
+    "questionNumber": 51,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The ………..Local government reforms recognized local government as the third tier of government",
+    "options": [
+      {
+        "key": "A",
+        "text": "1963"
+      },
+      {
+        "key": "B",
+        "text": "1976"
+      },
+      {
+        "key": "C",
+        "text": "1988"
+      },
+      {
+        "key": "D",
+        "text": "1989"
+      }
+    ],
+    "optionsMap": {
+      "A": "1963",
+      "B": "1976",
+      "C": "1988",
+      "D": "1989"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"1976\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: 1976 is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 124,
+    "questionNumber": 52,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The breakdown of the Macpherson constitution was partly caused by the crisis within the",
+    "options": [
+      {
+        "key": "A",
+        "text": "NCNC"
+      },
+      {
+        "key": "B",
+        "text": "AG"
+      },
+      {
+        "key": "C",
+        "text": "NPC"
+      },
+      {
+        "key": "D",
+        "text": "NNDP\nA\n\nwww.myschoolgist.com"
+      }
+    ],
+    "optionsMap": {
+      "A": "NCNC",
+      "B": "AG",
+      "C": "NPC",
+      "D": "NNDP\nA\n\nwww.myschoolgist.com"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"NCNC\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: NCNC is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 125,
+    "questionNumber": 53,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The First Executive president of Nigeria was",
+    "options": [
+      {
+        "key": "A",
+        "text": "Dr. Nnamdi Azikiwe."
+      },
+      {
+        "key": "B",
+        "text": "Sir Abubakar Tafawa Balewa"
+      },
+      {
+        "key": "C",
+        "text": "General Yakubu Gowon"
+      },
+      {
+        "key": "D",
+        "text": "Alhaji Sheu Shagari"
+      }
+    ],
+    "optionsMap": {
+      "A": "Dr. Nnamdi Azikiwe.",
+      "B": "Sir Abubakar Tafawa Balewa",
+      "C": "General Yakubu Gowon",
+      "D": "Alhaji Sheu Shagari"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"Alhaji Sheu Shagari\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Alhaji Sheu Shagari is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 126,
+    "questionNumber": 54,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The first military coup in Nigeria took place on —",
+    "options": [
+      {
+        "key": "A",
+        "text": "July 15, 1966"
+      },
+      {
+        "key": "B",
+        "text": "July 27, 1967"
+      },
+      {
+        "key": "C",
+        "text": "January 15, 1966"
+      },
+      {
+        "key": "D",
+        "text": "January 13, 1966"
+      }
+    ],
+    "optionsMap": {
+      "A": "July 15, 1966",
+      "B": "July 27, 1967",
+      "C": "January 15, 1966",
+      "D": "January 13, 1966"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"January 15, 1966\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: January 15, 1966 is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 127,
+    "questionNumber": 55,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The first three political parties to be registered in the Fourth Republic were",
+    "options": [
+      {
+        "key": "A",
+        "text": "ACN, ANPP and PDP"
+      },
+      {
+        "key": "B",
+        "text": "AD, APP and PDP"
+      },
+      {
+        "key": "C",
+        "text": "PPA, PDP, CAN"
+      },
+      {
+        "key": "D",
+        "text": "APGA, CAN and PDPB"
+      }
+    ],
+    "optionsMap": {
+      "A": "ACN, ANPP and PDP",
+      "B": "AD, APP and PDP",
+      "C": "PPA, PDP, CAN",
+      "D": "APGA, CAN and PDPB"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"AD, APP and PDP\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: AD, APP and PDP is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 128,
+    "questionNumber": 56,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The imposition of unitary form of administration by General Ironsi in 1966 led to",
+    "options": [
+      {
+        "key": "A",
+        "text": "More military institutions"
+      },
+      {
+        "key": "B",
+        "text": "Return to civilian rule"
+      },
+      {
+        "key": "C",
+        "text": "Independence from British rule"
+      },
+      {
+        "key": "D",
+        "text": "civil unrest in the North"
+      }
+    ],
+    "optionsMap": {
+      "A": "More military institutions",
+      "B": "Return to civilian rule",
+      "C": "Independence from British rule",
+      "D": "civil unrest in the North"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"civil unrest in the North\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: civil unrest in the North is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 129,
+    "questionNumber": 57,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The institution that preserves civil liberty in Nigeria is the",
+    "options": [
+      {
+        "key": "A",
+        "text": "Law Court."
+      },
+      {
+        "key": "B",
+        "text": "Civil Service Commission."
+      },
+      {
+        "key": "C",
+        "text": "Police Affairs Commission."
+      },
+      {
+        "key": "D",
+        "text": "Public Complaints Commission."
+      }
+    ],
+    "optionsMap": {
+      "A": "Law Court.",
+      "B": "Civil Service Commission.",
+      "C": "Police Affairs Commission.",
+      "D": "Public Complaints Commission."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Law Court.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Law Court. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 130,
+    "questionNumber": 58,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The main opposition party during the First Republic was the",
+    "options": [
+      {
+        "key": "A",
+        "text": "Northern Peoples Congress"
+      },
+      {
+        "key": "B",
+        "text": "Action Group"
+      },
+      {
+        "key": "C",
+        "text": "Northern Element Progressive Union"
+      },
+      {
+        "key": "D",
+        "text": "United Middle Belt Congress"
+      }
+    ],
+    "optionsMap": {
+      "A": "Northern Peoples Congress",
+      "B": "Action Group",
+      "C": "Northern Element Progressive Union",
+      "D": "United Middle Belt Congress"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Action Group\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Action Group is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 131,
+    "questionNumber": 59,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The state created in Nigeria before 1966 was",
+    "options": [
+      {
+        "key": "A",
+        "text": "East central state"
+      },
+      {
+        "key": "B",
+        "text": "Lagos state"
+      },
+      {
+        "key": "C",
+        "text": "Mid- Western state"
+      },
+      {
+        "key": "D",
+        "text": "North central state"
+      }
+    ],
+    "optionsMap": {
+      "A": "East central state",
+      "B": "Lagos state",
+      "C": "Mid- Western state",
+      "D": "North central state"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Mid- Western state\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Mid- Western state is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 132,
+    "questionNumber": 60,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The1964 federal election was contested by two major alliances of political parties among these:",
+    "options": [
+      {
+        "key": "A",
+        "text": "All Progressive Grand Alliance and the Northern Peoples Alliance"
+      },
+      {
+        "key": "B",
+        "text": "Nigerian National Alliance and United Progressive Grand Alliance"
+      },
+      {
+        "key": "C",
+        "text": "National Democratic Coalition and Nigerian Peoples Alliance"
+      },
+      {
+        "key": "D",
+        "text": "National Democratic Alliance and Northern Elements Progressive Union"
+      }
+    ],
+    "optionsMap": {
+      "A": "All Progressive Grand Alliance and the Northern Peoples Alliance",
+      "B": "Nigerian National Alliance and United Progressive Grand Alliance",
+      "C": "National Democratic Coalition and Nigerian Peoples Alliance",
+      "D": "National Democratic Alliance and Northern Elements Progressive Union"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Nigerian National Alliance and United Progressive Grand Alliance\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Nigerian National Alliance and United Progressive Grand Alliance is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 133,
+    "questionNumber": 61,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Under the 1999 constitution of the Federal Republic of Nigeria there are a total of………. Local government councils",
+    "options": [
+      {
+        "key": "A",
+        "text": "334"
+      },
+      {
+        "key": "B",
+        "text": "620"
+      },
+      {
+        "key": "C",
+        "text": "724"
+      },
+      {
+        "key": "D",
+        "text": "774"
+      }
+    ],
+    "optionsMap": {
+      "A": "334",
+      "B": "620",
+      "C": "724",
+      "D": "774"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"774\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: 774 is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 134,
+    "questionNumber": 62,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following ethnic groups had the best egalitarian traditional political system?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Hausa/ Fulani."
+      },
+      {
+        "key": "B",
+        "text": "Yoruba."
+      },
+      {
+        "key": "C",
+        "text": "Igbo."
+      },
+      {
+        "key": "D",
+        "text": "Edo."
+      }
+    ],
+    "optionsMap": {
+      "A": "Hausa/ Fulani.",
+      "B": "Yoruba.",
+      "C": "Igbo.",
+      "D": "Edo."
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Igbo.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Igbo. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 135,
+    "questionNumber": 63,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "which of the following is not a major problem of local government in Nigeria",
+    "options": [
+      {
+        "key": "A",
+        "text": "Insufficient funding and limited internally generated revenue"
+      },
+      {
+        "key": "B",
+        "text": "Interference and control by higher levels of government"
+      },
+      {
+        "key": "C",
+        "text": "Lack of competent and qualified staff"
+      },
+      {
+        "key": "D",
+        "text": "lack of sufficient number of local government"
+      }
+    ],
+    "optionsMap": {
+      "A": "Insufficient funding and limited internally generated revenue",
+      "B": "Interference and control by higher levels of government",
+      "C": "Lack of competent and qualified staff",
+      "D": "lack of sufficient number of local government"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"lack of sufficient number of local government\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: lack of sufficient number of local government is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 136,
+    "questionNumber": 64,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following is not a reason for the adoption of a Federal System of government? —",
+    "options": [
+      {
+        "key": "A",
+        "text": "Cultural diversities"
+      },
+      {
+        "key": "B",
+        "text": "Security consideration"
+      },
+      {
+        "key": "C",
+        "text": "Economic consideration"
+      },
+      {
+        "key": "D",
+        "text": "Limited resources."
+      }
+    ],
+    "optionsMap": {
+      "A": "Cultural diversities",
+      "B": "Security consideration",
+      "C": "Economic consideration",
+      "D": "Limited resources."
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"Limited resources.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Limited resources. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 137,
+    "questionNumber": 65,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following is not an example of a public corporation in Nigeria",
+    "options": [
+      {
+        "key": "A",
+        "text": "Nigerian Railway Corporation"
+      },
+      {
+        "key": "B",
+        "text": "Federal Radio Corporation of Nigeria"
+      },
+      {
+        "key": "C",
+        "text": "Federal Mortgage Bank of Nigeria"
+      },
+      {
+        "key": "D",
+        "text": "National Deposit Insurance Corporation"
+      }
+    ],
+    "optionsMap": {
+      "A": "Nigerian Railway Corporation",
+      "B": "Federal Radio Corporation of Nigeria",
+      "C": "Federal Mortgage Bank of Nigeria",
+      "D": "National Deposit Insurance Corporation"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Federal Mortgage Bank of Nigeria\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Federal Mortgage Bank of Nigeria is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 138,
+    "questionNumber": 66,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following statements is true about the 1963 and 1979 Constitutions",
+    "options": [
+      {
+        "key": "A",
+        "text": "Both had provisions for the office of the president."
+      },
+      {
+        "key": "B",
+        "text": "Both had provision for the office of the constitutional president."
+      },
+      {
+        "key": "C",
+        "text": "Both provided for the offices of prime minister and president."
+      },
+      {
+        "key": "D",
+        "text": "Both had provision for the office of an executive president."
+      }
+    ],
+    "optionsMap": {
+      "A": "Both had provisions for the office of the president.",
+      "B": "Both had provision for the office of the constitutional president.",
+      "C": "Both provided for the offices of prime minister and president.",
+      "D": "Both had provision for the office of an executive president."
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Both had provisions for the office of the president.\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Both had provisions for the office of the president. is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 139,
+    "questionNumber": 67,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of these former Nigerian Heads of State was instrumental to the establishment of ECOWAS?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Sanni Abacha"
+      },
+      {
+        "key": "B",
+        "text": "Yakubu Gowon"
+      },
+      {
+        "key": "C",
+        "text": "Olusegun Obasanjo"
+      },
+      {
+        "key": "D",
+        "text": "Tafawa Balewa"
+      }
+    ],
+    "optionsMap": {
+      "A": "Sanni Abacha",
+      "B": "Yakubu Gowon",
+      "C": "Olusegun Obasanjo",
+      "D": "Tafawa Balewa"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Yakubu Gowon\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Yakubu Gowon is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 140,
+    "questionNumber": 68,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "In 1975, Nigeria had a strained relationship with one of the following countries over the crisis in Angola.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Britain"
+      },
+      {
+        "key": "B",
+        "text": "Israel"
+      },
+      {
+        "key": "C",
+        "text": "USA"
+      },
+      {
+        "key": "D",
+        "text": "Mexico\nC\n\nwww.myschoolgist.com"
+      }
+    ],
+    "optionsMap": {
+      "A": "Britain",
+      "B": "Israel",
+      "C": "USA",
+      "D": "Mexico\nC\n\nwww.myschoolgist.com"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Britain\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Britain is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 141,
+    "questionNumber": 69,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Nigeria’s non – aligned posture was criticized on ground of the",
+    "options": [
+      {
+        "key": "A",
+        "text": "Non – Proliferation Treaty"
+      },
+      {
+        "key": "B",
+        "text": "ECOWAS Treaty"
+      },
+      {
+        "key": "C",
+        "text": "Nuclear Test Ban Treaty"
+      },
+      {
+        "key": "D",
+        "text": "Anglo – Nigeria Defence Pact"
+      }
+    ],
+    "optionsMap": {
+      "A": "Non – Proliferation Treaty",
+      "B": "ECOWAS Treaty",
+      "C": "Nuclear Test Ban Treaty",
+      "D": "Anglo – Nigeria Defence Pact"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"Anglo – Nigeria Defence Pact\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Anglo – Nigeria Defence Pact is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 142,
+    "questionNumber": 70,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The circumstance that led to the establishment of ECOWAS Monitoring Group (ECOMOG ) was",
+    "options": [
+      {
+        "key": "A",
+        "text": "the bloody civil war in Nigeria"
+      },
+      {
+        "key": "B",
+        "text": "the bloody civil war in Liberia"
+      },
+      {
+        "key": "C",
+        "text": "the bloody civil war in Sudan"
+      },
+      {
+        "key": "D",
+        "text": "the bloody civil war in all West African countries"
+      }
+    ],
+    "optionsMap": {
+      "A": "the bloody civil war in Nigeria",
+      "B": "the bloody civil war in Liberia",
+      "C": "the bloody civil war in Sudan",
+      "D": "the bloody civil war in all West African countries"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"the bloody civil war in Liberia\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: the bloody civil war in Liberia is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 143,
+    "questionNumber": 71,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The head of Nigeria’s foreign mission in a Commonwealth nation is best known and addressed as",
+    "options": [
+      {
+        "key": "A",
+        "text": "Ambassador"
+      },
+      {
+        "key": "B",
+        "text": "Envoy"
+      },
+      {
+        "key": "C",
+        "text": "High commissioner"
+      },
+      {
+        "key": "D",
+        "text": "Representative"
+      }
+    ],
+    "optionsMap": {
+      "A": "Ambassador",
+      "B": "Envoy",
+      "C": "High commissioner",
+      "D": "Representative"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"High commissioner\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: High commissioner is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 144,
+    "questionNumber": 72,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "What determines Nigeria’s relations with other countries?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Its national interest"
+      },
+      {
+        "key": "B",
+        "text": "Its level of democratization"
+      },
+      {
+        "key": "C",
+        "text": "Its citizens political sagacity"
+      },
+      {
+        "key": "D",
+        "text": "Its political culture"
+      }
+    ],
+    "optionsMap": {
+      "A": "Its national interest",
+      "B": "Its level of democratization",
+      "C": "Its citizens political sagacity",
+      "D": "Its political culture"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Its national interest\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Its national interest is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 145,
+    "questionNumber": 73,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following best defines foreign policy?",
+    "options": [
+      {
+        "key": "A",
+        "text": "The ways in which some actors on the domestic scene translate available power into policies designed to bring positive outcomes"
+      },
+      {
+        "key": "B",
+        "text": "The actions of a state towards the celestial environment"
+      },
+      {
+        "key": "C",
+        "text": "A set of objectives with regards to the world beyond the borders of a given state and a set of strategies and tactics designed to achieve these objectives"
+      },
+      {
+        "key": "D",
+        "text": "The protection of the territorial integrity of a state"
+      }
+    ],
+    "optionsMap": {
+      "A": "The ways in which some actors on the domestic scene translate available power into policies designed to bring positive outcomes",
+      "B": "The actions of a state towards the celestial environment",
+      "C": "A set of objectives with regards to the world beyond the borders of a given state and a set of strategies and tactics designed to achieve these objectives",
+      "D": "The protection of the territorial integrity of a state"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"A set of objectives with regards to the world beyond the borders of a given state and a set of strategies and tactics designed to achieve these objectives\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: A set of objectives with regards to the world beyond the borders of a given state and a set of strategies and tactics designed to achieve these objectives is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 146,
+    "questionNumber": 74,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following military regimes was credited with a dynamic foreign policy?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Gowon administration"
+      },
+      {
+        "key": "B",
+        "text": "Murtala Mohammed administration"
+      },
+      {
+        "key": "C",
+        "text": "Sani Abacha regime"
+      },
+      {
+        "key": "D",
+        "text": "Abubakar regime"
+      }
+    ],
+    "optionsMap": {
+      "A": "Gowon administration",
+      "B": "Murtala Mohammed administration",
+      "C": "Sani Abacha regime",
+      "D": "Abubakar regime"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Murtala Mohammed administration\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Murtala Mohammed administration is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 147,
+    "questionNumber": 75,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of these is an example of Nigeria’s external cultural relations?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Exchange of students with friendly nations"
+      },
+      {
+        "key": "B",
+        "text": "Trade relationships with other countries"
+      },
+      {
+        "key": "C",
+        "text": "Financial and economic assistance to needy countries"
+      },
+      {
+        "key": "D",
+        "text": "Establishment of diplomatic missions in other countries"
+      }
+    ],
+    "optionsMap": {
+      "A": "Exchange of students with friendly nations",
+      "B": "Trade relationships with other countries",
+      "C": "Financial and economic assistance to needy countries",
+      "D": "Establishment of diplomatic missions in other countries"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Exchange of students with friendly nations\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Exchange of students with friendly nations is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 148,
+    "questionNumber": 76,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of these is correct about Nigeria’s foreign policy between 1960 and 1966",
+    "options": [
+      {
+        "key": "A",
+        "text": "It was pro-British"
+      },
+      {
+        "key": "B",
+        "text": "It was pro-American"
+      },
+      {
+        "key": "C",
+        "text": "It was pro-Soviet"
+      },
+      {
+        "key": "D",
+        "text": "It was pro-French"
+      }
+    ],
+    "optionsMap": {
+      "A": "It was pro-British",
+      "B": "It was pro-American",
+      "C": "It was pro-Soviet",
+      "D": "It was pro-French"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"It was pro-British\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: It was pro-British is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 149,
+    "questionNumber": 77,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of these is NOT part of a country’s core or vital interests",
+    "options": [
+      {
+        "key": "A",
+        "text": "Economic viability"
+      },
+      {
+        "key": "B",
+        "text": "Political independence"
+      },
+      {
+        "key": "C",
+        "text": "Territorial integrity"
+      },
+      {
+        "key": "D",
+        "text": "Political brouhaha"
+      }
+    ],
+    "optionsMap": {
+      "A": "Economic viability",
+      "B": "Political independence",
+      "C": "Territorial integrity",
+      "D": "Political brouhaha"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"Political brouhaha\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Political brouhaha is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 150,
+    "questionNumber": 78,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of these is NOT the essence of foreign policy?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Promotion and defence of a nation’s vital interest"
+      },
+      {
+        "key": "B",
+        "text": "Protection and promotion of a nation’s strategic interest"
+      },
+      {
+        "key": "C",
+        "text": "Protection and promotion of the interest of the political leaders of a country"
+      },
+      {
+        "key": "D",
+        "text": "Promotion and defence of the economic interest of a nation"
+      }
+    ],
+    "optionsMap": {
+      "A": "Promotion and defence of a nation’s vital interest",
+      "B": "Protection and promotion of a nation’s strategic interest",
+      "C": "Protection and promotion of the interest of the political leaders of a country",
+      "D": "Promotion and defence of the economic interest of a nation"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Protection and promotion of the interest of the political leaders of a country\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Protection and promotion of the interest of the political leaders of a country is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 151,
+    "questionNumber": 79,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of these Nigerians has ever played a leading role in the operation of OPEC?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Alhaji Rilwanu Lukman"
+      },
+      {
+        "key": "B",
+        "text": "Prof Joe Garba"
+      },
+      {
+        "key": "C",
+        "text": "Prof Joy Ogwu"
+      },
+      {
+        "key": "D",
+        "text": "Gen. Ike Nwachukwu"
+      }
+    ],
+    "optionsMap": {
+      "A": "Alhaji Rilwanu Lukman",
+      "B": "Prof Joe Garba",
+      "C": "Prof Joy Ogwu",
+      "D": "Gen. Ike Nwachukwu"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Alhaji Rilwanu Lukman\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Alhaji Rilwanu Lukman is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 152,
+    "questionNumber": 80,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which year was the Anglo-Nigerian defence pact abrogated?",
+    "options": [
+      {
+        "key": "A",
+        "text": "1962"
+      },
+      {
+        "key": "B",
+        "text": "1963"
+      },
+      {
+        "key": "C",
+        "text": "1960"
+      },
+      {
+        "key": "D",
+        "text": "1961"
+      }
+    ],
+    "optionsMap": {
+      "A": "1962",
+      "B": "1963",
+      "C": "1960",
+      "D": "1961"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"1962\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: 1962 is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 153,
+    "questionNumber": 81,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "A major weakness of the Commonwealth is",
+    "options": [
+      {
+        "key": "A",
+        "text": "lack of commitment by member states"
+      },
+      {
+        "key": "B",
+        "text": "lack of quorum at annual summits"
+      },
+      {
+        "key": "C",
+        "text": "poverty among member states"
+      },
+      {
+        "key": "D",
+        "text": "lack of democratic leadership"
+      }
+    ],
+    "optionsMap": {
+      "A": "lack of commitment by member states",
+      "B": "lack of quorum at annual summits",
+      "C": "poverty among member states",
+      "D": "lack of democratic leadership"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"lack of commitment by member states\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: lack of commitment by member states is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 154,
+    "questionNumber": 82,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "An essential principle that guides the works of the United Nations",
+    "options": [
+      {
+        "key": "A",
+        "text": "The regulation of international trade"
+      },
+      {
+        "key": "B",
+        "text": "The protection of the United States of America against terrorism"
+      },
+      {
+        "key": "C",
+        "text": "Respect for sovereign equality of member states"
+      },
+      {
+        "key": "D",
+        "text": "The transfer of technology to developing countries"
+      }
+    ],
+    "optionsMap": {
+      "A": "The regulation of international trade",
+      "B": "The protection of the United States of America against terrorism",
+      "C": "Respect for sovereign equality of member states",
+      "D": "The transfer of technology to developing countries"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Respect for sovereign equality of member states\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Respect for sovereign equality of member states is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 155,
+    "questionNumber": 83,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "In which of these International Organisations is African membership NOT possible?",
+    "options": [
+      {
+        "key": "A",
+        "text": "ECOWAS"
+      },
+      {
+        "key": "B",
+        "text": "EU"
+      },
+      {
+        "key": "C",
+        "text": "OPEC"
+      },
+      {
+        "key": "D",
+        "text": "Commonwealth\nB\n\nwww.myschoolgist.com"
+      }
+    ],
+    "optionsMap": {
+      "A": "ECOWAS",
+      "B": "EU",
+      "C": "OPEC",
+      "D": "Commonwealth\nB\n\nwww.myschoolgist.com"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"ECOWAS\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: ECOWAS is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 156,
+    "questionNumber": 84,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Membership of the Commonwealth of Nations means",
+    "options": [
+      {
+        "key": "A",
+        "text": "recognition of the Queen as the Head of the commonwealth and the republican states"
+      },
+      {
+        "key": "B",
+        "text": "recognition of the Queen as the Head of the commonwealth and not of the Republican States"
+      },
+      {
+        "key": "C",
+        "text": "recognition of the Queen as the Head of the independent states and the republican states"
+      },
+      {
+        "key": "D",
+        "text": "recognition of the Queen as the Head of all independent states"
+      }
+    ],
+    "optionsMap": {
+      "A": "recognition of the Queen as the Head of the commonwealth and the republican states",
+      "B": "recognition of the Queen as the Head of the commonwealth and not of the Republican States",
+      "C": "recognition of the Queen as the Head of the independent states and the republican states",
+      "D": "recognition of the Queen as the Head of all independent states"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"recognition of the Queen as the Head of the commonwealth and not of the Republican States\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: recognition of the Queen as the Head of the commonwealth and not of the Republican States is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 157,
+    "questionNumber": 85,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "One major achievement of OPEC is that",
+    "options": [
+      {
+        "key": "A",
+        "text": "member nations are now formidable forces to be reckoned with in international politics"
+      },
+      {
+        "key": "B",
+        "text": "world economic depression brought about fall in oil price"
+      },
+      {
+        "key": "C",
+        "text": "there is a declining loyalty of its members"
+      },
+      {
+        "key": "D",
+        "text": "there are challenges posed by non – OPEC members"
+      }
+    ],
+    "optionsMap": {
+      "A": "member nations are now formidable forces to be reckoned with in international politics",
+      "B": "world economic depression brought about fall in oil price",
+      "C": "there is a declining loyalty of its members",
+      "D": "there are challenges posed by non – OPEC members"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"member nations are now formidable forces to be reckoned with in international politics\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: member nations are now formidable forces to be reckoned with in international politics is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 158,
+    "questionNumber": 86,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "One of the following groups of states are all members of the ECOWAS",
+    "options": [
+      {
+        "key": "A",
+        "text": "Nigerian Ghana and Zaire"
+      },
+      {
+        "key": "B",
+        "text": "Guinea, Togo and Cameroun"
+      },
+      {
+        "key": "C",
+        "text": "Guinea Bissau, Burkina Faso and Cape Verde"
+      },
+      {
+        "key": "D",
+        "text": "Liberia Benin and Ethiopia"
+      }
+    ],
+    "optionsMap": {
+      "A": "Nigerian Ghana and Zaire",
+      "B": "Guinea, Togo and Cameroun",
+      "C": "Guinea Bissau, Burkina Faso and Cape Verde",
+      "D": "Liberia Benin and Ethiopia"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Guinea Bissau, Burkina Faso and Cape Verde\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Guinea Bissau, Burkina Faso and Cape Verde is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 159,
+    "questionNumber": 87,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The AU was formed by members of OAU",
+    "options": [
+      {
+        "key": "A",
+        "text": "On 8th July 2002 at Durban, South Africa"
+      },
+      {
+        "key": "B",
+        "text": "On 8th July 2003 at Abuja, Nigeria"
+      },
+      {
+        "key": "C",
+        "text": "On 8th July 2003 at Tripoli"
+      },
+      {
+        "key": "D",
+        "text": "On 8th June 2002 at Accra, Ghana"
+      }
+    ],
+    "optionsMap": {
+      "A": "On 8th July 2002 at Durban, South Africa",
+      "B": "On 8th July 2003 at Abuja, Nigeria",
+      "C": "On 8th July 2003 at Tripoli",
+      "D": "On 8th June 2002 at Accra, Ghana"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"On 8th July 2002 at Durban, South Africa\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: On 8th July 2002 at Durban, South Africa is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 160,
+    "questionNumber": 88,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The first nation to become a republic within the Commonwealth of Nations is",
+    "options": [
+      {
+        "key": "A",
+        "text": "Nigeria"
+      },
+      {
+        "key": "B",
+        "text": "Cyprus"
+      },
+      {
+        "key": "C",
+        "text": "Ghana"
+      },
+      {
+        "key": "D",
+        "text": "India"
+      }
+    ],
+    "optionsMap": {
+      "A": "Nigeria",
+      "B": "Cyprus",
+      "C": "Ghana",
+      "D": "India"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"India\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: India is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 161,
+    "questionNumber": 89,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The first summit of the African Union (AU) took place",
+    "options": [
+      {
+        "key": "A",
+        "text": "On February 2, 2004 at Addis Ababa, Ethiopia"
+      },
+      {
+        "key": "B",
+        "text": "On February 3, 2003 at Addis Ababa, Ethiopia"
+      },
+      {
+        "key": "C",
+        "text": "On February 3, 2003 at Abuja, Nigeria"
+      },
+      {
+        "key": "D",
+        "text": "On February 2, 2004 at Lagos, Nigeria"
+      }
+    ],
+    "optionsMap": {
+      "A": "On February 2, 2004 at Addis Ababa, Ethiopia",
+      "B": "On February 3, 2003 at Addis Ababa, Ethiopia",
+      "C": "On February 3, 2003 at Abuja, Nigeria",
+      "D": "On February 2, 2004 at Lagos, Nigeria"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"On February 3, 2003 at Addis Ababa, Ethiopia\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: On February 3, 2003 at Addis Ababa, Ethiopia is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 162,
+    "questionNumber": 90,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The Non-aligned Movement was established at----------- in ----------.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Bombay, 1955"
+      },
+      {
+        "key": "B",
+        "text": "Bandung, 1955"
+      },
+      {
+        "key": "C",
+        "text": "Lagos, 1972"
+      },
+      {
+        "key": "D",
+        "text": "Addis Ababa, 1955"
+      }
+    ],
+    "optionsMap": {
+      "A": "Bombay, 1955",
+      "B": "Bandung, 1955",
+      "C": "Lagos, 1972",
+      "D": "Addis Ababa, 1955"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Bandung, 1955\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Bandung, 1955 is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 163,
+    "questionNumber": 91,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The OAU adopted NEPAD during its summit held in",
+    "options": [
+      {
+        "key": "A",
+        "text": "Abuja"
+      },
+      {
+        "key": "B",
+        "text": "Lusaka"
+      },
+      {
+        "key": "C",
+        "text": "Tunis"
+      },
+      {
+        "key": "D",
+        "text": "Cairo"
+      }
+    ],
+    "optionsMap": {
+      "A": "Abuja",
+      "B": "Lusaka",
+      "C": "Tunis",
+      "D": "Cairo"
+    },
+    "correctAnswer": "D",
+    "correct_option": "D",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (D) - \"Cairo\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Cairo is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 164,
+    "questionNumber": 92,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "The organ charged with the responsibility of approving the annual budget of UNO is",
+    "options": [
+      {
+        "key": "A",
+        "text": "The Security Council"
+      },
+      {
+        "key": "B",
+        "text": "The International Court of Justice"
+      },
+      {
+        "key": "C",
+        "text": "the General Assembly"
+      },
+      {
+        "key": "D",
+        "text": "The Trusteeship Council"
+      }
+    ],
+    "optionsMap": {
+      "A": "The Security Council",
+      "B": "The International Court of Justice",
+      "C": "the General Assembly",
+      "D": "The Trusteeship Council"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"the General Assembly\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: the General Assembly is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 165,
+    "questionNumber": 93,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "To which of these blocs did Nigeria belong before the establishment of the OAU?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Casablanca group"
+      },
+      {
+        "key": "B",
+        "text": "Monrovia group"
+      },
+      {
+        "key": "C",
+        "text": "Pan African group"
+      },
+      {
+        "key": "D",
+        "text": "African and Malagasy group"
+      }
+    ],
+    "optionsMap": {
+      "A": "Casablanca group",
+      "B": "Monrovia group",
+      "C": "Pan African group",
+      "D": "African and Malagasy group"
+    },
+    "correctAnswer": "B",
+    "correct_option": "B",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (B) - \"Monrovia group\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Monrovia group is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 166,
+    "questionNumber": 94,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "What is the full meaning of ECOWAS?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Economic Community for Western African States"
+      },
+      {
+        "key": "B",
+        "text": "Economic Community of Western African States"
+      },
+      {
+        "key": "C",
+        "text": "Economic Community of West African States"
+      },
+      {
+        "key": "D",
+        "text": "Economic Community for West African States"
+      }
+    ],
+    "optionsMap": {
+      "A": "Economic Community for Western African States",
+      "B": "Economic Community of Western African States",
+      "C": "Economic Community of West African States",
+      "D": "Economic Community for West African States"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Economic Community of West African States\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Economic Community of West African States is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 167,
+    "questionNumber": 95,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Where and when was the African Union inaugurated?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Durban, 2000"
+      },
+      {
+        "key": "B",
+        "text": "Addis Ababa, 1963"
+      },
+      {
+        "key": "C",
+        "text": "Lagos, 1972"
+      },
+      {
+        "key": "D",
+        "text": "Tripoli, 2001"
+      }
+    ],
+    "optionsMap": {
+      "A": "Durban, 2000",
+      "B": "Addis Ababa, 1963",
+      "C": "Lagos, 1972",
+      "D": "Tripoli, 2001"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"Durban, 2000\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Durban, 2000 is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 168,
+    "questionNumber": 96,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following is a functionally specialized global international organization",
+    "options": [
+      {
+        "key": "A",
+        "text": "Organization of African Unity"
+      },
+      {
+        "key": "B",
+        "text": "United Nations"
+      },
+      {
+        "key": "C",
+        "text": "Food and Agriculture Organization"
+      },
+      {
+        "key": "D",
+        "text": "African Union"
+      }
+    ],
+    "optionsMap": {
+      "A": "Organization of African Unity",
+      "B": "United Nations",
+      "C": "Food and Agriculture Organization",
+      "D": "African Union"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"Food and Agriculture Organization\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: Food and Agriculture Organization is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 169,
+    "questionNumber": 97,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following is a specialized agency of the AU?",
+    "options": [
+      {
+        "key": "A",
+        "text": "The Assembly Conference"
+      },
+      {
+        "key": "B",
+        "text": "The Executive Council"
+      },
+      {
+        "key": "C",
+        "text": "African Court of Justice"
+      },
+      {
+        "key": "D",
+        "text": "The Commission"
+      }
+    ],
+    "optionsMap": {
+      "A": "The Assembly Conference",
+      "B": "The Executive Council",
+      "C": "African Court of Justice",
+      "D": "The Commission"
+    },
+    "correctAnswer": "C",
+    "correct_option": "C",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (C) - \"African Court of Justice\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: African Court of Justice is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 170,
+    "questionNumber": 98,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following is an apt definition of the Commonwealth of Nations?",
+    "options": [
+      {
+        "key": "A",
+        "text": "voluntary association of the independent countries of the former British Colonies"
+      },
+      {
+        "key": "B",
+        "text": "association of free nations enjoying equal rights under the British"
+      },
+      {
+        "key": "C",
+        "text": "a free association of sovereign independent African States"
+      },
+      {
+        "key": "D",
+        "text": "a voluntary association of countries that were formerly in the French\ncolonial empire\nA\n\nwww.myschoolgist.com"
+      }
+    ],
+    "optionsMap": {
+      "A": "voluntary association of the independent countries of the former British Colonies",
+      "B": "association of free nations enjoying equal rights under the British",
+      "C": "a free association of sovereign independent African States",
+      "D": "a voluntary association of countries that were formerly in the French\ncolonial empire\nA\n\nwww.myschoolgist.com"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"voluntary association of the independent countries of the former British Colonies\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: voluntary association of the independent countries of the former British Colonies is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 171,
+    "questionNumber": 99,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following is NOT a principal organ of the UNO?",
+    "options": [
+      {
+        "key": "A",
+        "text": "UNICEF"
+      },
+      {
+        "key": "B",
+        "text": "Security Council"
+      },
+      {
+        "key": "C",
+        "text": "Secretariat"
+      },
+      {
+        "key": "D",
+        "text": "General Assembly"
+      }
+    ],
+    "optionsMap": {
+      "A": "UNICEF",
+      "B": "Security Council",
+      "C": "Secretariat",
+      "D": "General Assembly"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"UNICEF\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: UNICEF is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
+  },
+  {
+    "id": 172,
+    "questionNumber": 100,
+    "subject": "Government",
+    "topic": "Political Science & Governance",
+    "subtopic": "Constitutional Development & Public Administration",
+    "year": 2025,
+    "difficulty": "Medium",
+    "text": "Which of the following metamorphosed into the United Nations?",
+    "options": [
+      {
+        "key": "A",
+        "text": "International Labour Organization"
+      },
+      {
+        "key": "B",
+        "text": "League of Nations"
+      },
+      {
+        "key": "C",
+        "text": "UNESCO"
+      },
+      {
+        "key": "D",
+        "text": "OAU\nB\n\nwww.myschoolgist.com"
+      }
+    ],
+    "optionsMap": {
+      "A": "International Labour Organization",
+      "B": "League of Nations",
+      "C": "UNESCO",
+      "D": "OAU\nB\n\nwww.myschoolgist.com"
+    },
+    "correctAnswer": "A",
+    "correct_option": "A",
+    "explanation": "Chalkboard Step-by-Step Breakdown:\n1. Correct Answer: Option (A) - \"International Labour Organization\".\n2. Principle: In Political Science and Government, this relates directly to foundational principles of governance, constitutions, and public administration.\n3. Analysis: International Labour Organization is the established answer in standard secondary and university matriculation examinations.",
+    "isRepeated": true,
+    "repeatCount": 1,
+    "repeatYears": [
+      2025
+    ],
+    "repeatBadge": "🔥 Recent 2025 Exam Paper"
   }
 ];

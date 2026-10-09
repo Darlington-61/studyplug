@@ -33,7 +33,7 @@ export const TopicTabs: React.FC<TopicTabsProps> = ({
         onClick={() => onTabChange('note')}
         className={`flex-1 min-w-[60px] py-1.5 rounded-full text-[11px] sm:text-[12px] font-semibold transition-all duration-150 cursor-pointer ${
           activeTab === 'note'
-            ? 'bg-[#004D40] text-white shadow-xs'
+            ? 'bg-[#001028] text-white shadow-xs'
             : 'text-[#66736F] hover:text-[#10201D]'
         }`}
       >
@@ -46,7 +46,7 @@ export const TopicTabs: React.FC<TopicTabsProps> = ({
         onClick={() => onTabChange('resources')}
         className={`flex-1 min-w-[65px] py-1.5 rounded-full text-[11px] sm:text-[12px] font-semibold transition-all duration-150 cursor-pointer ${
           activeTab === 'resources'
-            ? 'bg-[#004D40] text-white shadow-xs'
+            ? 'bg-[#001028] text-white shadow-xs'
             : 'text-[#66736F] hover:text-[#10201D]'
         }`}
       >
@@ -60,7 +60,7 @@ export const TopicTabs: React.FC<TopicTabsProps> = ({
           onClick={() => onTabChange('questions')}
           className={`flex-1 min-w-[75px] py-1.5 rounded-full text-[11px] sm:text-[12px] font-semibold transition-all duration-150 cursor-pointer flex items-center justify-center space-x-1 ${
             activeTab === 'questions'
-              ? 'bg-[#004D40] text-white shadow-xs'
+              ? 'bg-[#001028] text-white shadow-xs'
               : 'text-[#66736F] hover:text-[#10201D]'
           }`}
         >
@@ -69,7 +69,7 @@ export const TopicTabs: React.FC<TopicTabsProps> = ({
             <span
               className={`text-[9.5px] px-1.5 py-0.2 rounded-full font-bold ${
                 activeTab === 'questions'
-                  ? 'bg-[#FFD600] text-[#004D40]'
+                  ? 'bg-[#FFD600] text-[#001028]'
                   : 'bg-[#E4EAE8] text-[#66736F]'
               }`}
             >
@@ -86,7 +86,7 @@ export const TopicTabs: React.FC<TopicTabsProps> = ({
           onClick={() => onTabChange('theory')}
           className={`flex-1 min-w-[75px] py-1.5 rounded-full text-[11px] sm:text-[12px] font-semibold transition-all duration-150 cursor-pointer flex items-center justify-center space-x-1 ${
             activeTab === 'theory'
-              ? 'bg-[#004D40] text-white shadow-xs'
+              ? 'bg-[#001028] text-white shadow-xs'
               : 'text-[#66736F] hover:text-[#10201D]'
           }`}
         >
@@ -95,8 +95,8 @@ export const TopicTabs: React.FC<TopicTabsProps> = ({
             <span
               className={`text-[9.5px] px-1.5 py-0.2 rounded-full font-bold ${
                 activeTab === 'theory'
-                  ? 'bg-[#FFD600] text-[#004D40]'
-                  : 'bg-[#E8F5E9] text-[#004D40]'
+                  ? 'bg-[#FFD600] text-[#001028]'
+                  : 'bg-[#E8F5E9] text-[#001028]'
               }`}
             >
               {theoryCount}
@@ -112,7 +112,7 @@ export const TopicTabs: React.FC<TopicTabsProps> = ({
           onClick={() => onTabChange('practical')}
           className={`flex-1 min-w-[80px] py-1.5 rounded-full text-[11px] sm:text-[12px] font-semibold transition-all duration-150 cursor-pointer flex items-center justify-center space-x-1 ${
             activeTab === 'practical'
-              ? 'bg-[#004D40] text-white shadow-xs'
+              ? 'bg-[#001028] text-white shadow-xs'
               : 'text-[#66736F] hover:text-[#10201D]'
           }`}
         >
@@ -121,7 +121,7 @@ export const TopicTabs: React.FC<TopicTabsProps> = ({
             <span
               className={`text-[9.5px] px-1.5 py-0.2 rounded-full font-bold ${
                 activeTab === 'practical'
-                  ? 'bg-[#FFD600] text-[#004D40]'
+                  ? 'bg-[#FFD600] text-[#001028]'
                   : 'bg-[#E0F2FE] text-[#0284C7]'
               }`}
             >

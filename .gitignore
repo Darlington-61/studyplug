@@ -12,3 +12,43 @@ StudyPlug.apk
 StudyPlug.ipa
 expo-app/node_modules/
 expo-app/.expo/
+
+# Environment and sensitive deployment
+.env
+.env.*
+deploy_live.cjs
+*.php
+
+# Scraper artifacts, temporary screenshots, and raw dumps
+*.dump.txt
+*_dump.txt
+*.png
+!public/**/*.png
+!src/**/*.png
+*.json
+!package.json
+!package-lock.json
+!tsconfig*.json
+!src/**/*.json
+!extracted*/**/*.json
+telegram_*.html
+
+# Temporary root scripts (keep build-standalone.cjs and tracked ones)
+ingest_*.cjs
+append_*.cjs
+dump_*.cjs
+extract_*.cjs
+inspect_*.cjs
+parse_*.cjs
+test_*.cjs
+crop_*.cjs
+fix_*.cjs
+sync_ts.cjs
+restore_helpers.cjs
+run_check.cjs
+count_theory.cjs
+scratch_count_local.js
+extracted_2026_screens/
+extracted_waec_screens/
+diagrams/
+

@@ -5,22 +5,35 @@ const path = require('path');
 
 function cpanelRequest(options, postData) {
   return new Promise((resolve, reject) => {
-    const opts = {
-      ...options,
-      timeout: 600000,
-    };
-    const req = https.request(opts, (res) => {
+    const req = https.request(options, (res) => {
       let body = '';
       const setCookies = res.headers['set-cookie'];
       res.on('data', (chunk) => (body += chunk));
       res.on('end', () => resolve({ statusCode: res.statusCode, headers: res.headers, body, setCookies }));
     });
-    req.on('timeout', () => {
-      req.destroy(new Error('Request timed out after 600s'));
-    });
     req.on('error', reject);
-    if (postData) req.write(postData);
-    req.end();
+    if (postData) {
+      if (Buffer.isBuffer(postData) && postData.length > 500000) {
+        // Stream in chunks with real-time percentage
+        const chunkSize = 256 * 1024;
+        let offset = 0;
+        const total = postData.length;
+        while (offset < total) {
+          const end = Math.min(offset + chunkSize, total);
+          req.write(postData.slice(offset, end));
+          offset = end;
+          const pct = Math.round((offset / total) * 100);
+          process.stdout.write(`\rUpload progress: ${pct}% (${offset}/${total} bytes)`);
+        }
+        console.log('');
+        req.end();
+      } else {
+        req.write(postData);
+        req.end();
+      }
+    } else {
+      req.end();
+    }
   });
 }
 
@@ -71,7 +84,6 @@ async function uploadFile(targetDir, filename, contentBuffer) {
 
   const footer = `\r\n--${boundary}--\r\n`;
 
-  const totalLength = Buffer.byteLength(header) + contentBuffer.length + Buffer.byteLength(footer);
   const multipartBody = Buffer.concat([
     Buffer.from(header, 'utf8'),
     contentBuffer,
@@ -95,47 +107,31 @@ async function uploadFile(targetDir, filename, contentBuffer) {
   );
 
   console.log('Upload response status:', uploadRes.statusCode);
-  const json = JSON.parse(uploadRes.body);
+  let json;
+  try {
+    json = JSON.parse(uploadRes.body);
+  } catch (err) {
+    console.error('Failed to parse JSON response. Full body:');
+    console.error(uploadRes.body.slice(0, 2000));
+    throw err;
+  }
   if (json.status === 1) {
     console.log(`SUCCESS: ${filename} uploaded successfully to ${targetDir}!`);
   } else {
-    console.error('Upload warning/error:', json.errors || json.status);
+    throw new Error(`Upload failed for ${filename}: ` + JSON.stringify(json.errors || json));
   }
 }
 
 async function main() {
   const indexHtmlPath = path.join(__dirname, 'index.html');
   if (!fs.existsSync(indexHtmlPath)) {
-    throw new Error('index.html not found! Run build-standalone first.');
+    throw new Error('index.html not found! Run npm run bundle first.');
   }
   const fileContent = fs.readFileSync(indexHtmlPath);
 
   await loginCpanel();
   await uploadFile('/home/ooezylpj/studyplug.com.ng', 'index.html', fileContent);
-
-  // Upload iOS Icons and PWA Web Manifest
-  const iconFiles = ['manifest.json', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png'];
-  for (const f of iconFiles) {
-    const fPath = path.join(__dirname, f);
-    if (fs.existsSync(fPath)) {
-      await uploadFile('/home/ooezylpj/studyplug.com.ng', f, fs.readFileSync(fPath));
-    }
-  }
-
-  const htaccessContent = Buffer.from(
-    `DirectoryIndex index.html
-
-<IfModule mod_headers.c>
-  <FilesMatch "\\.(html|htm)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
-    Header set Expires 0
-  </FilesMatch>
-</IfModule>
-`,
-    'utf8'
-  );
-  await uploadFile('/home/ooezylpj/studyplug.com.ng', '.htaccess', htaccessContent);
+  console.log('DEPLOYMENT COMPLETE: index.html is live at https://studyplug.com.ng');
 }
 
 main().catch(console.error);

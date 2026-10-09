@@ -10,7 +10,9 @@ export const ExamPaperSelectorModal: React.FC = () => {
     closePaperSelector,
     paperSelectorExam,
     selectedExamPapers,
-    setSelectedExamPapers
+    setSelectedExamPapers,
+    setActiveView,
+    setSelectedExam
   } = useApp();
 
   if (!isPaperSelectorOpen) return null;
@@ -53,7 +55,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/75 backdrop-blur-sm animate-fadeIn">
       <div className="relative w-full max-w-lg bg-white rounded-[24px] border border-[#E4EAE8] shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header Bar with Official Board Branding */}
-        <div className="bg-[#004D40] text-white p-4 sm:p-5 flex items-start justify-between gap-3">
+        <div className="bg-[#001028] text-white p-4 sm:p-5 flex items-start justify-between gap-3">
           <div className="flex items-center space-x-3.5">
             <div className="w-12 h-12 rounded-2xl bg-white/10 p-1.5 border border-white/20 flex items-center justify-center shrink-0 shadow-xs">
               {getLogo()}
@@ -92,7 +94,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
               <button
                 type="button"
                 onClick={handleSelectAll}
-                className="px-2.5 py-1 rounded-[8px] bg-[#E8F5E9] text-[#004D40] hover:bg-[#C8E6C9] font-bold text-[11px] transition cursor-pointer border border-[#004D40]/20"
+                className="px-2.5 py-1 rounded-[8px] bg-[#E8F5E9] text-[#001028] hover:bg-[#C8E6C9] font-bold text-[11px] transition cursor-pointer border border-[#001028]/20"
               >
                 All 3 Papers (Standard Exam)
               </button>
@@ -125,7 +127,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
             onClick={() => togglePaper('OBJ')}
             className={`p-3.5 sm:p-4 rounded-[16px] border-2 transition-all duration-150 cursor-pointer flex items-start space-x-3.5 text-left active:scale-[0.99] ${
               isObjSelected
-                ? 'bg-emerald-50/70 border-[#004D40] shadow-sm'
+                ? 'bg-emerald-50/70 border-[#001028] shadow-sm'
                 : 'bg-white border-[#E4EAE8] hover:border-slate-300 opacity-70'
             }`}
           >
@@ -133,7 +135,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
               <div
                 className={`w-6 h-6 rounded-lg border flex items-center justify-center font-bold text-xs transition ${
                   isObjSelected
-                    ? 'bg-[#004D40] border-[#004D40] text-white shadow-xs'
+                    ? 'bg-[#001028] border-[#001028] text-white shadow-xs'
                     : 'bg-white border-slate-300 text-transparent'
                 }`}
               >
@@ -149,7 +151,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
                     Paper 1: Objective (OBJ / CBT)
                   </h3>
                 </div>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#004D40]/10 text-[#004D40]">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#001028]/10 text-[#001028]">
                   50 Questions
                 </span>
               </div>
@@ -164,7 +166,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
             onClick={() => togglePaper('Theory')}
             className={`p-3.5 sm:p-4 rounded-[16px] border-2 transition-all duration-150 cursor-pointer flex items-start space-x-3.5 text-left active:scale-[0.99] ${
               isTheorySelected
-                ? 'bg-emerald-50/70 border-[#004D40] shadow-sm'
+                ? 'bg-emerald-50/70 border-[#001028] shadow-sm'
                 : 'bg-white border-[#E4EAE8] hover:border-slate-300 opacity-70'
             }`}
           >
@@ -172,7 +174,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
               <div
                 className={`w-6 h-6 rounded-lg border flex items-center justify-center font-bold text-xs transition ${
                   isTheorySelected
-                    ? 'bg-[#004D40] border-[#004D40] text-white shadow-xs'
+                    ? 'bg-[#001028] border-[#001028] text-white shadow-xs'
                     : 'bg-white border-slate-300 text-transparent'
                 }`}
               >
@@ -203,7 +205,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
             onClick={() => togglePaper('Practical')}
             className={`p-3.5 sm:p-4 rounded-[16px] border-2 transition-all duration-150 cursor-pointer flex items-start space-x-3.5 text-left active:scale-[0.99] ${
               isPracticalSelected
-                ? 'bg-emerald-50/70 border-[#004D40] shadow-sm'
+                ? 'bg-emerald-50/70 border-[#001028] shadow-sm'
                 : 'bg-white border-[#E4EAE8] hover:border-slate-300 opacity-70'
             }`}
           >
@@ -211,7 +213,7 @@ export const ExamPaperSelectorModal: React.FC = () => {
               <div
                 className={`w-6 h-6 rounded-lg border flex items-center justify-center font-bold text-xs transition ${
                   isPracticalSelected
-                    ? 'bg-[#004D40] border-[#004D40] text-white shadow-xs'
+                    ? 'bg-[#001028] border-[#001028] text-white shadow-xs'
                     : 'bg-white border-slate-300 text-transparent'
                 }`}
               >
@@ -242,13 +244,26 @@ export const ExamPaperSelectorModal: React.FC = () => {
         <div className="p-4 bg-[#F7F9F8] border-t border-[#E4EAE8] space-y-2">
           <button
             type="button"
-            onClick={closePaperSelector}
-            className="w-full py-3.5 rounded-[14px] bg-[#004D40] hover:bg-[#003B32] text-white font-black text-[14.5px] shadow-floating active:scale-[0.98] transition cursor-pointer flex items-center justify-center space-x-2"
+            onClick={() => {
+              if (setSelectedExam) {
+                setSelectedExam(currentExam as any);
+              }
+              closePaperSelector();
+              setActiveView('practice');
+            }}
+            className="w-full py-3.5 rounded-[14px] bg-[#001028] hover:bg-[#001830] text-white font-black text-[14.5px] shadow-floating active:scale-[0.98] transition cursor-pointer flex items-center justify-center space-x-2"
           >
             <span>Confirm &amp; Open {currentExam} Standard Exam</span>
             <span className="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs">
               {selectedExamPapers.length} {selectedExamPapers.length === 1 ? 'Paper' : 'Papers'} Selected
             </span>
+          </button>
+          <button
+            type="button"
+            onClick={closePaperSelector}
+            className="w-full py-2 text-center text-xs font-bold text-[#66736F] hover:text-[#10201D] transition cursor-pointer"
+          >
+            Save Papers &amp; Stay on Current Screen
           </button>
         </div>
       </div>

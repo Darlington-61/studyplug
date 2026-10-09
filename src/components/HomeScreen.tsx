@@ -1,302 +1,398 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { StudyPlugHeader, ProgressCard, BottomNavigation } from './design-system';
-import { JambLogo, WaecLogo, NecoLogo, NabtebLogo, BeceLogo } from './common/ExamLogos';
-import {
-  AnimatedStudyNotesIcon,
-  AnimatedPracticeIcon,
-  AnimatedMockExamsIcon,
-  AnimatedMotivationIcon
-} from './home/AnimatedFeatureCards';
+import { BrandLogo } from './common/BrandLogo';
+import { HeroBookStack } from './common/HeroBookStack';
+import { BottomNavigation } from './design-system';
+import { MenuDrawer } from './common/MenuDrawer';
+import { STUDENT_MASCOT_IMAGE } from '../assets/studentMascot';
 
 export const HomeScreen: React.FC = () => {
   const {
     setActiveView,
-    setSelectedSubject,
     openAiTutor,
     openMorningTea,
     openDareToDare,
-    studyStreak,
-    overallAccuracy,
-    selectedExam,
-    setSelectedExam
+    setSelectedExam,
+    openGlobalSearch
   } = useApp();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleQuickExam = (exam: string) => {
     setSelectedExam(exam as any);
-    setActiveView('notes');
+    setActiveView('courses');
   };
 
   return (
-    <div className="flex-1 flex flex-col justify-between bg-[#F7F9F8] min-h-screen text-[#10201D] select-none font-sans">
-      {/* ─── Screen 1 Header: Deep Green (#004D40) with Brand Logo & Greeting ─── */}
-      <StudyPlugHeader
-        showBrand={true}
-        title="Good morning, Darlington 👋"
-        subtitle="Small steps today, big results tomorrow."
-        rightAction={
-          <div className="flex items-center space-x-2">
-            <button
-              type="button"
-              onClick={() => openAiTutor()}
-              className="w-8 h-8 rounded-full bg-[#003B32] border border-[#FFD600]/60 flex items-center justify-center text-[#FFD600] hover:scale-105 transition cursor-pointer"
-              title="Ask StudyPlug AI"
-            >
-              <span className="text-sm">🤖</span>
-            </button>
-            <div className="w-8 h-8 rounded-full bg-[#003B32] border border-white/30 flex items-center justify-center text-xs font-bold text-white shadow-xs">
-              D
-            </div>
-          </div>
-        }
-      />
+    <div className="flex-1 flex flex-col justify-between bg-[#F8F8F8] min-h-screen text-[#001028] select-none font-sans relative">
+      {/* ─── 1. TOP APP BAR: Dark Navy (#001028) with Brand Logo, Greeting & Menu ─── */}
+      <header className="sticky top-0 z-40 w-full bg-[#001028] text-white border-b border-[#001830] shadow-sm">
+        {/* Row 1: Logo & Hamburger */}
+        <div className="h-14 px-4 sm:px-6 flex items-center justify-between">
+          <BrandLogo size="sm" />
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(true)}
+            className="p-1.5 text-white hover:text-[#F8C800] active:scale-95 transition cursor-pointer"
+            aria-label="Open Navigation Menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="w-6 h-6">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
 
-      {/* ─── Main Content Canvas in Off-White (#F7F9F8) ─── */}
-      <main className="flex-1 max-w-md w-full mx-auto px-4 pt-4 pb-6 space-y-4 sm:max-w-xl lg:max-w-4xl">
-        {/* Your Progress Card */}
-        <ProgressCard
-          percentage={overallAccuracy || 72}
-          streakDays={studyStreak || 12}
-          subjectsCount={8}
-          onClick={() => setActiveView('practice')}
-        />
-
-        {/* ☕ Morning Tea Daily Pop-Out Card */}
-        <div
-          onClick={() => openMorningTea()}
-          className="rounded-[20px] bg-gradient-to-r from-[#003B32] via-[#004D40] to-[#0A261D] p-3.5 sm:p-4 text-white shadow-subtle border border-emerald-700/70 cursor-pointer hover:border-[#FFD600] transition active:scale-[0.99] flex items-center justify-between group relative overflow-hidden"
-        >
-          <div className="flex items-center space-x-3">
-            <div className="w-11 h-11 rounded-2xl bg-[#FFD600] text-[#003B32] flex items-center justify-center text-xl font-black shrink-0 shadow-md group-hover:scale-105 transition">
-              ☕
-            </div>
-            <div className="text-left">
-              <div className="flex items-center space-x-1.5">
-                <span className="text-[10px] font-black uppercase tracking-wider bg-[#FFD600] text-[#002820] px-2 py-0.5 rounded-full">
-                  Morning Pop-Out
-                </span>
-                <span className="text-[11px] font-bold text-emerald-200">
-                  🔥 30 Phrasal Verbs
-                </span>
-              </div>
-              <h3 className="text-sm font-black text-white tracking-tight mt-1 leading-snug">
-                30 Common Phrasal Verbs Every UTME Student Should Know
-              </h3>
-              <p className="text-[11px] text-emerald-100/80 font-medium">
-                Daily high-yield exam drop • Audio reader & practice drill
-              </p>
-            </div>
+        {/* Row 2: Student Avatar Greeting */}
+        <div className="px-4 sm:px-6 pb-3 pt-0.5 flex items-center space-x-3 text-left">
+          <div
+            onClick={() => setActiveView('profile')}
+            className="relative cursor-pointer group shrink-0"
+          >
+            <img
+              src={STUDENT_MASCOT_IMAGE}
+              alt="Darlington"
+              className="w-10 h-10 rounded-full object-cover ring-2 ring-[#F8C800] shadow-sm"
+            />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-[#001028]" />
           </div>
-          <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#FFD600] group-hover:text-[#002820] text-white flex items-center justify-center text-sm font-bold shrink-0 transition ml-2">
-            ›
+          <div className="min-w-0">
+            <div className="text-xs sm:text-[13px] font-bold text-white flex items-center space-x-1 truncate">
+              <span>Good Morning, Darlington</span>
+              <span>👋</span>
+            </div>
+            <div className="text-[11px] text-[#8090A0] font-medium leading-tight truncate">
+              Keep going! Your goals are within reach.
+            </div>
           </div>
         </div>
 
-        {/* 2x2 Feature Grid */}
-        {/* 2x2 Animated Feature Grid */}
+        {/* Row 3: Single Clean Unified Search Bar */}
+        <div className="px-4 sm:px-6 pb-3.5">
+          <button
+            type="button"
+            onClick={openGlobalSearch}
+            className="w-full h-11 px-3.5 rounded-xl bg-[#001830] border border-[#002444] text-[#8090A0] hover:text-white hover:border-[#F8C800]/50 transition-all flex items-center space-x-2.5 cursor-pointer shadow-inner group text-left"
+            aria-label="Search questions, topics, subjects, exams"
+          >
+            <span className="text-sm shrink-0 group-hover:scale-110 transition-transform">🔍</span>
+            <span className="text-xs sm:text-[13px] font-normal truncate flex-1 text-[#8090A0] group-hover:text-white">
+              Search questions, topics, subjects, exams...
+            </span>
+          </button>
+        </div>
+      </header>
+
+      {/* ─── 2. MAIN SCROLL CONTAINER ─── */}
+      <main className="flex-1 max-w-md w-full mx-auto px-4 pt-4 pb-28 space-y-4">
+        {/* Hero Card: Small Steps Big Results (Balanced & Matched to Image 1 Mobile) */}
+        <section className="relative overflow-hidden rounded-[24px] bg-[#001028] text-white p-4.5 sm:p-5 shadow-sm border border-[#001830] text-left">
+          {/* Proportioned Geometric Yellow Top-Right Accent */}
+          <div className="absolute top-0 right-0 w-14 h-14 pointer-events-none overflow-hidden rounded-tr-[24px]">
+            <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
+              <polygon points="35,0 100,0 100,65" fill="#F8C800" />
+            </svg>
+          </div>
+
+          <div className="relative z-10 flex items-center justify-between gap-2 sm:gap-4">
+            <div className="space-y-1.5 flex-1 min-w-0 pr-1">
+              <span className="inline-block text-[9.5px] font-extrabold tracking-wider text-[#F8C800] uppercase bg-[#001830] px-2.5 py-0.5 rounded-full border border-[#F8C800]/30 shadow-xs">
+                DAILY GOAL
+              </span>
+              <h2 className="text-lg sm:text-xl font-black tracking-tight text-white leading-tight">
+                Small Steps<br />Big Results
+              </h2>
+              <button
+                type="button"
+                onClick={() => setActiveView('practice')}
+                className="mt-1.5 px-4 py-2 rounded-full bg-[#F8C800] hover:bg-[#FFD21F] active:scale-95 text-[#001028] font-bold text-xs shadow-md transition cursor-pointer inline-flex items-center space-x-1"
+              >
+                <span>Study Now</span>
+                <span className="text-sm font-black">→</span>
+              </button>
+            </div>
+
+            {/* Sleek Graduation Cap with Dream Study Achieve entering that space */}
+            <div className="w-[145px] sm:w-[155px] h-[135px] shrink-0 flex items-center justify-center relative">
+              <HeroBookStack variant="cap-only" className="w-full h-full max-w-[150px]" />
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 2.5 DEDICATED REPEATED QUESTIONS & TOPICS FEATURE CARD ─── */}
+        <section
+          onClick={() => setActiveView('repeated-questions')}
+          className="bg-[#001028] text-white rounded-[24px] p-4 sm:p-5 border border-[#001830] shadow-sm hover:border-[#F8C800] hover:shadow-md transition-all cursor-pointer flex items-center justify-between text-left group relative overflow-hidden"
+        >
+          <div className="space-y-1.5 z-10 flex-1 pr-2">
+            <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-white/10 text-[#F8C800] text-[10px] font-black uppercase tracking-wider">
+              <span>🔁 High-Yield Analysis</span>
+              <span>•</span>
+              <span>JAMB • WAEC • NECO</span>
+            </div>
+            <h3 className="font-extrabold text-sm sm:text-base text-white group-hover:text-[#F8C800] transition leading-snug">
+              Repeated Questions &amp; Topics
+            </h3>
+            <p className="text-[11px] text-[#607080] leading-snug font-normal">
+              Most frequently repeated questions grouped by topic with instant CBT practice
+            </p>
+          </div>
+          <div className="w-11 h-11 rounded-full bg-[#001830] text-[#F8C800] flex items-center justify-center font-bold text-lg group-hover:bg-[#F8C800] group-hover:text-[#001028] group-hover:scale-105 transition-all shrink-0 shadow-sm border border-[#001020]">
+            →
+          </div>
+        </section>
+
+        {/* ─── 3. SIX CORE FEATURE CARDS (with -> Chevrons as in Reference) ─── */}
         <div className="grid grid-cols-2 gap-3">
-          {/* 1. Study Notes */}
+          {/* 1. Past Questions */}
+          <div
+            onClick={() => setActiveView('past-questions')}
+            className="bg-white rounded-[22px] p-4 border border-[#E8E8E8] shadow-sm hover:shadow-md active:scale-[0.98] transition cursor-pointer flex flex-col justify-between min-h-[145px] text-left group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="w-10 h-10 rounded-full bg-[#001028] text-[#F8C800] flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F8C800" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+              </div>
+              <span className="text-[#607080] group-hover:text-[#001028] group-hover:translate-x-1 transition font-bold text-sm">
+                →
+              </span>
+            </div>
+            <div>
+              <h3 className="font-bold text-[#001028] text-xs sm:text-sm mt-3 leading-snug">
+                Past Questions
+              </h3>
+              <p className="text-[10.5px] text-[#607080] font-normal mt-0.5 leading-snug">
+                By topic &amp; exam type
+              </p>
+            </div>
+          </div>
+
+          {/* 2. Video Lessons */}
+          <div
+            onClick={() => setActiveView('topics')}
+            className="bg-white rounded-[22px] p-4 border border-[#E8E8E8] shadow-sm hover:shadow-md active:scale-[0.98] transition cursor-pointer flex flex-col justify-between min-h-[145px] text-left group"
+          >
+            <div className="flex items-start justify-between">
+              <div className="w-10 h-10 rounded-full bg-[#001028] text-[#F8C800] flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F8C800" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <polygon points="5 3 19 12 5 21 5 3" fill="#F8C800" fillOpacity="0.25" />
+                </svg>
+              </div>
+              <span className="text-[#607080] group-hover:text-[#001028] group-hover:translate-x-1 transition font-bold text-sm">
+                →
+              </span>
+            </div>
+            <div>
+              <h3 className="font-bold text-[#001028] text-xs sm:text-sm mt-3 leading-snug">
+                Video Lessons
+              </h3>
+              <p className="text-[10.5px] text-[#607080] font-normal mt-0.5 leading-snug">
+                Easy-to-follow tutorials
+              </p>
+            </div>
+          </div>
+
+          {/* 3. Study Notes */}
           <div
             onClick={() => setActiveView('notes')}
-            className="bg-gradient-to-b from-white to-emerald-50/30 rounded-2xl p-3.5 border border-emerald-100/90 shadow-subtle hover:border-emerald-500/50 hover:shadow-floating transition-all duration-300 cursor-pointer flex flex-col justify-between group active:scale-[0.97] relative overflow-hidden"
+            className="bg-white rounded-[22px] p-4 border border-[#E8E8E8] shadow-sm hover:shadow-md active:scale-[0.98] transition cursor-pointer flex flex-col justify-between min-h-[145px] text-left group"
           >
-            <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-400/10 rounded-full blur-xl pointer-events-none group-hover:bg-emerald-400/20 transition-all duration-300" />
-
-            <div className="flex items-start justify-between relative z-10">
-              <AnimatedStudyNotesIcon />
-              <div className="flex flex-col items-end space-y-1.5">
-                <span className="w-7 h-7 rounded-full bg-emerald-50 border border-emerald-200/60 group-hover:bg-[#004D40] group-hover:text-white text-[#004D40] flex items-center justify-center text-xs font-bold transition-all duration-200 shadow-2xs group-hover:translate-x-0.5">
-                  ›
-                </span>
-                <span className="text-[9.5px] font-bold text-emerald-800 bg-emerald-100/70 border border-emerald-200/80 px-1.5 py-0.5 rounded-md tracking-tight">
-                  24 Subjects
-                </span>
+            <div className="flex items-start justify-between">
+              <div className="w-10 h-10 rounded-full bg-[#001028] text-[#F8C800] flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F8C800" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
               </div>
+              <span className="text-[#607080] group-hover:text-[#001028] group-hover:translate-x-1 transition font-bold text-sm">
+                →
+              </span>
             </div>
-
-            <div className="mt-3 text-left relative z-10">
-              <h3 className="font-extrabold text-[14.5px] text-[#10201D] leading-tight group-hover:text-[#004D40] transition">
+            <div>
+              <h3 className="font-bold text-[#001028] text-xs sm:text-sm mt-3 leading-snug">
                 Study Notes
               </h3>
-              <p className="text-[11px] text-[#66736F] font-medium mt-0.5 leading-snug">
-                Learn &amp; understand
+              <p className="text-[10.5px] text-[#607080] font-normal mt-0.5 leading-snug">
+                Concise high-yield notes
               </p>
             </div>
           </div>
 
-          {/* 2. Practice */}
+          {/* 4. AI Study Helper */}
           <div
-            onClick={() => setActiveView('practice')}
-            className="bg-gradient-to-b from-white to-sky-50/30 rounded-2xl p-3.5 border border-sky-100/90 shadow-subtle hover:border-sky-500/50 hover:shadow-floating transition-all duration-300 cursor-pointer flex flex-col justify-between group active:scale-[0.97] relative overflow-hidden"
+            onClick={() => setActiveView('ai-helper')}
+            className="bg-white rounded-[22px] p-4 border border-[#E8E8E8] shadow-sm hover:shadow-md active:scale-[0.98] transition cursor-pointer flex flex-col justify-between min-h-[145px] text-left group"
           >
-            <div className="absolute top-0 right-0 w-20 h-20 bg-sky-400/10 rounded-full blur-xl pointer-events-none group-hover:bg-sky-400/20 transition-all duration-300" />
-
-            <div className="flex items-start justify-between relative z-10">
-              <AnimatedPracticeIcon />
-              <div className="flex flex-col items-end space-y-1.5">
-                <span className="w-7 h-7 rounded-full bg-sky-50 border border-sky-200/60 group-hover:bg-[#0284C7] group-hover:text-white text-[#0284C7] flex items-center justify-center text-xs font-bold transition-all duration-200 shadow-2xs group-hover:translate-x-0.5">
-                  ›
-                </span>
-                <span className="text-[9.5px] font-bold text-sky-800 bg-sky-100/70 border border-sky-200/80 px-1.5 py-0.5 rounded-md tracking-tight">
-                  35k+ Qs
-                </span>
+            <div className="flex items-start justify-between">
+              <div className="w-10 h-10 rounded-full bg-[#001028] text-[#F8C800] flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F8C800" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <rect x="4" y="4" width="16" height="16" rx="2" />
+                  <circle cx="9" cy="9" r="1.5" fill="#F8C800" />
+                  <circle cx="15" cy="9" r="1.5" fill="#F8C800" />
+                  <path d="M8 15h8" />
+                </svg>
               </div>
+              <span className="text-[#607080] group-hover:text-[#001028] group-hover:translate-x-1 transition font-bold text-sm">
+                →
+              </span>
             </div>
-
-            <div className="mt-3 text-left relative z-10">
-              <h3 className="font-extrabold text-[14.5px] text-[#10201D] leading-tight group-hover:text-[#0284C7] transition">
-                Practice
+            <div>
+              <h3 className="font-bold text-[#001028] text-xs sm:text-sm mt-3 leading-snug">
+                AI Study Helper
               </h3>
-              <p className="text-[11px] text-[#66736F] font-medium mt-0.5 leading-snug">
-                Sharpen your skills
+              <p className="text-[10.5px] text-[#607080] font-normal mt-0.5 leading-snug">
+                Personalized study support
               </p>
             </div>
           </div>
 
-          {/* 3. Mock Exams */}
+          {/* 5. Challenges & Battle */}
           <div
-            onClick={() => setActiveView('mock')}
-            className="bg-gradient-to-b from-white to-purple-50/30 rounded-2xl p-3.5 border border-purple-100/90 shadow-subtle hover:border-purple-500/50 hover:shadow-floating transition-all duration-300 cursor-pointer flex flex-col justify-between group active:scale-[0.97] relative overflow-hidden"
+            onClick={() => setActiveView('challenges')}
+            className="bg-white rounded-[22px] p-4 border border-[#E8E8E8] shadow-sm hover:shadow-md active:scale-[0.98] transition cursor-pointer flex flex-col justify-between min-h-[145px] text-left group"
           >
-            <div className="absolute top-0 right-0 w-20 h-20 bg-purple-400/10 rounded-full blur-xl pointer-events-none group-hover:bg-purple-400/20 transition-all duration-300" />
-
-            <div className="flex items-start justify-between relative z-10">
-              <AnimatedMockExamsIcon />
-              <div className="flex flex-col items-end space-y-1.5">
-                <span className="w-7 h-7 rounded-full bg-purple-50 border border-purple-200/60 group-hover:bg-[#7E22CE] group-hover:text-white text-[#7E22CE] flex items-center justify-center text-xs font-bold transition-all duration-200 shadow-2xs group-hover:translate-x-0.5">
-                  ›
-                </span>
-                <span className="text-[9.5px] font-bold text-purple-800 bg-purple-100/70 border border-purple-200/80 px-1.5 py-0.5 rounded-md tracking-tight">
-                  Timed CBT
-                </span>
+            <div className="flex items-start justify-between">
+              <div className="w-10 h-10 rounded-full bg-[#001028] text-[#F8C800] flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F8C800" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                  <path d="M4 22h16" />
+                  <path d="M6 2h12v7a6 6 0 0 1-12 0V2z" />
+                </svg>
               </div>
+              <span className="text-[#607080] group-hover:text-[#001028] group-hover:translate-x-1 transition font-bold text-sm">
+                →
+              </span>
             </div>
-
-            <div className="mt-3 text-left relative z-10">
-              <h3 className="font-extrabold text-[14.5px] text-[#10201D] leading-tight group-hover:text-[#7E22CE] transition">
-                Mock Exams
+            <div>
+              <h3 className="font-bold text-[#001028] text-xs sm:text-sm mt-3 leading-snug">
+                Challenges &amp; Battle
               </h3>
-              <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
-                Simulate real exams
+              <p className="text-[10.5px] text-[#607080] font-normal mt-0.5 leading-snug">
+                Earn points, compete &amp; win
               </p>
             </div>
           </div>
 
-          {/* 4. Motivation */}
+          {/* 6. Smart Timetable */}
           <div
-            onClick={() => setActiveView('motivation')}
-            className="bg-gradient-to-b from-white to-amber-50/30 rounded-2xl p-3.5 border border-amber-100/90 shadow-subtle hover:border-amber-500/50 hover:shadow-floating transition-all duration-300 cursor-pointer flex flex-col justify-between group active:scale-[0.97] relative overflow-hidden"
+            onClick={() => setActiveView('performance')}
+            className="bg-white rounded-[22px] p-4 border border-[#E8E8E8] shadow-sm hover:shadow-md active:scale-[0.98] transition cursor-pointer flex flex-col justify-between min-h-[145px] text-left group"
           >
-            <div className="absolute top-0 right-0 w-20 h-20 bg-amber-400/10 rounded-full blur-xl pointer-events-none group-hover:bg-amber-400/20 transition-all duration-300" />
-
-            <div className="flex items-start justify-between relative z-10">
-              <AnimatedMotivationIcon />
-              <div className="flex flex-col items-end space-y-1.5">
-                <span className="w-7 h-7 rounded-full bg-amber-50 border border-amber-200/60 group-hover:bg-[#D97706] group-hover:text-white text-[#D97706] flex items-center justify-center text-xs font-bold transition-all duration-200 shadow-2xs group-hover:translate-x-0.5">
-                  ›
-                </span>
-                <span className="text-[9.5px] font-bold text-amber-800 bg-amber-100/70 border border-amber-200/80 px-1.5 py-0.5 rounded-md tracking-tight">
-                  Daily Sparks
-                </span>
+            <div className="flex items-start justify-between">
+              <div className="w-10 h-10 rounded-full bg-[#001028] text-[#F8C800] flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F8C800" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
               </div>
+              <span className="text-[#607080] group-hover:text-[#001028] group-hover:translate-x-1 transition font-bold text-sm">
+                →
+              </span>
             </div>
-
-            <div className="mt-3 text-left relative z-10">
-              <h3 className="font-extrabold text-[14.5px] text-[#10201D] leading-tight group-hover:text-[#D97706] transition">
-                Motivation
+            <div>
+              <h3 className="font-bold text-[#001028] text-xs sm:text-sm mt-3 leading-snug">
+                Smart Timetable
               </h3>
-              <p className="text-[11px] text-[#66736F] font-normal mt-0.5 leading-snug">
-                Stay focused
+              <p className="text-[10.5px] text-[#607080] font-normal mt-0.5 leading-snug">
+                Plan study time with AI
               </p>
             </div>
           </div>
         </div>
 
-        {/* ─── DARE TO DARE Banner on HomeScreen ─── */}
-        <div
-          onClick={() => openDareToDare({ subject: 'Mathematics' })}
-          className="w-full rounded-[18px] bg-gradient-to-r from-[#061F17] via-[#0B3528] to-[#124B3B] p-4 text-white border border-emerald-500/30 shadow-subtle cursor-pointer relative overflow-hidden group hover:border-amber-400/50 transition-all duration-200 active:scale-[0.99]"
-        >
-          <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
-          <div className="flex items-center justify-between relative z-10 gap-3">
-            <div className="space-y-1 text-left flex-1">
-              <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 text-white text-[10px] font-black uppercase tracking-wider shadow-xs">
-                <span className="animate-pulse">🔥</span>
-                <span>DARE TO DARE</span>
-                <span className="bg-white text-red-700 px-1 py-0.1 rounded text-[9px] font-black">GAME</span>
-              </div>
-              <h3 className="text-[14.5px] font-black text-white group-hover:text-[#FFD600] transition">
-                Dare to take the 60-Second Challenge?
-              </h3>
-              <p className="text-[11.5px] text-emerald-200 leading-snug">
-                Rapid past questions • Speed run • Beat the clock &amp; dare friends!
-              </p>
-            </div>
-            <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 group-hover:rotate-6 transition">
-              <span className="text-xl">⚡</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Quick Access Official Exam Badges */}
-        <div className="bg-white rounded-[16px] p-4 border border-[#E4EAE8] shadow-subtle space-y-3">
-          <div className="text-left font-bold text-[14px] text-[#10201D] flex items-center justify-between">
-            <span>Quick Access</span>
-            <span className="text-[11px] text-[#66736F] font-medium">Select an exam</span>
-          </div>
-
-          <div className="grid grid-cols-5 gap-2 text-center">
-            {[
-              { id: 'JAMB', name: 'JAMB', Logo: JambLogo, bg: 'bg-emerald-50/70 border-emerald-200/60' },
-              { id: 'WAEC', name: 'WAEC', Logo: WaecLogo, bg: 'bg-blue-50/70 border-blue-200/60' },
-              { id: 'NECO', name: 'NECO', Logo: NecoLogo, bg: 'bg-teal-50/70 border-teal-200/60' },
-              { id: 'NABTEB', name: 'NABTEB', Logo: NabtebLogo, bg: 'bg-amber-50/70 border-amber-200/60' },
-              { id: 'BECE', name: 'BECE', Logo: BeceLogo, bg: 'bg-cyan-50/70 border-cyan-200/60' }
-            ].map(exam => {
-              const LogoComp = exam.Logo;
-              return (
+        {/* ─── 4. EXAM BANNER CARD: JAMB, WAEC, NECO & MORE ─── */}
+        <div className="rounded-[24px] bg-[#001028] text-white p-4 sm:p-5 border border-[#001830] shadow-sm text-left flex items-center justify-between gap-3 relative overflow-hidden">
+          <div className="space-y-1.5 flex-1 pr-1 z-10">
+            <h4 className="font-bold text-sm text-white">
+              JAMB, WAEC, NECO &amp; More
+            </h4>
+            <p className="text-[11px] text-[#8090A0] leading-snug">
+              Prepare for your exams with the best resources.
+            </p>
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {['JAMB', 'WAEC', 'NECO', 'NABTEB', 'BECE'].map(exam => (
                 <button
-                  key={exam.id}
+                  key={exam}
                   type="button"
-                  onClick={() => handleQuickExam(exam.id)}
-                  className="flex flex-col items-center cursor-pointer group active:scale-95 transition"
+                  onClick={() => handleQuickExam(exam)}
+                  className="px-2.5 py-0.5 rounded-full bg-[#001830] border border-[#F8C800]/40 text-[#F8C800] font-bold text-[10px] hover:bg-[#F8C800] hover:text-[#001028] transition cursor-pointer"
                 >
-                  <div className={`w-12 h-12 sm:w-13 sm:h-13 p-1.5 rounded-2xl ${exam.bg} border flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:shadow-md transition-all duration-200`}>
-                    <LogoComp className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-xs" />
-                  </div>
-                  <span className="text-[10.5px] sm:text-[11px] font-bold text-[#10201D] mt-1.5 group-hover:text-[#004D40] tracking-tight truncate max-w-full">
-                    {exam.name}
-                  </span>
+                  {exam}
                 </button>
-              );
-            })}
+              ))}
+            </div>
+            <div className="pt-1.5">
+              <button
+                type="button"
+                onClick={() => setActiveView('courses')}
+                className="px-4 py-2 rounded-full bg-[#F8C800] hover:bg-[#FFD21F] text-[#001028] font-bold text-xs shadow-md active:scale-95 transition cursor-pointer inline-flex items-center space-x-1"
+              >
+                <span>Start Learning</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Book Stack Illustration on Lower Card (Matched to Image 1 Mobile) */}
+          <div className="w-20 sm:w-24 shrink-0 flex items-center justify-end z-10">
+            <HeroBookStack variant="books-only" className="w-full max-w-[100px]" />
           </div>
         </div>
 
-        {/* Motivation Card at Bottom */}
+        {/* ─── 5. REPEATED QUESTIONS CARD ─── */}
         <div
-          onClick={() => setActiveView('motivation')}
-          className="rounded-[16px] p-4 bg-[#003B32] text-white shadow-subtle border border-[#FFD600]/30 cursor-pointer flex items-center justify-between space-x-3 transition hover:border-[#FFD600]/60 active:scale-[0.99]"
+          onClick={() => setActiveView('repeated-questions')}
+          className="rounded-[22px] p-4 bg-white border border-[#E8E8E8] shadow-sm cursor-pointer flex items-center justify-between space-x-3 transition hover:border-[#F8C800] active:scale-[0.99] group text-left"
         >
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-[#FFD600]/20 flex items-center justify-center text-lg shrink-0">
-              💡
+            <div className="w-11 h-11 rounded-2xl bg-[#001028] text-[#F8C800] flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition font-black">
+              🔁
             </div>
-            <div className="text-left">
-              <h4 className="font-bold text-[13.5px] text-[#FFD600] leading-tight">
-                Small steps make big results.
+            <div>
+              <div className="flex items-center space-x-1.5 mb-0.5">
+                <span className="bg-[#F8C800] text-[#001028] text-[9.5px] font-bold px-1.5 py-0.2 rounded-md uppercase tracking-wider">
+                  HIGH YIELD
+                </span>
+                <span className="text-[10px] text-[#607080] font-medium">
+                  JAMB • WAEC • NECO
+                </span>
+              </div>
+              <h4 className="font-bold text-xs sm:text-sm text-[#001028] leading-tight group-hover:text-[#F8C800] transition">
+                Repeated Questions &amp; Full Solutions
               </h4>
-              <p className="text-[11px] text-emerald-100/90 font-normal mt-0.5">
-                Practice 10 questions today to keep your streak active!
+              <p className="text-[10.5px] text-[#607080] font-normal mt-0.5 leading-snug">
+                Browse questions repeated across exam years
               </p>
             </div>
           </div>
-          <span className="text-white/80 font-bold text-lg">›</span>
+          <span className="text-[#001028] font-bold text-lg group-hover:text-[#F8C800] group-hover:translate-x-1 transition shrink-0">
+            →
+          </span>
         </div>
       </main>
 
-      {/* ─── Bottom Navigation Bar ─── */}
+      {/* Menu Drawer */}
+      <MenuDrawer
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        onOpenLeaderboard={() => setActiveView('leaderboard')}
+        onOpenCalculator={() => setActiveView('performance')}
+      />
+
+      {/* ─── Fixed Bottom Navigation Bar ─── */}
       <BottomNavigation activeTab="home" />
     </div>
   );
 };
+
+export default HomeScreen;

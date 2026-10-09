@@ -13,9 +13,15 @@ interface AdminQuestionModalProps {
   isOpen: boolean;
   onClose: () => void;
   onOpenYouTubeStudio?: () => void;
+  onOpenPrintableMock?: () => void;
 }
 
-export const AdminQuestionModal: React.FC<AdminQuestionModalProps> = ({ isOpen, onClose, onOpenYouTubeStudio }) => {
+export const AdminQuestionModal: React.FC<AdminQuestionModalProps> = ({
+  isOpen,
+  onClose,
+  onOpenYouTubeStudio,
+  onOpenPrintableMock
+}) => {
   const { reloadQuestions } = useApp();
 
   // Authentication
@@ -256,6 +262,19 @@ export const AdminQuestionModal: React.FC<AdminQuestionModalProps> = ({ isOpen, 
               >
                 ✏️ Add Question
               </button>
+              {onOpenPrintableMock && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    onOpenPrintableMock();
+                  }}
+                  className={`${onOpenYouTubeStudio ? 'ml-auto my-auto' : 'ml-auto my-auto'} px-3 py-1.5 text-xs font-extrabold rounded-xl bg-[#0E382B] text-white hover:bg-[#07241B] shadow-xs flex items-center space-x-1.5 transition cursor-pointer`}
+                >
+                  <span>🖨️</span>
+                  <span>Printable Mock</span>
+                </button>
+              )}
               {onOpenYouTubeStudio && (
                 <button
                   type="button"
@@ -263,7 +282,7 @@ export const AdminQuestionModal: React.FC<AdminQuestionModalProps> = ({ isOpen, 
                     onClose();
                     onOpenYouTubeStudio();
                   }}
-                  className="ml-auto my-auto px-3 py-1.5 text-xs font-extrabold rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white hover:brightness-110 shadow-xs flex items-center space-x-1.5 transition cursor-pointer"
+                  className={`${onOpenPrintableMock ? 'my-auto' : 'ml-auto my-auto'} px-3 py-1.5 text-xs font-extrabold rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white hover:brightness-110 shadow-xs flex items-center space-x-1.5 transition cursor-pointer`}
                 >
                   <span>🎥</span>
                   <span>YouTube Studio</span>
@@ -336,6 +355,33 @@ export const AdminQuestionModal: React.FC<AdminQuestionModalProps> = ({ isOpen, 
                     >
                       <span>📥 Download CSV Template</span>
                     </a>
+                  </div>
+
+                  {/* Admin Offline Tool: Printable Mock Exam Generator */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/60 border border-emerald-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="flex items-center space-x-3 text-left">
+                      <div className="w-10 h-10 rounded-xl bg-[#0E382B] text-white flex items-center justify-center text-lg font-bold shrink-0 shadow-xs">
+                        🖨️
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-sm text-[#0E382B]">Printable Mock Exam Generator</h5>
+                        <p className="text-xs text-slate-600">
+                          Generate full printable PDF exam question papers and official answer keys for offline exam centers, schools, and tutorial classes.
+                        </p>
+                      </div>
+                    </div>
+                    {onOpenPrintableMock && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onClose();
+                          onOpenPrintableMock();
+                        }}
+                        className="px-4 py-2 bg-[#0E382B] hover:bg-[#092218] text-white text-xs font-bold rounded-xl shadow-xs transition cursor-pointer shrink-0 self-start sm:self-auto"
+                      >
+                        Launch Generator →
+                      </button>
+                    )}
                   </div>
                 </div>
               )}

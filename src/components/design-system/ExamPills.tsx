@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 
-export type ExamCategory = 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE' | 'IELTS' | 'All';
+export type ExamCategory = 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'POST-UTME' | 'BECE' | 'WAEC GCE' | 'NECO GCE' | 'IELTS' | 'All';
 
 interface ExamPillsProps {
   exams?: ExamCategory[];
@@ -11,7 +11,7 @@ interface ExamPillsProps {
 }
 
 export const ExamPills: React.FC<ExamPillsProps> = ({
-  exams = ['JAMB', 'WAEC', 'NECO', 'NABTEB', 'BECE'],
+  exams = ['JAMB', 'WAEC', 'NECO', 'NABTEB', 'POST-UTME', 'BECE', 'WAEC GCE', 'NECO GCE'],
   activeExam,
   onSelectExam,
   className = ''
@@ -20,12 +20,9 @@ export const ExamPills: React.FC<ExamPillsProps> = ({
 
   const handleExamClick = (exam: ExamCategory) => {
     onSelectExam(exam);
-    if (exam === 'WAEC' || exam === 'NECO' || exam === 'NABTEB') {
-      openPaperSelector(exam);
-    }
   };
 
-  const isMultiPaperExam = activeExam === 'WAEC' || activeExam === 'NECO' || activeExam === 'NABTEB';
+  const isMultiPaperExam = activeExam === 'WAEC' || activeExam === 'NECO' || activeExam === 'NABTEB' || activeExam === 'WAEC GCE' || activeExam === 'NECO GCE';
 
   return (
     <div className={`flex items-center space-x-2 overflow-x-auto no-scrollbar py-1 ${className}`}>
@@ -36,10 +33,10 @@ export const ExamPills: React.FC<ExamPillsProps> = ({
             key={exam}
             type="button"
             onClick={() => handleExamClick(exam)}
-            className={`px-4 py-1.5 rounded-full text-[12px] font-semibold transition-all duration-150 cursor-pointer shrink-0 ${
+            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-150 cursor-pointer shrink-0 ${
               isActive
-                ? 'bg-[#004D40] text-white shadow-xs'
-                : 'bg-white text-[#66736F] hover:text-[#10201D] border border-[#E4EAE8]'
+                ? 'bg-[#F8C800] text-[#001028] shadow-sm'
+                : 'bg-white text-[#607080] hover:text-[#001028] border border-[#E8E8E8]'
             }`}
           >
             {exam}

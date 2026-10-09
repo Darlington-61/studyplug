@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
+import { BrandLogo } from './BrandLogo';
+import { STUDENT_MASCOT_IMAGE } from '../../assets/studentMascot';
 
 interface MenuDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpenLeaderboard: () => void;
-  onOpenCalculator: () => void;
+  onOpenLeaderboard?: () => void;
+  onOpenCalculator?: () => void;
   onOpenYouTubeStudio?: () => void;
+  onOpenTopicAdmin?: () => void;
+  onOpenCPanelSettings?: () => void;
 }
 
 export const MenuDrawer: React.FC<MenuDrawerProps> = ({
@@ -14,288 +18,418 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
   onClose,
   onOpenLeaderboard,
   onOpenCalculator,
-  onOpenYouTubeStudio
+  onOpenYouTubeStudio,
+  onOpenTopicAdmin,
+  onOpenCPanelSettings
 }) => {
-  const { setActiveView, studyStreak, testsTaken, overallAccuracy, openAiTutor, openDareToDare, isDarkMode, toggleDarkMode } = useApp();
+  const {
+    activeView,
+    setActiveView,
+    openAiTutor,
+    openUpgradeModal,
+    openLeaderboard,
+    openCalculator
+  } = useApp();
 
   if (!isOpen) return null;
 
-  const navigateTo = (view: any) => {
-    setActiveView(view);
+  const navigateTo = (view: string) => {
+    setActiveView(view as any);
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex animate-fade-in font-sans">
-      {/* Backdrop */}
-      <div
-        onClick={onClose}
-        className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
-      />
+  const handleOpenLeaderboard = () => {
+    onClose();
+    if (onOpenLeaderboard) {
+      onOpenLeaderboard();
+    } else if (openLeaderboard) {
+      openLeaderboard();
+    }
+  };
 
-      {/* Drawer Body (slides from left) */}
-      <div className="relative w-80 max-w-[85vw] bg-white text-[#10201D] border-[#E4EAE8] h-full shadow-2xl flex flex-col justify-between z-10 animate-slide-right border-r">
-        {/* Top Header Card: Primary Dark Green #004D40 */}
-        <div className="bg-[#004D40] text-white p-5 space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2.5">
-              <div className="w-9 h-9 rounded-xl bg-[#003B32] border border-[#FFD600]/40 flex items-center justify-center">
-                <span className="text-lg">🎓</span>
-              </div>
-              <div>
-                <h3 className="font-bold text-[15px] text-white leading-tight">StudyPlug</h3>
-                <span className="text-[10px] text-emerald-200">Learn Today, Ace Tomorrow.</span>
-              </div>
-            </div>
+  const handleOpenAi = () => {
+    onClose();
+    openAiTutor();
+  };
+
+  const handleOpenPremium = () => {
+    onClose();
+    if (openUpgradeModal) {
+      openUpgradeModal();
+    } else {
+      setActiveView('profile');
+    }
+  };
+
+  const handleLogout = () => {
+    onClose();
+    setActiveView('login');
+  };
+
+  const menuItems = [
+    {
+      id: 'dashboard',
+      label: 'Home',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <path d="M3 10.5L12 3l9 7.5" />
+          <path d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5" />
+          <path d="M9 21v-6a1 1 0 011-1h4a1 1 0 011 1v6" />
+        </svg>
+      ),
+      action: () => navigateTo('dashboard'),
+      isActive: activeView === 'dashboard' || activeView === 'home'
+    },
+    {
+      id: 'courses',
+      label: 'Courses',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <rect x="3" y="3" width="18" height="13" rx="2" />
+          <path d="M8 21h8" />
+          <path d="M12 16v5" />
+          <rect x="7" y="6" width="10" height="7" rx="1" />
+          <line x1="9" y1="8.5" x2="15" y2="8.5" />
+          <line x1="9" y1="10.5" x2="13" y2="10.5" />
+        </svg>
+      ),
+      action: () => navigateTo('courses'),
+      isActive: activeView === 'courses' || activeView === 'subjects' || activeView === 'topics'
+    },
+    {
+      id: 'notes',
+      label: 'Notes',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <rect x="4" y="3" width="16" height="18" rx="2.5" />
+          <line x1="8" y1="8" x2="16" y2="8" />
+          <line x1="8" y1="12" x2="16" y2="12" />
+          <line x1="8" y1="16" x2="13" y2="16" />
+        </svg>
+      ),
+      action: () => navigateTo('notes'),
+      isActive: activeView === 'notes'
+    },
+    {
+      id: 'challenges',
+      label: 'Challenges',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        </svg>
+      ),
+      action: () => navigateTo('challenges'),
+      isActive: activeView === 'challenges'
+    },
+    {
+      id: 'battle-arena',
+      label: 'Battle Arena',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+          <path d="M4 22h16" />
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34" />
+          <path d="M6 4h12v5a6 6 0 0 1-12 0V4z" />
+        </svg>
+      ),
+      action: () => navigateTo('battle-arena'),
+      isActive: activeView === 'battle-arena'
+    },
+    {
+      id: 'ai-tutor',
+      label: 'StudyPlug AI',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <rect x="4" y="8" width="16" height="12" rx="4" />
+          <circle cx="9" cy="13" r="1.5" fill="currentColor" />
+          <circle cx="15" cy="13" r="1.5" fill="currentColor" />
+          <path d="M10 17h4" />
+          <line x1="12" y1="4" x2="12" y2="8" />
+          <circle cx="12" cy="3" r="1" fill="currentColor" />
+          <line x1="2" y1="14" x2="4" y2="14" />
+          <line x1="20" y1="14" x2="22" y2="14" />
+        </svg>
+      ),
+      action: handleOpenAi,
+      isActive: false
+    },
+    {
+      id: 'past-questions',
+      label: 'Past Questions',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+      ),
+      action: () => navigateTo('past-questions'),
+      isActive: activeView === 'past-questions'
+    },
+    {
+      id: 'resources',
+      label: 'Resources',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <rect x="2" y="4" width="20" height="16" rx="4" />
+          <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+        </svg>
+      ),
+      action: () => navigateTo('resources'),
+      isActive: activeView === 'resources'
+    },
+    {
+      id: 'leaderboard',
+      label: 'Leaderboard',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <line x1="18" y1="20" x2="18" y2="10" />
+          <line x1="12" y1="20" x2="12" y2="4" />
+          <line x1="6" y1="20" x2="6" y2="14" />
+          <line x1="2" y1="20" x2="22" y2="20" />
+        </svg>
+      ),
+      action: handleOpenLeaderboard,
+      isActive: activeView === 'leaderboard'
+    },
+    {
+      id: 'performance',
+      label: 'Performance',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+          <polyline points="17 6 23 6 23 12" />
+        </svg>
+      ),
+      action: () => navigateTo('performance'),
+      isActive: activeView === 'performance'
+    },
+    {
+      id: 'settings',
+      label: 'Settings',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[19px] h-[19px]">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
+      ),
+      action: () => {
+        if (onOpenCPanelSettings) onOpenCPanelSettings();
+        else navigateTo('profile');
+      },
+      isActive: false
+    }
+  ];
+
+  return (
+    <>
+      <style>{`
+        @keyframes rightDrawerSlideIn {
+          from { transform: translateX(100%); opacity: 0.7; }
+          to   { transform: translateX(0);     opacity: 1; }
+        }
+        @keyframes backdropFadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        .animate-right-drawer-in {
+          animation: rightDrawerSlideIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        .animate-backdrop-in {
+          animation: backdropFadeIn 0.2s ease both;
+        }
+      `}</style>
+
+      {/* Drawer Overlay Container */}
+      <div className="fixed inset-0 z-50 flex justify-end font-sans">
+        {/* Backdrop */}
+        <div
+          onClick={onClose}
+          className="fixed inset-0 bg-black/60 backdrop-blur-[4px] animate-backdrop-in"
+        />
+
+        {/* Drawer Panel: Exact Figma Navy Styling (#07152A) */}
+        <div className="relative w-[320px] max-w-[85vw] bg-[#07152A] text-white h-full shadow-[-12px_0_40px_rgba(0,10,24,0.7)] flex flex-col z-10 animate-right-drawer-in border-l border-white/10 select-none overflow-y-auto">
+          {/* Top Row: StudyPlug Logo & Close Button */}
+          <div className="px-5 pt-5 pb-3 flex items-center justify-between shrink-0">
+            <BrandLogo size="xs" />
             <button
               type="button"
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm transition cursor-pointer"
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold transition cursor-pointer active:scale-95"
+              aria-label="Close menu"
             >
               ✕
             </button>
           </div>
 
-          {/* Student Profile Card */}
-          <div className="p-3.5 rounded-[14px] bg-[#003B32] border border-white/15 flex items-center space-x-3 text-left">
-            <div className="w-11 h-11 rounded-full bg-[#FFD600] text-[#004D40] font-black text-base flex items-center justify-center shrink-0 shadow-xs">
-              D
-            </div>
-            <div className="truncate">
-              <h4 className="font-bold text-[14px] text-white truncate">Darlington</h4>
-              <p className="text-[11px] text-[#FFD600] font-semibold">Student Gold Plan</p>
-              <div className="flex items-center space-x-2 text-[10.5px] text-emerald-100/80 mt-0.5">
-                <span>🔥 {studyStreak || 7}d streak</span>
-                <span>•</span>
-                <span>{overallAccuracy || 76}% avg</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scrollable Navigation Items */}
-        <div className="flex-1 overflow-y-auto py-3 px-3 space-y-1 text-left">
-          {/* Theme Switch Item */}
-          <div className="pb-2">
-            <button
-              type="button"
-              onClick={toggleDarkMode}
-              className={`w-full flex items-center justify-between p-2.5 rounded-[12px] border transition cursor-pointer ${
-                isDarkMode
-                  ? 'bg-emerald-50 border-emerald-300 text-[#004D40]'
-                  : 'bg-slate-50 border-slate-200 text-slate-700'
-              }`}
+          <div className="px-4 py-2 space-y-3 flex-1 overflow-y-auto scrollbar-none">
+            {/* User Profile Card */}
+            <div
+              onClick={() => navigateTo('profile')}
+              className="p-3 rounded-2xl bg-[#0B1E38]/80 hover:bg-[#0B1E38] border border-white/10 flex items-center justify-between cursor-pointer transition group"
             >
-              <div className="flex items-center space-x-2.5">
-                <span className="text-lg">{isDarkMode ? '🌙' : '☀️'}</span>
-                <div className="text-left leading-tight">
-                  <div className="font-bold text-[13px]">{isDarkMode ? 'Night Theme' : 'Daylight Theme'}</div>
-                  <div className="text-[10.5px] text-slate-500">Tap to toggle comfort mode</div>
+              <div className="flex items-center space-x-3 min-w-0">
+                <div className="w-10 h-10 rounded-full bg-[#FFD233] flex items-center justify-center shrink-0 overflow-hidden ring-2 ring-[#FFD233]/40">
+                  <img
+                    src={STUDENT_MASCOT_IMAGE}
+                    alt="Darlington"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-extrabold text-[14px] text-white truncate leading-tight group-hover:text-[#FFD233] transition">
+                    Darlington
+                  </h4>
+                  <p className="text-[11px] text-slate-400 truncate mt-0.5">
+                    JAMB Aspirant
+                  </p>
                 </div>
               </div>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#004D40] text-[#FFD600]">
-                {isDarkMode ? 'NIGHT' : 'DAY'}
+              <span className="text-slate-400 group-hover:text-[#FFD233] font-bold text-sm transition">
+                &gt;
               </span>
-            </button>
+            </div>
+
+            {/* Premium Gold Card */}
+            <div
+              onClick={handleOpenPremium}
+              className="p-3.5 rounded-2xl bg-gradient-to-r from-[#2A240A] via-[#332B0D] to-[#251E07] border border-[#FFD233]/40 flex items-center justify-between cursor-pointer transition group shadow-md hover:border-[#FFD233]"
+            >
+              <div className="flex items-center space-x-3 min-w-0">
+                <div className="w-8 h-8 rounded-xl bg-[#FFD233]/20 flex items-center justify-center shrink-0 text-base">
+                  👑
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-bold text-[13.5px] text-[#FFD233] truncate leading-tight">
+                    Premium
+                  </h4>
+                  <p className="text-[11px] text-[#E0C068] truncate mt-0.5">
+                    Unlock more features
+                  </p>
+                </div>
+              </div>
+              <span className="text-[#FFD233] font-bold text-sm group-hover:translate-x-0.5 transition">
+                &gt;
+              </span>
+            </div>
+
+            {/* Nav Menu Items List (Matching Figma Exact Specs) */}
+            <div className="space-y-1 pt-1">
+              {menuItems.map((item) => {
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={item.action}
+                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition duration-150 cursor-pointer text-left group ${
+                      item.isActive
+                        ? 'bg-[#212814] text-[#FFD233] border border-[#FFD233]/30 font-bold'
+                        : 'bg-transparent hover:bg-white/5 text-slate-200 hover:text-white font-medium'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-3.5 min-w-0">
+                      <span className={`shrink-0 ${item.isActive ? 'text-[#FFD233]' : 'text-slate-400 group-hover:text-white'}`}>
+                        {item.icon}
+                      </span>
+                      <span className="text-[13px] tracking-tight truncate">
+                        {item.label}
+                      </span>
+                    </div>
+                    <span className={`text-xs transition ${item.isActive ? 'text-[#FFD233]' : 'text-slate-500 group-hover:text-white group-hover:translate-x-0.5'}`}>
+                      &gt;
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          {/* 1. Leaderboard (Requested by User!) */}
-          <button
-            type="button"
-            onClick={() => {
-              onClose();
-              onOpenLeaderboard();
-            }}
-            className="w-full flex items-center space-x-3 p-3 rounded-[12px] bg-amber-50/80 hover:bg-amber-100 border border-amber-200/80 text-[#10201D] font-bold text-[13.5px] transition cursor-pointer group"
-          >
-            <span className="text-xl">🏆</span>
-            <div className="flex-1">
-              <div className="flex items-center justify-between">
-                <span>Leaderboard</span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#FFD600] text-[#004D40]">
-                  TOP 10
-                </span>
-              </div>
-              <p className="text-[11px] text-[#66736F] font-normal">National CBT ranks &amp; scores</p>
-            </div>
-          </button>
 
-          {/* 2. DARE TO DARE Challenge */}
-          <button
-            type="button"
-            onClick={() => {
-              onClose();
-              openDareToDare();
-            }}
-            className="w-full flex items-center space-x-3 p-3 rounded-[12px] bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 text-white font-bold text-[13.5px] transition cursor-pointer shadow-xs group"
-          >
-            <span className="text-xl">🔥</span>
-            <div className="flex-1 text-left">
-              <div className="flex items-center justify-between">
-                <span>Dare to Dare Challenge</span>
-                <span className="px-2 py-0.5 rounded-full text-[9.5px] font-black bg-white text-red-700 uppercase">
-                  HOT
-                </span>
-              </div>
-              <p className="text-[11px] text-amber-100 font-normal">60s rapid CBT challenge across subjects</p>
-            </div>
-          </button>
-
-          {/* 2. Home Dashboard */}
-          <button
-            type="button"
-            onClick={() => navigateTo('dashboard')}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#F7F9F8] text-[#10201D] font-medium text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">🏠</span>
-            <span>Home Dashboard</span>
-          </button>
-
-          {/* 3. Study Notes */}
-          <button
-            type="button"
-            onClick={() => navigateTo('notes')}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#F7F9F8] text-[#10201D] font-medium text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">📚</span>
-            <span>Classroom Study Notes</span>
-          </button>
-
-          {/* 4. Subject Directory */}
-          <button
-            type="button"
-            onClick={() => navigateTo('subjects')}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#F7F9F8] text-[#10201D] font-medium text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">📖</span>
-            <span>Choose Subject</span>
-          </button>
-
-          {/* 5. Practice Mode */}
-          <button
-            type="button"
-            onClick={() => navigateTo('practice')}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#F7F9F8] text-[#10201D] font-medium text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">🎯</span>
-            <span>Practice CBT Drill</span>
-          </button>
-
-          {/* 6. Mock Exam */}
-          <button
-            type="button"
-            onClick={() => navigateTo('mock')}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#F7F9F8] text-[#10201D] font-medium text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">📝</span>
-            <span>Timed Mock Exams</span>
-          </button>
-
-          {/* 7. Motivation & Streaks */}
-          <button
-            type="button"
-            onClick={() => navigateTo('motivation')}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#F7F9F8] text-[#10201D] font-medium text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">💡</span>
-            <span>Motivation &amp; Habits</span>
-          </button>
-
-          {/* 8. Bookmarks */}
-          <button
-            type="button"
-            onClick={() => navigateTo('bookmarks')}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#F7F9F8] text-[#10201D] font-medium text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">🔖</span>
-            <span>Saved Questions</span>
-          </button>
-
-          {/* 9. Scientific Calculator (Requested by User!) */}
-          <button
-            type="button"
-            onClick={() => {
-              onClose();
-              onOpenCalculator();
-            }}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#F7F9F8] text-[#10201D] font-medium text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">🧮</span>
-            <span>CBT Scientific Calculator</span>
-          </button>
-
-          {/* 10. StudyPlug AI Tutor */}
-          <button
-            type="button"
-            onClick={() => {
-              onClose();
-              openAiTutor();
-            }}
-            className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] hover:bg-[#E8F5E9] text-[#004D40] font-bold text-[13.5px] transition cursor-pointer"
-          >
-            <span className="text-lg">🎓</span>
-            <span>Personal Study Tutor</span>
-          </button>
-
-          {/* 11. Admin YouTube Studio */}
-          {onOpenYouTubeStudio && (
+          {/* Bottom Action: Log Out */}
+          <div className="p-4 border-t border-white/10 shrink-0">
             <button
               type="button"
-              onClick={() => {
-                onClose();
-                onOpenYouTubeStudio();
-              }}
-              className="w-full flex items-center space-x-3 p-2.5 rounded-[12px] bg-gradient-to-r from-red-600/10 via-amber-600/10 to-emerald-600/10 hover:bg-amber-500/20 text-[#004D40] font-extrabold text-[13.5px] transition cursor-pointer border border-amber-500/30"
+              onClick={handleLogout}
+              className="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-slate-300 hover:text-red-400 hover:bg-red-500/10 transition cursor-pointer font-medium text-[13px]"
             >
-              <span className="text-lg">🎥</span>
-              <div className="flex-1 flex items-center justify-between text-left">
-                <span>YouTube Studio</span>
-                <span className="px-1.5 py-0.5 rounded bg-amber-400 text-stone-900 text-[9px] font-black uppercase">
-                  Admin
-                </span>
-              </div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+              <span>Log Out</span>
             </button>
-          )}
-        </div>
-
-        {/* Bottom Drawer Footer */}
-        <div className="p-4 bg-[#F7F9F8] border-[#E4EAE8] text-[#66736F] border-t space-y-2 text-left">
-          <div className="flex items-center justify-between text-[11px]">
-            <span>Offline Ready</span>
-            <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-[#004D40] font-bold">
-              ✓ 100% Offline
-            </span>
-          </div>
-          {/* Direct App Downloads */}
-          <div className="pt-2 border-t border-black/5 space-y-1.5">
-            <div className="text-[10px] font-bold opacity-60 uppercase tracking-wider">
-              Download Native Apps:
-            </div>
-            <div className="grid grid-cols-2 gap-1.5">
-              <a
-                href="https://studyplug.com.ng/StudyPlug.apk"
-                download="StudyPlug.apk"
-                className="p-2 rounded-[10px] bg-[#004D40] hover:bg-[#003B32] text-white text-[11px] font-bold flex items-center justify-center space-x-1 shadow-xs transition"
-              >
-                <span>📱</span>
-                <span>Android APK</span>
-              </a>
-              <a
-                href="https://apps.apple.com/app/studyplug"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-[10px] bg-slate-900 hover:bg-black text-white text-[11px] font-bold flex items-center justify-center space-x-1 shadow-xs transition border border-slate-700"
-              >
-                <span>🍏</span>
-                <span>iOS App Store</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="text-[10px] opacity-75 pt-0.5">
-            StudyPlug v2.0 • JAMB, WAEC, NECO &amp; BECE
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
+
+// ── Side Menu Rail (Closed State as specified in Figma) ──────────────────
+export const SideMenuRail: React.FC<{
+  onOpen: () => void;
+  className?: string;
+}> = ({ onOpen, className = '' }) => {
+  const { activeView, setActiveView } = useApp();
+
+  const railItems = [
+    { id: 'dashboard', label: 'Home', icon: '🏠', active: activeView === 'dashboard' || activeView === 'home', action: () => setActiveView('dashboard') },
+    { id: 'courses', label: 'Courses', icon: '🖥️', active: activeView === 'courses' || activeView === 'subjects', action: () => setActiveView('courses') },
+    { id: 'notes', label: 'Notes', icon: '📄', active: activeView === 'notes', action: () => setActiveView('notes') },
+    { id: 'challenges', label: 'Challenges', icon: '⚡', active: activeView === 'challenges', action: () => setActiveView('challenges') },
+    { id: 'battle-arena', label: 'Battle Arena', icon: '🏆', active: activeView === 'battle-arena', action: () => setActiveView('battle-arena') },
+    { id: 'past-questions', label: 'Past Questions', icon: '❓', active: activeView === 'past-questions', action: () => setActiveView('past-questions') },
+    { id: 'resources', label: 'Resources', icon: '▶️', active: activeView === 'resources', action: () => setActiveView('resources') },
+    { id: 'leaderboard', label: 'Leaderboard', icon: '📊', active: activeView === 'leaderboard', action: () => setActiveView('leaderboard') },
+    { id: 'performance', label: 'Performance', icon: '📈', active: activeView === 'performance', action: () => setActiveView('performance') }
+  ];
+
+  return (
+    <aside
+      className={`w-[68px] bg-[#07152A] border-r border-white/10 flex flex-col items-center py-4 select-none shrink-0 ${className}`}
+    >
+      {/* Top Logo */}
+      <button
+        type="button"
+        onClick={onOpen}
+        className="w-10 h-10 rounded-xl bg-[#001830] border border-[#FFD233]/40 flex items-center justify-center text-[#FFD233] font-black text-sm mb-6 hover:scale-105 transition cursor-pointer shadow-sm"
+        title="Open Navigation Menu"
+      >
+        <span className="text-base">⚡</span>
+      </button>
+
+      {/* Icon Rail Items */}
+      <div className="flex-1 space-y-2.5 flex flex-col items-center">
+        {railItems.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={item.action}
+            title={item.label}
+            className={`w-10 h-10 rounded-[14px] flex items-center justify-center text-sm transition cursor-pointer ${
+              item.active
+                ? 'bg-[#FFD233] text-[#001028] shadow-xs scale-105 font-bold'
+                : 'text-slate-400 hover:text-white hover:bg-white/5'
+            }`}
+          >
+            {item.icon}
+          </button>
+        ))}
+      </div>
+
+      {/* Bottom Exit */}
+      <button
+        type="button"
+        onClick={() => setActiveView('login')}
+        title="Log Out"
+        className="w-10 h-10 rounded-xl bg-white/5 hover:bg-red-500/10 text-slate-400 hover:text-red-400 flex items-center justify-center transition cursor-pointer mt-4"
+      >
+        🚪
+      </button>
+    </aside>
+  );
+};
+
+export default MenuDrawer;

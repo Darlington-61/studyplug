@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSubjectThumbnail } from '../../assets/subjectThumbnails';
 
 export interface SubjectConfig {
   id: string;
@@ -115,17 +116,18 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({ subject, onClick, onDa
       className="w-full bg-white rounded-[14px] p-3.5 border border-[#E4EAE8] shadow-subtle hover:border-[#D0DBD8] hover:shadow-floating transition-all duration-150 flex items-center justify-between cursor-pointer group active:scale-[0.99]"
     >
       <div className="flex items-center space-x-3.5">
-        {/* Rounded 12px Icon Container */}
-        <div
-          className="w-10 h-10 rounded-[12px] flex items-center justify-center text-white shrink-0 shadow-xs"
-          style={{ backgroundColor: color }}
-        >
-          {renderIcon()}
+        {/* Subject Image Thumbnail */}
+        <div className="w-16 h-12 sm:w-20 sm:h-14 rounded-[12px] overflow-hidden shrink-0 shadow-sm border border-[#E4EAE8] bg-[#061710] relative group-hover:scale-105 transition-all duration-200">
+          <img
+            src={getSubjectThumbnail(subject.name)}
+            alt={`${subject.name} thumbnail`}
+            className="w-full h-full object-cover"
+          />
         </div>
 
         {/* Title and counts */}
         <div className="text-left">
-          <h3 className="font-semibold text-[14px] sm:text-[15px] text-[#10201D] leading-snug group-hover:text-[#004D40] transition">
+          <h3 className="font-semibold text-[14px] sm:text-[15px] text-[#10201D] leading-snug group-hover:text-[#001028] transition">
             {subject.name}
           </h3>
           <p className="text-[11px] sm:text-[12px] text-[#66736F] font-normal mt-0.5">

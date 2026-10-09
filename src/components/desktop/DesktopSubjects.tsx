@@ -11,6 +11,7 @@ import {
   LiteratureSubjectIcon,
   EconomicsSubjectIcon
 } from '../Icons';
+import { getSubjectThumbnail } from '../../assets/subjectThumbnails';
 
 interface DesktopSubjectsProps {
   onSelectMathematics: () => void;
@@ -1168,10 +1169,14 @@ export const DesktopSubjects: React.FC<DesktopSubjectsProps> = ({
               }`}
             >
               <div>
-                {/* Icon & Count */}
+                {/* Subject Image Thumbnail & Count */}
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] flex items-center justify-center group-hover:scale-105 transition-transform text-[#FFCC00]">
-                    {subject.icon}
+                  <div className="w-20 h-14 rounded-xl overflow-hidden bg-[#061710] border border-[#C4823F] shadow-md group-hover:scale-105 transition-transform shrink-0">
+                    <img
+                      src={getSubjectThumbnail(subject.name)}
+                      alt={`${subject.name} thumbnail`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <span className="text-[11px] font-extrabold text-amber-300 bg-amber-950/60 border border-[#C4823F]/50 px-2.5 py-1 rounded-full">
                     {subject.questionsCount} Questions

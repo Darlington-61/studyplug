@@ -22,11 +22,11 @@ const html = `<!doctype html>
     <meta name="apple-mobile-web-app-title" content="StudyPlug" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#004D40" />
-    <!-- Inter Font from Google Fonts -->
+    <meta name="theme-color" content="#001028" />
+    <!-- Poppins Font from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- KaTeX Mathematical Typography -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.7/dist/katex.min.css" crossorigin="anonymous">
     <style>
@@ -40,8 +40,8 @@ strong, b, .font-bold, .font-extrabold, .font-black {
 
 /* Classroom HTML Content Styling for High-Fidelity Textbook Notes */
 .classroom-html-content {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: #10201D;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  color: #001028;
   line-height: 1.8;
   font-size: 0.95rem;
 }
@@ -65,7 +65,7 @@ strong, b, .font-bold, .font-extrabold, .font-black {
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
   padding-left: 0.75rem;
-  border-left: 4px solid #004D40;
+  border-left: 4px solid #F8C800;
   line-height: 1.35;
   text-align: left;
 }
@@ -294,6 +294,26 @@ strong, b, .font-bold, .font-extrabold, .font-black {
   </head>
   <body style="background-color:#F7F9F8;color:#10201D;" class="font-sans antialiased">
     <div id="root"></div>
+    <script>
+      (function() {
+        function showErr(msg, extra) {
+          var el = document.getElementById('debug-error-box');
+          if (!el) {
+            el = document.createElement('div');
+            el.id = 'debug-error-box';
+            el.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:#B91C1C;color:#FFFFFF;padding:24px;z-index:9999999;font-family:monospace;white-space:pre-wrap;overflow:auto;font-size:14px;line-height:1.5;';
+            document.body.appendChild(el);
+          }
+          el.textContent += '\\n[STUDYPLUG RUNTIME ERROR] ' + msg + '\\n' + (extra || '');
+        }
+        window.onerror = function(msg, url, line, col, err) {
+          showErr(msg, 'At: ' + url + ':' + line + ':' + col + '\\nStack: ' + (err ? err.stack : 'none'));
+        };
+        window.addEventListener('unhandledrejection', function(e) {
+          showErr('Unhandled Promise: ' + (e.reason ? (e.reason.stack || e.reason) : 'unknown'));
+        });
+      })();
+    </script>
     <script>
 ${js}
     </script>

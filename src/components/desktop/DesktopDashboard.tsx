@@ -1,553 +1,379 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
-import {
-  HeroGraphic,
-  MockTestCardIcon,
-  PracticeCardIcon,
-  PreviousTestsCardIcon,
-  BookmarksCardIcon,
-  FlameIcon,
-  CheckCircleFilled,
-  MathSubjectIcon,
-  EnglishSubjectIcon,
-  PhysicsSubjectIcon,
-  ChemistrySubjectIcon
-} from '../Icons';
+import { HeroBookStack } from '../common/HeroBookStack';
+import { RepeatedQuestionsModal } from '../common/RepeatedQuestionsModal';
+import { PastQuestionsBrowserModal } from '../common/PastQuestionsBrowserModal';
+import { StudyGoalsModal } from '../common/StudyGoalsModal';
 
 export const DesktopDashboard: React.FC = () => {
-  const { testsTaken, overallAccuracy, studyStreak, bookmarks, setActiveView } = useApp();
+  const {
+    testsTaken,
+    overallAccuracy,
+    studyStreak,
+    bookmarks,
+    setActiveView,
+    openAiTutor,
+    openMorningTea,
+    openDareToDare,
+    setSelectedExam
+  } = useApp();
+
+  const [showRepeated, setShowRepeated] = useState(false);
+  const [showPastQuestionsBrowser, setShowPastQuestionsBrowser] = useState(false);
+  const [showGoals, setShowGoals] = useState(false);
+
+  const handleExamClick = (exam: string) => {
+    setSelectedExam(exam as any);
+    setActiveView('notes');
+  };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8 space-y-9">
-      {/* Showstopper Hero Card with Official StudyPlug Brand Styling */}
-      <div
-        className="relative overflow-hidden rounded-[32px] p-8 md:p-10 text-white shadow-2xl animate-fade-scale"
-        style={{
-          background: 'linear-gradient(135deg, #071F15 0%, #0E382B 55%, #15503E 100%)',
-          border: '4px solid #C4823F'
-        }}
-      >
-        {/* Subtle background ambient circles */}
-        <div className="absolute -right-16 -top-16 w-96 h-96 bg-[#FFCC00]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute left-1/3 -bottom-20 w-80 h-80 bg-black/40 rounded-full blur-3xl pointer-events-none" />
+    <div className="max-w-7xl mx-auto px-6 py-8 space-y-10 font-sans">
+      {/* ─── 1. HERO SECTION: Exact Brand Mockup (Navy #0B1B2B + Yellow #FFD200) ─── */}
+      <section className="relative overflow-hidden rounded-[36px] bg-[#0B1B2B] text-white shadow-2xl border border-slate-800">
+        {/* Geometric Sharp Yellow Corner Accents (Matching Mockup) */}
+        <div
+          className="absolute -top-12 -right-12 w-64 h-64 bg-[#FFD200] opacity-90 transform rotate-45 pointer-events-none"
+          style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
+        />
+        <div
+          className="absolute -bottom-16 -left-16 w-52 h-52 bg-[#FFD200]/15 transform -rotate-12 pointer-events-none rounded-3xl"
+        />
 
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
-          {/* Left Text & CTAs */}
-          <div className="max-w-xl space-y-5 text-left animate-fade-left delay-100">
-            <div
-              className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm"
-              style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.4)',
-                color: '#FFCC00',
-                border: '1px solid rgba(255, 204, 0, 0.35)'
-              }}
-            >
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#FFCC00' }} />
-              <span>Study Plug 2026 Examination Hub</span>
-              <span>•</span>
-              <span style={{ color: '#FFFFFF' }}>Learn Today. Ace Tomorrow.</span>
+        <div className="relative z-10 px-8 py-12 md:px-14 md:py-16 flex flex-col lg:flex-row items-center justify-between gap-10">
+          {/* Left Text Column */}
+          <div className="max-w-xl text-left space-y-5">
+            {/* Kicker Pill */}
+            <div className="inline-block">
+              <span className="text-[11px] font-black tracking-widest text-[#FFD200] uppercase bg-[#071524] px-3.5 py-1.5 rounded-full border border-[#FFD200]/40">
+                YOUR SUCCESS. OUR PRIORITY.
+              </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.15] animate-chalk-write delay-200" style={{ color: '#FFFFFF' }}>
-              Learn Today.<br />
-              <span className="chalk-shimmer">Ace Tomorrow.</span>
-            </h1>
+            {/* Main Brand Title & Tagline */}
+            <div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08]">
+                <span>Study</span>
+                <span className="text-[#FFD200]">Plug</span>
+              </h1>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1.5 tracking-tight">
+                Learn Today. Ace Tomorrow.
+              </h2>
+            </div>
 
-            <p className="text-sm md:text-base font-normal leading-relaxed chalk-body animate-fade-up delay-300">
-              Practice authentic JAMB, WAEC, NECO &amp; BECE past questions with step-by-step
-              classroom board solutions, high-yield exam tips, and real CBT simulation.
+            {/* Description Paragraph */}
+            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-lg">
+              Get past questions, study materials, video lessons, AI tools and more — all in one place. Prepare smarter, not harder.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <button
-                type="button"
-                onClick={() => setActiveView('test')}
-                className="px-6 py-3.5 rounded-2xl font-black text-sm transition duration-150 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 flex items-center space-x-2.5 cursor-pointer"
-                style={{ backgroundColor: '#FFCC00', color: '#0A241B' }}
-              >
-                <span>Take Mock Test</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-
+            {/* Primary CTA Button */}
+            <div className="pt-2">
               <button
                 type="button"
                 onClick={() => setActiveView('practice')}
-                className="px-5 py-3.5 rounded-2xl font-bold text-sm backdrop-blur-md transition duration-150 cursor-pointer"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                  color: '#FFFFFF',
-                  border: '1px solid rgba(255, 255, 255, 0.3)'
-                }}
+                className="inline-flex items-center space-x-3 bg-[#FFD200] hover:bg-[#FFE04D] text-[#0B1B2B] font-black text-sm sm:text-base px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
               >
-                Instant Practice Mode
+                <span>Get Started</span>
+                <span className="text-lg">→</span>
               </button>
             </div>
           </div>
 
-          {/* Right Visual: Real Student Image + 3D Trophy/Books + Floating Glass Badges */}
-          <div className="relative shrink-0 flex items-center justify-center">
-            {/* Student Image in rounded frame */}
-            <div className="relative group">
-              <div
-                className="w-64 h-64 md:w-72 md:h-72 rounded-[32px] overflow-hidden shadow-2xl"
-                style={{ border: '4px solid rgba(255, 255, 255, 0.4)', backgroundColor: '#071F15' }}
-              >
-                <img
-                  src="student.jpg"
-                  alt="Cheerful Student with Study Plug"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+          {/* Right Visual Column: 3D Book Stack + Mortarboard + Chalk Rays */}
+          <div className="w-full lg:w-[480px] shrink-0 flex items-center justify-center">
+            <HeroBookStack variant="desktop" className="w-full max-w-[460px]" />
+          </div>
+        </div>
+      </section>
 
-              {/* 3D Trophy & Target Graphic Overlay */}
-              <div className="absolute -bottom-6 -left-12 pointer-events-none">
-                <HeroGraphic className="w-36 h-32 md:w-44 md:h-36 drop-shadow-2xl scale-110" />
+      {/* ─── 2. SIX FEATURE CARDS ROW (Matching Mockup Layout) ─── */}
+      <section>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {/* 1. Past Questions */}
+          <div
+            onClick={() => setShowPastQuestionsBrowser(true)}
+            className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-full bg-[#0B1B2B] text-[#FFD200] flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition">
+                📝
               </div>
+              <h3 className="font-extrabold text-slate-900 text-sm mt-3.5 leading-snug group-hover:text-amber-600 transition">
+                Past Questions
+              </h3>
+              <p className="text-[11.5px] text-slate-500 font-normal mt-1 leading-snug">
+                Scanned past questions by topic and exam type.
+              </p>
+            </div>
+            <div className="mt-4 pt-2 border-t border-slate-100 flex items-center text-xs font-black text-slate-800 group-hover:text-[#0B1B2B]">
+              <span>Explore</span>
+              <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </div>
 
-              {/* Floating Glass Badge 1: Streak */}
-              <div className="absolute -top-3 -right-3 bg-white/90 backdrop-blur-md text-slate-900 px-3.5 py-2 rounded-2xl border border-white/40 shadow-xl flex items-center space-x-2 animate-bounce-slow">
-                <FlameIcon className="w-4 h-4" />
-                <div className="text-left">
-                  <div className="text-[10px] font-bold text-slate-400 leading-none">STREAK</div>
-                  <div className="text-xs font-extrabold text-slate-900">{studyStreak} Days</div>
-                </div>
+          {/* 2. Video Lessons */}
+          <div
+            onClick={() => openMorningTea()}
+            className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-full bg-[#0B1B2B] text-[#FFD200] flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition">
+                🎥
               </div>
+              <h3 className="font-extrabold text-slate-900 text-sm mt-3.5 leading-snug group-hover:text-amber-600 transition">
+                Video Lessons
+              </h3>
+              <p className="text-[11.5px] text-slate-500 font-normal mt-1 leading-snug">
+                Learn with easy-to-follow video tutorials.
+              </p>
+            </div>
+            <div className="mt-4 pt-2 border-t border-slate-100 flex items-center text-xs font-black text-slate-800 group-hover:text-[#0B1B2B]">
+              <span>Watch</span>
+              <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </div>
 
-              {/* Floating Glass Badge 2: Accuracy */}
-              <div className="absolute top-1/2 -right-6 -translate-y-1/2 bg-white/95 backdrop-blur-md text-slate-900 px-3.5 py-2 rounded-2xl border border-white/40 shadow-xl flex items-center space-x-2">
-                <div className="w-6 h-6 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xs">
-                  ✓
-                </div>
-                <div className="text-left">
-                  <div className="text-[10px] font-bold text-slate-400 leading-none">ACCURACY</div>
-                  <div className="text-xs font-extrabold text-slate-900">{overallAccuracy}% Avg</div>
-                </div>
+          {/* 3. Study Notes */}
+          <div
+            onClick={() => setActiveView('notes')}
+            className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-full bg-[#0B1B2B] text-[#FFD200] flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition">
+                📖
               </div>
+              <h3 className="font-extrabold text-slate-900 text-sm mt-3.5 leading-snug group-hover:text-amber-600 transition">
+                Study Notes
+              </h3>
+              <p className="text-[11.5px] text-slate-500 font-normal mt-1 leading-snug">
+                Download and read concise notes.
+              </p>
+            </div>
+            <div className="mt-4 pt-2 border-t border-slate-100 flex items-center text-xs font-black text-slate-800 group-hover:text-[#0B1B2B]">
+              <span>View</span>
+              <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </div>
+
+          {/* 4. AI Study Helper */}
+          <div
+            onClick={() => openAiTutor()}
+            className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-full bg-[#0B1B2B] text-[#FFD200] flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition">
+                🤖
+              </div>
+              <h3 className="font-extrabold text-slate-900 text-sm mt-3.5 leading-snug group-hover:text-amber-600 transition">
+                AI Study Helper
+              </h3>
+              <p className="text-[11.5px] text-slate-500 font-normal mt-1 leading-snug">
+                Get personalized study support.
+              </p>
+            </div>
+            <div className="mt-4 pt-2 border-t border-slate-100 flex items-center text-xs font-black text-slate-800 group-hover:text-[#0B1B2B]">
+              <span>Try Now</span>
+              <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </div>
+
+          {/* 5. Challenges & Battle */}
+          <div
+            onClick={() => openDareToDare({ subject: 'Mathematics' })}
+            className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-full bg-[#0B1B2B] text-[#FFD200] flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition">
+                ⚔️
+              </div>
+              <h3 className="font-extrabold text-slate-900 text-sm mt-3.5 leading-snug group-hover:text-amber-600 transition">
+                Challenges & Battle
+              </h3>
+              <p className="text-[11.5px] text-slate-500 font-normal mt-1 leading-snug">
+                Earn points, compete and win.
+              </p>
+            </div>
+            <div className="mt-4 pt-2 border-t border-slate-100 flex items-center text-xs font-black text-slate-800 group-hover:text-[#0B1B2B]">
+              <span>Join</span>
+              <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </div>
+
+          {/* 6. Smart Timetable */}
+          <div
+            onClick={() => setShowGoals(true)}
+            className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-full bg-[#0B1B2B] text-[#FFD200] flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition">
+                📅
+              </div>
+              <h3 className="font-extrabold text-slate-900 text-sm mt-3.5 leading-snug group-hover:text-amber-600 transition">
+                Smart Timetable
+              </h3>
+              <p className="text-[11.5px] text-slate-500 font-normal mt-1 leading-snug">
+                Plan your study time with AI.
+              </p>
+            </div>
+            <div className="mt-4 pt-2 border-t border-slate-100 flex items-center text-xs font-black text-slate-800 group-hover:text-[#0B1B2B]">
+              <span>Create</span>
+              <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Showstopper 95% Classroom Notes Banner */}
-      <div
-        onClick={() => setActiveView('notes')}
-        className="relative overflow-hidden rounded-[28px] p-6 sm:p-7 bg-gradient-to-r from-amber-500 via-amber-600 to-[#C4823F] text-slate-950 shadow-xl cursor-pointer hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 group border-2 border-amber-300 animate-fade-right delay-300"
-      >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-5 relative z-10">
-          <div className="flex items-center space-x-5 text-left">
-            <div className="w-16 h-16 rounded-2xl bg-slate-950 text-[#FFCC00] flex items-center justify-center text-3xl shrink-0 shadow-lg group-hover:scale-105 transition-transform">
-              📚
-            </div>
-            <div>
-              <div className="inline-flex items-center space-x-2 px-3 py-0.5 rounded-full bg-slate-950/20 text-slate-950 text-[11px] font-black uppercase tracking-wider mb-1">
-                <span>⭐ WAEC • NECO • JAMB 2026</span>
-                <span>•</span>
-                <span>95% High-Score System</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-black text-slate-950 tracking-tight leading-tight">
-                Classroom Study Notes & Formula Chalkboards
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-900 font-medium mt-1 max-w-2xl leading-relaxed">
-                Simple, high-yield topic presentations with classroom chalkboard derivations, examiner trap alerts, and direct past-question practice.
-              </p>
+      {/* ─── 3. MULTIPLE EXAMS. ONE PLATFORM. BANNER (Matching Mockup) ─── */}
+      <section className="relative overflow-hidden rounded-3xl bg-[#0B1B2B] p-6 sm:p-8 text-white border border-slate-800 shadow-xl">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
+          <div className="text-left space-y-2">
+            <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              Multiple Exams. One Platform.
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300">
+              Prepare for all major Nigerian and International examinations under one unified account.
+            </p>
+
+            {/* Exam Badge Pills */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-2">
+              {[
+                { name: 'JAMB', color: 'bg-red-500/20 text-red-300 border-red-500/40' },
+                { name: 'WAEC', color: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' },
+                { name: 'NECO', color: 'bg-blue-500/20 text-blue-300 border-blue-500/40' },
+                { name: 'NABTEB', color: 'bg-amber-500/20 text-amber-300 border-amber-500/40' },
+                { name: 'IELTS', color: 'bg-purple-500/20 text-purple-300 border-purple-500/40' },
+                { name: 'BECE', color: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40' },
+              ].map((exam) => (
+                <button
+                  key={exam.name}
+                  type="button"
+                  onClick={() => handleExamClick(exam.name)}
+                  className={`px-4 py-1.5 rounded-full text-xs font-black border transition hover:scale-105 cursor-pointer ${exam.color}`}
+                >
+                  {exam.name}
+                </button>
+              ))}
             </div>
           </div>
 
+          {/* Angled Yellow Sticker Tag */}
           <div className="shrink-0">
-            <button
-              type="button"
-              className="px-6 py-3 rounded-2xl bg-slate-950 text-[#FFCC00] font-black text-xs sm:text-sm shadow-xl hover:bg-slate-900 transition flex items-center space-x-2 cursor-pointer group-hover:scale-105"
-            >
-              <span>Explore Notes Hub</span>
-              <span>➔</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Quick Start 4-Column Grid */}
-      <div className="animate-fade-up delay-200">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h2 className="text-xl font-extrabold chalk-heading tracking-tight">Quick Start</h2>
-            <p className="text-xs chalk-muted mt-0.5">Jump right into your daily practice routine</p>
-          </div>
-          <button
-            type="button"
-            onClick={() => setActiveView('test')}
-            className="text-xs font-bold text-[#FFCC00] hover:underline cursor-pointer animate-chalk-glow"
-          >
-            Launch CBT Exam Simulator →
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Card 1: Mock Test */}
-          <div
-            onClick={() => setActiveView('test')}
-            className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl hover:border-[#FFCC00] hover:shadow-2xl transition-all duration-200 cursor-pointer group flex flex-col justify-between board-card-hover animate-fade-up delay-100 animate-border-pulse"
-          >
-            <div>
-              <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] text-[#FFCC00] flex items-center justify-center shadow group-hover:scale-105 transition-transform">
-                  <MockTestCardIcon className="w-6 h-6" />
-                </div>
-                <span className="text-[10.5px] font-extrabold text-amber-300 bg-amber-950/60 px-2.5 py-1 rounded-full border border-[#C4823F]/50">
-                  Full Length
-                </span>
-              </div>
-
-              <h3 className="font-extrabold text-base text-white mt-4 group-hover:text-[#FFCC00] transition-colors leading-tight">
-                Mock Test
-              </h3>
-              <p className="text-xs text-emerald-200/70 font-normal mt-1 leading-relaxed">
-                Take a full length test simulating real exam conditions.
-              </p>
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-[#C4823F]/30 flex items-center justify-between text-xs font-bold text-[#FFCC00]">
-              <span>50 Questions • Timed</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </div>
-
-          {/* Card 2: Practice */}
-          <div
-            onClick={() => setActiveView('practice')}
-            className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl hover:border-[#FFCC00] hover:shadow-2xl transition-all duration-200 cursor-pointer group flex flex-col justify-between board-card-hover animate-fade-up delay-200"
-          >
-            <div>
-              <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] text-[#34D399] flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <PracticeCardIcon className="w-6 h-6" />
-                </div>
-                <span className="text-[10.5px] font-extrabold text-emerald-300 bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-500/40">
-                  Instant Solutions
-                </span>
-              </div>
-
-              <h3 className="font-extrabold text-base text-white mt-4 group-hover:text-[#34D399] transition-colors leading-tight">
-                Practice
-              </h3>
-              <p className="text-xs chalk-body font-normal mt-1 leading-relaxed">
-                Practice by topic and reveal step-by-step classroom board explanations.
-              </p>
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-[#C4823F]/30 flex items-center justify-between text-xs font-bold text-[#34D399]">
-              <span>Choose by Topic</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </div>
-
-          {/* Card 3: Previous Tests */}
-          <div
-            onClick={() => setActiveView('results')}
-            className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl hover:border-[#FFCC00] hover:shadow-2xl transition-all duration-200 cursor-pointer group flex flex-col justify-between board-card-hover animate-fade-up delay-300"
-          >
-            <div>
-              <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] text-[#FBBF24] flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <PreviousTestsCardIcon className="w-6 h-6" />
-                </div>
-                <span className="text-[10.5px] font-extrabold text-amber-300 bg-amber-950/60 px-2.5 py-1 rounded-full border border-[#C4823F]/50">
-                  {testsTaken} Taken
-                </span>
-              </div>
-
-              <h3 className="font-extrabold text-base text-white mt-4 group-hover:text-amber-300 transition-colors leading-tight">
-                Previous Tests
-              </h3>
-              <p className="text-xs chalk-body font-normal mt-1 leading-relaxed">
-                View your performance, accuracy trends, and test analytics.
-              </p>
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-[#C4823F]/30 flex items-center justify-between text-xs font-bold text-amber-300">
-              <span>View History &amp; Score</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </div>
-
-          {/* Card 4: Bookmarks */}
-          <div
-            onClick={() => setActiveView('bookmarks')}
-            className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl hover:border-[#FFCC00] hover:shadow-2xl transition-all duration-200 cursor-pointer group flex flex-col justify-between board-card-hover animate-fade-up delay-400"
-          >
-            <div>
-              <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] text-[#F87171] flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <BookmarksCardIcon className="w-6 h-6" />
-                </div>
-                <span className="text-[10.5px] font-extrabold text-rose-300 bg-rose-950/60 px-2.5 py-1 rounded-full border border-rose-500/40">
-                  {bookmarks.length} Saved
-                </span>
-              </div>
-
-              <h3 className="font-extrabold text-base text-white mt-4 group-hover:text-rose-300 transition-colors leading-tight">
-                Bookmarks
-              </h3>
-              <p className="text-xs text-emerald-200/70 font-normal mt-1 leading-relaxed">
-                Review your bookmarked questions and challenging concepts.
-              </p>
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-[#C4823F]/30 flex items-center justify-between text-xs font-bold text-rose-300">
-              <span>Review {bookmarks.length} Questions</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            <div className="bg-[#FFD200] text-[#0B1B2B] font-black text-sm sm:text-base px-6 py-3 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition duration-200">
+              ⚡ Study Smart. Score Higher.
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Your Progress Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fade-up delay-400">
-        {/* Left 2 Cols: Accuracy, Tests Taken & Subject Breakdown */}
-        <div className="lg:col-span-2 bg-gradient-to-br from-[#0D3023] to-[#071D15] rounded-3xl p-7 border-2 border-[#C4823F] shadow-xl space-y-6 text-white">
+      {/* ─── 4. WHY STUDYPLUG? TRUST SECTION (Matching Mockup) ─── */}
+      <section className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm text-left">
+        <div className="text-center max-w-xl mx-auto mb-8">
+          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+            Why StudyPlug?
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1">
+            Engineered specifically to help secondary and UTME candidates master exam topics.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+            <div className="text-2xl">⚡</div>
+            <h3 className="font-extrabold text-slate-900 text-sm">Easy to Use</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Simple, clean and intuitive interface designed for fast and distraction-free revision.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+            <div className="text-2xl">🛡️</div>
+            <h3 className="font-extrabold text-slate-900 text-sm">Reliable Content</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Verified syllabus, actual previous questions and accurate step-by-step model answers.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+            <div className="text-2xl">📱</div>
+            <h3 className="font-extrabold text-slate-900 text-sm">Learn Anywhere</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Full desktop, tablet and mobile responsiveness with instant progress sync.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+            <div className="text-2xl">⭐</div>
+            <h3 className="font-extrabold text-slate-900 text-sm">Built for Your Success</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Target 300+ in JAMB and straight A's in WAEC with predictive score analytics.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5. USER PROGRESS & HIGH-YIELD REPEATED QUESTIONS SHORTCUT ─── */}
+      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left 2 Cols: Progress overview */}
+        <div className="lg:col-span-2 bg-[#0B1B2B] text-white rounded-3xl p-7 border border-slate-800 shadow-xl space-y-5 text-left">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-extrabold chalk-heading tracking-tight">Your Progress</h2>
-              <p className="text-xs chalk-muted mt-0.5">Real-time statistics updated after every exam</p>
+              <h3 className="text-lg font-black tracking-tight">Your Practice Progress</h3>
+              <p className="text-xs text-slate-400">Keep up the daily momentum</p>
             </div>
             <button
               type="button"
               onClick={() => setActiveView('results')}
-              className="text-xs font-extrabold text-[#FFCC00] hover:underline cursor-pointer animate-chalk-glow"
+              className="text-xs font-bold text-[#FFD200] hover:underline cursor-pointer"
             >
-              View Detailed Breakdown →
+              Detailed Analytics →
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-            {/* Overall Accuracy */}
-            <div className="bg-[#061911] rounded-2xl p-4 border border-[#C4823F]/40 flex flex-col justify-between shadow-inner board-card-hover">
-              <div>
-                <span className="text-xs font-semibold chalk-muted">Overall Accuracy</span>
-                <div className="flex items-baseline space-x-2 mt-1">
-                  <span className="text-3xl chalk-stat animate-count-up delay-500">{overallAccuracy}%</span>
-                  <span className="text-xs font-bold text-amber-300 bg-amber-950/60 border border-[#C4823F]/50 px-1.5 py-0.5 rounded">
-                    Active Score
-                  </span>
-                </div>
-              </div>
-              <div className="mt-3">
-                <div className="w-full h-2 bg-[#082218] rounded-full overflow-hidden border border-[#C4823F]/30">
-                  <div className="h-full bg-[#FFCC00] rounded-full transition-all duration-300 shadow-sm" style={{ width: `${overallAccuracy}%` }} />
-                </div>
-                <div className="flex justify-between text-[10px] font-semibold text-emerald-300/60 mt-1">
-                  <span>Target: 80%</span>
-                  <span>{overallAccuracy}% Achieved</span>
-                </div>
-              </div>
+          <div className="grid grid-cols-3 gap-4">
+            <div className="bg-[#071524] p-4 rounded-2xl border border-slate-800">
+              <span className="text-xs text-slate-400 block font-medium">Overall Accuracy</span>
+              <span className="text-2xl font-black text-[#FFD200] mt-1 block">{overallAccuracy}%</span>
             </div>
-
-            {/* Tests Taken */}
-            <div className="bg-[#061911] rounded-2xl p-4 border border-[#C4823F]/40 flex flex-col justify-between shadow-inner">
-              <div>
-                <span className="text-xs font-semibold text-emerald-200/70">Tests Taken</span>
-                <div className="flex items-baseline space-x-2 mt-1">
-                  <span className="text-3xl font-extrabold text-white tracking-tight">{testsTaken}</span>
-                  <span className="text-xs text-amber-300 font-medium">Completed</span>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 text-xs text-emerald-200/80 font-medium mt-3">
-                <span className="w-2 h-2 rounded-full bg-[#FFCC00]" />
-                <span>{testsTaken * 50} Total Questions Solved</span>
-              </div>
+            <div className="bg-[#071524] p-4 rounded-2xl border border-slate-800">
+              <span className="text-xs text-slate-400 block font-medium">Mock Tests Taken</span>
+              <span className="text-2xl font-black text-white mt-1 block">{testsTaken}</span>
             </div>
-
-            {/* Average Speed */}
-            <div className="bg-[#061911] rounded-2xl p-4 border border-[#C4823F]/40 flex flex-col justify-between shadow-inner">
-              <div>
-                <span className="text-xs font-semibold text-emerald-200/70">Average Speed</span>
-                <div className="flex items-baseline space-x-2 mt-1">
-                  <span className="text-3xl font-extrabold text-white tracking-tight">1m 12s</span>
-                  <span className="text-xs text-emerald-300 font-bold bg-emerald-950/60 border border-emerald-500/40 px-1.5 py-0.5 rounded">
-                    Optimal
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 text-xs text-emerald-200/80 font-medium mt-3">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>Paced for 2h 30m Exam</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Subject Performance Breakdown Bar */}
-          <div className="pt-2 border-t border-[#C4823F]/30">
-            <h3 className="text-xs font-bold text-emerald-100 mb-3">Subject Accuracy Breakdown</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                { name: 'Mathematics', score: '88%', color: 'bg-emerald-400' },
-                { name: 'Use of English', score: '82%', color: 'bg-[#FFCC00]' },
-                { name: 'Physics', score: '74%', color: 'bg-sky-400' },
-                { name: 'Chemistry', score: '79%', color: 'bg-amber-400' },
-              ].map((subj) => (
-                <div key={subj.name} className="p-2.5 rounded-xl bg-[#061911] border border-[#C4823F]/30">
-                  <div className="flex justify-between text-xs font-semibold mb-1">
-                    <span className="text-emerald-100">{subj.name}</span>
-                    <span className="text-white font-bold">{subj.score}</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-[#082218] rounded-full overflow-hidden border border-[#C4823F]/20">
-                    <div className={`h-full ${subj.color} rounded-full`} style={{ width: subj.score }} />
-                  </div>
-                </div>
-              ))}
+            <div className="bg-[#071524] p-4 rounded-2xl border border-slate-800">
+              <span className="text-xs text-slate-400 block font-medium">Study Streak</span>
+              <span className="text-2xl font-black text-emerald-400 mt-1 block">{studyStreak} Days 🔥</span>
             </div>
           </div>
         </div>
 
-        {/* Right 1 Col: Study Streak Card */}
-        <div className="bg-gradient-to-br from-[#0D3023] to-[#071D15] rounded-3xl p-7 border-2 border-[#C4823F] shadow-xl flex flex-col justify-between text-white">
+        {/* Right 1 Col: Most Repeated Questions Callout */}
+        <div
+          onClick={() => setShowRepeated(true)}
+          className="bg-gradient-to-br from-[#0B1B2B] to-[#132A42] text-white rounded-3xl p-7 border border-[#FFD200]/40 shadow-xl flex flex-col justify-between cursor-pointer hover:border-[#FFD200] transition group text-left"
+        >
           <div>
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-base font-extrabold text-white leading-tight">Study Streak</h3>
-                <span className="text-xs text-emerald-200/70 font-medium">Keep it up!</span>
-              </div>
-              <div className="flex items-center space-x-1.5 bg-amber-950/60 border border-[#C4823F] px-3 py-1 rounded-full">
-                <FlameIcon className="w-4 h-4" />
-                <span className="font-extrabold text-xs text-amber-300">{studyStreak} Days</span>
-              </div>
+            <div className="inline-flex items-center space-x-2 bg-[#FFD200] text-[#0B1B2B] px-3 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider mb-2">
+              <span>🔁 High Yield</span>
             </div>
-
-            <p className="text-xs text-emerald-100/80 mt-4 leading-relaxed font-normal">
-              You’ve hit your study targets {studyStreak} days in a row! Consistent daily practice increases exam score retention by 3.5x.
+            <h4 className="text-base font-black text-white group-hover:text-[#FFD200] transition">
+              Most Repeated Exam Questions
+            </h4>
+            <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+              Browse questions by topic with step-by-step classroom board explanations.
             </p>
-
-            {/* 7 Days tracker row (Mon - Sun) */}
-            <div className="mt-6 pt-4 border-t border-[#C4823F]/30">
-              <div className="flex items-center justify-between">
-                {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                  <div key={day} className="flex flex-col items-center space-y-1.5">
-                    <span className="text-[10px] font-semibold text-emerald-200/60">{day}</span>
-                    <CheckCircleFilled className="w-6 h-6" />
-                  </div>
-                ))}
-                {/* 7th Day (Sunday) */}
-                <div className="flex flex-col items-center space-y-1.5">
-                  <span className="text-[10px] font-bold text-amber-300">Sun</span>
-                  <div className="w-6 h-6 rounded-full border border-amber-300 bg-amber-950/60 flex items-center justify-center shadow-sm">
-                    <span className="text-[10px] font-extrabold text-amber-300">S</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-
-          <div className="mt-6 pt-4 border-t border-[#C4823F]/30 flex items-center justify-between text-xs font-semibold">
-            <span className="text-emerald-200/70">Weekly Target</span>
-            <span className="text-[#FFCC00] font-bold">7 of 7 Days Completed (100%)</span>
+          <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-bold text-[#FFD200]">
+            <span>Explore Repeated Questions</span>
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Featured Subjects Section */}
-      <div>
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h2 className="text-xl font-extrabold text-white tracking-tight">Featured Subjects</h2>
-            <p className="text-xs text-emerald-200/70 mt-0.5">Top examination subjects with simulated test papers</p>
-          </div>
-          <button
-            type="button"
-            onClick={() => setActiveView('subjects')}
-            className="text-xs font-extrabold text-[#FFCC00] hover:underline cursor-pointer"
-          >
-            View All Subjects →
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Mathematics */}
-          <div
-            onClick={() => setActiveView('test')}
-            className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl hover:border-[#FFCC00] hover:shadow-2xl transition duration-150 cursor-pointer flex items-center justify-between group"
-          >
-            <div className="flex items-center space-x-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-[#34D399]">
-                <MathSubjectIcon className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-sm text-white group-hover:text-[#FFCC00] transition-colors">
-                  Mathematics
-                </h3>
-                <span className="text-xs text-emerald-200/70 font-medium">450 Questions</span>
-              </div>
-            </div>
-            <span className="px-3 py-1.5 rounded-xl bg-[#C4823F] text-slate-950 font-black text-xs group-hover:bg-[#FFCC00] transition">
-              CBT
-            </span>
-          </div>
-
-          {/* Use of English */}
-          <div
-            onClick={() => setActiveView('subjects')}
-            className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl hover:border-[#FFCC00] hover:shadow-2xl transition duration-150 cursor-pointer flex items-center justify-between group"
-          >
-            <div className="flex items-center space-x-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-rose-400">
-                <EnglishSubjectIcon className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-sm text-white group-hover:text-[#FFCC00] transition-colors">
-                  Use of English
-                </h3>
-                <span className="text-xs text-emerald-200/70 font-medium">320 Questions</span>
-              </div>
-            </div>
-            <span className="px-3 py-1.5 rounded-xl bg-[#061710] border border-[#C4823F]/50 text-amber-200 font-bold text-xs group-hover:bg-[#C4823F] group-hover:text-slate-950 transition">
-              Open
-            </span>
-          </div>
-
-          {/* Physics */}
-          <div
-            onClick={() => setActiveView('subjects')}
-            className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl hover:border-[#FFCC00] hover:shadow-2xl transition duration-150 cursor-pointer flex items-center justify-between group"
-          >
-            <div className="flex items-center space-x-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-sky-400">
-                <PhysicsSubjectIcon className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-sm text-white group-hover:text-[#FFCC00] transition-colors">
-                  Physics
-                </h3>
-                <span className="text-xs text-emerald-200/70 font-medium">350 Questions</span>
-              </div>
-            </div>
-            <span className="px-3 py-1.5 rounded-xl bg-[#061710] border border-[#C4823F]/50 text-amber-200 font-bold text-xs group-hover:bg-[#C4823F] group-hover:text-slate-950 transition">
-              Open
-            </span>
-          </div>
-
-          {/* Chemistry */}
-          <div
-            onClick={() => setActiveView('subjects')}
-            className="bg-gradient-to-br from-[#0E3526] to-[#082218] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl hover:border-[#FFCC00] hover:shadow-2xl transition duration-150 cursor-pointer flex items-center justify-between group"
-          >
-            <div className="flex items-center space-x-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-[#061710] border border-[#C4823F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-amber-400">
-                <ChemistrySubjectIcon className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-sm text-white group-hover:text-[#FFCC00] transition-colors">
-                  Chemistry
-                </h3>
-                <span className="text-xs text-emerald-200/70 font-medium">320 Questions</span>
-              </div>
-            </div>
-            <span className="px-3 py-1.5 rounded-xl bg-[#061710] border border-[#C4823F]/50 text-amber-200 font-bold text-xs group-hover:bg-[#C4823F] group-hover:text-slate-950 transition">
-              Open
-            </span>
-          </div>
-        </div>
-      </div>
+      {/* Modals */}
+      {showRepeated && <RepeatedQuestionsModal onClose={() => setShowRepeated(false)} />}
+      {showPastQuestionsBrowser && <PastQuestionsBrowserModal onClose={() => setShowPastQuestionsBrowser(false)} />}
+      {showGoals && <StudyGoalsModal onClose={() => setShowGoals(false)} />}
     </div>
   );
 };
+
+export default DesktopDashboard;

@@ -9,30 +9,30 @@
   
   body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    background-color: #F7F9F8;
-    color: #10201D;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F8F8F8;
+    color: #001028;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   ::selection {
-    background-color: #FFD600;
-    color: #004D40;
+    background-color: #F8C800;
+    color: #001028;
   }
 }
 
-/* Authentic StudyPlug Classroom Chalkboard Theme */
+/* Official StudyPlug Dark Navy Theme */
 .bg-board-deep {
-  background: radial-gradient(ellipse at 50% 25%, #134633 0%, #0C2E20 60%, #071A12 100%);
+  background: radial-gradient(ellipse at 50% 25%, #001830 0%, #001028 60%, #000814 100%);
 }
 
 .bg-board-slate {
-  background: radial-gradient(ellipse at 50% 35%, #154D38 0%, #0C2E20 70%, #082117 100%);
+  background: radial-gradient(ellipse at 50% 35%, #001830 0%, #001028 70%, #001020 100%);
 }
 
 .bg-board-card {
-  background: linear-gradient(145deg, #0E3526 0%, #082218 100%);
-  border: 2.5px solid #C4823F;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(145deg, #001830 0%, #001028 100%);
+  border: 1.5px solid #001020;
+  box-shadow: 0 10px 25px rgba(0, 16, 40, 0.4), inset 0 0 15px rgba(0, 16, 40, 0.4);
 }
 
 .border-wood-frame {

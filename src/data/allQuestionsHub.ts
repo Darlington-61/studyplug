@@ -22,6 +22,7 @@ import {
 } from './subjectQuestions';
 import { MOTION_MASTER_SECTIONS } from './motionMasterLesson';
 import { NABTEB_QUESTIONS } from './nabtebQuestions';
+import { IELTS_QUESTIONS } from './ieltsQuestions';
 
 export {
   MATHEMATICS_QUESTIONS,
@@ -43,6 +44,7 @@ export {
   POST_UTME_QUESTIONS,
   CURRENT_AFFAIRS_QUESTIONS,
   NABTEB_QUESTIONS,
+  IELTS_QUESTIONS,
   SUBJECT_TOPICS_CATALOG
 };
 
@@ -172,6 +174,7 @@ export const ALL_QUESTIONS: Question[] = [
   ...POST_UTME_QUESTIONS,
   ...CURRENT_AFFAIRS_QUESTIONS,
   ...NABTEB_QUESTIONS,
+  ...IELTS_QUESTIONS,
 ];
 
 export function normalizeSubjectName(subName: string): string {
@@ -180,6 +183,7 @@ export function normalizeSubjectName(subName: string): string {
 
   // Preserve exam-specific, paper-specific, or university-specific subjects verbatim
   if (
+    trimmed.startsWith('IELTS') ||
     trimmed.startsWith('WAEC') ||
     trimmed.startsWith('NECO') ||
     trimmed.startsWith('NABTEB') ||
@@ -197,6 +201,11 @@ export function normalizeSubjectName(subName: string): string {
   }
 
   const s = trimmed.toLowerCase();
+  if (s.includes('ielts reading')) return 'IELTS Reading';
+  if (s.includes('ielts listening')) return 'IELTS Listening';
+  if (s.includes('ielts writing')) return 'IELTS Writing';
+  if (s.includes('ielts speaking')) return 'IELTS Speaking';
+  if (s.includes('ielts')) return 'IELTS';
   if (s.includes('eng')) return 'Use of English';
   if (s.includes('math')) return 'Mathematics';
   if (s.includes('phy') && !s.includes('healt')) return 'Physics';
@@ -216,6 +225,22 @@ export function normalizeSubjectName(subName: string): string {
 
 export function getBaseQuestionsForSubject(subjectName: string): Question[] {
   const norm = normalizeSubjectName(subjectName).toLowerCase();
+  if (norm.includes('ielts reading')) {
+    return IELTS_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes('reading'));
+  }
+  if (norm.includes('ielts listening')) {
+    return IELTS_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes('listening'));
+  }
+  if (norm.includes('ielts writing')) {
+    return IELTS_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes('writing'));
+  }
+  if (norm.includes('ielts speaking')) {
+    return IELTS_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes('speaking'));
+  }
+  if (norm.includes('ielts')) {
+    return IELTS_QUESTIONS;
+  }
+
   const nabtebSub = NABTEB_QUESTIONS.filter(q => (q.subject || '').toLowerCase().includes(norm));
   if (norm.includes('math')) return [...MATHEMATICS_QUESTIONS, ...nabtebSub];
   if (norm.includes('phy') && !norm.includes('healt')) {
@@ -240,7 +265,7 @@ export function getBaseQuestionsForSubject(subjectName: string): Question[] {
 }
 
 export interface PracticeFilterOptions {
-  exam?: 'JAMB' | 'WAEC' | 'WAEC GCE' | 'NECO' | 'NECO GCE' | 'NABTEB' | 'POST UTME' | 'BECE' | 'ALL';
+  exam?: 'JAMB' | 'WAEC' | 'WAEC GCE' | 'NECO' | 'NECO GCE' | 'NABTEB' | 'POST UTME' | 'BECE' | 'IELTS' | 'ALL';
   subject?: string;
   subjects?: string[];
   year?: number | 'all';
@@ -248,6 +273,7 @@ export interface PracticeFilterOptions {
   subtopic?: string | 'all'; // 'all' or specific subtopic name
   limit?: number;
   strictMatching?: boolean; // When true or when topic/subtopic is set, DO NOT backfill with unrelated topics
+  paperType?: 'OBJ' | 'Theory' | 'all'; // Guarantees Theory is never mixed into multiple-choice objective practice
 }
 
 /**
@@ -274,7 +300,30 @@ export function getFilteredQuestions(options: PracticeFilterOptions): Question[]
   const requestedSubject = options.subject || 'Mathematics';
   let list = getBaseQuestionsForSubject(requestedSubject);
 
-  // 0. Filter / Prioritize by Exam if specified
+  // 0. Strict Paper Type Isolation (Default to OBJ to ensure Theory is never mixed into objective tests)
+  const requestedPaperType = options.paperType || 'OBJ';
+  if (requestedPaperType === 'OBJ') {
+    list = list.filter(q => {
+      if (q.paperType === 'Theory') return false;
+      if (q.paper && q.paper.toLowerCase().includes('theory')) return false;
+      // Filter out multi-part theory questions disguised with sub-parts (a) and (b)
+      if (q.text && /\(a\)[\s\S]{1,120}\(b\)/i.test(q.text)) {
+        if (q.options && Array.isArray(q.options) && q.options.some(o => /^\([a-d]\)/i.test(o.text) || o.text.includes('<ul><li>'))) {
+          return false;
+        }
+      }
+      return true;
+    });
+  } else if (requestedPaperType === 'Theory') {
+    list = list.filter(q => {
+      if (q.paperType === 'Theory') return true;
+      if (q.paper && q.paper.toLowerCase().includes('theory')) return true;
+      if (q.text && /\(a\)[\s\S]{1,120}\(b\)/i.test(q.text)) return true;
+      return false;
+    });
+  }
+
+  // 0.1 Filter / Prioritize by Exam if specified
   if (options.exam && options.exam !== 'ALL') {
     const ex = options.exam.toUpperCase();
     const examMatches = list.filter(q => 
@@ -437,10 +486,10 @@ export function getFilteredQuestions(options: PracticeFilterOptions): Question[]
  */
 export function getQuestionsForMultiSubject(
   subjects: string[],
-  options: { year?: number | 'all'; topic?: string | 'all'; limitPerSubject?: number }
+  options: { year?: number | 'all'; topic?: string | 'all'; limitPerSubject?: number; paperType?: 'OBJ' | 'Theory' | 'all' }
 ): Record<string, Question[]> {
   const result: Record<string, Question[]> = {};
-  const limit = options.limitPerSubject || 40;
+  const limit = options.limitPerSubject === 0 ? undefined : (options.limitPerSubject || 40);
 
   for (const rawSub of subjects) {
     const subName = normalizeSubjectName(rawSub);
@@ -448,7 +497,8 @@ export function getQuestionsForMultiSubject(
       subject: subName,
       year: options.year,
       topic: options.topic,
-      limit
+      limit,
+      paperType: options.paperType || 'OBJ'
     });
     // Ensure questionNumber is sequential (1..N) within each subject
     result[subName] = qs.map((q, idx) => ({

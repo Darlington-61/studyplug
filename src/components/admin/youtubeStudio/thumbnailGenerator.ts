@@ -29,7 +29,7 @@ export function drawThumbnailToCanvas(
   // Background Gradient
   const grad = ctx.createLinearGradient(0, 0, width, height);
   if (config.theme === 'deep_emerald') {
-    grad.addColorStop(0, '#004D40');
+    grad.addColorStop(0, '#001028');
     grad.addColorStop(0.5, '#00332B');
     grad.addColorStop(1, '#051813');
   } else if (config.theme === 'royal_blue') {
@@ -86,7 +86,7 @@ export function drawThumbnailToCanvas(
   roundRect(ctx, startX, cursorY, isShorts ? 280 : 200, isShorts ? 70 : 46, 12);
   ctx.fill();
 
-  ctx.fillStyle = '#004D40';
+  ctx.fillStyle = '#001028';
   ctx.font = `900 ${isShorts ? '32px' : '22px'} sans-serif`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';

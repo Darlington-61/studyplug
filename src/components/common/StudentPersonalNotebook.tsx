@@ -152,7 +152,7 @@ export const StudentPersonalNotebook: React.FC<StudentPersonalNotebookProps> = (
             value={personalNote}
             onChange={e => handleNoteChange(e.target.value)}
             placeholder="Jot down your personal reminders, formulas to memorize, or notes from your teacher for this specific topic..."
-            className="w-full flex-1 p-3.5 rounded-xl bg-[#05140e] border border-white/10 text-white text-xs sm:text-sm placeholder-white/25 focus:outline-none focus:border-[#FFCC00]/50 resize-none font-sans leading-relaxed"
+            className="w-full flex-1 p-3.5 rounded-xl bg-[#001028] border border-white/10 text-white text-xs sm:text-sm placeholder-white/25 focus:outline-none focus:border-[#FFCC00]/50 resize-none font-sans leading-relaxed"
           />
         </div>
 

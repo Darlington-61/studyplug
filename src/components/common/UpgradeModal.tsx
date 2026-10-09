@@ -82,7 +82,7 @@ export const UpgradeModal: React.FC<UpgradeModalProps> = ({ isOpen, onClose }) =
     <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-page-enter">
       <div className={`w-full max-w-lg rounded-[24px] border ${isDarkMode ? 'bg-[#0A1A16] border-emerald-800/80 text-[#E6F1EE]' : 'bg-white border-[#E4EAE8] text-[#10201D]'} shadow-2xl flex flex-col max-h-[92vh] overflow-hidden`}>
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#003B32] via-[#004D40] to-[#0A261D] text-white p-5 flex items-center justify-between shrink-0 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#001830] via-[#001028] to-[#0A261D] text-white p-5 flex items-center justify-between shrink-0 relative overflow-hidden">
           <div className="flex items-center space-x-2.5">
             <span className="text-2xl">⚡</span>
             <div>
@@ -135,7 +135,7 @@ export const UpgradeModal: React.FC<UpgradeModalProps> = ({ isOpen, onClose }) =
                 </span>
                 <div className="my-1">
                   <div className="text-xs font-bold">{plan.title}</div>
-                  <div className="text-sm font-black text-[#004D40] dark:text-[#FFD600]">{plan.price}</div>
+                  <div className="text-sm font-black text-[#001028] dark:text-[#FFD600]">{plan.price}</div>
                 </div>
               </button>
             ))}
@@ -167,7 +167,7 @@ export const UpgradeModal: React.FC<UpgradeModalProps> = ({ isOpen, onClose }) =
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="e.g. candidate@gmail.com"
-              className={`w-full px-3.5 py-2.5 rounded-xl border text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#004D40] ${
+              className={`w-full px-3.5 py-2.5 rounded-xl border text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#001028] ${
                 isDarkMode
                   ? 'bg-[#0A1A16] border-emerald-800 text-white'
                   : 'bg-white border-slate-300 text-slate-900'
@@ -214,7 +214,7 @@ export const UpgradeModal: React.FC<UpgradeModalProps> = ({ isOpen, onClose }) =
           <button
             type="button"
             onClick={handleCheckout}
-            className="flex-1 px-4 py-2.5 rounded-xl text-xs font-black bg-[#004D40] hover:bg-[#003B32] text-white shadow-md transition cursor-pointer flex items-center justify-center space-x-1.5"
+            className="flex-1 px-4 py-2.5 rounded-xl text-xs font-black bg-[#001028] hover:bg-[#001830] text-white shadow-md transition cursor-pointer flex items-center justify-center space-x-1.5"
           >
             <span>Proceed to Secure Checkout</span>
             <span>→</span>

@@ -396,7 +396,7 @@ export const DareToDareGameModal: React.FC = () => {
 
       <div className="relative w-full max-w-lg bg-[#071914] text-white rounded-[24px] border border-emerald-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Top Header Glow Bar */}
-        <div className="bg-gradient-to-r from-emerald-900 via-[#004D40] to-teal-800 px-4 py-3 flex items-center justify-between border-b border-emerald-500/20">
+        <div className="bg-gradient-to-r from-emerald-900 via-[#001028] to-teal-800 px-4 py-3 flex items-center justify-between border-b border-emerald-500/20">
           <div className="flex items-center space-x-2">
             <span className="text-xl animate-bounce">⚡</span>
             <div>

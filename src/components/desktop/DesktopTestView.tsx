@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { ComprehensionPassageViewer } from '../common/ComprehensionPassageViewer';
+import { STUDENT_MASCOT_IMAGE } from '../../assets/studentMascot';
+import { ShareStudyCardModal } from '../common/ShareStudyCardModal';
 
 export const DesktopTestView: React.FC = () => {
   const {
@@ -17,6 +19,7 @@ export const DesktopTestView: React.FC = () => {
     setTimeRemaining,
     submitTest,
     setActiveView,
+    goBack,
     questions,
     selectedSubject,
     selectedSubjects,
@@ -33,6 +36,7 @@ export const DesktopTestView: React.FC = () => {
   const [fontScale, setFontScale] = useState<number>(1.2); // Default enlarged for maximum readability
   const [showTheorySolution, setShowTheorySolution] = useState<boolean>(false);
   const [theoryDrafts, setTheoryDrafts] = useState<{ [qNum: number]: string }>({});
+  const [isShareModalOpen, setIsShareModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setShowTheorySolution(false);
@@ -81,7 +85,7 @@ export const DesktopTestView: React.FC = () => {
   const displaySubject = activeExamSubject || selectedSubject;
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-[#061710] flex flex-col text-white">
+    <div data-exam-content className="min-h-[calc(100vh-64px)] bg-[#061710] flex flex-col text-white">
       {/* CBT Top Examination Banner */}
       <div className="bg-[#092218] text-white px-6 py-3.5 shadow-md border-b-[3px] border-[#C4823F]">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
@@ -89,7 +93,7 @@ export const DesktopTestView: React.FC = () => {
           <div className="flex items-center space-x-3">
             <button
               type="button"
-              onClick={() => setActiveView('subjects')}
+              onClick={() => goBack()}
               className="w-9 h-9 rounded-xl bg-[#061710] border border-[#C4823F]/50 hover:bg-[#0E3526] flex items-center justify-center text-amber-300 transition cursor-pointer"
               aria-label="Back"
             >
@@ -196,20 +200,6 @@ export const DesktopTestView: React.FC = () => {
               </button>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setShowCalculator(!showCalculator)}
-              className="px-3 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold text-white transition flex items-center space-x-1.5 cursor-pointer border border-white/20"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-                <rect x="4" y="2" width="16" height="20" rx="2" />
-                <line x1="8" y1="6" x2="16" y2="6" />
-                <line x1="16" y1="14" x2="16" y2="18" />
-                <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01" />
-              </svg>
-              <span>{showCalculator ? 'Hide Calc' : 'Calculator'}</span>
-            </button>
-
             {/* PlugAI Tutor Button */}
             <button
               type="button"
@@ -305,6 +295,17 @@ export const DesktopTestView: React.FC = () => {
                   </span>
                 </button>
 
+                {/* Share Question Card Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border border-[#C4823F]/40 bg-[#061911] text-emerald-200 hover:bg-[#0E3526] hover:text-white transition cursor-pointer"
+                  title="Share Question as Study Card"
+                >
+                  <span>📤</span>
+                  <span className="text-xs font-bold">Share</span>
+                </button>
+
                 {/* Ask PlugAI Button */}
                 <button
                   type="button"
@@ -324,28 +325,39 @@ export const DesktopTestView: React.FC = () => {
               </div>
             </div>
 
+            {/* Diagram / Graph Image Support (Direct imageUrl, extracted embedded image, or SVG) */}
+            {(() => {
+              const diagramSrc = currentQ.imageUrl || 
+                (currentQ.text ? (currentQ.text.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1] || currentQ.text.match(/!\[[^\]]*\]\(([^)]+)\)/i)?.[2]) : null);
+
+              if (diagramSrc) {
+                return (
+                  <div className="my-4 flex flex-col items-center justify-center bg-white/95 border-2 border-[#C4823F]/60 rounded-2xl p-4 shadow-sm">
+                    <img src={diagramSrc} alt="Question Diagram" className="max-h-72 sm:max-h-80 object-contain rounded-lg shadow-sm" loading="eager" />
+                    <span className="text-[11px] text-gray-600 mt-2 font-medium">Diagram for Question {currentQuestion}</span>
+                  </div>
+                );
+              }
+              if (currentQ.imageSvg) {
+                return (
+                  <div
+                    className="my-4 flex justify-center bg-[#061710] border-2 border-[#C4823F]/60 rounded-2xl p-4 overflow-x-auto"
+                    dangerouslySetInnerHTML={{ __html: currentQ.imageSvg }}
+                  />
+                );
+              }
+              return null;
+            })()}
+
             {/* Question Text & Reading Comprehension Passage */}
-            <div className="py-3 space-y-4">
+            <div className="py-2 space-y-4">
               <ComprehensionPassageViewer
-                text={currentQ.text}
+                text={currentQ.text ? currentQ.text.replace(/<img[^>]*>/gi, '').replace(/!\[[^\]]*\]\([^)]+\)/gi, '').trim() : ''}
                 passage={currentQ.passage}
                 fontScale={fontScale}
                 subject={selectedSubject}
                 defaultExpanded={true}
               />
-
-              {/* Diagram / Graph Image Support */}
-              {currentQ.imageUrl && (
-                <div className="my-4 flex justify-center bg-[#061710] border-2 border-[#C4823F]/60 rounded-2xl p-4">
-                  <img src={currentQ.imageUrl} alt="Question Diagram" className="max-h-72 object-contain rounded-lg shadow-sm" />
-                </div>
-              )}
-              {currentQ.imageSvg && (
-                <div
-                  className="my-4 flex justify-center bg-[#061710] border-2 border-[#C4823F]/60 rounded-2xl p-4 overflow-x-auto"
-                  dangerouslySetInnerHTML={{ __html: currentQ.imageSvg }}
-                />
-              )}
             </div>
 
             {/* Interactive Question Workspace: Theory / Practical vs Multiple Choice */}
@@ -507,9 +519,55 @@ export const DesktopTestView: React.FC = () => {
                 >
                   Clear Response
                 </button>
+
+                {/* Bookmark Button in Desktop Bottom Bar */}
+                {currentQ && (
+                  <button
+                    type="button"
+                    onClick={() => toggleBookmarkQuestion(currentQ.id)}
+                    className={`px-4 py-2.5 rounded-xl border font-bold text-xs transition cursor-pointer flex items-center space-x-1.5 ${
+                      isBookmarked
+                        ? 'bg-[#FFCC00] border-white text-slate-950 font-black shadow-sm'
+                        : 'border-[#C4823F]/40 bg-[#061911] text-emerald-200 hover:bg-[#0E3526]'
+                    }`}
+                    title={isBookmarked ? 'Bookmarked (Click to remove)' : 'Bookmark Question'}
+                  >
+                    <span>{isBookmarked ? '★' : '🔖'}</span>
+                    <span>{isBookmarked ? 'Bookmarked' : 'Bookmark'}</span>
+                  </button>
+                )}
+
+                {/* Share Button in Desktop Bottom Bar */}
+                {currentQ && (
+                  <button
+                    type="button"
+                    onClick={() => setIsShareModalOpen(true)}
+                    className="px-4 py-2.5 rounded-xl border border-[#C4823F]/40 bg-[#061911] text-emerald-200 hover:bg-[#0E3526] font-bold text-xs transition cursor-pointer flex items-center space-x-1.5"
+                    title="Share Question Card"
+                  >
+                    <span>📤</span>
+                    <span>Share</span>
+                  </button>
+                )}
               </div>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2.5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (window.confirm('Are you sure you want to finish and submit your CBT examination?')) {
+                      submitTest();
+                    }
+                  }}
+                  className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider shadow-md transition flex items-center space-x-1.5 cursor-pointer"
+                  title="Submit Examination"
+                >
+                  <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Submit Exam</span>
+                </button>
+
                 <button
                   type="button"
                   onClick={() => setCurrentQuestion(Math.min(questions.length, currentQuestion + 1))}
@@ -530,7 +588,7 @@ export const DesktopTestView: React.FC = () => {
           {/* Candidate Info Capsule */}
           <div className="bg-gradient-to-br from-[#0D3023] to-[#071D15] rounded-3xl p-5 border-2 border-[#C4823F] shadow-xl flex items-center space-x-4 text-white">
             <img
-              src="student.jpg"
+              src={STUDENT_MASCOT_IMAGE}
               alt="Sarah Okonjo"
               className="w-14 h-14 rounded-2xl object-cover ring-2 ring-[#C4823F] shadow-sm"
             />
@@ -644,6 +702,26 @@ export const DesktopTestView: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* ─── MODAL: Share Question as Study Card ─── */}
+      <ShareStudyCardModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        mode="question"
+        questionData={currentQ ? {
+          id: currentQ.id,
+          subject: selectedSubject,
+          examType: (currentQ as any).examType || 'JAMB/WAEC',
+          year: currentQ.year || selectedYear,
+          topic: currentQ.topic,
+          subtopic: (currentQ as any).subtopic,
+          text: currentQ.text,
+          options: currentQ.options,
+          correctAnswer: currentQ.correctAnswer,
+          explanation: currentQ.explanation,
+          imageUrl: currentQ.imageUrl
+        } : null}
+      />
     </div>
   );
 };

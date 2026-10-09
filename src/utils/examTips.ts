@@ -82,7 +82,7 @@ export const getExamTipForQuestion = (
     if (topLower.includes('trig') || topLower.includes('geometry')) {
       return 'Special Angles Recall: sin 30° = cos 60° = 1/2; sin 45° = cos 45° = 1/√2; sin 60° = cos 30° = √3/2. Keep these memorized for non-calculator exams!';
     }
-    return 'Math CBT Tip: Plug in options (backsolving) when algebra is messy. Start with option B or C to quickly test values!';
+    return 'Backsolving Strategy: Substitute options directly when algebraic manipulation is lengthy. Start by testing option B or C to save time!';
   }
 
   // 4. Physics Rules & Tips
@@ -99,7 +99,7 @@ export const getExamTipForQuestion = (
     if (topLower.includes('wave') || topLower.includes('shm')) {
       return 'Wave Formula: v = fλ (Speed = Frequency × Wavelength). In SHM, velocity is maximum at mean position (x=0) and zero at extreme displacement.';
     }
-    return 'Physics Unit Check: Always check that values are converted to standard S.I. units (kg, m, s, A) before substituting into formulas!';
+    return 'S.I. Unit Verification: Standardize all physical parameters (kg, m, s, A) before formula substitution to prevent conversion errors.';
   }
 
   // 5. Chemistry Rules & Traps
@@ -122,7 +122,7 @@ export const getExamTipForQuestion = (
     if (topLower.includes('acid') || topLower.includes('base') || topLower.includes('ph') || topLower.includes('salt')) {
       return 'pH Calculation: pH = -log₁₀[H⁺]. Remember pH + pOH = 14 at 25°C. Acidic salts are formed from strong acid + weak base; basic salts from weak acid + strong base.';
     }
-    return 'Chemistry CBT Tip: Check oxidation states, valence electrons, and balanced stoichiometric mole ratios before choosing an option!';
+    return 'Stoichiometric Precision: Verify oxidation numbers, electron configurations, and balanced mole proportions before confirming your choice.';
   }
 
   // 6. Biology Rules & Memory Aids

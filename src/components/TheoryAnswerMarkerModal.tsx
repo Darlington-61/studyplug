@@ -187,7 +187,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto animate-fade-in">
       <div className="bg-white w-full max-w-2xl rounded-[20px] shadow-2xl border border-[#E4EAE8] overflow-hidden my-auto max-h-[92vh] flex flex-col text-left">
         {/* Modal Header */}
-        <div className="bg-[#004D40] text-white px-5 py-4 flex items-center justify-between shrink-0">
+        <div className="bg-[#001028] text-white px-5 py-4 flex items-center justify-between shrink-0">
           <div className="flex items-center space-x-2.5">
             <span className="text-xl">📸</span>
             <div>
@@ -213,7 +213,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
           {/* Question Banner */}
           <div className="bg-[#F7F9F8] rounded-[14px] p-3.5 border border-[#E4EAE8] space-y-2">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#E8F5E9] text-[#004D40] border border-[#004D40]/15">
+              <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#E8F5E9] text-[#001028] border border-[#001028]/15">
                 {question.topic} • {question.subtopic}
               </span>
               <span className="text-[11px] font-bold text-[#66736F]">
@@ -232,7 +232,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
               onClick={() => setSubmissionMode('snap')}
               className={`flex-1 py-1.5 rounded-full text-xs font-bold transition cursor-pointer flex items-center justify-center space-x-1.5 ${
                 submissionMode === 'snap'
-                  ? 'bg-[#004D40] text-white shadow-xs'
+                  ? 'bg-[#001028] text-white shadow-xs'
                   : 'text-[#66736F] hover:text-[#10201D]'
               }`}
             >
@@ -244,7 +244,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
               onClick={() => setSubmissionMode('type')}
               className={`flex-1 py-1.5 rounded-full text-xs font-bold transition cursor-pointer flex items-center justify-center space-x-1.5 ${
                 submissionMode === 'type'
-                  ? 'bg-[#004D40] text-white shadow-xs'
+                  ? 'bg-[#001028] text-white shadow-xs'
                   : 'text-[#66736F] hover:text-[#10201D]'
               }`}
             >
@@ -268,9 +268,9 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
               {!uploadedImage ? (
                 <div
                   onClick={() => fileInputRef.current?.click()}
-                  className="border-2 border-dashed border-[#004D40]/30 hover:border-[#004D40] bg-[#F7F9F8] rounded-[16px] p-6 text-center cursor-pointer transition space-y-2 group"
+                  className="border-2 border-dashed border-[#001028]/30 hover:border-[#001028] bg-[#F7F9F8] rounded-[16px] p-6 text-center cursor-pointer transition space-y-2 group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#E8F5E9] text-[#004D40] text-xl flex items-center justify-center mx-auto group-hover:scale-110 transition">
+                  <div className="w-12 h-12 rounded-full bg-[#E8F5E9] text-[#001028] text-xl flex items-center justify-center mx-auto group-hover:scale-110 transition">
                     📷
                   </div>
                   <h4 className="text-[13.5px] font-bold text-[#10201D]">
@@ -281,7 +281,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
                   </p>
                   <button
                     type="button"
-                    className="px-4 py-1.5 rounded-[10px] bg-[#004D40] text-white text-[12px] font-bold shadow-xs hover:bg-[#003B32] transition"
+                    className="px-4 py-1.5 rounded-[10px] bg-[#001028] text-white text-[12px] font-bold shadow-xs hover:bg-[#001830] transition"
                   >
                     Open Camera / Upload File
                   </button>
@@ -321,7 +321,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
                     setSubmissionMode('type');
                     handleLoadSampleAnswer();
                   }}
-                  className="font-bold text-[#004D40] hover:underline cursor-pointer"
+                  className="font-bold text-[#001028] hover:underline cursor-pointer"
                 >
                   ⚡ Load Sample Written Solution
                 </button>
@@ -339,7 +339,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
                 <button
                   type="button"
                   onClick={handleLoadSampleAnswer}
-                  className="text-[11px] font-bold text-[#004D40] hover:underline cursor-pointer"
+                  className="text-[11px] font-bold text-[#001028] hover:underline cursor-pointer"
                 >
                   ⚡ Fill Sample Answer
                 </button>
@@ -364,7 +364,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
                 onChange={(e) => setStudentText(e.target.value)}
                 placeholder="Write out your formula, substitutions, calculations, and final answer here..."
                 rows={7}
-                className="w-full p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] text-[12.5px] font-mono text-[#10201D] focus:outline-none focus:border-[#004D40] leading-relaxed resize-none"
+                className="w-full p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] text-[12.5px] font-mono text-[#10201D] focus:outline-none focus:border-[#001028] leading-relaxed resize-none"
               />
             </div>
           )}
@@ -375,7 +375,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
               type="button"
               onClick={handleStartMarking}
               disabled={isAnalyzing}
-              className="w-full py-3 rounded-[12px] bg-[#004D40] hover:bg-[#003B32] text-white font-bold text-[13.5px] transition cursor-pointer shadow-subtle flex items-center justify-center space-x-2 disabled:opacity-50"
+              className="w-full py-3 rounded-[12px] bg-[#001028] hover:bg-[#001830] text-white font-bold text-[13.5px] transition cursor-pointer shadow-subtle flex items-center justify-center space-x-2 disabled:opacity-50"
             >
               {isAnalyzing ? (
                 <>
@@ -395,7 +395,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
           {markingResult && (
             <div className="space-y-4 pt-2 border-t border-[#E4EAE8] animate-page-enter">
               {/* Score Header Card */}
-              <div className="bg-linear-to-r from-[#004D40] to-[#002D25] text-white p-4 rounded-[16px] flex items-center justify-between">
+              <div className="bg-linear-to-r from-[#001028] to-[#002D25] text-white p-4 rounded-[16px] flex items-center justify-between">
                 <div>
                   <span className="text-[11px] font-bold text-[#A7F3D0] uppercase tracking-wider">
                     Score Awarded
@@ -457,14 +457,14 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
 
               {/* Examiner Advice */}
               <div className="bg-[#F7F9F8] p-3.5 rounded-[14px] border border-[#E4EAE8] space-y-1.5">
-                <h5 className="text-[12px] font-bold text-[#004D40] flex items-center space-x-1">
+                <h5 className="text-[12px] font-bold text-[#001028] flex items-center space-x-1">
                   <span>💡</span>
                   <span>WAEC Chief Examiner Advice:</span>
                 </h5>
                 <ul className="space-y-1 text-[11.5px] text-[#66736F]">
                   {markingResult.actionableAdvice.map((adv, idx) => (
                     <li key={idx} className="flex items-start space-x-1.5">
-                      <span className="text-[#004D40] font-bold">•</span>
+                      <span className="text-[#001028] font-bold">•</span>
                       <span>{adv}</span>
                     </li>
                   ))}
@@ -476,7 +476,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
                 <button
                   type="button"
                   onClick={() => setShowModelSolution(!showModelSolution)}
-                  className="w-full py-2.5 rounded-[12px] border border-[#004D40] bg-[#E8F5E9] text-[#004D40] text-xs font-bold hover:bg-[#D0EBD5] transition cursor-pointer flex items-center justify-center space-x-1.5"
+                  className="w-full py-2.5 rounded-[12px] border border-[#001028] bg-[#E8F5E9] text-[#001028] text-xs font-bold hover:bg-[#D0EBD5] transition cursor-pointer flex items-center justify-center space-x-1.5"
                 >
                   <span>{showModelSolution ? '🙈 Hide' : '👁️ View'} Official WAEC Chalkboard Model Solution</span>
                 </button>

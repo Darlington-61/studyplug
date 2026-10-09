@@ -3956,6 +3956,7 @@ export const AGRICULTURE_QUESTIONS: Question[] = [
   {
     "id": 77143,
     "questionNumber": 143,
+    "paperType": "Theory",
     "subject": "Agriculture",
     "topic": "Cropping Systems",
     "difficulty": "Medium",
@@ -6208,6 +6209,7 @@ export const AGRICULTURE_QUESTIONS: Question[] = [
   {
     "id": 77224,
     "questionNumber": 224,
+    "paperType": "Theory",
     "subject": "Agriculture",
     "topic": "Soil Formation",
     "difficulty": "Medium",

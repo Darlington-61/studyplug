@@ -10,7 +10,7 @@ interface ChooseSubjectScreenProps {
 export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
   onBack
 }) => {
-  const { setActiveView, setSelectedSubject, openDareToDare } = useApp();
+  const { setActiveView, goBack, setSelectedSubject, openDareToDare } = useApp();
   const [activeExam, setActiveExam] = useState<ExamCategory>('JAMB');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [showPopOutInvite, setShowPopOutInvite] = useState<boolean>(false);
@@ -104,7 +104,7 @@ export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
       {/* ─── Screen 2 Header: Back Arrow, Select Subject ─── */}
       <StudyPlugHeader
         showBack={true}
-        onBack={onBack || (() => setActiveView('dashboard'))}
+        onBack={onBack || (() => goBack())}
         title="Select Subject"
         subtitle={`${activeExam} • Choose your subject to start`}
       />
@@ -112,7 +112,7 @@ export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
       <main className="flex-1 max-w-md w-full mx-auto px-4 pt-4 pb-20 space-y-3.5 sm:max-w-xl lg:max-w-4xl">
         {/* Exam Pills (JAMB, WAEC, NECO, BECE) */}
         <ExamPills
-          exams={['JAMB', 'WAEC', 'NECO', 'BECE']}
+          exams={['JAMB', 'WAEC', 'NECO', 'NABTEB', 'POST-UTME', 'BECE', 'WAEC GCE', 'NECO GCE']}
           activeExam={activeExam}
           onSelectExam={setActiveExam}
         />
@@ -120,7 +120,7 @@ export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
         {/* ─── 🔥 DARE TO DARE BANNER IN SUBJECT SCREEN ─── */}
         <div
           onClick={() => openDareToDare({ subject: 'Mathematics', exam: activeExam })}
-          className="w-full rounded-[18px] bg-gradient-to-r from-[#061F17] via-[#0B3528] to-[#124B3B] p-4 text-white border border-emerald-500/30 shadow-floating cursor-pointer relative overflow-hidden group hover:border-amber-400/50 transition-all duration-200 active:scale-[0.99]"
+          className="w-full rounded-[18px] bg-gradient-to-r from-[#001028] via-[#001830] to-[#001830] p-4 text-white border border-[#001830] shadow-floating cursor-pointer relative overflow-hidden group hover:border-amber-400/50 transition-all duration-200 active:scale-[0.99]"
         >
           {/* Subtle background glow */}
           <div className="absolute -right-6 -bottom-6 w-28 h-28 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
@@ -134,7 +134,7 @@ export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
               <h3 className="text-[14.5px] sm:text-[15.5px] font-black text-white group-hover:text-[#FFD600] transition">
                 Take The 60-Second Challenge!
               </h3>
-              <p className="text-[11.5px] text-emerald-200 leading-snug">
+              <p className="text-[11.5px] text-[#607080] leading-snug">
                 Rapid questions • Beat the clock • Dare your friends to beat your score!
               </p>
             </div>
@@ -152,7 +152,7 @@ export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search subjects..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-[12px] bg-white border border-[#E4EAE8] text-[13px] text-[#10201D] placeholder-[#8A9692] focus:outline-none focus:border-[#004D40] shadow-subtle"
+            className="w-full pl-9 pr-4 py-2.5 rounded-[12px] bg-white border border-[#E4EAE8] text-[13px] text-[#10201D] placeholder-[#8A9692] focus:outline-none focus:border-[#001028] shadow-subtle"
           />
         </div>
 
@@ -172,7 +172,7 @@ export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
       {/* ─── POP-OUT CHALLENGE DRAWER / CARD ─── */}
       {showPopOutInvite && (
         <div className="fixed bottom-20 left-4 right-4 z-40 max-w-md mx-auto animate-fadeIn">
-          <div className="rounded-[20px] bg-[#071914] text-white p-4 border-2 border-amber-400/90 shadow-2xl relative overflow-hidden backdrop-blur-md">
+          <div className="rounded-[20px] bg-[#001028] text-white p-4 border-2 border-amber-400/90 shadow-2xl relative overflow-hidden backdrop-blur-md">
             {/* Close button */}
             <button
               type="button"
@@ -195,7 +195,7 @@ export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
                 <h4 className="text-[14px] font-black text-white leading-tight">
                   I Dare You to a Rapid Challenge!
                 </h4>
-                <p className="text-[11.5px] text-emerald-200">
+                <p className="text-[11.5px] text-[#607080]">
                   Can you answer 5 questions in 60 seconds without failing?
                 </p>
                 <div className="pt-2 flex items-center space-x-2">
@@ -212,7 +212,7 @@ export const ChooseSubjectScreen: React.FC<ChooseSubjectScreenProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowPopOutInvite(false)}
-                    className="px-2.5 py-1.5 rounded-[10px] bg-white/10 text-emerald-200 text-[11px] font-semibold hover:bg-white/20 transition cursor-pointer"
+                    className="px-2.5 py-1.5 rounded-[10px] bg-white/10 text-[#607080] text-[11px] font-semibold hover:bg-white/20 transition cursor-pointer"
                   >
                     Maybe Later
                   </button>

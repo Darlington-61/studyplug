@@ -6,7 +6,7 @@ import { MASTER_LESSON_NOTES, LessonNote } from '../data/masterLessonNotes';
 
 
 export const NotesDashboard: React.FC = () => {
-  const { setActiveView, startTestForSubject } = useApp();
+  const { setActiveView, goBack, startTestForSubject } = useApp();
   const [notes] = useState<LessonNote[]>(MASTER_LESSON_NOTES);
   const [selectedSubject, setSelectedSubject] = useState<string>('Mathematics');
   const [selectedExam, setSelectedExam] = useState<'JAMB' | 'WAEC' | 'NECO' | 'NABTEB'>('JAMB');
@@ -227,15 +227,15 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
           <button
             type="button"
             onClick={() => setSelectedTopicNote(null)}
-            className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#004D40] text-white font-black text-xs shadow-lg cursor-pointer active:scale-95"
+            className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#001028] text-white font-black text-xs shadow-lg cursor-pointer active:scale-95"
           >
             <span>←</span>
             <span>Topics</span>
           </button>
           <button
             type="button"
-            onClick={() => { setSelectedTopicNote(null); setActiveView('dashboard'); }}
-            className="flex items-center space-x-1.5 px-3.5 py-2.5 rounded-full bg-white text-[#004D40] font-black text-xs border border-[#E4EAE8] shadow-lg cursor-pointer active:scale-95"
+            onClick={() => { setSelectedTopicNote(null); goBack(); }}
+            className="flex items-center space-x-1.5 px-3.5 py-2.5 rounded-full bg-white text-[#001028] font-black text-xs border border-[#E4EAE8] shadow-lg cursor-pointer active:scale-95"
           >
             <span>🏠</span>
             <span>Home</span>
@@ -248,14 +248,14 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
             <button
               type="button"
               onClick={() => setSelectedTopicNote(null)}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] text-[#004D40] font-bold text-xs hover:bg-[#004D40] hover:text-white transition cursor-pointer"
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] text-[#001028] font-bold text-xs hover:bg-[#001028] hover:text-white transition cursor-pointer"
             >
               <span>←</span>
               <span>Back to Topics</span>
             </button>
             <button
               type="button"
-              onClick={() => { setSelectedTopicNote(null); setActiveView('dashboard'); }}
+              onClick={() => { setSelectedTopicNote(null); goBack(); }}
               className="flex items-center space-x-1 px-2.5 py-1.5 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] text-[#66736F] font-bold text-xs hover:text-[#10201D] transition cursor-pointer"
             >
               <span>🏠</span>
@@ -263,7 +263,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
             </button>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-[#004D40] text-white">
+            <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-[#001028] text-white">
               {selectedTopicNote.subject}
             </span>
             <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-[#FFD600] text-[#10201D]">
@@ -294,7 +294,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
               onClick={() => setReaderTab(tab.key as any)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
                 readerTab === tab.key
-                  ? 'bg-[#004D40] text-white shadow'
+                  ? 'bg-[#001028] text-white shadow'
                   : 'bg-[#F7F9F8] text-[#66736F] border border-[#E4EAE8] hover:text-[#10201D]'
               }`}
             >
@@ -305,7 +305,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
 
         {/* Topic Title */}
         <div className="bg-white rounded-2xl border border-[#E4EAE8] p-5 shadow-xs">
-          <h2 className="text-xl font-black text-[#004D40]">{selectedTopicNote.topic}</h2>
+          <h2 className="text-xl font-black text-[#001028]">{selectedTopicNote.topic}</h2>
           <p className="text-xs text-[#66736F] mt-1">{selectedTopicNote.subtopic || 'Official Syllabus Unit'}</p>
         </div>
 
@@ -319,11 +319,11 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
         {/* Tab 2: Formula Vault */}
         {readerTab === 'formulas' && (
           <div className="bg-white rounded-2xl border border-[#E4EAE8] p-5 shadow-xs space-y-4">
-            <div className="flex items-center space-x-2 text-[#004D40] font-black text-sm">
+            <div className="flex items-center space-x-2 text-[#001028] font-black text-sm">
               <span>📐</span>
               <span>Key Formulas & Equations</span>
             </div>
-            <div className="p-4 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] font-mono text-sm text-[#004D40] leading-relaxed whitespace-pre-line">
+            <div className="p-4 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] font-mono text-sm text-[#001028] leading-relaxed whitespace-pre-line">
               {selectedTopicNote.key_formulas || 'Standard syllabus formulas apply for this unit.'}
             </div>
           </div>
@@ -356,7 +356,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
                 Calculate the final velocity of a particle moving with an acceleration of 2 m/s² from rest over a distance of 16 meters.
               </p>
               <div className="p-4 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] space-y-2">
-                <div className="text-xs font-bold text-[#004D40]">Step-by-Step Solution:</div>
+                <div className="text-xs font-bold text-[#001028]">Step-by-Step Solution:</div>
                 <div className="text-xs font-mono text-[#10201D]">
                   Given: u = 0 m/s, a = 2 m/s², s = 16 m<br />
                   Formula: v² = u² + 2as<br />
@@ -380,7 +380,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
           <button
             type="button"
             onClick={() => { setSelectedTopicNote(null); startTestForSubject(selectedTopicNote.subject); }}
-            className="px-6 py-3 rounded-xl bg-[#004D40] hover:bg-[#003B32] text-white font-black text-xs transition flex items-center space-x-2 shadow-md cursor-pointer"
+            className="px-6 py-3 rounded-xl bg-[#001028] hover:bg-[#001830] text-white font-black text-xs transition flex items-center space-x-2 shadow-md cursor-pointer"
           >
             <span>🧪</span>
             <span>Practice Questions on {selectedTopicNote.topic}</span>
@@ -397,15 +397,15 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 space-y-6">
       {/* Header Bar */}
-      <div className="bg-gradient-to-r from-[#003B32] via-[#004D40] to-[#0A261D] rounded-2xl p-5 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-md">
+      <div className="bg-gradient-to-r from-[#001830] via-[#001028] to-[#0A261D] rounded-2xl p-5 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-md">
         <div>
           <button
             type="button"
-            onClick={() => setActiveView('dashboard')}
+            onClick={() => goBack()}
             className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition mb-3 cursor-pointer"
           >
             <span>←</span>
-            <span>Back to Dashboard</span>
+            <span>Back</span>
           </button>
           <div className="flex items-center space-x-2 mb-1">
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-black bg-[#FFD600] text-[#002820]">📚 Study Notes</span>
@@ -449,8 +449,8 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
               onClick={() => setSelectedSubject(subj.name)}
               className={`p-4 rounded-2xl border-2 transition-all cursor-pointer text-left flex flex-col justify-between group ${
                 isSelected
-                  ? 'bg-white border-[#004D40] shadow-md ring-2 ring-[#004D40]/20 -translate-y-0.5'
-                  : 'bg-white border-[#E4EAE8] hover:border-[#004D40]/40 hover:shadow-sm'
+                  ? 'bg-white border-[#001028] shadow-md ring-2 ring-[#001028]/20 -translate-y-0.5'
+                  : 'bg-white border-[#E4EAE8] hover:border-[#001028]/40 hover:shadow-sm'
               }`}
             >
               <div className="flex items-center justify-between">
@@ -463,7 +463,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
               </div>
               <div className="mt-3">
                 <h3 className={`font-black text-xs sm:text-sm leading-tight transition ${
-                  isSelected ? 'text-[#004D40]' : 'text-[#10201D] group-hover:text-[#004D40]'
+                  isSelected ? 'text-[#001028]' : 'text-[#10201D] group-hover:text-[#001028]'
                 }`}>
                   {subj.name}
                 </h3>
@@ -480,10 +480,10 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder={`Search ${selectedSubject} topics...`}
-          className="w-full pl-11 pr-4 py-3 bg-white border border-[#E4EAE8] rounded-2xl text-sm text-[#10201D] placeholder-[#66736F]/60 focus:outline-none focus:ring-2 focus:ring-[#004D40] transition shadow-xs"
+          className="w-full pl-11 pr-4 py-3 bg-white border border-[#E4EAE8] rounded-2xl text-sm text-[#10201D] placeholder-[#66736F]/60 focus:outline-none focus:ring-2 focus:ring-[#001028] transition shadow-xs"
         />
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-          className="w-5 h-5 text-[#004D40] absolute left-4 top-3.5 pointer-events-none">
+          className="w-5 h-5 text-[#001028] absolute left-4 top-3.5 pointer-events-none">
           <circle cx="11" cy="11" r="8" />
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
@@ -501,10 +501,10 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
               {/* Section Header */}
               <div className="px-5 py-3 bg-[#F7F9F8] border-b border-[#E4EAE8] flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 rounded-full bg-[#004D40]" />
-                  <span className="font-black text-xs text-[#004D40] uppercase tracking-wider">{sectionName}</span>
+                  <span className="w-2 h-2 rounded-full bg-[#001028]" />
+                  <span className="font-black text-xs text-[#001028] uppercase tracking-wider">{sectionName}</span>
                 </div>
-                <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#004D40]/10 text-[#004D40]">
+                <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#001028]/10 text-[#001028]">
                   {syllabusSections[sectionName].length} Topics
                 </span>
               </div>
@@ -517,12 +517,12 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
                     className="p-4 hover:bg-[#F7F9F8] transition flex flex-col md:flex-row md:items-center justify-between gap-3 group"
                   >
                     <div className="flex items-start space-x-3 min-w-0">
-                      <span className="w-7 h-7 rounded-lg bg-[#004D40]/10 text-[#004D40] flex items-center justify-center text-xs font-black shrink-0 mt-0.5">
+                      <span className="w-7 h-7 rounded-lg bg-[#001028]/10 text-[#001028] flex items-center justify-center text-xs font-black shrink-0 mt-0.5">
                         {topicItem.topic_number || idx + 1}
                       </span>
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
-                          <h4 className="font-bold text-sm text-[#10201D] group-hover:text-[#004D40] transition leading-snug">
+                          <h4 className="font-bold text-sm text-[#10201D] group-hover:text-[#001028] transition leading-snug">
                             {topicItem.title}
                           </h4>
                           <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -539,7 +539,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
                       <button
                         type="button"
                         onClick={() => openNote(topicItem.title, selectedSubject)}
-                        className="px-4 py-2 rounded-xl bg-[#004D40] hover:bg-[#003B32] text-white font-black text-xs transition flex items-center space-x-1.5 shadow-sm cursor-pointer"
+                        className="px-4 py-2 rounded-xl bg-[#001028] hover:bg-[#001830] text-white font-black text-xs transition flex items-center space-x-1.5 shadow-sm cursor-pointer"
                       >
                         <span>📖</span>
                         <span>Read</span>
@@ -547,7 +547,7 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
                       <button
                         type="button"
                         onClick={() => startTestForSubject(selectedSubject)}
-                        className="px-3.5 py-2 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] hover:border-[#004D40] text-[#66736F] hover:text-[#004D40] font-bold text-xs transition flex items-center space-x-1 cursor-pointer"
+                        className="px-3.5 py-2 rounded-xl bg-[#F7F9F8] border border-[#E4EAE8] hover:border-[#001028] text-[#66736F] hover:text-[#001028] font-bold text-xs transition flex items-center space-x-1 cursor-pointer"
                       >
                         <span>🧪</span>
                         <span>Practice</span>
@@ -565,11 +565,11 @@ $$2400 = 40 P_2 \\implies P_2 = \\frac{2400}{40} = \\mathbf{60 \\text{ units}}$$
       <div className="fixed bottom-20 left-4 z-50 sm:hidden">
         <button
           type="button"
-          onClick={() => setActiveView('dashboard')}
-          className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#004D40] text-white font-black text-xs shadow-lg cursor-pointer active:scale-95"
+          onClick={() => goBack()}
+          className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full bg-[#001028] text-white font-black text-xs shadow-lg cursor-pointer active:scale-95"
         >
           <span>←</span>
-          <span>Dashboard</span>
+          <span>Back</span>
         </button>
       </div>
     </div>

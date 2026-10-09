@@ -75,6 +75,7 @@ async function main() {
     exam_year: 2026,
     question_num: idx + 1,
     text: q.text,
+    image_url: q.imageUrl || null,
     option_a: q.options[0]?.text || '',
     option_b: q.options[1]?.text || '',
     option_c: q.options[2]?.text || '',

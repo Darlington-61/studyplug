@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useApp } from '../context/AppContext';
+import { BrandLogo } from './common/BrandLogo';
 import { aiTutorService, AiChatMessage, SUPPORTED_OFFLINE_MODELS } from '../services/aiTutorService';
 import { ChatMessageRenderer } from './common/ChatMessageRenderer';
 
@@ -461,7 +462,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                     fileInputRef.current?.click();
                     setShowDiagramPicker(false);
                   }}
-                  className="flex-1 flex items-center justify-center space-x-2 py-2.5 px-3 rounded-xl bg-[#004D40] hover:bg-[#003B32] text-white font-bold text-xs shadow-xs transition cursor-pointer"
+                  className="flex-1 flex items-center justify-center space-x-2 py-2.5 px-3 rounded-xl bg-[#001028] hover:bg-[#001830] text-white font-bold text-xs shadow-xs transition cursor-pointer"
                 >
                   <span>📷</span>
                   <span>Snap / Upload Question</span>
@@ -476,7 +477,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   value={diagramSearchTerm}
                   onChange={(e) => setDiagramSearchTerm(e.target.value)}
                   className={`w-full px-3 py-2 rounded-xl text-xs border focus:outline-none transition ${
-                    'bg-slate-50 border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[#004D40]'
+                    'bg-slate-50 border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[#001028]'
                   }`}
                 />
               </div>
@@ -492,7 +493,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                       setShowDiagramPicker(false);
                     }}
                     className={`p-2.5 rounded-xl border flex items-center space-x-3 cursor-pointer transition ${
-                      'border-slate-200 bg-slate-50 hover:border-[#004D40] hover:bg-white shadow-xs'
+                      'border-slate-200 bg-slate-50 hover:border-[#001028] hover:bg-white shadow-xs'
                     }`}
                   >
                     <div
@@ -527,22 +528,12 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
         />
 
         {/* Sticky Top Header (Matching Image 1 Design System) */}
-        <div className="bg-[#004D40] text-white px-4 sm:px-5 py-3.5 flex items-center justify-between border-b border-white/10 shrink-0 shadow-subtle">
+        <div className="bg-[#001028] text-white px-4 sm:px-5 py-3.5 flex items-center justify-between border-b border-white/10 shrink-0 shadow-subtle">
           <div className="flex items-center space-x-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#003B32] border border-[#FFD600]/40 flex items-center justify-center text-base shadow-xs">
-              🎓
-            </div>
-            <div>
-              <div className="flex items-center space-x-2">
-                <h2 className="font-bold text-[15px] tracking-tight text-white">StudyPlug Tutor</h2>
-                <span className="text-[10px] font-semibold text-emerald-200 bg-[#003B32] px-2 py-0.5 rounded-full border border-white/10">
-                  JAMB • WAEC
-                </span>
-              </div>
-              <p className="text-[11px] text-emerald-100/90 truncate max-w-[200px] sm:max-w-xs">
-                {aiTutorContext?.subject ? `${aiTutorContext.subject} • ` : ''}Your Personal Exam Guide
-              </p>
-            </div>
+            <BrandLogo size="xs" />
+            <span className="text-[10px] font-bold text-[#F8C800] bg-[#001830] px-2 py-0.5 rounded-full border border-[#F8C800]/30">
+              AI Tutor
+            </span>
           </div>
 
           <div className="flex items-center space-x-2 shrink-0">
@@ -587,7 +578,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                   onClick={() => !isDownloading && setSelectedModelId(m.id)}
                   className={`p-2 rounded-xl border cursor-pointer transition ${
                     selectedModelId === m.id
-                      ? 'border-[#004D40] bg-white shadow-sm font-semibold'
+                      ? 'border-[#001028] bg-white shadow-sm font-semibold'
                       : 'border-amber-200 bg-white/60 hover:bg-white'
                   }`}
                 >
@@ -630,7 +621,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                       setActiveEngineMode('neural');
                       setShowModelManager(false);
                     }}
-                    className="bg-[#004D40] text-white px-3 py-1.5 rounded-xl font-bold cursor-pointer hover:bg-[#003B32]"
+                    className="bg-[#001028] text-white px-3 py-1.5 rounded-xl font-bold cursor-pointer hover:bg-[#001830]"
                   >
                     Use Neural Brain
                   </button>
@@ -639,7 +630,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                 <button
                   type="button"
                   onClick={startDownloadModel}
-                  className="w-full bg-[#004D40] hover:bg-[#003B32] text-white font-bold py-2 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-[#001028] hover:bg-[#001830] text-white font-bold py-2 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>📥 Download PlugAI Brain (~{selectedModelId.includes('360M') ? '195' : '360'} MB)</span>
                 </button>
@@ -657,7 +648,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
               <div className={`rounded-[14px] p-3.5 border shadow-subtle flex items-center space-x-3 ${
                 'bg-white border-[#E4EAE8]'
               }`}>
-                <div className="w-10 h-10 rounded-full bg-[#E8F5E9] border border-[#004D40]/15 flex items-center justify-center text-lg shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#E8F5E9] border border-[#001028]/15 flex items-center justify-center text-lg shrink-0">
                   🎓
                 </div>
                 <div>
@@ -738,7 +729,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
               </div>
 
               {/* Motivational Banner (Matching Image 1 Design System) */}
-              <div className="rounded-[14px] p-3.5 bg-gradient-to-r from-[#00382E] to-[#004D40] text-white border border-[#FFD600]/30 flex items-center justify-between shadow-xs">
+              <div className="rounded-[14px] p-3.5 bg-gradient-to-r from-[#00382E] to-[#001028] text-white border border-[#FFD600]/30 flex items-center justify-between shadow-xs">
                 <div className="flex items-center space-x-2.5">
                   <div className="w-9 h-9 rounded-xl bg-[#002820] border border-[#FFD600]/40 flex items-center justify-center text-lg shrink-0">
                     💡
@@ -769,7 +760,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                 <div
                   className={`max-w-[92%] sm:max-w-[85%] rounded-[14px] p-3 sm:p-3.5 text-[13px] leading-relaxed shadow-subtle ${
                     isUser
-                      ? 'bg-[#004D40] text-white rounded-br-none'
+                      ? 'bg-[#001028] text-white rounded-br-none'
                       : 'bg-white text-[#10201D] border border-[#E4EAE8] rounded-bl-none'
                   }`}
                 >
@@ -788,9 +779,9 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
                     <div className="whitespace-pre-wrap font-medium">{m.text}</div>
                   ) : m.text === '__TYPING__' || m.text === 'Thinking & analyzing...' ? (
                     <div className="flex items-center space-x-1.5 py-1.5 px-2">
-                      <span className="w-2 h-2 rounded-full bg-[#004D40] animate-bounce [animation-delay:-0.3s]" />
-                      <span className="w-2 h-2 rounded-full bg-[#004D40] animate-bounce [animation-delay:-0.15s]" />
-                      <span className="w-2 h-2 rounded-full bg-[#004D40] animate-bounce" />
+                      <span className="w-2 h-2 rounded-full bg-[#001028] animate-bounce [animation-delay:-0.3s]" />
+                      <span className="w-2 h-2 rounded-full bg-[#001028] animate-bounce [animation-delay:-0.15s]" />
+                      <span className="w-2 h-2 rounded-full bg-[#001028] animate-bounce" />
                     </div>
                   ) : (
                     <ChatMessageRenderer text={m.text} />
@@ -903,7 +894,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
             className={`flex-1 px-3 py-2.5 rounded-xl text-xs focus:outline-none transition ${
-              'bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[#004D40] focus:bg-white'
+              'bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 focus:border-[#001028] focus:bg-white'
             }`}
           />
 
@@ -912,7 +903,7 @@ ${q.explanation ? `Marking Scheme / Notes: ${q.explanation}` : ''}${imgContext}`
             type="button"
             onClick={handleSendMessage}
             disabled={(!inputText.trim() && !attachedImage) || isGenerating}
-            className="px-3.5 py-2.5 bg-[#004D40] hover:bg-[#003B32] disabled:opacity-40 text-white font-bold text-xs rounded-xl shadow-brand-glow transition flex items-center space-x-1 cursor-pointer shrink-0"
+            className="px-3.5 py-2.5 bg-[#001028] hover:bg-[#001830] disabled:opacity-40 text-white font-bold text-xs rounded-xl shadow-brand-glow transition flex items-center space-x-1 cursor-pointer shrink-0"
           >
             <span>Send</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3.5 h-3.5">

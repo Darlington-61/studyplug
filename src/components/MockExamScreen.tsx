@@ -3,24 +3,26 @@ import { useApp } from '../context/AppContext';
 import { StudyPlugHeader, ExamPills, ExamCategory, BottomNavigation } from './design-system';
 
 export const MockExamScreen: React.FC = () => {
-  const { setActiveView, startTestForSubject, startMultiSubjectTest } = useApp();
+  const { setActiveView, goBack, startTestForSubject, startMultiSubjectTest, selectedSubject } = useApp();
   const [activeExam, setActiveExam] = useState<ExamCategory>('JAMB');
 
   const handleStartMock = (examName: string) => {
-    if (examName.includes('JAMB')) {
+    if (examName.includes('2026')) {
+      startMultiSubjectTest(['Use of English', 'Mathematics', 'Physics', 'Chemistry'], 2026);
+    } else if (examName.includes('JAMB')) {
       startMultiSubjectTest(['Use of English', 'Mathematics', 'Physics', 'Chemistry'], 2024);
     } else {
-      startTestForSubject('Mathematics', 2024);
+      startTestForSubject(selectedSubject || 'Mathematics', 2024);
     }
-    setActiveView('practice');
+    setActiveView('test');
   };
 
   return (
     <div className="flex-1 flex flex-col justify-between bg-[#F7F9F8] min-h-screen text-[#10201D] select-none font-sans">
-      {/* ─── Screen 7 Header: Deep Green (#004D40) with Back Button ─── */}
+      {/* ─── Screen 7 Header: Deep Green (#001028) with Back Button ─── */}
       <StudyPlugHeader
         showBack={true}
-        onBack={() => setActiveView('dashboard')}
+        onBack={() => goBack()}
         title="Mock Exam"
         subtitle="Full exam simulation under real exam conditions."
       />
@@ -54,9 +56,16 @@ export const MockExamScreen: React.FC = () => {
           <div className="space-y-2.5 pt-1">
             {[
               {
+                id: 'jamb-2026',
+                name: 'JAMB 2026 Official Live CBT Mock',
+                details: '180 questions • 2 hours • 2026 Live UTME CBT Screen Papers',
+                color: '#001830',
+                badgeBg: 'bg-emerald-50'
+              },
+              {
                 id: 'jamb-2025',
                 name: 'JAMB 2025 Mock',
-                details: '180 questions • 3 hours',
+                details: '180 questions • 2 hours',
                 color: '#1976D2',
                 badgeBg: 'bg-blue-50'
               },
@@ -96,7 +105,7 @@ export const MockExamScreen: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleStartMock(mock.name)}
-                  className="px-3.5 py-1.5 rounded-[10px] bg-[#004D40] text-white text-[12px] font-bold shadow-xs hover:bg-[#003B32] transition cursor-pointer"
+                  className="px-3.5 py-1.5 rounded-[10px] bg-[#001028] text-white text-[12px] font-bold shadow-xs hover:bg-[#001830] transition cursor-pointer"
                 >
                   Start
                 </button>
@@ -116,7 +125,7 @@ export const MockExamScreen: React.FC = () => {
               className="p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] text-left hover:border-[#D0DBD8] transition cursor-pointer group"
             >
               <div className="text-lg">📚</div>
-              <h4 className="font-semibold text-[13px] text-[#10201D] mt-1 group-hover:text-[#004D40]">
+              <h4 className="font-semibold text-[13px] text-[#10201D] mt-1 group-hover:text-[#001028]">
                 By Subject
               </h4>
               <p className="text-[10.5px] text-[#66736F]">Choose subject &amp; topic</p>
@@ -124,29 +133,35 @@ export const MockExamScreen: React.FC = () => {
 
             <button
               type="button"
-              onClick={() => setActiveView('practice')}
+              onClick={() => {
+                startTestForSubject(selectedSubject || 'Mathematics', 2024);
+                setActiveView('test');
+              }}
               className="p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] text-left hover:border-[#D0DBD8] transition cursor-pointer group"
             >
               <div className="text-lg">📅</div>
-              <h4 className="font-semibold text-[13px] text-[#10201D] mt-1 group-hover:text-[#004D40]">
-                By Year
+              <h4 className="font-semibold text-[13px] text-[#10201D] mt-1 group-hover:text-[#001028]">
+                By Year (CBT)
               </h4>
-              <p className="text-[10.5px] text-[#66736F]">Past questions by year</p>
+              <p className="text-[10.5px] text-[#66736F]">Past questions timed simulation</p>
             </button>
           </div>
 
           <button
             type="button"
-            onClick={() => setActiveView('practice')}
+            onClick={() => {
+              startTestForSubject(selectedSubject || 'Mathematics', 2026);
+              setActiveView('test');
+            }}
             className="w-full p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] text-left hover:border-[#D0DBD8] transition cursor-pointer flex items-center justify-between group"
           >
             <div className="flex items-center space-x-2.5">
               <span className="text-base">🎯</span>
               <div>
-                <h4 className="font-semibold text-[13px] text-[#10201D] group-hover:text-[#004D40]">
-                  By Difficulty
+                <h4 className="font-semibold text-[13px] text-[#10201D] group-hover:text-[#001028]">
+                  By Difficulty (CBT Mock)
                 </h4>
-                <p className="text-[10.5px] text-[#66736F]">Easy, Medium, Hard</p>
+                <p className="text-[10.5px] text-[#66736F]">Adaptive exam challenge simulation</p>
               </div>
             </div>
             <span className="text-xs text-[#8A9692] font-bold">›</span>

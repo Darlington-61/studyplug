@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Question } from '../../data/questions';
-import { ComprehensionPassageViewer } from './ComprehensionPassageViewer';
+import { ComprehensionPassageViewer, renderFormattedQuestionText, parseQuestionContent } from './ComprehensionPassageViewer';
+import { sanitizeHtml } from '../../utils/security';
 
 interface InlineInteractiveQuestionCardProps {
   question: Question;
@@ -26,6 +27,11 @@ function cleanOptionText(text: string, optionKey: string): { hasHtml: boolean; c
   // Strip redundant leading "A. ", "B. ", "A - ", "A: " matching current optionKey
   const prefixRegex = new RegExp(`^${optionKey}[.\\-:]\\s*`, 'i');
   cleaned = cleaned.replace(prefixRegex, '').trim();
+
+  // Convert markdown images in options
+  if (/!\[([^\]]*)\]\(([^)]+)\)/.test(cleaned)) {
+    cleaned = cleaned.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="max-h-28 max-w-full object-contain inline-block my-1 rounded-lg border border-[#E4EAE8] bg-white p-1" />');
+  }
 
   const hasHtml = /<\/?[a-z][\s\S]*>/i.test(cleaned);
 
@@ -122,6 +128,8 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
   };
 
   const questionStem = question.text || (question as any).question_text || (question as any).question || '';
+  const parsedStem = parseQuestionContent(questionStem, question.passage, undefined, question.explanation);
+  const headerPrompt = parsedStem.targetSentence || parsedStem.questionText || questionStem;
 
   return (
     <div
@@ -130,7 +138,7 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
           ? isCorrect
             ? 'border-emerald-300 ring-1 ring-emerald-200'
             : 'border-red-300 ring-1 ring-red-200'
-          : 'border-[#E4EAE8] hover:border-[#004D40]/30'
+          : 'border-[#E4EAE8] hover:border-[#001028]/30'
       }`}
     >
       {/* Header bar: Index, stem snippet, badges, expand toggle */}
@@ -140,13 +148,11 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-start space-x-2.5 flex-1 min-w-0">
-            <span className="w-6 h-6 rounded-full bg-[#E8F5E9] text-[#004D40] font-black text-[12px] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+            <span className="w-6 h-6 rounded-full bg-[#E8F5E9] text-[#001028] font-black text-[12px] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
               {index}
             </span>
             <div className="flex-1 min-w-0">
-              <p className="text-[14px] sm:text-[14.5px] font-semibold text-[#10201D] leading-snug">
-                {questionStem}
-              </p>
+              {renderFormattedQuestionText(headerPrompt, 0.95, true)}
             </div>
           </div>
 
@@ -174,7 +180,7 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
 
         {/* Badges: Exam, Year, Subtopic, Difficulty */}
         <div className="flex items-center gap-1.5 flex-wrap pt-0.5 text-[11px]">
-          <span className="px-2.5 py-0.5 rounded-full font-bold bg-[#E8F5E9] text-[#004D40] border border-[#004D40]/20">
+          <span className="px-2.5 py-0.5 rounded-full font-bold bg-[#E8F5E9] text-[#001028] border border-[#001028]/20">
             {exam} {year ? `${year}` : question.year ? `${question.year}` : ''}
           </span>
           {(subtopic || question.subtopic) && (
@@ -194,12 +200,13 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
       {/* Expanded Interactive Body */}
       {isExpanded && (
         <div className="px-3.5 sm:px-4 pb-4 pt-1 border-t border-[#EEF2F0] bg-[#FAFBFB] space-y-3">
-          {/* Comprehension Passage if present */}
-          {question.passage && (
+          {/* Comprehension / Cloze Passage if present */}
+          {(question.passage || parsedStem.hasPassage) && (
             <div className="my-2">
               <ComprehensionPassageViewer
+                text={questionStem}
                 passage={question.passage}
-                title="Reading Passage"
+                explanation={question.explanation}
                 defaultExpanded={false}
               />
             </div>
@@ -230,7 +237,7 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
               const isThisCorrect = isAnswered && opt.key === correctKey;
               const isThisWrong = isAnswered && isSelected && !isCorrect;
 
-              let optionStyle = 'bg-white border-[#E4EAE8] text-[#10201D] hover:border-[#004D40]/40';
+              let optionStyle = 'bg-white border-[#E4EAE8] text-[#10201D] hover:border-[#001028]/40';
               let badgeStyle = 'bg-white border-[#D0DBD8] text-[#66736F]';
 
               if (isAnswered) {
@@ -265,7 +272,7 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
 
                   <div className="flex-1 text-[13.5px] leading-relaxed">
                     {hasHtml ? (
-                      <div dangerouslySetInnerHTML={{ __html: content }} />
+                      <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }} />
                     ) : (
                       <span>{content}</span>
                     )}
@@ -289,14 +296,14 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
                   <span className="font-bold text-[13px] flex items-center space-x-1.5">
                     <span>{isCorrect ? '🎉 Correct Answer!' : '❌ Incorrect Selection'}</span>
                   </span>
-                  <span className="text-[12px] font-bold text-[#004D40] bg-white px-2 py-0.5 rounded-full border border-[#004D40]/20">
+                  <span className="text-[12px] font-bold text-[#001028] bg-white px-2 py-0.5 rounded-full border border-[#001028]/20">
                     Correct Key: {correctKey}
                   </span>
                 </div>
 
                 {/* Explanation text */}
                 <div className="text-[12.5px] leading-relaxed text-[#2C3E3A] mt-1 space-y-1">
-                  <p className="font-semibold text-[#004D40]">Detailed Solution / Working:</p>
+                  <p className="font-semibold text-[#001028]">Detailed Solution / Working:</p>
                   <p>{question.explanation || 'Refer to the lesson notes above for comprehensive principles on this topic.'}</p>
                 </div>
 
@@ -315,7 +322,7 @@ export const InlineInteractiveQuestionCard: React.FC<InlineInteractiveQuestionCa
                     <button
                       type="button"
                       onClick={() => onOpenAiTutor(question, activeAnswer)}
-                      className="text-[11.5px] font-bold text-white bg-[#004D40] hover:bg-[#003B32] px-3 py-1 rounded-[8px] transition cursor-pointer flex items-center space-x-1.5 shadow-xs ml-auto"
+                      className="text-[11.5px] font-bold text-white bg-[#001028] hover:bg-[#001830] px-3 py-1 rounded-[8px] transition cursor-pointer flex items-center space-x-1.5 shadow-xs ml-auto"
                     >
                       <span>🤖</span>
                       <span>Ask AI Tutor to Explain</span>

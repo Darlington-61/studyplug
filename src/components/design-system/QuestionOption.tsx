@@ -1,4 +1,7 @@
 import React from 'react';
+import { sanitizeHtml } from '../../utils/security';
+import { formatMathAndHtml } from '../../utils/mathFormatter';
+
 
 interface QuestionOptionProps {
   optionKey: string;
@@ -22,6 +25,11 @@ function cleanOptionText(text: string, optionKey: string): { hasHtml: boolean; c
   const prefixRegex = new RegExp(`^${optionKey}[.\\-:]\\s*`, 'i');
   cleaned = cleaned.replace(prefixRegex, '').trim();
 
+  // Convert markdown images in options
+  if (/!\[([^\]]*)\]\(([^)]+)\)/.test(cleaned)) {
+    cleaned = cleaned.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="max-h-28 max-w-full object-contain inline-block my-1 rounded-lg border border-[#E4EAE8] bg-white p-1" />');
+  }
+
   // Check if string contains HTML tags
   const hasHtml = /<\/?[a-z][\s\S]*>/i.test(cleaned);
 
@@ -41,7 +49,11 @@ function cleanOptionText(text: string, optionKey: string): { hasHtml: boolean; c
     }
   }
 
-  return { hasHtml, content: cleaned };
+  // Format any LaTeX math or pseudo-fractions (e.g. <sup>2</sup>/3 or \(...\))
+  const mathFormatted = formatMathAndHtml(cleaned);
+  const finalHasHtml = hasHtml || mathFormatted !== cleaned || /<\/?[a-z]/i.test(mathFormatted);
+
+  return { hasHtml: finalHasHtml, content: mathFormatted };
 }
 
 export const QuestionOption: React.FC<QuestionOptionProps> = ({
@@ -61,7 +73,7 @@ export const QuestionOption: React.FC<QuestionOptionProps> = ({
   if (isReviewMode && isCorrect === true) {
     borderColor = 'border-[#16A34A]';
     bgColor = 'bg-[#F0FDF4]';
-    textColor = 'text-[#004D40]';
+    textColor = 'text-[#001028]';
     circleBg = 'bg-[#16A34A] border-[#16A34A] text-white';
   } else if (isReviewMode && isSelected && isCorrect === false) {
     borderColor = 'border-[#E53935]';
@@ -71,7 +83,7 @@ export const QuestionOption: React.FC<QuestionOptionProps> = ({
   } else if (isSelected) {
     borderColor = 'border-[#16A34A]';
     bgColor = 'bg-[#F0FDF4]';
-    textColor = 'text-[#004D40]';
+    textColor = 'text-[#001028]';
     circleBg = 'bg-[#16A34A] border-[#16A34A] text-white';
   }
 
@@ -98,7 +110,7 @@ export const QuestionOption: React.FC<QuestionOptionProps> = ({
       {hasHtml ? (
         <div
           className={`text-[14px] sm:text-[14.5px] font-medium leading-relaxed ${textColor} flex-1 overflow-x-auto`}
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
         />
       ) : (
         <span className={`text-[14px] sm:text-[14.5px] font-medium leading-relaxed ${textColor} flex-1 whitespace-pre-line select-text`}>

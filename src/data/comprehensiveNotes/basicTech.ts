@@ -1,18 +1,18 @@
-import { LessonNote } from '../masterLessonNotes';
+﻿import { LessonNote } from '../masterLessonNotes';
 
 export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2340,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'SAFETY',
     subtopic: 'Safety Precautions',
     summary_60s: 'Safety precautions are vital practices that help prevent accidents, injuries, and potential hazards in various environments. Whether at home, school, or in public spaces, being aware of and adhering to safety guidelines is essential for personal safety and the safety of others. A',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Safety Precautions in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Safety precautions are vital practices that help prevent accidents, injuries, and potential hazards in various environments.</p>
 <p>Whether at home, school, or in public spaces, being aware of and adhering to safety guidelines is essential for personal safety and the safety of others.</p>
 <h2 style="text-align:center"><strong>Areas of Safety</strong></h2>
@@ -98,15 +98,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2341,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'SAFETY',
     subtopic: 'Career Prospects',
     summary_60s: 'A career refers to a profession or occupation that a person is trained for and intends to do for a significant part of their life. Careers involve acquiring knowledge, skills, and experience to perform specific tasks in a particular field. Careers In Technology Technology plays a',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Career Prospects in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>A <strong> career</strong> refers to a profession or occupation that a person is trained for and intends to do for a significant part of their life. Careers involve acquiring knowledge, skills, and experience to perform specific tasks in a particular field.</p>
 <h1 style="text-align:center"><strong>Careers In Technology</strong></h1>
 <p>Technology plays a crucial role in various industries, creating numerous job opportunities. Some technology-related careers include:</p>
@@ -125,18 +125,18 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <p><strong>3. Engineers:</strong></p>
 <p>Engineering covers different fields, including:</p>
 <ul>
-<li><strong>Mechanical Engineering</strong> – Design and maintenance of machines and mechanical systems.</li>
-<li><strong>Electrical/Electronics Engineering</strong> – Focuses on power generation, transmission, communication systems, and control systems.</li>
-<li><strong>Civil Engineering</strong> – Involves designing and constructing buildings, roads, and bridges.</li>
-<li><strong>Building Engineering</strong> – Translates architectural plans into physical structures.</li>
-<li><strong>Production Engineering</strong> – Specializes in manufacturing processes and production systems.</li>
-<li><strong>Chemical Engineering</strong> – Designs and operates plants that process chemicals into useful products.</li>
-<li><strong>Computer Engineering</strong> – Develops and maintains computer hardware and software.</li>
-<li><strong>Automobile Engineering</strong> – Focuses on the design, production, and maintenance of vehicles.</li>
-<li><strong>Metallurgical Engineering</strong> – Studies metals, their properties, and their applications in various industries.</li>
-<li><strong>Mining Engineering</strong> – Involves extracting minerals like gold, coal, and limestone from the earth.</li>
-<li><strong>Aeronautical Engineering</strong> – Specializes in designing, manufacturing, and maintaining aircraft.</li>
-<li><strong>Petroleum Engineering</strong> – Deals with the exploration and extraction of crude oil and natural gas.</li>
+<li><strong>Mechanical Engineering</strong> â€“ Design and maintenance of machines and mechanical systems.</li>
+<li><strong>Electrical/Electronics Engineering</strong> â€“ Focuses on power generation, transmission, communication systems, and control systems.</li>
+<li><strong>Civil Engineering</strong> â€“ Involves designing and constructing buildings, roads, and bridges.</li>
+<li><strong>Building Engineering</strong> â€“ Translates architectural plans into physical structures.</li>
+<li><strong>Production Engineering</strong> â€“ Specializes in manufacturing processes and production systems.</li>
+<li><strong>Chemical Engineering</strong> â€“ Designs and operates plants that process chemicals into useful products.</li>
+<li><strong>Computer Engineering</strong> â€“ Develops and maintains computer hardware and software.</li>
+<li><strong>Automobile Engineering</strong> â€“ Focuses on the design, production, and maintenance of vehicles.</li>
+<li><strong>Metallurgical Engineering</strong> â€“ Studies metals, their properties, and their applications in various industries.</li>
+<li><strong>Mining Engineering</strong> â€“ Involves extracting minerals like gold, coal, and limestone from the earth.</li>
+<li><strong>Aeronautical Engineering</strong> â€“ Specializes in designing, manufacturing, and maintaining aircraft.</li>
+<li><strong>Petroleum Engineering</strong> â€“ Deals with the exploration and extraction of crude oil and natural gas.</li>
 </ul>
 <p><strong>Importance of Technology-Related Careers</strong></p>
 <p>Technology-related professions contribute significantly to society by providing essential services, driving innovation, and improving living standards. Here are some key roles:</p>
@@ -168,15 +168,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2342,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'MATERIALS AND PROCESSING',
     subtopic: 'Abrasives',
     summary_60s: 'Abrasives are very hard materials with sharp, uneven particles. When rubbed against another material, they grind away small bits, acting like tiny chisels. This process is called abrasion. Types of Abrasives Abrasives are classified into two main categories: 1. Natural Abrasives ',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Abrasives in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p><strong>Abrasives</strong> are very hard materials with sharp, uneven particles. When rubbed against another material, they grind away small bits, acting like tiny chisels.</p>
 <p>This process is called <strong> abrasion.</strong></p>
 <h1 style="text-align:center"><strong>Types of Abrasives</strong></h1>
@@ -251,15 +251,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2343,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'MATERIALS AND PROCESSING',
     subtopic: 'Adhesives',
     summary_60s: 'Adhesives, commonly called glues or gum , are substances used to stick materials together. They are important in everyday life and industries because they create strong bonds without nails, screws, or heat. Types of Adhesives Adhesives are grouped into Natural and Synthetic types',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Adhesives in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Adhesives, commonly called<em>glues</em>or<em>gum</em>, are substances used to stick materials together. They are important in everyday life and industries because they create strong bonds without nails, screws, or heat.</p>
 <h2 style="text-align:center"><strong>Types of Adhesives</strong></h2>
 <p>Adhesives are grouped into<strong> Natural</strong> and<strong> Synthetic</strong> types:</p>
@@ -273,7 +273,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>Reactive Adhesives</strong> (Harden through chemical reactions):
 
 	<ul>
-<li><em>Epoxy</em>(e.g., Araldite®): Strong bond for metals, plastics, and ceramics. Used to repair broken toys or shoes.</li>
+<li><em>Epoxy</em>(e.g., AralditeÂ®): Strong bond for metals, plastics, and ceramics. Used to repair broken toys or shoes.</li>
 <li><em>Polyurethane</em>: Waterproof and flexible. Used in furniture and car parts.</li>
 </ul>
 </li>
@@ -364,15 +364,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2344,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'MATERIALS AND PROCESSING',
     subtopic: 'Building Materials',
     summary_60s: 'Building materials are substances used in the construction of houses, roads, bridges, and other structures. They determine the strength, durability, cost, and appearance of buildings. Some materials occur naturally, while others are manufactured to meet specific needs. Selecting ',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Building Materials in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Building materials are substances used in the construction of houses, roads, bridges, and other structures. They determine the <strong> strength, durability, cost, and appearance</strong> of buildings. Some materials occur naturally, while others are manufactured to meet specific needs.</p>
 <p>Selecting the right building materials is important because it affects the <strong> safety, sustainability, and functionality</strong> of a structure.</p>
 <h2 style="text-align:center"><strong>Types of Building Materials</strong></h2>
@@ -380,66 +380,66 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <p><strong>1. Natural Building Materials</strong></p>
 <p>These materials occur in nature and require little or no processing before use. Examples include:</p>
 <ul>
-<li><strong>Timber (Wood)</strong> – Comes from trees and is widely used for <strong> roofing, flooring, doors, and furniture.</strong> It is strong, lightweight, and easy to work with. However, it is prone to <strong> decay and termite attacks</strong> if not properly treated.</li>
-<li><strong>Stone</strong> – Includes <strong> granite, marble, and limestone</strong>, used for <strong> flooring, walls, and decorative finishes</strong> due to their durability and natural beauty.</li>
-<li><strong>Clay Bricks</strong> – Made from <strong> baked clay</strong>, bricks are <strong> fire-resistant and good for insulation.</strong> They are used for <strong> walls and pavements.</strong></li>
-<li><strong>Sand and Gravel</strong> – Used as raw materials for making <strong> concrete and mortar</strong> in construction.</li>
+<li><strong>Timber (Wood)</strong> â€“ Comes from trees and is widely used for <strong> roofing, flooring, doors, and furniture.</strong> It is strong, lightweight, and easy to work with. However, it is prone to <strong> decay and termite attacks</strong> if not properly treated.</li>
+<li><strong>Stone</strong> â€“ Includes <strong> granite, marble, and limestone</strong>, used for <strong> flooring, walls, and decorative finishes</strong> due to their durability and natural beauty.</li>
+<li><strong>Clay Bricks</strong> â€“ Made from <strong> baked clay</strong>, bricks are <strong> fire-resistant and good for insulation.</strong> They are used for <strong> walls and pavements.</strong></li>
+<li><strong>Sand and Gravel</strong> â€“ Used as raw materials for making <strong> concrete and mortar</strong> in construction.</li>
 </ul>
 <p><strong>2. Synthetic Building Materials</strong></p>
 <p>These are <strong> man-made materials</strong> that undergo processing to improve their <strong> strength, durability, and other properties.</strong> Examples include:</p>
 <ul>
-<li><strong>Concrete</strong> – A mixture of <strong> cement, sand, gravel, and water</strong>, used for <strong> foundations, walls, and floors.</strong> It is strong and long-lasting.</li>
-<li><strong>Steel</strong> – A <strong> strong metal</strong> used for <strong> reinforcement, bridges, and roofing sheets.</strong> It has <strong> high tensile strength</strong> and can withstand heavy loads.</li>
-<li><strong>Glass</strong> – A <strong> transparent material</strong> used for <strong> windows, doors, and decorations.</strong> It allows natural light into buildings.</li>
-<li><strong>Plastics (PVC and Polyethylene)</strong> – Used for <strong> pipes, roofing sheets, insulation, and flooring</strong> due to their <strong> lightweight and water-resistant</strong> properties.</li>
+<li><strong>Concrete</strong> â€“ A mixture of <strong> cement, sand, gravel, and water</strong>, used for <strong> foundations, walls, and floors.</strong> It is strong and long-lasting.</li>
+<li><strong>Steel</strong> â€“ A <strong> strong metal</strong> used for <strong> reinforcement, bridges, and roofing sheets.</strong> It has <strong> high tensile strength</strong> and can withstand heavy loads.</li>
+<li><strong>Glass</strong> â€“ A <strong> transparent material</strong> used for <strong> windows, doors, and decorations.</strong> It allows natural light into buildings.</li>
+<li><strong>Plastics (PVC and Polyethylene)</strong> â€“ Used for <strong> pipes, roofing sheets, insulation, and flooring</strong> due to their <strong> lightweight and water-resistant</strong> properties.</li>
 </ul>
 <p><strong>3. Composite Building Materials</strong></p>
 <p>These materials combine two or more substances to improve <strong> strength, durability, and resistance.</strong> Examples include:</p>
 <ul>
-<li><strong>Fiber-Reinforced Polymers (FRP)</strong> – A mix of <strong> fibers (carbon, glass, or aramid) and plastic.</strong> Used for <strong> bridges, structural reinforcements, and earthquake-resistant buildings.</strong></li>
-<li><strong>Fiber Cement</strong> – A combination of <strong> cement, cellulose fibers, and additives</strong>, making it <strong> fire-resistant and durable.</strong> Used for <strong> roofing and wall panels.</strong></li>
-<li><strong>Plywood</strong> – Thin sheets of wood glued together to form <strong> strong boards</strong> used for <strong> furniture, doors, and partitions.</strong></li>
+<li><strong>Fiber-Reinforced Polymers (FRP)</strong> â€“ A mix of <strong> fibers (carbon, glass, or aramid) and plastic.</strong> Used for <strong> bridges, structural reinforcements, and earthquake-resistant buildings.</strong></li>
+<li><strong>Fiber Cement</strong> â€“ A combination of <strong> cement, cellulose fibers, and additives</strong>, making it <strong> fire-resistant and durable.</strong> Used for <strong> roofing and wall panels.</strong></li>
+<li><strong>Plywood</strong> â€“ Thin sheets of wood glued together to form <strong> strong boards</strong> used for <strong> furniture, doors, and partitions.</strong></li>
 </ul>
 <h2><strong>Factors Affecting the Selection of Building Materials</strong></h2>
 <p>The choice of materials depends on several factors, such as:</p>
 <ol>
-<li><strong>Strength and Durability</strong> – Materials must be strong enough to <strong> support loads</strong> and last long.</li>
-<li><strong>Weather Resistance</strong> – Some materials perform better in <strong> hot, cold, or rainy conditions.</strong> For example, concrete resists moisture, while metal can rust if not treated.</li>
-<li><strong>Cost</strong> – The price of materials, including <strong> transportation and maintenance costs</strong>, affects selection.</li>
-<li><strong>Aesthetic Appeal</strong> – The <strong> color, texture, and appearance</strong> of materials contribute to a building’s <strong> beauty.</strong></li>
-<li><strong>Availability</strong> – Easily available materials are more affordable and convenient to use.</li>
-<li><strong>Sustainability</strong> – Eco-friendly materials reduce <strong> waste and pollution.</strong></li>
+<li><strong>Strength and Durability</strong> â€“ Materials must be strong enough to <strong> support loads</strong> and last long.</li>
+<li><strong>Weather Resistance</strong> â€“ Some materials perform better in <strong> hot, cold, or rainy conditions.</strong> For example, concrete resists moisture, while metal can rust if not treated.</li>
+<li><strong>Cost</strong> â€“ The price of materials, including <strong> transportation and maintenance costs</strong>, affects selection.</li>
+<li><strong>Aesthetic Appeal</strong> â€“ The <strong> color, texture, and appearance</strong> of materials contribute to a buildingâ€™s <strong> beauty.</strong></li>
+<li><strong>Availability</strong> â€“ Easily available materials are more affordable and convenient to use.</li>
+<li><strong>Sustainability</strong> â€“ Eco-friendly materials reduce <strong> waste and pollution.</strong></li>
 </ol>
 <h2><strong>Sustainable Building Materials</strong></h2>
 <p>Modern construction focuses on materials that are <strong> eco-friendly</strong> and <strong> reduce energy use.</strong> Examples include:</p>
 <ul>
-<li><strong>Recycled Steel and Glass</strong> – Reusing old materials reduces waste and <strong> saves resources.</strong></li>
-<li><strong>Bamboo</strong> – A <strong> fast-growing plant</strong> used for <strong> floors, walls, and furniture.</strong> It is <strong> strong, lightweight, and renewable.</strong></li>
-<li><strong>Insulated Concrete Forms (ICFs)</strong> – These <strong> energy-saving blocks</strong> keep buildings warm in cold weather and cool in hot weather.</li>
-<li><strong>Green Roofs</strong> – Buildings covered with <strong> plants</strong> to provide <strong> natural insulation</strong> and reduce heat.</li>
+<li><strong>Recycled Steel and Glass</strong> â€“ Reusing old materials reduces waste and <strong> saves resources.</strong></li>
+<li><strong>Bamboo</strong> â€“ A <strong> fast-growing plant</strong> used for <strong> floors, walls, and furniture.</strong> It is <strong> strong, lightweight, and renewable.</strong></li>
+<li><strong>Insulated Concrete Forms (ICFs)</strong> â€“ These <strong> energy-saving blocks</strong> keep buildings warm in cold weather and cool in hot weather.</li>
+<li><strong>Green Roofs</strong> â€“ Buildings covered with <strong> plants</strong> to provide <strong> natural insulation</strong> and reduce heat.</li>
 </ul>
 <h2><strong>Uses of Building Materials</strong></h2>
 <p>Different materials serve various purposes in construction, such as:</p>
 <ul>
-<li><strong>Foundation</strong> – Concrete, stones, and gravel provide <strong> a strong base for buildings.</strong></li>
-<li><strong>Walls</strong> – Bricks, blocks, wood, and fiber cement are used to <strong> divide spaces and provide shelter.</strong></li>
-<li><strong>Roofing</strong> – Metal sheets, tiles, and thatch protect against <strong> sun, rain, and wind.</strong></li>
-<li><strong>Flooring</strong> – Tiles, wood, and concrete make floors <strong> smooth and durable.</strong></li>
-<li><strong>Windows and Doors</strong> – Glass, wood, aluminum, and steel provide <strong> security and ventilation.</strong></li>
+<li><strong>Foundation</strong> â€“ Concrete, stones, and gravel provide <strong> a strong base for buildings.</strong></li>
+<li><strong>Walls</strong> â€“ Bricks, blocks, wood, and fiber cement are used to <strong> divide spaces and provide shelter.</strong></li>
+<li><strong>Roofing</strong> â€“ Metal sheets, tiles, and thatch protect against <strong> sun, rain, and wind.</strong></li>
+<li><strong>Flooring</strong> â€“ Tiles, wood, and concrete make floors <strong> smooth and durable.</strong></li>
+<li><strong>Windows and Doors</strong> â€“ Glass, wood, aluminum, and steel provide <strong> security and ventilation.</strong></li>
 </ul>`
   },
   {
     id: 2345,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'MATERIALS AND PROCESSING',
     subtopic: 'Finishes',
     summary_60s: 'Finishes refer to surface treatments applied to materials such as wood, metal, textiles, and concrete to improve their appearance, durability, and functionality. These treatments help protect materials from damage caused by moisture, heat, sunlight, chemicals, and physical wear. ',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Finishes in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Finishes refer to surface treatments applied to materials such as wood, metal, textiles, and concrete to improve their <strong> appearance, durability, and functionality.</strong> These treatments help protect materials from damage caused by moisture, heat, sunlight, chemicals, and physical wear.</p>
 <p>Finishes can be classified based on the type of material they are applied to and the purpose they serve.</p>
 <h2 style="text-align:center"><strong>Types of Finishes</strong></h2>
@@ -508,7 +508,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <ul>
 <li><strong>Between matte and glossy</strong>, offering a slight shine.</li>
 <li>Strikes a balance between <strong> elegance and practicality.</strong></li>
-<li>Used in <strong> furniture, home décor, and fashion.</strong></li>
+<li>Used in <strong> furniture, home dÃ©cor, and fashion.</strong></li>
 </ul>
 <p><strong>4. Textured Finish</strong></p>
 <ul>
@@ -538,15 +538,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2346,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'MATERIALS AND PROCESSING',
     subtopic: 'Ferrous And Non-Ferrous Metals',
     summary_60s: 'A metal is a chemical element that is typically hard, shiny, and an excellent conductor of heat and electricity. Examples are: Iron Aluminum Copper Gold Zinc Metals are all around us! From the buildings we live in, to the cars we ride in, to the spoons we eat with, metals play a ',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Ferrous And Non-Ferrous Metals in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>A <strong>metal</strong> is a chemical element that is typically hard, shiny, and an excellent conductor of heat and electricity.</p>
 <p>Examples are:</p>
 <ul>
@@ -655,15 +655,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2347,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'MATERIALS AND PROCESSING',
     subtopic: 'Timber',
     summary_60s: 'Timber, also called wood, is a very useful natural material we get from trees. People have used it for a long time to build houses, make furniture, and many other things. Timber is strong, lasts long, and can look beautiful. Timber comes from different types of trees. These trees',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Timber in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Timber, also called wood, is a very useful natural material we get from trees. People have used it for a long time to build houses, make furniture, and many other things. Timber is strong, lasts long, and can look beautiful.</p>
 <p>Timber comes from different types of trees. These trees are grown in forests and plantations.</p>
 <h1 style="text-align:center"><strong>Types of Timber</strong></h1>
@@ -725,15 +725,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2348,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'MATERIALS AND PROCESSING',
     subtopic: 'Plastics',
     summary_60s: 'Plastics are synthetic (man-made) materials made from large molecules called polymers . Polymers are long chains, with each link being a smaller molecule called a monomer . The raw materials for most plastics come from petroleum (crude oil) and natural gas . Types of Plastics Pol',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Plastics in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p><strong>Plastics</strong> are synthetic (man-made) materials made from large molecules called <strong>polymers</strong>. Polymers are long chains, with each link being a smaller molecule called a <strong>monomer</strong>.</p>
 <p>The raw materials for most plastics come from <strong>petroleum (crude oil)</strong> and <strong>natural gas</strong>.</p>
 <h1 style="text-align:center"><strong>Types of Plastics</strong></h1>
@@ -741,21 +741,21 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>Polyethylene (PE)</strong>: Common, flexible, tough.
 
 	<ul>
-<li><strong>Low-Density Polyethylene (LDPE)</strong>: Soft and flexible — plastic bags, cling film.</li>
-<li><strong>High-Density Polyethylene (HDPE)</strong>: Stronger, more rigid — detergent bottles, jerry cans, plastic chairs.</li>
+<li><strong>Low-Density Polyethylene (LDPE)</strong>: Soft and flexible â€” plastic bags, cling film.</li>
+<li><strong>High-Density Polyethylene (HDPE)</strong>: Stronger, more rigid â€” detergent bottles, jerry cans, plastic chairs.</li>
 </ul>
 </li>
-<li><strong>Polypropylene (PP)</strong>: Strong, heat- and chemical-resistant — food containers, bottle caps, ropes, exercise book covers.</li>
-<li><strong>Polyvinyl Chloride (PVC)</strong>: Strong, rigid, water- and chemical-resistant; can be made flexible — pipes, window frames, raincoats, artificial leather.</li>
+<li><strong>Polypropylene (PP)</strong>: Strong, heat- and chemical-resistant â€” food containers, bottle caps, ropes, exercise book covers.</li>
+<li><strong>Polyvinyl Chloride (PVC)</strong>: Strong, rigid, water- and chemical-resistant; can be made flexible â€” pipes, window frames, raincoats, artificial leather.</li>
 <li><strong>Polystyrene (PS)</strong>:
 	<ul>
 <li><strong>Rigid PS</strong>: Disposable cups, plastic cutlery, CD cases.</li>
 <li><strong>Expanded Polystyrene (EPS)</strong> ("Styrofoam"): Packaging, disposable food containers.</li>
 </ul>
 </li>
-<li><strong>Polyethylene Terephthalate (PET/PETE)</strong>: Clear, strong, lightweight, holds gases — water and soft drink bottles.</li>
-<li><strong>Acrylonitrile Butadiene Styrene (ABS)</strong>: Strong and hard — LEGO bricks, keyboards, car parts, phone cases.</li>
-<li><strong>Nylon</strong>: Strong with good elasticity — clothes, fishing lines, ropes.</li>
+<li><strong>Polyethylene Terephthalate (PET/PETE)</strong>: Clear, strong, lightweight, holds gases â€” water and soft drink bottles.</li>
+<li><strong>Acrylonitrile Butadiene Styrene (ABS)</strong>: Strong and hard â€” LEGO bricks, keyboards, car parts, phone cases.</li>
+<li><strong>Nylon</strong>: Strong with good elasticity â€” clothes, fishing lines, ropes.</li>
 </ul>
 <h1 style="text-align:center"><strong>Properties of Plastics</strong></h1>
 <p>Versatile, lightweight, durable, waterproof, chemical-resistant, good insulators (heat and electricity), relatively inexpensive, and mouldable into various shapes.</p>
@@ -784,21 +784,21 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>Recycle</strong>: Turn used plastic into new products by following recycling symbols and sorting waste.</li>
 </ul>
 <p><strong>Recycling Process</strong>:</p>
-<p>Collection → Sorting (by type) → Cleaning → Shredding/Melting → Remolding into new products.</p>
+<p>Collection â†’ Sorting (by type) â†’ Cleaning â†’ Shredding/Melting â†’ Remolding into new products.</p>
 <p><strong>Biodegradable plastics</strong> are specially designed to decompose easily.</p>`
   },
   {
     id: 2349,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'MATERIALS AND PROCESSING',
     subtopic: 'Walling',
     summary_60s: 'Walling refers to the process of constructing walls using different building materials. Walls serve multiple purposes, including: Providing structural support to a building. Defining spaces by creating boundaries between rooms or areas. Offering protection from weather conditions',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Walling in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Walling refers to the process of constructing walls using different building materials. Walls serve multiple purposes, including:</p>
 <ul>
 <li><strong>Providing structural support</strong> to a building.</li>
@@ -812,20 +812,20 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <p><strong>1. Brick Walling</strong></p>
 <p>Bricks are small rectangular blocks made from clay or concrete, often used in construction. The two common types of brick walls are:</p>
 <ul>
-<li><strong>Solid Brick Wall</strong> – Built with bricks placed closely together using mortar (a mixture of cement, sand, and water). It is strong and provides insulation.</li>
-<li><strong>Cavity Wall</strong> – Made of two layers of bricks with a space (cavity) in between. This design improves insulation and prevents moisture from seeping inside.</li>
+<li><strong>Solid Brick Wall</strong> â€“ Built with bricks placed closely together using mortar (a mixture of cement, sand, and water). It is strong and provides insulation.</li>
+<li><strong>Cavity Wall</strong> â€“ Made of two layers of bricks with a space (cavity) in between. This design improves insulation and prevents moisture from seeping inside.</li>
 </ul>
 <p><strong>2. Concrete Block Walling</strong></p>
 <p>Concrete blocks are larger than bricks and are commonly used in modern construction. The two main types are:</p>
 <ul>
-<li><strong>Hollow Block Wall</strong> – These blocks have hollow spaces inside, making them lightweight and providing better insulation.</li>
-<li><strong>Solid Block Wall</strong> – Made of dense concrete blocks without hollow cores, offering greater strength.</li>
+<li><strong>Hollow Block Wall</strong> â€“ These blocks have hollow spaces inside, making them lightweight and providing better insulation.</li>
+<li><strong>Solid Block Wall</strong> â€“ Made of dense concrete blocks without hollow cores, offering greater strength.</li>
 </ul>
 <p><strong>3. Timber Walling</strong></p>
 <p>Timber (wood) is used in wall construction, especially in houses and cabins. Types of timber walling include:</p>
 <ul>
-<li><strong>Stud Wall</strong> – Built using vertical wooden beams (studs) covered with plywood or plasterboard. Common in interior walls.</li>
-<li><strong>Log Cabin Wall</strong> – Made by stacking logs horizontally and joining them at the corners. It provides a natural and rustic look.</li>
+<li><strong>Stud Wall</strong> â€“ Built using vertical wooden beams (studs) covered with plywood or plasterboard. Common in interior walls.</li>
+<li><strong>Log Cabin Wall</strong> â€“ Made by stacking logs horizontally and joining them at the corners. It provides a natural and rustic look.</li>
 </ul>
 <p><strong>4. Framed Walling</strong></p>
 <p>This involves using a metal or wooden frame covered with other materials such as plywood, drywall, or glass. It is common in modern buildings.</p>
@@ -838,10 +838,10 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <p><strong>BONDING IN WALLING</strong></p>
 <p>Bonding refers to the pattern in which bricks or blocks are arranged during construction. Proper bonding strengthens the wall and prevents it from collapsing. Some common bonding styles include:</p>
 <ol>
-<li><strong>Stretcher Bond</strong> – The bricks are laid in a straight line with each one overlapping the one below it.</li>
-<li><strong>Header Bond</strong> – The short side of the brick is exposed in each row.</li>
-<li><strong>English Bond</strong> – Alternates between rows of stretcher and header bonds for extra strength.</li>
-<li><strong>Flemish Bond</strong> – Each row contains alternating headers and stretchers.</li>
+<li><strong>Stretcher Bond</strong> â€“ The bricks are laid in a straight line with each one overlapping the one below it.</li>
+<li><strong>Header Bond</strong> â€“ The short side of the brick is exposed in each row.</li>
+<li><strong>English Bond</strong> â€“ Alternates between rows of stretcher and header bonds for extra strength.</li>
+<li><strong>Flemish Bond</strong> â€“ Each row contains alternating headers and stretchers.</li>
 </ol>
 <p><strong>STEPS TO BUILDING A WALL</strong></p>
 <p>Constructing a wall requires careful planning and execution. The key steps include:</p>
@@ -925,15 +925,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2350,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'DRAWING PRACTICE',
     subtopic: 'Orthographic Projection',
     summary_60s: 'Orthographic projection is a way of drawing a 3D object in 2D. It uses multiple views (drawings) to show the object from different directions. Each view shows only two dimensions at a time (like height and width, or width and depth). The key is that these views are drawn as if yo',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Orthographic Projection in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Orthographic projection is a way of drawing a 3D object in 2D. It uses multiple views (drawings) to show the object from different directions. Each view shows only <em>two</em> dimensions at a time (like height and width, or width and depth). The key is that these views are drawn as if you are looking <em>directly</em> at each face of the object, with no perspective (no vanishing points, like in artistic drawings). It is also known as <em>Orthogonal projection</em></p>
 <p><strong>Key Concepts:</strong></p>
 <ol>
@@ -946,7 +946,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>Illustration:</strong> A simple diagram of a box, with arrows indicating the viewing directions for the front, top, and right side views. Then, show the three separate views (front, top, and side) drawn next to each other, clearly labeled.</li>
 </ul>
 </li>
-<li><strong>Projection Planes:</strong> Imagine transparent "screens" placed around the object – one in front, one on top, and one to the side. We "project" the object onto these screens to create our views. These imaginary screens are called <em>projection planes</em>.
+<li><strong>Projection Planes:</strong> Imagine transparent "screens" placed around the object â€“ one in front, one on top, and one to the side. We "project" the object onto these screens to create our views. These imaginary screens are called <em>projection planes</em>.
 	<ul>
 <li><strong>Frontal Plane:</strong> The plane in front of the object (for the front view).</li>
 <li><strong>Horizontal Plane:</strong> The plane above the object (for the top view).</li>
@@ -968,7 +968,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <ul>
 <li><strong>Visible Lines (Object Lines):</strong> These are <em>solid, thick lines</em> that show the edges and outlines of the object that you can <em>see</em> in a particular view.</li>
 <li><strong>Hidden Lines:</strong> These are <em>dashed lines</em> ( - - - - - ) that show edges and outlines that are <em>hidden</em> from view in a particular view. They are behind other parts of the object.</li>
-<li><strong>Center Lines:</strong> These are lines made up of alternating long and short dashes (— - — - —) that show the center of a circle, a cylinder, or a symmetrical object.</li>
+<li><strong>Center Lines:</strong> These are lines made up of alternating long and short dashes (â€” - â€” - â€”) that show the center of a circle, a cylinder, or a symmetrical object.</li>
 <li><strong>Dimension lines</strong>: These are lines used to show measurement.</li>
 <li><strong>Extension lines</strong>: They are used with dimension lines to relate the dimension to the feature.</li>
 <li><strong>Cutting Plane Lines:</strong> A line indicating where an imaginary cut has made through an object in order to see the inner surface.</li>
@@ -1019,15 +1019,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2351,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'DRAWING PRACTICE',
     subtopic: 'Isometric Drawing',
     summary_60s: 'Isometric drawing is a method used to represent three-dimensional (3D) objects on a two-dimensional (2D) surface, like paper or a computer screen. It helps us visualize the height, width, and depth of an object in a single drawing. This technique is widely used in fields like arc',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Isometric Drawing in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Isometric drawing is a method used to represent three-dimensional (3D) objects on a two-dimensional (2D) surface, like paper or a computer screen.</p>
 <p>It helps us visualize the height, width, and depth of an object in a single drawing. This technique is widely used in fields like architecture, engineering, and product design to communicate ideas clearly.</p>
 <p><strong>Basic Principles of Isometric Drawing</strong></p>
@@ -1043,7 +1043,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>120-Degree Angles</strong>:
 	<ul>
 <li>All lines in an isometric drawing are drawn at 120 degrees to maintain consistency.</li>
-<li>This ensures that the object’s dimensions (height, width, and depth) are represented accurately.</li>
+<li>This ensures that the objectâ€™s dimensions (height, width, and depth) are represented accurately.</li>
 </ul>
 </li>
 <li><strong>Isometric Scale</strong>:
@@ -1067,9 +1067,9 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li>Draw light guidelines to help maintain proportions and angles.</li>
 </ul>
 </li>
-<li><strong>Sketch the Object’s Edges</strong>:
+<li><strong>Sketch the Objectâ€™s Edges</strong>:
 	<ul>
-<li>Draw parallel lines along the axes to represent the object’s edges.</li>
+<li>Draw parallel lines along the axes to represent the objectâ€™s edges.</li>
 </ul>
 </li>
 <li><strong>Connect the Points</strong>:
@@ -1088,7 +1088,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <ol start="1">
 <li><strong>Front View</strong>: Shows the front face of the object.</li>
 <li><strong>Top View</strong>: Shows the object as seen from above.</li>
-<li><strong>Side View</strong>: Shows the object’s width from the right or left side.</li>
+<li><strong>Side View</strong>: Shows the objectâ€™s width from the right or left side.</li>
 </ol>
 <p><strong>Advantages of Isometric Drawing</strong></p>
 <ol start="1">
@@ -1141,15 +1141,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2352,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'DRAWING PRACTICE',
     subtopic: 'Oblique Drawing',
     summary_60s: 'Oblique drawing is a type of pictorial drawing , meaning it shows a picture of the object, not just separate views like orthographic projection. In oblique drawing, one face of the object (usually the front) is drawn true to shape (like a regular flat drawing), and the other face',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Oblique Drawing in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Oblique drawing is a type of <em>pictorial drawing</em>, meaning it shows a picture of the object, not just separate views like orthographic projection. In oblique drawing, one face of the object (usually the front) is drawn <em>true to shape</em> (like a regular flat drawing), and the other faces are drawn at an angle to show depth. This makes the object look like it's going back into the page.</p>
 <p><strong>Key Features of Oblique Drawing:</strong></p>
 <ul>
@@ -1229,15 +1229,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2353,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
-    topic: 'TOOLS • MACHINES • PROCESSES',
+    topic: 'TOOLS â€¢ MACHINES â€¢ PROCESSES',
     subtopic: 'Cutting Tools',
     summary_60s: 'Cutting tools are tools designed to separate materials into smaller pieces, or to change their shape by removing parts. They usually have a sharp edge or blade that is used to make the cut. Types of Cutting Tools (and Their Uses) Saws: Description: Saws have a blade with sharp te',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Cutting Tools in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Cutting tools are tools designed to separate materials into smaller pieces, or to change their shape by removing parts. They usually have a sharp edge or blade that is used to make the cut.</p>
 <h2 style="text-align:center"><strong>Types of Cutting Tools (and Their Uses)</strong></h2>
 <ol>
@@ -1260,7 +1260,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>Description:</strong> Knives have a sharp blade attached to a handle. They are used for a wide range of cutting tasks.</li>
 <li><strong>Types:</strong>
 <ul>
-<li><strong>Utility Knife (Cutter Knife):</strong> A general-purpose knife with a retractable blade. <em>Example:</em> Cutting cardboard, paper, or opening boxes. (Note: Emphasize safety with retractable blades – always retract the blade when not in use).</li>
+<li><strong>Utility Knife (Cutter Knife):</strong> A general-purpose knife with a retractable blade. <em>Example:</em> Cutting cardboard, paper, or opening boxes. (Note: Emphasize safety with retractable blades â€“ always retract the blade when not in use).</li>
 <li><strong>Kitchen Knife:</strong> Used for cutting food. <em>Example:</em> Cutting vegetables or meat.</li>
 <li><strong>Illustration:</strong> Pictures of a utility knife (showing the retractable blade) and a kitchen knife.</li>
 </ul>
@@ -1373,15 +1373,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2354,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
-    topic: 'TOOLS • MACHINES • PROCESSES',
+    topic: 'TOOLS â€¢ MACHINES â€¢ PROCESSES',
     subtopic: 'Digging Tools',
     summary_60s: 'Have you ever helped in the garden, on a farm, or watched builders working on a new house? You\'ve probably seen people using tools to dig, move earth, or make holes in the ground. These tools are called digging tools , and they are essential for many jobs. They help us shape the ',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Digging Tools in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Have you ever helped in the garden, on a farm, or watched builders working on a new house? You've probably seen people using tools to dig, move earth, or make holes in the ground. These tools are called <em>digging tools</em>, and they are essential for many jobs. They help us shape the land, plant crops, build structures, and much more. This note describes the basic digging tools.</p>
 <p><strong>What are Digging Tools?</strong></p>
 <p>Digging tools are special tools designed to break up, loosen, lift, and move soil, sand, gravel, and other materials. They come in various shapes and sizes, each designed for a specific type of digging or earthmoving task.</p>
@@ -1518,15 +1518,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2355,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
-    topic: 'TOOLS • MACHINES • PROCESSES',
+    topic: 'TOOLS â€¢ MACHINES â€¢ PROCESSES',
     subtopic: 'Fastenings',
     summary_60s: 'Fastenings, also called fasteners , are devices used to join or secure two or more objects together. They are essential in construction, engineering, woodworking, metalworking, automotive industries, and even everyday household applications. Fasteners help keep structures and mat',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Fastenings in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Fastenings, also called <strong> fasteners</strong>, are devices used to join or secure two or more objects together. They are essential in construction, engineering, woodworking, metalworking, automotive industries, and even everyday household applications. Fasteners help keep structures and materials firm, stable, and functional.</p>
 <p>There are different types of fastenings, and they can be classified based on design, usage, materials, application, and mechanism of operation.</p>
 <h2 style="text-align:center"><strong>Classification of Fasteners</strong></h2>
@@ -1647,15 +1647,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2356,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
-    topic: 'TOOLS • MACHINES • PROCESSES',
+    topic: 'TOOLS â€¢ MACHINES â€¢ PROCESSES',
     subtopic: 'Measuring Tools',
     summary_60s: 'Measuring tools are instruments used to determine the size, length, width, height, weight, temperature, or other physical properties of objects. They are important in various fields such as science, engineering, construction, tailoring, and daily activities. The accuracy and prec',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Measuring Tools in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Measuring tools are instruments used to determine the size, length, width, height, weight, temperature, or other physical properties of objects. They are important in various fields such as science, engineering, construction, tailoring, and daily activities.</p>
 <p>The accuracy and precision of these tools help ensure correct measurements, which are necessary for quality control, standardization, and efficiency in different applications.</p>
 <h2><strong>TYPES OF MEASURING TOOLS</strong></h2>
@@ -1703,14 +1703,14 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 </li>
 <li><strong>Thermometer</strong>
 <ul>
-<li>Measures temperature in <strong> Celsius (°C) or Fahrenheit (°F).</strong></li>
+<li>Measures temperature in <strong> Celsius (Â°C) or Fahrenheit (Â°F).</strong></li>
 <li><strong>Types</strong>: Clinical thermometers (for body temperature), laboratory thermometers (for experiments), and infrared thermometers (for contactless readings).</li>
 <li><strong>Uses</strong>: Checking body temperature, monitoring weather conditions, and scientific experiments.</li>
 </ul>
 </li>
 <li><strong>Multimeter</strong>
 <ul>
-<li>A device used to measure electrical properties such as <strong> voltage (V), current (A), and resistance (Ω).</strong></li>
+<li>A device used to measure electrical properties such as <strong> voltage (V), current (A), and resistance (Î©).</strong></li>
 <li><strong>Uses</strong>: Testing electrical circuits, troubleshooting faults in electrical devices.</li>
 </ul>
 </li>
@@ -1763,41 +1763,41 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li>Used to transfer pattern details onto fabric before cutting and sewing.</li>
 </ul>
 </li>
-<li><strong>Dressmaker’s Dummy (Mannequin)</strong></li>
+<li><strong>Dressmakerâ€™s Dummy (Mannequin)</strong></li>
 </ol>
 <ul>
 <li>A <strong> three-dimensional model</strong> of a human body used to check the fitting of clothes before final stitching.</li>
 </ul>
 <h2><strong>IMPORTANCE OF MEASURING TOOLS</strong></h2>
 <ol>
-<li><strong>Accuracy</strong> – They ensure measurements are exact, reducing errors in work.</li>
-<li><strong>Precision</strong> – Many tools allow for fine adjustments and detailed measurements.</li>
-<li><strong>Consistency</strong> – They provide reliable and repeatable results in production and design.</li>
-<li><strong>Standardization</strong> – Helps ensure measurements follow internationally recognized units.</li>
-<li><strong>Quality Control</strong> – Ensures that products, garments, or structures meet the required specifications.</li>
+<li><strong>Accuracy</strong> â€“ They ensure measurements are exact, reducing errors in work.</li>
+<li><strong>Precision</strong> â€“ Many tools allow for fine adjustments and detailed measurements.</li>
+<li><strong>Consistency</strong> â€“ They provide reliable and repeatable results in production and design.</li>
+<li><strong>Standardization</strong> â€“ Helps ensure measurements follow internationally recognized units.</li>
+<li><strong>Quality Control</strong> â€“ Ensures that products, garments, or structures meet the required specifications.</li>
 </ol>
 <h2><strong>TIPS FOR USING MEASURING TOOLS CORRECTLY</strong></h2>
 <ol>
-<li><strong>Ensure Proper Calibration</strong> – Tools should be checked and adjusted regularly for accuracy.</li>
-<li><strong>Hold the Tool Steady</strong> – Movement can affect the accuracy of measurements.</li>
-<li><strong>Align with the Zero Mark</strong> – Always start measuring from the correct starting point.</li>
-<li><strong>Use the Right Tool for the Job</strong> – Select tools based on the precision required.</li>
-<li><strong>Keep Tools in Good Condition</strong> – Store measuring tools properly to maintain their accuracy over time.</li>
+<li><strong>Ensure Proper Calibration</strong> â€“ Tools should be checked and adjusted regularly for accuracy.</li>
+<li><strong>Hold the Tool Steady</strong> â€“ Movement can affect the accuracy of measurements.</li>
+<li><strong>Align with the Zero Mark</strong> â€“ Always start measuring from the correct starting point.</li>
+<li><strong>Use the Right Tool for the Job</strong> â€“ Select tools based on the precision required.</li>
+<li><strong>Keep Tools in Good Condition</strong> â€“ Store measuring tools properly to maintain their accuracy over time.</li>
 </ol>
 `
   },
   {
     id: 2357,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
-    topic: 'TOOLS • MACHINES • PROCESSES',
+    topic: 'TOOLS â€¢ MACHINES â€¢ PROCESSES',
     subtopic: 'Cutting Out and Marking Tools',
     summary_60s: 'Setting-out and marking-out are important steps in construction, woodworking, and engineering. These processes involve transferring measurements, lines, and points from designs onto materials. Accurate marking ensures that projects are built correctly and look professional. Speci',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Cutting Out and Marking Tools in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Setting-out and marking-out are important steps in construction, woodworking, and engineering. These processes involve transferring measurements, lines, and points from designs onto materials.</p>
 <p>Accurate marking ensures that projects are built correctly and look professional. Special tools are used to achieve precision in these tasks.</p>
 <h2 style="text-align:center"><strong>Common Setting-Out and Marking-Out Tools</strong></h2>
@@ -1836,7 +1836,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>Application</strong>: Used in woodworking to ensure corners are square.</li>
 <li><strong>Example</strong>: Marking a wooden board for cutting.</li>
 </ul>
-<p><strong>6. Carpenter’s Square (Framing Square)</strong></p>
+<p><strong>6. Carpenterâ€™s Square (Framing Square)</strong></p>
 <ul>
 <li><strong>Description</strong>: A larger square with 90-degree and 45-degree angles.</li>
 <li><strong>Use</strong>: Used for marking angles and cutting rafters or frames.</li>
@@ -1902,15 +1902,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2358,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
-    topic: 'TOOLS • MACHINES • PROCESSES',
+    topic: 'TOOLS â€¢ MACHINES â€¢ PROCESSES',
     subtopic: 'Removing And Driving Tools',
     summary_60s: 'Have you ever watched a mechanic repairing a car, a carpenter building furniture, or someone fixing a broken toy? They often use special tools to take things apart (remove parts) and put things together (drive parts). These are called removing and driving tools . They are incredi',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Removing And Driving Tools in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Have you ever watched a mechanic repairing a car, a carpenter building furniture, or someone fixing a broken toy? They often use special tools to take things apart (remove parts) and put things together (drive parts). These are called <em>removing and driving tools</em>. They are incredibly important for building, repairing, and maintaining many of the things we use every day.</p>
 <p><strong>What are Removing and Driving Tools?</strong></p>
 <ul>
@@ -2067,15 +2067,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2359,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
-    topic: 'TOOLS • MACHINES • PROCESSES',
+    topic: 'TOOLS â€¢ MACHINES â€¢ PROCESSES',
     subtopic: 'Sheet Metal Work',
     summary_60s: 'Sheet metal work involves cutting, bending, shaping, and joining thin metal sheets (usually less than 6mm thick) to create useful products. This type of work is common in industries like construction, automotive, aerospace, and electronics. Sheet metal is lightweight, strong, and',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Sheet Metal Work in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Sheet metal work involves cutting, bending, shaping, and joining thin metal sheets (usually less than 6mm thick) to create useful products.</p>
 <p>This type of work is common in industries like construction, automotive, aerospace, and electronics. Sheet metal is lightweight, strong, and can be shaped into various forms, making it a versatile material.</p>
 <h2 style="text-align:center"><strong>Processes in Sheet Metal Work</strong></h2>
@@ -2206,15 +2206,15 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
   {
     id: 2360,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'ELECTRICAL AND COMPUTER',
     subtopic: 'Basic Electrical Circuit',
     summary_60s: 'An electrical circuit is a closed path that allows electric current to flow. It connects components like batteries, wires, bulbs, and switches to make devices work. Understanding circuits helps us use electricity safely and build simple gadgets like torches or lamps. Key Componen',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Basic Electrical Circuit in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>An electrical circuit is a closed path that allows electric current to flow. It connects components like batteries, wires, bulbs, and switches to make devices work.</p>
 <p>Understanding circuits helps us use electricity safely and build simple gadgets like torches or lamps.</p>
 <h2 style="text-align:center"><strong>Key Components of an Electrical Circuit</strong></h2>
@@ -2271,25 +2271,25 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 </ul>
 </li>
 </ol>
-<p><strong>Ohm’s Law</strong></p>
-<p>Ohm’s Law explains the relationship between<strong> voltage (V)</strong> ,<strong> current (I)</strong> , and<strong> resistance (R)</strong> in a circuit:</p>
-<p>Voltage(V)=Current(I)×Resistance(R)</p>
+<p><strong>Ohmâ€™s Law</strong></p>
+<p>Ohmâ€™s Law explains the relationship between<strong> voltage (V)</strong> ,<strong> current (I)</strong> , and<strong> resistance (R)</strong> in a circuit:</p>
+<p>Voltage(V)=Current(I)Ã—Resistance(R)</p>
 <p>V = I x R</p>
 <ul>
 <li><strong>Voltage (V)</strong> : Measured in volts (e.g., a 9V battery).</li>
 <li><strong>Current (I)</strong> : Measured in amperes (amps) (e.g., 0.5A in a bulb).</li>
-<li><strong>Resistance (R)</strong> : Measured in ohms (Ω) (e.g., 10Ω resistor).</li>
+<li><strong>Resistance (R)</strong> : Measured in ohms (Î©) (e.g., 10Î© resistor).</li>
 </ul>
 <p><strong>Example</strong>:</p>
-<p>If a 6V battery is connected to a bulb with 2Ω resistance:</p>
-<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw=="/><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" style="height:15px; width:15px"/></p>
+<p>If a 6V battery is connected to a bulb with 2Î© resistance:</p>
+<p></p>
 <h2 style="text-align:center"><strong>How to Build a Simple Circuit</strong></h2>
 <p><strong>Materials</strong>: Battery, wires, bulb, switch.</p>
 <p><strong>Steps</strong>:</p>
 <ol start="1">
-<li>Connect the battery’s positive (+) terminal to the bulb.</li>
-<li>Connect the bulb’s other end to the switch.</li>
-<li>Connect the switch back to the battery’s negative (-) terminal.</li>
+<li>Connect the batteryâ€™s positive (+) terminal to the bulb.</li>
+<li>Connect the bulbâ€™s other end to the switch.</li>
+<li>Connect the switch back to the batteryâ€™s negative (-) terminal.</li>
 <li>Close the switch to light the bulb.</li>
 </ol>
 <p><strong>Safety Tips</strong></p>
@@ -2313,31 +2313,31 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>Switch</strong>:<img src="https://tinyurl.com/2p92j4xm"/></li>
 </ul>
 <p><strong>Conclusion</strong></p>
-<p>Basic electrical circuits are the foundation of all electronic devices. By learning about components, series/parallel circuits, and Ohm’s Law, you can safely build and repair simple gadgets.</p>`
+<p>Basic electrical circuits are the foundation of all electronic devices. By learning about components, series/parallel circuits, and Ohmâ€™s Law, you can safely build and repair simple gadgets.</p>`
   },
   {
     id: 2361,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'ELECTRICAL AND COMPUTER',
     subtopic: 'Basic Electronics Circuit',
     summary_60s: 'Electronics is the study and application of electrical circuits that control the flow of electric current to perform different functions. These circuits are made up of components such as resistors, capacitors, diodes, and transistors , which work together to process signals, powe',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of Basic Electronics Circuit in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>Electronics is the study and application of electrical circuits that control the flow of electric current to perform different functions. These circuits are made up of components such as <strong> resistors, capacitors, diodes, and transistors</strong>, which work together to process signals, power devices, and perform various electrical tasks.In everyday life, electronics are used in gadgets like <strong> radios, televisions, mobile phones, and computers.</strong> Understanding basic electronic circuits helps in troubleshooting, designing, and improving electrical devices. <strong>FUNDAMENTAL CONCEPTS OF BASIC ELECTRONIC CIRCUITS</strong>Electronic circuits consist of different components that perform specific functions. <strong>1. Electronic Components and Their Functions</strong>Electronic components are divided into two main types:</p>
 <ul>
-<li><strong>Passive Components</strong> – These do not amplify signals but regulate current and voltage (e.g., resistors, capacitors, and inductors).</li>
-<li><strong>Active Components</strong> – These control and amplify electrical signals (e.g., transistors and diodes).</li>
+<li><strong>Passive Components</strong> â€“ These do not amplify signals but regulate current and voltage (e.g., resistors, capacitors, and inductors).</li>
+<li><strong>Active Components</strong> â€“ These control and amplify electrical signals (e.g., transistors and diodes).</li>
 </ul>
 <p><strong>Common Electronic Components:</strong></p>
 <ol>
 <li><strong>Resistor</strong>
 <ul>
 <li>Limits or controls the flow of electric current.</li>
-<li>Measured in <strong> ohms (Ω).</strong></li>
+<li>Measured in <strong> ohms (Î©).</strong></li>
 <li>Example: Used in <strong> LED circuits</strong> to prevent excessive current flow.</li>
 </ul>
 </li>
@@ -2402,20 +2402,20 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li>Contains an <strong> inductor and a capacitor</strong> to create oscillations.</li>
 <li>Commonly used in <strong> radio transmitters and receivers.</strong></li>
 </ul>
-<p><strong>4. Basic Circuit Analysis</strong>To analyze and understand circuits, the following laws and rules are applied:<strong>a) Ohm’s Law</strong></p>
+<p><strong>4. Basic Circuit Analysis</strong>To analyze and understand circuits, the following laws and rules are applied:<strong>a) Ohmâ€™s Law</strong></p>
 <ul>
 <li>Describes the relationship between <strong> voltage (V), current (I), and resistance (R)</strong> in a circuit.</li>
-<li>Formula: <strong> V = I × R</strong></li>
-<li>Example: If a 10Ω resistor has 2A of current flowing through it, the voltage across it is: <strong>V = 2A × 10Ω = 20V</strong></li>
+<li>Formula: <strong> V = I Ã— R</strong></li>
+<li>Example: If a 10Î© resistor has 2A of current flowing through it, the voltage across it is: <strong>V = 2A Ã— 10Î© = 20V</strong></li>
 </ul>
-<p><strong>b) Kirchhoff’s Laws</strong></p>
+<p><strong>b) Kirchhoffâ€™s Laws</strong></p>
 <ol>
-<li><strong>Kirchhoff’s Voltage Law (KVL):</strong>
+<li><strong>Kirchhoffâ€™s Voltage Law (KVL):</strong>
 <ul>
 <li>The total voltage around any closed loop in a circuit is <strong> zero.</strong></li>
 </ul>
 </li>
-<li><strong>Kirchhoff’s Current Law (KCL):</strong>
+<li><strong>Kirchhoffâ€™s Current Law (KCL):</strong>
 <ul>
 <li>The total current entering a junction equals the total current leaving the junction.</li>
 </ul>
@@ -2427,16 +2427,16 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 </ul>
 <p><strong>5. Electronic Tools and Equipment</strong>To build and test electronic circuits, various tools are required:</p>
 <ol>
-<li><strong>Multimeter</strong> – Measures <strong> voltage, current, and resistance.</strong></li>
-<li><strong>Battery Holder</strong> – Holds batteries and provides power to circuits.</li>
-<li><strong>Breadboard</strong> – Used for <strong> testing circuits without soldering.</strong></li>
-<li><strong>Precision Screwdrivers</strong> – Small screwdrivers for working with tiny components.</li>
-<li><strong>Jumper Wires</strong> – Used to <strong> connect components on a breadboard.</strong></li>
-<li><strong>Soldering Iron and Solder</strong> – For making <strong> permanent connections</strong> in a circuit.</li>
-<li><strong>Power Supply</strong> – Provides a <strong> constant voltage source</strong> for circuits.</li>
-<li><strong>Wire Strippers</strong> – Used to <strong> remove insulation</strong> from electrical wires.</li>
-<li><strong>Oscilloscope</strong> – Displays <strong> electrical signals</strong> over time, used for waveform analysis.</li>
-<li><strong>Schematic Design Software</strong> – Helps design <strong> circuit diagrams</strong> before building the physical circuit.</li>
+<li><strong>Multimeter</strong> â€“ Measures <strong> voltage, current, and resistance.</strong></li>
+<li><strong>Battery Holder</strong> â€“ Holds batteries and provides power to circuits.</li>
+<li><strong>Breadboard</strong> â€“ Used for <strong> testing circuits without soldering.</strong></li>
+<li><strong>Precision Screwdrivers</strong> â€“ Small screwdrivers for working with tiny components.</li>
+<li><strong>Jumper Wires</strong> â€“ Used to <strong> connect components on a breadboard.</strong></li>
+<li><strong>Soldering Iron and Solder</strong> â€“ For making <strong> permanent connections</strong> in a circuit.</li>
+<li><strong>Power Supply</strong> â€“ Provides a <strong> constant voltage source</strong> for circuits.</li>
+<li><strong>Wire Strippers</strong> â€“ Used to <strong> remove insulation</strong> from electrical wires.</li>
+<li><strong>Oscilloscope</strong> â€“ Displays <strong> electrical signals</strong> over time, used for waveform analysis.</li>
+<li><strong>Schematic Design Software</strong> â€“ Helps design <strong> circuit diagrams</strong> before building the physical circuit.</li>
 </ol>
 <p><strong>6. Safety Measures in Electronics</strong>When working with electronics, safety is important to prevent accidents.</p>
 <ol>
@@ -2448,25 +2448,25 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 </ol>
 <p><strong>IMPORTANCE OF BASIC ELECTRONICS</strong>Electronics plays a crucial role in modern technology. Some key applications include:</p>
 <ol>
-<li><strong>Home Appliances</strong> – Used in <strong> TVs, radios, refrigerators, and washing machines.</strong></li>
-<li><strong>Communication Systems</strong> – Found in <strong> mobile phones, computers, and internet devices.</strong></li>
-<li><strong>Medical Equipment</strong> – Used in <strong> X-ray machines, heart monitors, and hearing aids.</strong></li>
-<li><strong>Automobiles</strong> – Found in <strong> car sensors, ignition systems, and GPS devices.</strong></li>
-<li><strong>Security Systems</strong> – Used in <strong> CCTV cameras, alarms, and door locks.</strong></li>
+<li><strong>Home Appliances</strong> â€“ Used in <strong> TVs, radios, refrigerators, and washing machines.</strong></li>
+<li><strong>Communication Systems</strong> â€“ Found in <strong> mobile phones, computers, and internet devices.</strong></li>
+<li><strong>Medical Equipment</strong> â€“ Used in <strong> X-ray machines, heart monitors, and hearing aids.</strong></li>
+<li><strong>Automobiles</strong> â€“ Found in <strong> car sensors, ignition systems, and GPS devices.</strong></li>
+<li><strong>Security Systems</strong> â€“ Used in <strong> CCTV cameras, alarms, and door locks.</strong></li>
 </ol>`
   },
   {
     id: 2362,
     subject: 'Basic Technology',
-    exam_type: 'BECE • JSCE Standard',
+    exam_type: 'BECE â€¢ JSCE Standard',
     class_level: 'JSS1-JSS3 Comprehensive',
     topic: 'ELECTRICAL AND COMPUTER',
     subtopic: 'The Computer',
     summary_60s: 'A computer is an electronic device that accepts data as input, processes it according to given instructions, and produces output (information) that is useful to the user. Basic Functions : Input : Data is entered using devices like a keyboard or mouse. Processing : The computer m',
     key_formulas: '',
-    pro_tips_95: 'Official JAMB & WAEC Syllabus Concept: Focus on core definitions, formulas, and past questions.',
+    pro_tips_95: 'Official BECE (Junior WAEC) Syllabus: Focus on fundamental concepts, key facts, and clear concise answers for JSS level.',
     syllabus_objectives: 'Candidates should be able to master the fundamental principles of The Computer in line with the official syllabus.',
-    updated_at: 'JAMB • WAEC Official Syllabus',
+    updated_at: 'BECE • JSCE Official Curriculum',
     content: `<p>A computer is an electronic device that accepts data as input, processes it according to given instructions, and produces output (information) that is useful to the user. <strong>Basic Functions</strong>:</p>
 <ul>
 <li><strong>Input</strong>: Data is entered using devices like a keyboard or mouse.</li>
@@ -2488,7 +2488,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <p>A computer works by following a set of instructions called a program. It converts raw data (e.g., numbers, words) into meaningful information (e.g., a report or a graph). <strong>HISTORY OF COMPUTER</strong>The history of computers refers to the development of computing devices from simple tools to modern electronic machines. <strong>Early Computing Devices</strong>:</p>
 <ul>
 <li><strong>Abacus (3000 BC)</strong> : A manual tool for basic arithmetic (addition, subtraction).</li>
-<li><strong>Napier’s Bones (1617)</strong> : Used for multiplication and division, invented by John Napier.</li>
+<li><strong>Napierâ€™s Bones (1617)</strong> : Used for multiplication and division, invented by John Napier.</li>
 <li><strong>Slide Rule (1622)</strong> : A tool for calculations based on logarithms.</li>
 </ul>
 <p><strong>Mechanical Era</strong>:</p>
@@ -2587,20 +2587,20 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 <li><strong>Types</strong>:
 
 	<ul>
-<li><strong>Base 10 (Decimal)</strong> : Uses 0–9 (e.g., 25).</li>
+<li><strong>Base 10 (Decimal)</strong> : Uses 0â€“9 (e.g., 25).</li>
 <li><strong>Base 2 (Binary)</strong> : Uses 0 and 1 (e.g., 101 = 5 in decimal).</li>
 </ul>
 </li>
 <li><strong>Conversion</strong>:
 	<ul>
 <li>Decimal to Binary: Divide by 2, record remainders (e.g., 5 = 101).</li>
-<li>Binary to Decimal: Multiply digits by powers of 2 (e.g., 101 = 1×2² + 0×2¹ + 1×2⁰ = 5).</li>
+<li>Binary to Decimal: Multiply digits by powers of 2 (e.g., 101 = 1Ã—2Â² + 0Ã—2Â¹ + 1Ã—2â° = 5).</li>
 </ul>
 </li>
 </ol>
 <p><strong>Formula</strong>:</p>
 <ul>
-<li>Binary to Decimal: Sum = (dₙ × 2ⁿ) + (dₙ₋₁ × 2ⁿ⁻¹) + … + (d₀ × 2⁰).</li>
+<li>Binary to Decimal: Sum = (dâ‚™ Ã— 2â¿) + (dâ‚™â‚‹â‚ Ã— 2â¿â»Â¹) + â€¦ + (dâ‚€ Ã— 2â°).</li>
 </ul>
 <p>Computers use binary (base 2) because they work with electrical signals (on = 1, off = 0). For example, 110 in binary is 6 in decimal. <strong>TOPIC 6: APPLICATION PACKAGES</strong>Application packages are software programs designed to perform specific tasks for users. <strong>Key Points</strong>:</p>
 <ol>
@@ -2618,7 +2618,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 </ul>
 </li>
 </ol>
-<p>Application packages make tasks easier. For example, Excel can calculate a student’s average score automatically using formulas like =AVERAGE(A1: A5). <strong>TOPIC 7: CLASSIFICATION OF COMPUTER</strong>Computers are classified based on size, speed, and purpose. <strong>Key Points</strong>:</p>
+<p>Application packages make tasks easier. For example, Excel can calculate a studentâ€™s average score automatically using formulas like =AVERAGE(A1: A5). <strong>TOPIC 7: CLASSIFICATION OF COMPUTER</strong>Computers are classified based on size, speed, and purpose. <strong>Key Points</strong>:</p>
 <ol>
 <li><strong>By Size</strong>:
 
@@ -2679,7 +2679,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 </li>
 <li><strong>Steps</strong>:
 	<ul>
-<li>Write code → Test → Debug (fix errors).</li>
+<li>Write code â†’ Test â†’ Debug (fix errors).</li>
 </ul>
 </li>
 <li><strong>Example</strong>:
@@ -2749,7 +2749,7 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 </ul>
 </li>
 </ol>
-<p><strong>Explanation</strong>:A database makes it easy to find and manage information, like searching for a student’s grade. <strong>TOPIC 15: DRAWING</strong>Drawing in Basic Technology involves creating technical sketches or diagrams manually or using computer tools. <strong>Key Points</strong>:</p>
+<p><strong>Explanation</strong>:A database makes it easy to find and manage information, like searching for a studentâ€™s grade. <strong>TOPIC 15: DRAWING</strong>Drawing in Basic Technology involves creating technical sketches or diagrams manually or using computer tools. <strong>Key Points</strong>:</p>
 <ol>
 <li><strong>Tools</strong>:
 
@@ -2766,10 +2766,12 @@ export const BASIC_TECH_NOTES: LessonNote[] = [
 </li>
 <li><strong>Example</strong>:
 	<ul>
-<li>Drawing a computer’s parts (monitor, CPU).</li>
+<li>Drawing a computerâ€™s parts (monitor, CPU).</li>
 </ul>
 </li>
 </ol>
 <p><strong>Explanation</strong>:Drawing helps visualize objects, like designing a simple circuit or a computer lab layout.</p>`
   },
 ];
+
+

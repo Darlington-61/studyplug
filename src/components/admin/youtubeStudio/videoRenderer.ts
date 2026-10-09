@@ -25,6 +25,12 @@ export class StudyPlugVideoRenderer {
   private mediaRecorder: MediaRecorder | null = null;
   private recordedChunks: Blob[] = [];
 
+  // Active Media Elements for Presenter Video & Audio
+  private activeVideoEl: HTMLVideoElement | null = null;
+  private activeAudioEl: HTMLAudioElement | null = null;
+  private currentVideoUrl: string | null = null;
+  private currentAudioUrl: string | null = null;
+
   constructor(canvas: HTMLCanvasElement, aspectRatio: VideoAspectRatio = '16:9') {
     this.canvas = canvas;
     const context = canvas.getContext('2d');
@@ -113,6 +119,65 @@ export class StudyPlugVideoRenderer {
     window.speechSynthesis.speak(utterance);
   }
 
+  private syncSceneMedia(scene: VideoScene) {
+    if (!scene) return;
+
+    // 1. Cancel speech synthesis
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+
+    // 2. User Video has priority
+    if (scene.userVideoUrl) {
+      if (!this.activeVideoEl) {
+        this.activeVideoEl = document.createElement('video');
+        this.activeVideoEl.muted = false;
+        this.activeVideoEl.playsInline = true;
+        this.activeVideoEl.autoplay = true;
+        this.activeVideoEl.crossOrigin = 'anonymous';
+      }
+      if (this.currentVideoUrl !== scene.userVideoUrl) {
+        this.activeVideoEl.src = scene.userVideoUrl;
+        this.currentVideoUrl = scene.userVideoUrl;
+      }
+      this.activeVideoEl.currentTime = 0;
+      this.activeVideoEl.play().catch(() => {});
+
+      if (this.activeAudioEl) {
+        this.activeAudioEl.pause();
+      }
+      return;
+    } else {
+      if (this.activeVideoEl) {
+        this.activeVideoEl.pause();
+      }
+    }
+
+    // 3. User Audio has next priority
+    if (scene.userAudioUrl) {
+      if (!this.activeAudioEl) {
+        this.activeAudioEl = document.createElement('audio');
+        this.activeAudioEl.autoplay = true;
+      }
+      if (this.currentAudioUrl !== scene.userAudioUrl) {
+        this.activeAudioEl.src = scene.userAudioUrl;
+        this.currentAudioUrl = scene.userAudioUrl;
+      }
+      this.activeAudioEl.currentTime = 0;
+      this.activeAudioEl.play().catch(() => {});
+      return;
+    } else {
+      if (this.activeAudioEl) {
+        this.activeAudioEl.pause();
+      }
+    }
+
+    // 4. Fallback to TTS narration if neither user voice nor video is present
+    if (scene.narrationText) {
+      this.speakNarration(scene.narrationText);
+    }
+  }
+
   public play() {
     if (this.isPlaying) return;
     this.initAudio();
@@ -120,7 +185,7 @@ export class StudyPlugVideoRenderer {
     this.sceneStartTime = performance.now();
 
     if (this.scenes[this.currentSceneIndex]) {
-      this.speakNarration(this.scenes[this.currentSceneIndex].narrationText);
+      this.syncSceneMedia(this.scenes[this.currentSceneIndex]);
     }
 
     this.tick();
@@ -131,6 +196,12 @@ export class StudyPlugVideoRenderer {
     if (this.animationFrameId) {
       cancelAnimationFrame(this.animationFrameId);
       this.animationFrameId = null;
+    }
+    if (this.activeVideoEl) {
+      this.activeVideoEl.pause();
+    }
+    if (this.activeAudioEl) {
+      this.activeAudioEl.pause();
     }
     if (typeof window !== 'undefined' && window.speechSynthesis) {
       window.speechSynthesis.cancel();
@@ -143,7 +214,7 @@ export class StudyPlugVideoRenderer {
     this.renderCurrentFrame(0);
 
     if (this.isPlaying && this.scenes[this.currentSceneIndex]) {
-      this.speakNarration(this.scenes[this.currentSceneIndex].narrationText);
+      this.syncSceneMedia(this.scenes[this.currentSceneIndex]);
     }
   }
 
@@ -178,7 +249,7 @@ export class StudyPlugVideoRenderer {
         this.currentSceneIndex++;
         this.sceneStartTime = performance.now();
         if (this.scenes[this.currentSceneIndex]) {
-          this.speakNarration(this.scenes[this.currentSceneIndex].narrationText);
+          this.syncSceneMedia(this.scenes[this.currentSceneIndex]);
         }
       } else {
         this.pause();
@@ -204,48 +275,55 @@ export class StudyPlugVideoRenderer {
 
     ctx.clearRect(0, 0, w, h);
 
-    // 1. Subject-Themed Background
-    const bgGrad = ctx.createLinearGradient(0, 0, w, h);
-    if (scene.subjectTheme === 'mathematics') {
-      bgGrad.addColorStop(0, '#0F172A');
-      bgGrad.addColorStop(0.5, '#002E26');
-      bgGrad.addColorStop(1, '#020617');
-    } else if (scene.subjectTheme === 'chemistry') {
-      bgGrad.addColorStop(0, '#1E1B4B');
-      bgGrad.addColorStop(0.5, '#00332B');
-      bgGrad.addColorStop(1, '#051813');
-    } else if (scene.subjectTheme === 'biology') {
-      bgGrad.addColorStop(0, '#064E3B');
-      bgGrad.addColorStop(0.5, '#022C22');
-      bgGrad.addColorStop(1, '#011711');
-    } else if (scene.subjectTheme === 'literature' || scene.subjectTheme === 'english') {
-      bgGrad.addColorStop(0, '#31101E');
-      bgGrad.addColorStop(0.5, '#1E1325');
-      bgGrad.addColorStop(1, '#0A0512');
-    } else if (scene.subjectTheme === 'commercial') {
-      bgGrad.addColorStop(0, '#2D1B00');
-      bgGrad.addColorStop(0.5, '#1A180E');
-      bgGrad.addColorStop(1, '#0B0D0B');
-    } else if (scene.subjectTheme === 'government' || scene.subjectTheme === 'crs') {
-      bgGrad.addColorStop(0, '#1E1B4B');
-      bgGrad.addColorStop(0.5, '#172554');
-      bgGrad.addColorStop(1, '#0F172A');
+    // 0. If Full Video Background layout, draw presenter video first
+    const hasActiveVideo = !!(scene.userVideoUrl && this.activeVideoEl && this.activeVideoEl.readyState >= 2);
+    if (scene.mediaLayout === 'full_video_bg' && hasActiveVideo) {
+      ctx.drawImage(this.activeVideoEl!, 0, 0, w, h);
+      ctx.fillStyle = 'rgba(0, 20, 16, 0.78)';
+      ctx.fillRect(0, 0, w, h);
     } else {
-      // Physics & General
-      bgGrad.addColorStop(0, '#004D40');
-      bgGrad.addColorStop(0.5, '#002E26');
-      bgGrad.addColorStop(1, '#051813');
-    }
-    ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, w, h);
+      // 1. Subject-Themed Background
+      const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+      if (scene.subjectTheme === 'mathematics') {
+        bgGrad.addColorStop(0, '#0F172A');
+        bgGrad.addColorStop(0.5, '#002E26');
+        bgGrad.addColorStop(1, '#020617');
+      } else if (scene.subjectTheme === 'chemistry') {
+        bgGrad.addColorStop(0, '#1E1B4B');
+        bgGrad.addColorStop(0.5, '#00332B');
+        bgGrad.addColorStop(1, '#051813');
+      } else if (scene.subjectTheme === 'biology') {
+        bgGrad.addColorStop(0, '#001830');
+        bgGrad.addColorStop(0.5, '#001028');
+        bgGrad.addColorStop(1, '#011711');
+      } else if (scene.subjectTheme === 'literature' || scene.subjectTheme === 'english') {
+        bgGrad.addColorStop(0, '#31101E');
+        bgGrad.addColorStop(0.5, '#1E1325');
+        bgGrad.addColorStop(1, '#0A0512');
+      } else if (scene.subjectTheme === 'commercial') {
+        bgGrad.addColorStop(0, '#2D1B00');
+        bgGrad.addColorStop(0.5, '#1A180E');
+        bgGrad.addColorStop(1, '#0B0D0B');
+      } else if (scene.subjectTheme === 'government' || scene.subjectTheme === 'crs') {
+        bgGrad.addColorStop(0, '#1E1B4B');
+        bgGrad.addColorStop(0.5, '#172554');
+        bgGrad.addColorStop(1, '#0F172A');
+      } else {
+        bgGrad.addColorStop(0, '#001028');
+        bgGrad.addColorStop(0.5, '#002E26');
+        bgGrad.addColorStop(1, '#051813');
+      }
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, w, h);
 
-    // Subtle chalkboard border texture
-    ctx.strokeStyle = '#0C3D32';
-    ctx.lineWidth = isShorts ? 18 : 24;
-    ctx.strokeRect(10, 10, w - 20, h - 20);
+      // Subtle chalkboard border texture
+      ctx.strokeStyle = '#0C3D32';
+      ctx.lineWidth = isShorts ? 18 : 24;
+      ctx.strokeRect(10, 10, w - 20, h - 20);
+    }
 
     // Top Brand Header Bar
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
     ctx.fillRect(0, 0, w, isShorts ? 120 : 90);
 
     ctx.fillStyle = '#FFD600';
@@ -260,70 +338,55 @@ export class StudyPlugVideoRenderer {
     ctx.textAlign = 'right';
     ctx.fillText('studyplug.com.ng', w - (isShorts ? 50 : 60), isShorts ? 60 : 45);
 
-    // 2. Scene Title & Badge
-    let cursorY = isShorts ? 180 : 150;
-    const startX = isShorts ? 60 : 100;
-
-    // Subtopic or Category pill
-    ctx.fillStyle = '#FFD600';
-    ctx.beginPath();
-    roundRect(ctx, startX, cursorY, isShorts ? 360 : 260, isShorts ? 50 : 38, 8);
-    ctx.fill();
-
-    ctx.fillStyle = '#004D40';
-    ctx.font = `900 ${isShorts ? '22px' : '16px'} sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(
-      scene.subtitle ? scene.subtitle.toUpperCase() : 'OFFICIAL SYLLABUS LESSON',
-      startX + (isShorts ? 180 : 130),
-      cursorY + (isShorts ? 25 : 19)
-    );
-
-    // Main Scene Title
-    cursorY += isShorts ? 90 : 65;
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = `900 ${isShorts ? '52px' : '42px'} sans-serif`;
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'top';
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
-    ctx.shadowBlur = 10;
-    ctx.fillText(scene.title, startX, cursorY);
-    ctx.shadowColor = 'transparent';
-
-    cursorY += isShorts ? 110 : 80;
-
-    // 3. Render Slide Type
-    if (scene.sceneType === 'hook') {
-      this.renderHookCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'objectives') {
-      this.renderObjectives(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'section_header') {
-      this.renderSectionBanner(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'concept' || scene.sceneType === 'definition' || scene.sceneType === 'formula') {
-      this.renderConceptSlide(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'example') {
-      this.renderCalculationStep(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'question') {
-      this.renderQuestionCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'solution') {
-      this.renderAnswerReveal(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'theory_card') {
-      this.renderTheoryCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'theory_solution') {
-      this.renderTheorySolution(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'practical_setup') {
-      this.renderPracticalSetup(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'practical_graph') {
-      this.renderPracticalGraph(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'practical_precautions') {
-      this.renderPracticalPrecautions(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'exam_tip' || scene.sceneType === 'recap') {
-      this.renderExamTips(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
-    } else if (scene.sceneType === 'cta' || scene.sceneType === 'outro_card') {
-      this.renderOutroCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+    // 2. Render Slide
+    if (scene.isFlashcardStyle !== false) {
+      this.renderFlashcardSlide(ctx, scene, w, h, isShorts, timeInScene);
     } else {
-      this.renderConceptSlide(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+      // Legacy slide renderers
+      let cursorY = isShorts ? 180 : 150;
+      const startX = isShorts ? 60 : 100;
+
+      ctx.fillStyle = '#FFD600';
+      ctx.beginPath();
+      roundRect(ctx, startX, cursorY, isShorts ? 360 : 260, isShorts ? 50 : 38, 8);
+      ctx.fill();
+
+      ctx.fillStyle = '#001028';
+      ctx.font = `900 ${isShorts ? '22px' : '16px'} sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(
+        scene.subtitle ? scene.subtitle.toUpperCase() : 'OFFICIAL SYLLABUS LESSON',
+        startX + (isShorts ? 180 : 130),
+        cursorY + (isShorts ? 25 : 19)
+      );
+
+      cursorY += isShorts ? 90 : 65;
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = `900 ${isShorts ? '52px' : '42px'} sans-serif`;
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'top';
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+      ctx.shadowBlur = 10;
+      ctx.fillText(scene.title, startX, cursorY);
+      ctx.shadowColor = 'transparent';
+
+      cursorY += isShorts ? 110 : 80;
+
+      if (scene.sceneType === 'hook') {
+        this.renderHookCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+      } else if (scene.sceneType === 'question') {
+        this.renderQuestionCard(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+      } else if (scene.sceneType === 'solution') {
+        this.renderAnswerReveal(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+      } else {
+        this.renderConceptSlide(ctx, scene, startX, cursorY, w, h, isShorts, timeInScene);
+      }
+    }
+
+    // 3. Render Presenter Video Overlay (PIP or Split Side-by-Side)
+    if (scene.userVideoUrl && scene.mediaLayout !== 'full_video_bg') {
+      this.renderPresenterMedia(ctx, scene, w, h, isShorts);
     }
 
     // 4. Bottom Timeline Progress Bar
@@ -335,6 +398,247 @@ export class StudyPlugVideoRenderer {
     const progressRatio = (scene.progressPercent || 0) / 100;
     ctx.fillStyle = '#FFD600';
     ctx.fillRect(0, barY, w * progressRatio, barHeight);
+  }
+
+  /**
+   * High-contrast flashcard renderer with bold prompt, core checklist & worked example callout
+   */
+  private renderFlashcardSlide(
+    ctx: CanvasRenderingContext2D,
+    scene: VideoScene,
+    w: number,
+    h: number,
+    isShorts: boolean,
+    t: number
+  ) {
+    const isSplit = scene.mediaLayout === 'split_side_by_side' && !!scene.userVideoUrl;
+    const isFullBg = scene.mediaLayout === 'full_video_bg' && !!scene.userVideoUrl;
+
+    // Card coordinates
+    const cardX = isShorts ? 30 : 60;
+    const cardY = isShorts ? 150 : 130;
+    const cardW = isSplit ? (w * 0.53 - cardX) : (w - (cardX * 2));
+    const cardH = isShorts ? (isSplit ? h * 0.52 : h - 220) : (h - 200);
+
+    // 1. Outer Container Box with emerald/dark-slate styling
+    ctx.save();
+    ctx.beginPath();
+    roundRect(ctx, cardX, cardY, cardW, cardH, 24);
+
+    if (isFullBg) {
+      ctx.fillStyle = 'rgba(2, 28, 22, 0.88)';
+    } else {
+      const cardGrad = ctx.createLinearGradient(cardX, cardY, cardX + cardW, cardY + cardH);
+      cardGrad.addColorStop(0, '#00261F');
+      cardGrad.addColorStop(0.5, '#011A15');
+      cardGrad.addColorStop(1, '#020F0C');
+      ctx.fillStyle = cardGrad;
+    }
+    ctx.fill();
+
+    ctx.strokeStyle = '#FFD600';
+    ctx.lineWidth = 3.5;
+    ctx.stroke();
+
+    // Inner subtle glow border
+    ctx.strokeStyle = 'rgba(16, 185, 129, 0.3)';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(cardX + 6, cardY + 6, cardW - 12, cardH - 12);
+    ctx.restore();
+
+    // 2. Top Header inside Card
+    const headerY = cardY + 25;
+
+    // Badge pill: Exam / Subject
+    const badgeText = (scene.subtitle || 'HIGH-YIELD FLASHCARD').toUpperCase();
+    ctx.font = `900 ${isShorts ? '15px' : '14px'} sans-serif`;
+    const badgeMetrics = ctx.measureText(badgeText);
+    const badgeW = Math.min(cardW * 0.5, badgeMetrics.width + 28);
+    const badgeH = 34;
+
+    ctx.fillStyle = '#FFD600';
+    ctx.beginPath();
+    roundRect(ctx, cardX + 25, headerY, badgeW, badgeH, 8);
+    ctx.fill();
+
+    ctx.fillStyle = '#001028';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(badgeText, cardX + 25 + (badgeW / 2), headerY + (badgeH / 2));
+
+    // Card Index pill (Right side)
+    const cardIdxText = `CARD ${this.currentSceneIndex + 1} OF ${this.scenes.length}`;
+    ctx.font = `800 ${isShorts ? '15px' : '14px'} monospace`;
+    const idxMetrics = ctx.measureText(cardIdxText);
+    const idxW = idxMetrics.width + 24;
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.beginPath();
+    roundRect(ctx, cardX + cardW - idxW - 25, headerY, idxW, badgeH, 8);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(cardIdxText, cardX + cardW - 25 - (idxW / 2), headerY + (badgeH / 2));
+
+    // 3. Front Concept / Prompt (BIG BOLD TITLE)
+    let contentY = headerY + badgeH + (isShorts ? 30 : 25);
+    const textMarginX = cardX + 30;
+    const maxTextW = cardW - 60;
+
+    const frontPrompt = scene.flashcardFront || scene.title;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = `900 ${isShorts ? '32px' : (isSplit ? '28px' : '34px')} sans-serif`;
+    this.drawWrappedText(ctx, frontPrompt, textMarginX, contentY, maxTextW, isShorts ? 40 : 38);
+
+    const promptLines = Math.ceil(ctx.measureText(frontPrompt).width / maxTextW) || 1;
+    contentY += promptLines * (isShorts ? 40 : 38) + 15;
+
+    // Green accent divider
+    ctx.fillStyle = '#10B981';
+    ctx.fillRect(textMarginX, contentY, Math.min(220, maxTextW), 3);
+    contentY += 20;
+
+    // 4. Bullet Points / Core Rules
+    const rawBack = scene.flashcardBack || scene.keyPoints?.join('\n') || scene.onScreenText || '';
+    const points = rawBack
+      .split('\n')
+      .map(p => p.trim())
+      .filter(p => p.length > 0 && !p.startsWith('STUDYPLUG'));
+
+    if (points.length > 0) {
+      ctx.fillStyle = '#34D399';
+      ctx.font = `800 ${isShorts ? '15px' : '14px'} sans-serif`;
+      ctx.fillText('📌 KEY RULES & REVISION CHECKLIST', textMarginX, contentY);
+      contentY += 24;
+
+      ctx.font = `600 ${isShorts ? '20px' : (isSplit ? '17px' : '20px')} sans-serif`;
+      const maxPointsToShow = isShorts ? 3 : (isSplit ? 3 : 4);
+
+      for (let i = 0; i < Math.min(points.length, maxPointsToShow); i++) {
+        const pt = points[i].replace(/^[•\-\*]\s*/, '');
+        ctx.fillStyle = '#10B981';
+        ctx.fillText('●', textMarginX, contentY);
+
+        ctx.fillStyle = '#F8FAFC';
+        this.drawWrappedText(ctx, pt, textMarginX + 22, contentY, maxTextW - 30, isShorts ? 28 : 26);
+        const lines = Math.ceil(ctx.measureText(pt).width / (maxTextW - 30)) || 1;
+        contentY += lines * (isShorts ? 28 : 26) + 10;
+      }
+    }
+
+    // 5. Worked Example / Examiner Trap Callout Box
+    const exampleText = scene.flashcardExample || scene.flashcardTakeaway || (scene.calculationSteps?.[0]?.explanation);
+    if (exampleText) {
+      const boxY = Math.max(contentY + 15, cardY + cardH - (isShorts ? 190 : 150));
+      const boxH = Math.min((cardY + cardH - boxY - 20), isShorts ? 170 : 130);
+
+      ctx.fillStyle = 'rgba(245, 158, 11, 0.12)';
+      ctx.beginPath();
+      roundRect(ctx, textMarginX, boxY, maxTextW, boxH, 12);
+      ctx.fill();
+
+      ctx.strokeStyle = '#F59E0B';
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+
+      // Callout Title
+      ctx.fillStyle = '#FBBF24';
+      ctx.font = `900 ${isShorts ? '16px' : '15px'} sans-serif`;
+      ctx.fillText('💡 WORKED EXAMPLE & EXAMINER TRAP', textMarginX + 16, boxY + 14);
+
+      // Callout Body
+      ctx.fillStyle = '#FEF08A';
+      ctx.font = `600 ${isShorts ? '18px' : '16px'} sans-serif`;
+      this.drawWrappedText(ctx, exampleText, textMarginX + 16, boxY + 42, maxTextW - 32, isShorts ? 25 : 23);
+    }
+  }
+
+  /**
+   * Draws the presenter's webcam/recorded video in PIP or Split layout
+   */
+  private renderPresenterMedia(
+    ctx: CanvasRenderingContext2D,
+    scene: VideoScene,
+    w: number,
+    h: number,
+    isShorts: boolean
+  ) {
+    if (!scene.userVideoUrl || !this.activeVideoEl) return;
+    const vEl = this.activeVideoEl;
+    if (vEl.readyState < 2) return;
+
+    const layout = scene.mediaLayout || 'pip_bottom_right';
+    if (layout === 'flashcard_only') return;
+
+    let pipX = 0;
+    let pipY = 0;
+    let pipW = 0;
+    let pipH = 0;
+
+    if (layout === 'pip_bottom_right') {
+      pipW = isShorts ? 360 : 420;
+      pipH = isShorts ? 202 : 236;
+      pipX = w - pipW - (isShorts ? 35 : 65);
+      pipY = h - pipH - (isShorts ? 60 : 50);
+    } else if (layout === 'pip_top_right') {
+      pipW = isShorts ? 360 : 420;
+      pipH = isShorts ? 202 : 236;
+      pipX = w - pipW - (isShorts ? 35 : 65);
+      pipY = isShorts ? 160 : 130;
+    } else if (layout === 'split_side_by_side') {
+      if (isShorts) {
+        pipW = w - 60;
+        pipH = h * 0.38;
+        pipX = 30;
+        pipY = h * 0.58;
+      } else {
+        pipW = w * 0.41;
+        pipH = h - 200;
+        pipX = w * 0.55;
+        pipY = 130;
+      }
+    } else if (layout === 'full_video_bg') {
+      return;
+    }
+
+    // Draw Video Frame with rounded border
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+    ctx.shadowBlur = 18;
+    ctx.beginPath();
+    roundRect(ctx, pipX, pipY, pipW, pipH, 16);
+    ctx.clip();
+
+    ctx.drawImage(vEl, pipX, pipY, pipW, pipH);
+    ctx.restore();
+
+    // Glowing Presenter Border
+    ctx.beginPath();
+    roundRect(ctx, pipX, pipY, pipW, pipH, 16);
+    ctx.strokeStyle = '#FFD600';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Red live recording badge in corner of presenter video
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
+    ctx.beginPath();
+    roundRect(ctx, pipX + 12, pipY + 12, 130, 26, 6);
+    ctx.fill();
+
+    ctx.fillStyle = '#EF4444';
+    ctx.beginPath();
+    ctx.arc(pipX + 24, pipY + 25, 5, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '800 12px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('LIVE PRESENTER', pipX + 35, pipY + 25);
   }
 
   // ─── Specialized Slide Sub-renderers ──────────────────────────────────────
@@ -369,7 +673,7 @@ export class StudyPlugVideoRenderer {
     ctx.arc(centerX, centerY - 20, isShorts ? 80 : 60, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.fillStyle = '#004D40';
+    ctx.fillStyle = '#001028';
     ctx.font = `900 ${isShorts ? '54px' : '40px'} sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -408,7 +712,7 @@ export class StudyPlugVideoRenderer {
       ctx.beginPath();
       roundRect(ctx, x, itemY, cardW, isShorts ? 110 : 75, 14);
       ctx.fill();
-      ctx.strokeStyle = '#00796B';
+      ctx.strokeStyle = '#001830';
       ctx.lineWidth = 2;
       ctx.stroke();
 
@@ -441,7 +745,7 @@ export class StudyPlugVideoRenderer {
     ctx.beginPath();
     roundRect(ctx, x, y, cardW, cardH, 20);
     ctx.fill();
-    ctx.strokeStyle = '#00796B';
+    ctx.strokeStyle = '#001830';
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -483,7 +787,7 @@ export class StudyPlugVideoRenderer {
       ctx.beginPath();
       roundRect(ctx, x, stepY, cardW, isShorts ? 115 : 75, 14);
       ctx.fill();
-      ctx.strokeStyle = idx === steps.length - 1 ? '#FFD600' : '#00796B';
+      ctx.strokeStyle = idx === steps.length - 1 ? '#FFD600' : '#001830';
       ctx.lineWidth = idx === steps.length - 1 ? 3 : 1.5;
       ctx.stroke();
 
@@ -584,7 +888,7 @@ export class StudyPlugVideoRenderer {
       ctx.beginPath();
       roundRect(ctx, x, optY, cardW, isShorts ? 90 : 60, 12);
       ctx.fill();
-      ctx.strokeStyle = '#00796B';
+      ctx.strokeStyle = '#001830';
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
@@ -593,7 +897,7 @@ export class StudyPlugVideoRenderer {
       ctx.arc(x + 40, optY + (isShorts ? 45 : 30), isShorts ? 24 : 18, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = '#004D40';
+      ctx.fillStyle = '#001028';
       ctx.font = `900 ${isShorts ? '22px' : '16px'} sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -777,7 +1081,7 @@ export class StudyPlugVideoRenderer {
     ctx.arc(centerX, centerY - (isShorts ? 100 : 70), isShorts ? 60 : 45, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.fillStyle = '#004D40';
+    ctx.fillStyle = '#001028';
     ctx.font = `900 ${isShorts ? '40px' : '30px'} sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -821,7 +1125,7 @@ export class StudyPlugVideoRenderer {
     // Source Label & Total Marks Header Bar
     const src = scene.sourceLabel || q?.sourceLabel || 'WAEC • THEORY EXAMINATION';
     const marks = q?.totalMarks || 10;
-    ctx.fillStyle = '#004D40';
+    ctx.fillStyle = '#001028';
     ctx.beginPath();
     roundRect(ctx, x + 15, y + 15, cardW - 30, isShorts ? 55 : 42, 10);
     ctx.fill();
@@ -1110,6 +1414,37 @@ export class StudyPlugVideoRenderer {
           return;
         }
 
+        if (sceneTime === 0) {
+          // Play scene presenter video / audio buffer during export
+          if (curScene.userVideoUrl) {
+            if (!this.activeVideoEl) {
+              this.activeVideoEl = document.createElement('video');
+              this.activeVideoEl.muted = false;
+              this.activeVideoEl.playsInline = true;
+              this.activeVideoEl.crossOrigin = 'anonymous';
+            }
+            if (this.currentVideoUrl !== curScene.userVideoUrl) {
+              this.activeVideoEl.src = curScene.userVideoUrl;
+              this.currentVideoUrl = curScene.userVideoUrl;
+            }
+            this.activeVideoEl.currentTime = 0;
+            this.activeVideoEl.play().catch(() => {});
+          }
+          if ((curScene.userAudioBlob || curScene.userVideoBlob) && this.audioCtx && this.audioDest) {
+            const blob = curScene.userAudioBlob || curScene.userVideoBlob;
+            if (blob) {
+              blob.arrayBuffer().then(buf => {
+                this.audioCtx?.decodeAudioData(buf).then(decoded => {
+                  const source = this.audioCtx!.createBufferSource();
+                  source.buffer = decoded;
+                  source.connect(this.audioDest!);
+                  source.start();
+                }).catch(() => {});
+              }).catch(() => {});
+            }
+          }
+        }
+
         this.currentSceneIndex = sceneIdx;
         this.renderCurrentFrame(sceneTime);
 
@@ -1129,6 +1464,16 @@ export class StudyPlugVideoRenderer {
 
   public destroy() {
     this.pause();
+    if (this.activeVideoEl) {
+      this.activeVideoEl.pause();
+      this.activeVideoEl.src = '';
+      this.activeVideoEl = null;
+    }
+    if (this.activeAudioEl) {
+      this.activeAudioEl.pause();
+      this.activeAudioEl.src = '';
+      this.activeAudioEl = null;
+    }
     if (this.audioCtx) {
       this.audioCtx.close().catch(() => {});
       this.audioCtx = null;
@@ -1141,5 +1486,6 @@ function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
   ctx.arcTo(x + w, y, x + w, y + h, r);
   ctx.arcTo(x + w, y + h, x, y + h, r);
   ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y + x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
 }

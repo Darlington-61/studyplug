@@ -106,7 +106,7 @@ export const CbtCalculatorModal: React.FC<CbtCalculatorModalProps> = ({ isOpen, 
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in font-sans">
       <div className="w-full max-w-xs bg-white rounded-[20px] shadow-floating overflow-hidden border border-[#E4EAE8]">
         {/* Header */}
-        <div className="bg-[#004D40] text-white px-4 py-3 flex items-center justify-between shadow-subtle">
+        <div className="bg-[#001028] text-white px-4 py-3 flex items-center justify-between shadow-subtle">
           <div className="flex items-center space-x-2">
             <span className="text-lg">🧮</span>
             <span className="text-[14px] font-bold">JAMB / CBT Calculator</span>
@@ -156,7 +156,7 @@ export const CbtCalculatorModal: React.FC<CbtCalculatorModalProps> = ({ isOpen, 
           <button
             type="button"
             onClick={() => handleOperator('÷')}
-            className="p-3 rounded-[12px] bg-[#E8F5E9] text-[#004D40] font-bold text-sm hover:bg-emerald-100 transition cursor-pointer"
+            className="p-3 rounded-[12px] bg-[#E8F5E9] text-[#001028] font-bold text-sm hover:bg-emerald-100 transition cursor-pointer"
           >
             ÷
           </button>
@@ -185,7 +185,7 @@ export const CbtCalculatorModal: React.FC<CbtCalculatorModalProps> = ({ isOpen, 
           <button
             type="button"
             onClick={() => handleOperator('×')}
-            className="p-3 rounded-[12px] bg-[#E8F5E9] text-[#004D40] font-bold text-sm hover:bg-emerald-100 transition cursor-pointer"
+            className="p-3 rounded-[12px] bg-[#E8F5E9] text-[#001028] font-bold text-sm hover:bg-emerald-100 transition cursor-pointer"
           >
             ×
           </button>
@@ -214,7 +214,7 @@ export const CbtCalculatorModal: React.FC<CbtCalculatorModalProps> = ({ isOpen, 
           <button
             type="button"
             onClick={() => handleOperator('-')}
-            className="p-3 rounded-[12px] bg-[#E8F5E9] text-[#004D40] font-bold text-sm hover:bg-emerald-100 transition cursor-pointer"
+            className="p-3 rounded-[12px] bg-[#E8F5E9] text-[#001028] font-bold text-sm hover:bg-emerald-100 transition cursor-pointer"
           >
             -
           </button>
@@ -243,7 +243,7 @@ export const CbtCalculatorModal: React.FC<CbtCalculatorModalProps> = ({ isOpen, 
           <button
             type="button"
             onClick={() => handleOperator('+')}
-            className="p-3 rounded-[12px] bg-[#E8F5E9] text-[#004D40] font-bold text-sm hover:bg-emerald-100 transition cursor-pointer"
+            className="p-3 rounded-[12px] bg-[#E8F5E9] text-[#001028] font-bold text-sm hover:bg-emerald-100 transition cursor-pointer"
           >
             +
           </button>
@@ -272,7 +272,7 @@ export const CbtCalculatorModal: React.FC<CbtCalculatorModalProps> = ({ isOpen, 
           <button
             type="button"
             onClick={handleEquals}
-            className="p-3 rounded-[12px] bg-[#004D40] text-[#FFD600] font-bold text-base hover:bg-[#003B32] transition cursor-pointer shadow-xs"
+            className="p-3 rounded-[12px] bg-[#001028] text-[#FFD600] font-bold text-base hover:bg-[#001830] transition cursor-pointer shadow-xs"
           >
             =
           </button>

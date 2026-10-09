@@ -3,21 +3,21 @@ import { useApp } from '../context/AppContext';
 import { StudyPlugHeader, BottomNavigation } from './design-system';
 
 export const MotivationScreen: React.FC = () => {
-  const { setActiveView, openAiTutor, studyStreak, testsTaken } = useApp();
+  const { setActiveView, goBack, openAiTutor, studyStreak, testsTaken } = useApp();
 
   return (
     <div className="flex-1 flex flex-col justify-between bg-[#F7F9F8] min-h-screen text-[#10201D] select-none font-sans">
       {/* ─── Screen 9 Header ─── */}
       <StudyPlugHeader
         showBack={true}
-        onBack={() => setActiveView('dashboard')}
+        onBack={() => goBack()}
         title="Motivation"
         subtitle="Stay focused, build discipline, and achieve your target score."
       />
 
       <main className="flex-1 max-w-md w-full mx-auto px-4 pt-4 pb-8 space-y-4 sm:max-w-xl lg:max-w-4xl">
         {/* Inspiring Hero Graphic Banner */}
-        <div className="rounded-[16px] overflow-hidden bg-gradient-to-r from-[#004D40] via-[#005B4F] to-[#1E3A8A] text-white p-5 shadow-subtle relative border border-[#164E40]">
+        <div className="rounded-[16px] overflow-hidden bg-gradient-to-r from-[#001028] via-[#005B4F] to-[#1E3A8A] text-white p-5 shadow-subtle relative border border-[#164E40]">
           <div className="relative z-10 max-w-xs space-y-1 text-left">
             <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFD600] bg-black/30 px-2.5 py-0.5 rounded-full inline-block">
               Daily Encouragement
@@ -45,7 +45,7 @@ export const MotivationScreen: React.FC = () => {
                 <p className="text-[11px] text-[#66736F]">Daily target to maintain momentum</p>
               </div>
             </div>
-            <span className="text-[12px] font-bold text-[#004D40]">
+            <span className="text-[12px] font-bold text-[#001028]">
               12 / 20 questions
             </span>
           </div>
@@ -63,7 +63,7 @@ export const MotivationScreen: React.FC = () => {
               🤖
             </div>
             <div>
-              <h4 className="font-bold text-[13.5px] text-[#004D40]">StudyPlug AI</h4>
+              <h4 className="font-bold text-[13.5px] text-[#001028]">StudyPlug AI</h4>
               <span className="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.2 rounded">Personal Coach</span>
             </div>
           </div>
@@ -75,7 +75,7 @@ export const MotivationScreen: React.FC = () => {
           <button
             type="button"
             onClick={() => openAiTutor()}
-            className="w-full py-2.5 rounded-[12px] bg-[#004D40] text-white text-[12.5px] font-bold shadow-xs hover:bg-[#003B32] transition cursor-pointer"
+            className="w-full py-2.5 rounded-[12px] bg-[#001028] text-white text-[12.5px] font-bold shadow-xs hover:bg-[#001830] transition cursor-pointer"
           >
             Talk to AI
           </button>

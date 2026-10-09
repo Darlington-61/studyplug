@@ -33,7 +33,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({
 
         {/* Title and counts */}
         <div className="text-left">
-          <h3 className="font-semibold text-[14px] text-[#10201D] leading-snug group-hover:text-[#004D40] transition">
+          <h3 className="font-semibold text-[14px] text-[#10201D] leading-snug group-hover:text-[#001028] transition">
             {title}
           </h3>
           <p className="text-[11px] text-[#66736F] font-normal mt-0.5">

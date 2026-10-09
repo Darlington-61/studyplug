@@ -137,7 +137,13 @@ export function buildVideoScenes(
       paperType: sec.paperType,
       sourceLabel: sec.sourceLabel,
       practicalDetails: sec.practicalDetails,
-      modality: sec.modality
+      modality: sec.modality,
+      isFlashcardStyle: true,
+      mediaLayout: 'flashcard_only',
+      flashcardFront: sec.title || 'Core Exam Concept',
+      flashcardBack: keyPoints.slice(0, 4).join('\n• ') || sec.onScreenText || '',
+      flashcardTakeaway: keyPoints[0] || 'Key formula or high-yield rule for this topic.',
+      flashcardExample: sec.calculationSteps?.[0]?.explanation || 'e.g. Standard past question derivation and examiner marking scheme.'
     };
   });
 }

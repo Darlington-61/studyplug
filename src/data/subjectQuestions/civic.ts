@@ -4828,6 +4828,7 @@ export const CIVIC_QUESTIONS: Question[] = [
   {
     "id": 79179,
     "questionNumber": 179,
+    "paperType": "Theory",
     "subject": "Civic Education",
     "topic": "Values in the Society",
     "difficulty": "Medium",
@@ -5504,6 +5505,7 @@ export const CIVIC_QUESTIONS: Question[] = [
   {
     "id": 79204,
     "questionNumber": 204,
+    "paperType": "Theory",
     "subject": "Civic Education",
     "topic": "HIV/AIDS",
     "difficulty": "Medium",

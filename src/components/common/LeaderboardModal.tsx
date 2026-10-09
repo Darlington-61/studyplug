@@ -126,8 +126,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-fade-in font-sans">
       <div className="w-full max-w-lg bg-white rounded-[20px] shadow-floating overflow-hidden flex flex-col max-h-[92vh] border border-[#E4EAE8]">
-        {/* Header: Primary Dark Green #004D40 */}
-        <div className="bg-[#004D40] text-white px-5 py-4 flex items-center justify-between shadow-subtle shrink-0">
+        {/* Header: Primary Dark Green #001028 */}
+        <div className="bg-[#001028] text-white px-5 py-4 flex items-center justify-between shadow-subtle shrink-0">
           <div className="flex items-center space-x-2.5">
             <span className="text-2xl">🏆</span>
             <div>
@@ -160,7 +160,7 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
                 onClick={() => setFilterPeriod(p.id as any)}
                 className={`py-1.5 rounded-[9px] text-[12px] font-bold transition cursor-pointer ${
                   filterPeriod === p.id
-                    ? 'bg-[#004D40] text-white shadow-xs'
+                    ? 'bg-[#001028] text-white shadow-xs'
                     : 'text-[#66736F] hover:text-[#10201D]'
                 }`}
               >
@@ -178,8 +178,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
                 onClick={() => setFilterExam(ex)}
                 className={`px-3 py-1 rounded-full text-[11px] font-bold transition cursor-pointer shrink-0 border ${
                   filterExam === ex
-                    ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600]'
-                    : 'bg-white text-[#66736F] border-[#E4EAE8] hover:border-[#004D40]'
+                    ? 'bg-[#FFD600] text-[#001028] border-[#FFD600]'
+                    : 'bg-white text-[#66736F] border-[#E4EAE8] hover:border-[#001028]'
                 }`}
               >
                 {ex === 'ALL' ? 'All Exams' : ex}
@@ -195,7 +195,7 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
               key={st.rank}
               className={`pt-2.5 first:pt-0 flex items-center justify-between p-3 rounded-[14px] transition ${
                 st.isCurrentUser
-                  ? 'bg-[#E8F5E9] border border-[#004D40]/30 shadow-xs'
+                  ? 'bg-[#E8F5E9] border border-[#001028]/30 shadow-xs'
                   : 'hover:bg-[#F7F9F8]'
               }`}
             >
@@ -223,7 +223,7 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
                       {st.name}
                     </span>
                     {st.isCurrentUser && (
-                      <span className="px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#004D40] text-white">
+                      <span className="px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#001028] text-white">
                         YOU
                       </span>
                     )}
@@ -240,7 +240,7 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
 
               {/* Score / Accuracy */}
               <div className="text-right shrink-0 ml-3">
-                <div className="text-[14px] font-extrabold text-[#004D40]">
+                <div className="text-[14px] font-extrabold text-[#001028]">
                   {st.score} <span className="text-[10px] text-[#66736F] font-normal">pts</span>
                 </div>
                 <div className="text-[10.5px] font-semibold text-[#16A34A]">
@@ -257,7 +257,7 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-1.5 rounded-[10px] bg-[#004D40] text-white font-bold hover:bg-[#003B32] transition cursor-pointer"
+            className="px-4 py-1.5 rounded-[10px] bg-[#001028] text-white font-bold hover:bg-[#001830] transition cursor-pointer"
           >
             Close
           </button>

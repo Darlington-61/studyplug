@@ -108,7 +108,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
           {meta.icon}
         </div>
         <div className="text-left">
-          <h4 className="font-semibold text-[14px] text-[#10201D] leading-snug group-hover:text-[#004D40] transition">
+          <h4 className="font-semibold text-[14px] text-[#10201D] leading-snug group-hover:text-[#001028] transition">
             {title}
           </h4>
           <p className="text-[11px] text-[#66736F] font-normal mt-0.5">

@@ -225,6 +225,20 @@ export interface VideoScene {
   paperType?: StudioPaperType;
   sourceLabel?: string;
   practicalDetails?: ScriptSection['practicalDetails'];
+
+  // Flashcard-specific content
+  isFlashcardStyle?: boolean;
+  flashcardFront?: string;
+  flashcardBack?: string;
+  flashcardTakeaway?: string;
+  flashcardExample?: string;
+
+  // User Media Recording & Upload
+  userAudioUrl?: string; // Recorded voice or uploaded audio (Blob URL)
+  userVideoUrl?: string; // Recorded webcam video or uploaded video (Blob URL)
+  userAudioBlob?: Blob;
+  userVideoBlob?: Blob;
+  mediaLayout?: 'flashcard_only' | 'pip_bottom_right' | 'pip_top_right' | 'split_side_by_side' | 'full_video_bg';
 }
 
 export interface YouTubeSeoData {

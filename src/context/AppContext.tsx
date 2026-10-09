@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import { Question, MATHEMATICS_QUESTIONS } from '../data/questions';
 import { PHYSICS_QUESTIONS } from '../data/physicsQuestions';
 import { fetchQuestions } from '../services/apiService';
@@ -10,6 +10,8 @@ import {
   getQuestionsForMultiSubject,
   normalizeSubjectName
 } from '../data/allQuestionsHub';
+import { premiumLicence } from '../utils/security';
+
 
 export interface SubjectScoreBreakdown {
   subject: string;
@@ -32,10 +34,39 @@ export interface TestResult {
   compositeScore?: number;
 }
 
+export type ActiveViewType =
+  | 'dashboard'
+  | 'splash'
+  | 'onboarding'
+  | 'signup'
+  | 'login'
+  | 'courses'
+  | 'subjects'
+  | 'topics'
+  | 'past-questions'
+  | 'test'
+  | 'ai-helper'
+  | 'notes'
+  | 'resources'
+  | 'challenges'
+  | 'battle-arena'
+  | 'results'
+  | 'performance'
+  | 'leaderboard'
+  | 'repeated-questions'
+  | 'profile'
+  | 'bookmarks'
+  | 'practice'
+  | 'mock'
+  | 'motivation'
+  | 'ai-videos';
+
 interface AppContextType {
   // Navigation
-  activeView: 'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes' | 'mock' | 'motivation';
-  setActiveView: (view: 'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes' | 'mock' | 'motivation') => void;
+  activeView: ActiveViewType;
+  setActiveView: (view: ActiveViewType, options?: { replace?: boolean }) => void;
+  goBack: () => void;
+  navigationHistory: ActiveViewType[];
 
   // Global Metrics (Persisted)
   testsTaken: number;
@@ -130,6 +161,52 @@ interface AppContextType {
   closeUpgradeModal: () => void;
   isPremium: boolean;
 
+  // New High-Impact Tools & Challenges Modals
+  isCountdownOpen: boolean;
+  openCountdown: () => void;
+  closeCountdown: () => void;
+
+  isFormulaSheetOpen: boolean;
+  openFormulaSheet: () => void;
+  closeFormulaSheet: () => void;
+
+  isVocabBuilderOpen: boolean;
+  openVocabBuilder: () => void;
+  closeVocabBuilder: () => void;
+
+  isFlashcardsOpen: boolean;
+  openFlashcards: () => void;
+  closeFlashcards: () => void;
+
+  isStudyGoalsOpen: boolean;
+  openStudyGoals: () => void;
+  closeStudyGoals: () => void;
+
+  isAnalyticsOpen: boolean;
+  openAnalytics: () => void;
+  closeAnalytics: () => void;
+
+  isPastQuestionsOpen: boolean;
+  openPastQuestions: () => void;
+  closePastQuestions: () => void;
+
+  isWeaknessTrackerOpen: boolean;
+  openWeaknessTracker: () => void;
+  closeWeaknessTracker: () => void;
+
+  isStreakRewardOpen: boolean;
+  openStreakReward: () => void;
+  closeStreakReward: () => void;
+
+  isPrintableMockOpen: boolean;
+  openPrintableMock: () => void;
+  closePrintableMock: () => void;
+
+  // Global Search Modal
+  isGlobalSearchOpen: boolean;
+  openGlobalSearch: () => void;
+  closeGlobalSearch: () => void;
+
   // Dark Mode Theme
   isDarkMode: boolean;
   toggleDarkMode: () => void;
@@ -138,7 +215,34 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [activeView, setActiveView] = useState<'dashboard' | 'subjects' | 'test' | 'results' | 'bookmarks' | 'practice' | 'notes' | 'mock' | 'motivation'>('dashboard');
+  const [activeView, setActiveViewState] = useState<ActiveViewType>('dashboard');
+  const [navigationHistory, setNavigationHistory] = useState<ActiveViewType[]>([]);
+  const navHistoryRef = useRef<ActiveViewType[]>([]);
+  navHistoryRef.current = navigationHistory;
+  const isHandlingInternalBack = useRef(false);
+
+  const setActiveView = useCallback((nextView: ActiveViewType, options?: { replace?: boolean }) => {
+    setActiveViewState((currentView) => {
+      if (currentView === nextView) return currentView;
+
+      if (!options?.replace) {
+        setNavigationHistory((prev) => [...prev, currentView]);
+        try {
+          if (typeof window !== 'undefined') {
+            window.history.pushState({ view: nextView }, '');
+          }
+        } catch {}
+      } else {
+        try {
+          if (typeof window !== 'undefined') {
+            window.history.replaceState({ view: nextView }, '');
+          }
+        } catch {}
+      }
+
+      return nextView;
+    });
+  }, []);
 
   // Load from localStorage or initialize with design defaults
   const [testsTaken, setTestsTaken] = useState<number>(() => {
@@ -245,14 +349,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const setSelectedExam = useCallback((exam: 'JAMB' | 'WAEC' | 'NECO' | 'NABTEB' | 'BECE') => {
     setSelectedExamState(exam);
     localStorage.setItem('sp_selected_exam', exam);
-    if (exam === 'WAEC' || exam === 'NECO' || exam === 'NABTEB') {
-      setPaperSelectorExam(exam);
-      setIsPaperSelectorOpen(true);
-    }
   }, []);
 
   // Subject & Multi-Subject Exam State
-  const [selectedSubject, setSelectedSubject] = useState<string>('Mathematics');
+  const [selectedSubject, setSelectedSubjectState] = useState<string>('Mathematics');
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>(['Mathematics']);
   const [activeExamSubject, setActiveExamSubject] = useState<string>('Mathematics');
   const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
@@ -315,20 +415,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setIsDareToDareOpen(false);
   };
 
-  // Auto Pop-Out Check: Pop out morning tea once every day
+  // Morning tea is opened manually by the user, not auto-popped over notes
   useEffect(() => {
-    try {
-      const today = new Date().toISOString().split('T')[0];
-      const seenDate = localStorage.getItem('studyplug_morning_tea_seen_date');
-      if (seenDate !== today) {
-        const timer = setTimeout(() => {
-          setIsMorningTeaOpen(true);
-        }, 1200);
-        return () => clearTimeout(timer);
-      }
-    } catch (e) {
-      console.warn('Morning tea pop-out check error:', e);
-    }
+    // Auto-popup disabled so it never covers user's study notes uninvited
   }, []);
 
   // Upgrade & Premium State
@@ -336,13 +425,188 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const openUpgradeModal = () => setIsUpgradeModalOpen(true);
   const closeUpgradeModal = () => setIsUpgradeModalOpen(false);
 
+  // New High-Impact Tools & Challenges Modals
+  const [isCountdownOpen, setIsCountdownOpen] = useState<boolean>(false);
+  const openCountdown = () => setIsCountdownOpen(true);
+  const closeCountdown = () => setIsCountdownOpen(false);
+
+  const [isFormulaSheetOpen, setIsFormulaSheetOpen] = useState<boolean>(false);
+  const openFormulaSheet = () => setIsFormulaSheetOpen(true);
+  const closeFormulaSheet = () => setIsFormulaSheetOpen(false);
+
+  const [isVocabBuilderOpen, setIsVocabBuilderOpen] = useState<boolean>(false);
+  const openVocabBuilder = () => setIsVocabBuilderOpen(true);
+  const closeVocabBuilder = () => setIsVocabBuilderOpen(false);
+
+  const [isFlashcardsOpen, setIsFlashcardsOpen] = useState<boolean>(false);
+  const openFlashcards = () => setIsFlashcardsOpen(true);
+  const closeFlashcards = () => setIsFlashcardsOpen(false);
+
+  const [isStudyGoalsOpen, setIsStudyGoalsOpen] = useState<boolean>(false);
+  const openStudyGoals = () => setIsStudyGoalsOpen(true);
+  const closeStudyGoals = () => setIsStudyGoalsOpen(false);
+
+  const [isAnalyticsOpen, setIsAnalyticsOpen] = useState<boolean>(false);
+  const openAnalytics = () => setIsAnalyticsOpen(true);
+  const closeAnalytics = () => setIsAnalyticsOpen(false);
+
+  const [isPastQuestionsOpen, setIsPastQuestionsOpen] = useState<boolean>(false);
+  const openPastQuestions = () => setIsPastQuestionsOpen(true);
+  const closePastQuestions = () => setIsPastQuestionsOpen(false);
+
+  const [isWeaknessTrackerOpen, setIsWeaknessTrackerOpen] = useState<boolean>(false);
+  const openWeaknessTracker = () => setIsWeaknessTrackerOpen(true);
+  const closeWeaknessTracker = () => setIsWeaknessTrackerOpen(false);
+
+  const [isStreakRewardOpen, setIsStreakRewardOpen] = useState<boolean>(false);
+  const openStreakReward = () => setIsStreakRewardOpen(true);
+  const closeStreakReward = () => setIsStreakRewardOpen(false);
+
+  const [isPrintableMockOpen, setIsPrintableMockOpen] = useState<boolean>(false);
+  const openPrintableMock = () => setIsPrintableMockOpen(true);
+  const closePrintableMock = () => setIsPrintableMockOpen(false);
+
+  // Global Search Modal State & Keyboard Shortcut
+  const [isGlobalSearchOpen, setIsGlobalSearchOpen] = useState<boolean>(false);
+  const openGlobalSearch = useCallback(() => setIsGlobalSearchOpen(true), []);
+  const closeGlobalSearch = useCallback(() => setIsGlobalSearchOpen(false), []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ctrl+K or Cmd+K
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsGlobalSearchOpen(prev => !prev);
+        return;
+      }
+      // '/' key when not focused in input/textarea
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes((document.activeElement?.tagName || ''))) {
+        e.preventDefault();
+        setIsGlobalSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const goBack = useCallback(() => {
+    // 1. Close any open overlays or modals first
+    if (isGlobalSearchOpen) { closeGlobalSearch(); return; }
+    if (isMenuDrawerOpen) { closeMenuDrawer(); return; }
+    if (isAiTutorOpen) { closeAiTutor(); return; }
+    if (isCalculatorOpen) { closeCalculator(); return; }
+    if (isLeaderboardOpen) { closeLeaderboard(); return; }
+    if (isMorningTeaOpen) { closeMorningTea(); return; }
+    if (isUpgradeModalOpen) { closeUpgradeModal(); return; }
+    if (isDareToDareOpen) { closeDareToDare(); return; }
+    if (isPaperSelectorOpen) { closePaperSelector(); return; }
+    if (isCountdownOpen) { closeCountdown(); return; }
+    if (isFormulaSheetOpen) { closeFormulaSheet(); return; }
+    if (isVocabBuilderOpen) { closeVocabBuilder(); return; }
+    if (isFlashcardsOpen) { closeFlashcards(); return; }
+    if (isStudyGoalsOpen) { closeStudyGoals(); return; }
+    if (isAnalyticsOpen) { closeAnalytics(); return; }
+    if (isPastQuestionsOpen) { closePastQuestions(); return; }
+    if (isWeaknessTrackerOpen) { closeWeaknessTracker(); return; }
+    if (isStreakRewardOpen) { closeStreakReward(); return; }
+    if (isPrintableMockOpen) { closePrintableMock(); return; }
+
+    // 2. Pop navigation history
+    const history = navHistoryRef.current;
+    if (history.length > 0) {
+      const prevView = history[history.length - 1];
+      setNavigationHistory((prev) => prev.slice(0, -1));
+      setActiveViewState(prevView);
+      isHandlingInternalBack.current = true;
+      try {
+        if (typeof window !== 'undefined') {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.history.replaceState({ view: prevView }, '');
+          }
+        }
+      } catch {}
+    } else {
+      setActiveViewState('dashboard');
+      try {
+        if (typeof window !== 'undefined') {
+          window.history.replaceState({ view: 'dashboard' }, '');
+        }
+      } catch {}
+    }
+  }, [
+    isGlobalSearchOpen, closeGlobalSearch,
+    isMenuDrawerOpen, closeMenuDrawer,
+    isAiTutorOpen, closeAiTutor,
+    isCalculatorOpen, closeCalculator,
+    isLeaderboardOpen, closeLeaderboard,
+    isMorningTeaOpen, closeMorningTea,
+    isUpgradeModalOpen, closeUpgradeModal,
+    isDareToDareOpen, closeDareToDare,
+    isPaperSelectorOpen, closePaperSelector,
+    isCountdownOpen, closeCountdown,
+    isFormulaSheetOpen, closeFormulaSheet,
+    isVocabBuilderOpen, closeVocabBuilder,
+    isFlashcardsOpen, closeFlashcards,
+    isStudyGoalsOpen, closeStudyGoals,
+    isAnalyticsOpen, closeAnalytics,
+    isPastQuestionsOpen, closePastQuestions,
+    isWeaknessTrackerOpen, closeWeaknessTracker,
+    isStreakRewardOpen, closeStreakReward,
+    isPrintableMockOpen, closePrintableMock
+  ]);
+
+  // Handle browser popstate (back/forward button) and Android hardware back button
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    try {
+      if (!window.history.state || !window.history.state.view) {
+        window.history.replaceState({ view: 'dashboard' }, '');
+      }
+    } catch {}
+
+    const handlePopState = (event: PopStateEvent) => {
+      if (isHandlingInternalBack.current) {
+        isHandlingInternalBack.current = false;
+        return;
+      }
+      const targetView = (event.state?.view as ActiveViewType) || 'dashboard';
+      setActiveViewState(targetView);
+      setNavigationHistory((prev) => {
+        if (prev.length > 0 && prev[prev.length - 1] === targetView) {
+          return prev.slice(0, -1);
+        }
+        const idx = prev.lastIndexOf(targetView);
+        if (idx !== -1) {
+          return prev.slice(0, idx);
+        }
+        return prev.slice(0, -1);
+      });
+    };
+
+    const handleHardwareBack = (e: Event) => {
+      e.preventDefault();
+      goBack();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    document.addEventListener('backbutton', handleHardwareBack);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      document.removeEventListener('backbutton', handleHardwareBack);
+    };
+  }, [goBack]);
+
   const [isPremium, setIsPremium] = useState<boolean>(() => {
     try {
-      return localStorage.getItem('studyplug_is_premium') === 'true';
+      return premiumLicence.isValid();
     } catch {
       return false;
     }
   });
+
 
   // Dark Mode State
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
@@ -381,6 +645,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return getBaseQuestionsForSubject('Mathematics');
   });
 
+  const setSelectedSubject = useCallback((subject: string) => {
+    const norm = normalizeSubjectName(subject);
+    setSelectedSubjectState(norm);
+    setLoadedQuestions(getBaseQuestionsForSubject(norm));
+  }, []);
+
   const [isSyncingWithCpanel, setIsSyncingWithCpanel] = useState<boolean>(false);
   const [cpanelDataSource, setCpanelDataSource] = useState<'cpanel' | 'cached' | 'local'>('local');
 
@@ -417,10 +687,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (validMatches.length > 0) {
           setLoadedQuestions(validMatches);
           setCpanelDataSource(res.source);
+        } else {
+          setLoadedQuestions(getBaseQuestionsForSubject(selectedSubject));
         }
+      } else {
+        setLoadedQuestions(getBaseQuestionsForSubject(selectedSubject));
       }
     } catch (e) {
       console.warn('Error loading questions:', e);
+      setLoadedQuestions(getBaseQuestionsForSubject(selectedSubject));
     } finally {
       setIsSyncingWithCpanel(false);
     }
@@ -454,15 +729,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setCurrentQuestion(1);
     setTimeRemaining(2 * 3600 + 30 * 60);
 
-    // Synchronously populate questions immediately
+    // Synchronously populate questions immediately (exclude Theory from OBJ tests)
     const synchronousQs = getFilteredQuestions({
       subject: norm,
       year: year,
       topic: topic,
-      limit: 50
+      limit: undefined, // Allow full questions bank to load
+      paperType: 'OBJ'
     });
-    setLoadedQuestions(synchronousQs);
-    setMultiSubjectQuestions({ [norm]: synchronousQs });
+    const qsToUse = synchronousQs && synchronousQs.length > 0 ? synchronousQs : getBaseQuestionsForSubject(norm);
+    setLoadedQuestions(qsToUse);
+    setMultiSubjectQuestions({ [norm]: qsToUse });
     setSubjectExamState({ [norm]: { answers: {}, flagged: [], currentQuestion: 1 } });
     setActiveView('test');
   };
@@ -492,7 +769,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const questionsDict = getQuestionsForMultiSubject(normSubjects, {
       year,
       topic,
-      limitPerSubject: normSubjects.length > 1 ? 40 : 50
+      limitPerSubject: normSubjects.length > 1 ? 40 : 50,
+      paperType: 'OBJ'
     });
 
     setMultiSubjectQuestions(questionsDict);
@@ -617,6 +895,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       value={{
         activeView,
         setActiveView,
+        goBack,
+        navigationHistory,
         testsTaken,
         overallAccuracy,
         studyStreak,
@@ -687,6 +967,39 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         openUpgradeModal,
         closeUpgradeModal,
         isPremium,
+        isCountdownOpen,
+        openCountdown,
+        closeCountdown,
+        isFormulaSheetOpen,
+        openFormulaSheet,
+        closeFormulaSheet,
+        isVocabBuilderOpen,
+        openVocabBuilder,
+        closeVocabBuilder,
+        isFlashcardsOpen,
+        openFlashcards,
+        closeFlashcards,
+        isStudyGoalsOpen,
+        openStudyGoals,
+        closeStudyGoals,
+        isAnalyticsOpen,
+        openAnalytics,
+        closeAnalytics,
+        isPastQuestionsOpen,
+        openPastQuestions,
+        closePastQuestions,
+        isWeaknessTrackerOpen,
+        openWeaknessTracker,
+        closeWeaknessTracker,
+        isStreakRewardOpen,
+        openStreakReward,
+        closeStreakReward,
+        isPrintableMockOpen,
+        openPrintableMock,
+        closePrintableMock,
+        isGlobalSearchOpen,
+        openGlobalSearch,
+        closeGlobalSearch,
         isDarkMode,
         toggleDarkMode
       }}

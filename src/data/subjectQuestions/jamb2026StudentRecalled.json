@@ -165,367 +165,367 @@
     "sourceLabel": "JAMB 2026 CBT Student Recall"
   },
   {
-    "id": 99006,
+    "id": 99486,
     "questionNumber": 6,
-    "exam": "JAMB",
     "subject": "Use of English",
-    "topic": "The Lekki Headmaster",
-    "subtopic": "Plot Details",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "How much did Mr. Bepo incur as a penalty fee when forced to reschedule his international flight due to school obligations?",
+    "text": "In the passage below, fill the gap numbered 6:\nIn a letter of congratulation to Professor Wole Soyinka for winning the 1986 Nobel Prize for Literature, the Ghana Association of Writers (GAW) recalled that since 1972 it was already deeply convinced of Soyinka's inspiring performance and impact as 'a concerned and gifted ...6... of our great African cultural heritage'.",
     "options": [
       {
         "key": "A",
-        "text": "$50"
+        "text": "literary analyst"
       },
       {
         "key": "B",
-        "text": "$100"
+        "text": "literary spokesman"
       },
       {
         "key": "C",
-        "text": "$250"
+        "text": "literary director"
       },
       {
         "key": "D",
-        "text": "$500"
+        "text": "literary actor"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Bepo had to sacrifice a non-refundable $100 rescheduling surcharge to postpone his travel reservation so he could resolve pending institutional accreditation and administrative duties at Stardom.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "explanation": "Chalkboard Step-by-Step:\nContextual collocation: Soyinka acts as a voice or 'literary spokesman' conveying the ethos and artistic majesty of African cultural heritage to world audiences.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99007,
+    "id": 99487,
     "questionNumber": 7,
-    "exam": "JAMB",
     "subject": "Use of English",
-    "topic": "The Lekki Headmaster",
-    "subtopic": "Themes: Migration & Family",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "In The Lekki Headmaster, what was Mrs. Bepo's primary apprehension regarding the family's proposed relocation abroad ('Japa')?",
+    "text": "In the passage below, fill the gap numbered 7:\n'...and a ...7... of our beleaguered contemporary continental reality'.",
     "options": [
       {
         "key": "A",
-        "text": "The fear of extreme cold weather in North America"
+        "text": "nationalist"
       },
       {
         "key": "B",
-        "text": "The loss of dignity and starting from the lowest societal rungs after decades of respected professional standing"
+        "text": "occasioned writer"
       },
       {
         "key": "C",
-        "text": "The inability of their children to adapt to foreign schools"
+        "text": "passionate reader"
       },
       {
         "key": "D",
-        "text": "Lack of access to traditional Nigerian cuisine"
+        "text": "impassioned critic"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Mrs. Bepo highlighted the psychological and social humiliation often suffered by accomplished African professionals who migrate only to find themselves relegated to menial low-tier jobs, sacrificing the honour and influence they commanded at home.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "Flashlearners Lekki Headmaster Series"
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nAn 'impassioned critic' is an incisive commentator who passionately evaluates and challenges political and social injustices across the continent.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99008,
+    "id": 99488,
     "questionNumber": 8,
-    "exam": "JAMB",
     "subject": "Use of English",
-    "topic": "The Lekki Headmaster",
-    "subtopic": "Student Leadership Elections",
-    "year": 2026,
-    "difficulty": "Medium",
-    "text": "During the election of student prefects at Stardom Schools, what core leadership principle did Mr. Bepo urge the student electorate to prioritize?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Flamboyant oratory and campaign gift distribution"
-      },
-      {
-        "key": "B",
-        "text": "Proven integrity, emotional restraint, and leadership by moral example"
-      },
-      {
-        "key": "C",
-        "text": "Family wealth and social standing"
-      },
-      {
-        "key": "D",
-        "text": "Physical athletic prowess and height"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Mr. Bepo cautioned students against voting based on superficial charm or gift distribution, emphasizing that true leadership requires moral integrity, service, and emotional maturity.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "Flashlearners Lekki Headmaster Series"
-  },
-  {
-    "id": 99009,
-    "questionNumber": 9,
-    "exam": "JAMB",
-    "subject": "Use of English",
-    "topic": "The Lekki Headmaster",
-    "subtopic": "Academic Integrity",
-    "year": 2026,
-    "difficulty": "Medium",
-    "text": "How did Mr. Bepo handle the influential parents who attempted to manipulate internal examination grades at Stardom Schools?",
-    "options": [
-      {
-        "key": "A",
-        "text": "He accepted their donations in exchange for concessions"
-      },
-      {
-        "key": "B",
-        "text": "He strictly stood his ground, refusing to inflate marks or compromise academic standards"
-      },
-      {
-        "key": "C",
-        "text": "He referred all grading disputes to the student prefects"
-      },
-      {
-        "key": "D",
-        "text": "He resigned his position on the spot"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "A defining trait of Mr. Bepo's leadership is his incorruptibility. When affluent parents exerted pressure for undue grading favours, he defended institutional integrity and fair evaluation for every child.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "Flashlearners Lekki Headmaster Series"
-  },
-  {
-    "id": 99010,
-    "questionNumber": 10,
-    "exam": "JAMB",
-    "subject": "Use of English",
-    "topic": "Emphatic Stress",
-    "subtopic": "Contrastive Focus",
-    "year": 2026,
-    "difficulty": "Medium",
-    "text": "In the sentence: \"We BROUGHT a car to England\", which question does the sentence correctly provide an emphatic answer to?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Did they bring a car to England?"
-      },
-      {
-        "key": "B",
-        "text": "Did you rent a car in England?"
-      },
-      {
-        "key": "C",
-        "text": "Did you bring a bus to England?"
-      },
-      {
-        "key": "D",
-        "text": "Did you bring a car to Nigeria?"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "In emphatic stress, capitalising the verb 'BROUGHT' signals that the action itself is being contrasted with another verb. Therefore, it contradicts: 'Did you rent a car in England?' -> 'No, we BROUGHT a car to England.'",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
-  },
-  {
-    "id": 99011,
-    "questionNumber": 11,
-    "exam": "JAMB",
-    "subject": "Use of English",
-    "topic": "Concord",
-    "subtopic": "Subject-Verb Agreement with Quasi-Coordinators",
-    "year": 2026,
-    "difficulty": "Medium",
-    "text": "Choose the option that correctly completes the sentence:\n\"The Headmaster, as well as his teachers, ______ present at the hall yesterday.\"",
-    "options": [
-      {
-        "key": "A",
-        "text": "were"
-      },
-      {
-        "key": "B",
-        "text": "was"
-      },
-      {
-        "key": "C",
-        "text": "are"
-      },
-      {
-        "key": "D",
-        "text": "have been"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "When a subject is joined to another noun by parenthetical phrases like 'as well as', 'together with', 'along with', or 'in addition to', the verb agrees only with the primary subject before the comma ('The Headmaster' = singular third person -> 'was').",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
-  },
-  {
-    "id": 99012,
-    "questionNumber": 12,
-    "exam": "JAMB",
-    "subject": "Use of English",
-    "topic": "Oral Forms: Rhymes",
-    "subtopic": "Homophones & Vowel Quality",
-    "year": 2026,
-    "difficulty": "Hard",
-    "text": "Which of the following words rhymes with \"quay\"?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Pray"
-      },
-      {
-        "key": "B",
-        "text": "Key"
-      },
-      {
-        "key": "C",
-        "text": "Clay"
-      },
-      {
-        "key": "D",
-        "text": "Day"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Despite its deceptive spelling, 'quay' (a stone or concrete platform lying alongside or projecting into water for loading ships) is pronounced /kiː/, perfectly rhyming with 'key' /kiː/.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
-  },
-  {
-    "id": 99013,
-    "questionNumber": 13,
-    "exam": "JAMB",
-    "subject": "Use of English",
-    "topic": "Stress Patterns",
-    "subtopic": "Polysyllabic Word Stress",
-    "year": 2026,
-    "difficulty": "Medium",
-    "text": "Which syllable receives the primary stress in the word \"enthusiasm\"?",
-    "options": [
-      {
-        "key": "A",
-        "text": "EN-thu-si-asm"
-      },
-      {
-        "key": "B",
-        "text": "en-THU-si-asm"
-      },
-      {
-        "key": "C",
-        "text": "en-thu-SI-asm"
-      },
-      {
-        "key": "D",
-        "text": "en-thu-si-ASM"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "The noun 'enthusiasm' /ɪnˈθjuːziæzəm/ carries its primary tonic accent on the second syllable: en-THU-si-asm.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
-  },
-  {
-    "id": 99014,
-    "questionNumber": 14,
-    "exam": "JAMB",
-    "subject": "Use of English",
-    "topic": "Question Tags",
-    "subtopic": "Imperative Suggestions",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
     "year": 2026,
     "difficulty": "Easy",
-    "text": "Select the correct tag question:\n\"Let us prepare thoroughly for the upcoming CBT examination, ______?\"",
+    "text": "In the passage below, fill the gap numbered 8:\n'We are witness to the fact that the ...8... was as a result of your years of struggle to communicate a message to the world'.",
     "options": [
       {
         "key": "A",
-        "text": "will we"
+        "text": "award"
       },
       {
         "key": "B",
-        "text": "shall we"
+        "text": "certificate"
       },
       {
         "key": "C",
-        "text": "shouldn't we"
+        "text": "degree"
       },
       {
         "key": "D",
-        "text": "can't we"
+        "text": "prize"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nRefers specifically to the Nobel 'prize' won by Soyinka mentioned in the opening sentence.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99489,
+    "questionNumber": 9,
+    "subject": "Use of English",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "In the passage below, fill the gap numbered 9:\n'We have been part of your struggle for freedom, ...9... and peace, the letter also stated'.",
+    "options": [
+      {
+        "key": "A",
+        "text": "international integration"
+      },
+      {
+        "key": "B",
+        "text": "international recognition"
+      },
+      {
+        "key": "C",
+        "text": "national independence"
+      },
+      {
+        "key": "D",
+        "text": "judicial independence"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nThe triad of anti-colonial and post-colonial African literature focuses on 'freedom, national independence and peace'.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99490,
+    "questionNumber": 10,
+    "subject": "Use of English",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "In the passage below, fill the gap numbered 10:\n'This feeling of pride and ...10... is shared by all African writers...'",
+    "options": [
+      {
+        "key": "A",
+        "text": "solidarity"
+      },
+      {
+        "key": "B",
+        "text": "honour"
+      },
+      {
+        "key": "C",
+        "text": "sensibility"
+      },
+      {
+        "key": "D",
+        "text": "courage"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nFellowship and mutual celebration across the Writers Association is termed 'pride and solidarity'.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99491,
+    "questionNumber": 11,
+    "subject": "Use of English",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "In the passage below, fill the gap numbered 11:\n'...is shared by all ...11... and in this sense, the award of the Nobel Prize to Soyinka is an award for African literature'.",
+    "options": [
+      {
+        "key": "A",
+        "text": "European writers"
+      },
+      {
+        "key": "B",
+        "text": "African writers"
+      },
+      {
+        "key": "C",
+        "text": "Black writers"
+      },
+      {
+        "key": "D",
+        "text": "West African writers"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "In English grammar, imperative proposals beginning with \"Let us\" (or \"Let's\") take the standard tag \"shall we?\".",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "YouTube CBT Revision Series"
+    "explanation": "Chalkboard Step-by-Step:\nThe passage emphasizes the pan-African literary community: 'all African writers'.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99015,
-    "questionNumber": 15,
-    "exam": "JAMB",
+    "id": 99492,
+    "questionNumber": 12,
     "subject": "Use of English",
-    "topic": "Vowel Sounds",
-    "subtopic": "Long Vowel /i:/",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
     "year": 2026,
-    "difficulty": "Medium",
-    "text": "Which of the following words contains the same vowel sound as in \"machine\"?",
+    "difficulty": "Easy",
+    "text": "In the passage below, fill the gap numbered 12:\n'...the award of the Nobel Prize to Soyinka is an award for African ...12...'.",
     "options": [
       {
         "key": "A",
-        "text": "Ceiling"
+        "text": "writing"
       },
       {
         "key": "B",
-        "text": "Shed"
+        "text": "literature"
       },
       {
         "key": "C",
-        "text": "Thread"
+        "text": "culture"
       },
       {
         "key": "D",
-        "text": "Bit"
+        "text": "genres"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "In 'machine' /məˈʃiːn/, the accented vowel is the long close front unrounded vowel /iː/. In 'ceiling' /ˈsiːlɪŋ/, the letters 'ei' represent the identical /iː/ phoneme.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "YouTube CBT Revision Series"
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nSoyinka received the Nobel Prize in Literature, validating 'African literature' on the global stage.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99016,
-    "questionNumber": 16,
-    "exam": "JAMB",
-    "subject": "Mathematics",
-    "topic": "Indices, Log & Surds",
-    "subtopic": "Logarithmic Equations",
+    "id": 99493,
+    "questionNumber": 13,
+    "subject": "Use of English",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "Evaluate the logarithm: log₀.₅ 32.",
+    "text": "In the passage below, fill the gap numbered 13:\n'Whether writing in English, Portuguese or in African ...13...'",
     "options": [
       {
         "key": "A",
-        "text": "-5"
+        "text": "indigenous styles"
       },
       {
         "key": "B",
-        "text": "-4"
+        "text": "dialects"
       },
       {
         "key": "C",
-        "text": "4"
+        "text": "cultures"
       },
       {
         "key": "D",
-        "text": "5"
+        "text": "indigenous languages"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nParallel structure with languages: 'English, Portuguese or in African indigenous languages'.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99494,
+    "questionNumber": 14,
+    "subject": "Use of English",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "In the passage below, fill the gap numbered 14:\n'...African writers have tackled parallel ...14... in the last three decades'.",
+    "options": [
+      {
+        "key": "A",
+        "text": "themes"
+      },
+      {
+        "key": "B",
+        "text": "types"
+      },
+      {
+        "key": "C",
+        "text": "stories"
+      },
+      {
+        "key": "D",
+        "text": "narratives"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Chalkboard Calculation:\nLet y = log₀.₅ 32.\nIn exponential form: (0.5)^y = 32.\n(1/2)^y = 2⁵\n(2⁻¹)^y = 2⁵\n2⁻ʸ = 2⁵\nEquating exponents: -y = 5 => y = -5.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "explanation": "Chalkboard Step-by-Step:\nLiterary works address subject matter and motifs known as 'parallel themes'.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99495,
+    "questionNumber": 15,
+    "subject": "Use of English",
+    "topic": "Cloze Passage",
+    "subtopic": "Vocabulary in Context",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "In the passage below, fill the gap numbered 15:\n'In the pre-independence decade, African writers played a vital role in the ...15... articulating the stakes involved and inspiring the politicians and freedom fighters'.",
+    "options": [
+      {
+        "key": "A",
+        "text": "integration struggle"
+      },
+      {
+        "key": "B",
+        "text": "independence struggle"
+      },
+      {
+        "key": "C",
+        "text": "acceptance struggle"
+      },
+      {
+        "key": "D",
+        "text": "international struggle"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nHistorical context: During the pre-independence decade across Africa, writers fueled the 'independence struggle' against colonial rule.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99210,
+    "questionNumber": 16,
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "subtopic": "Quadratic Equations",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "What are the roots of the quadratic equation 3x² - 9x = 0?",
+    "options": [
+      {
+        "key": "A",
+        "text": "0 or -3"
+      },
+      {
+        "key": "B",
+        "text": "-3 twice"
+      },
+      {
+        "key": "C",
+        "text": "3 or -3"
+      },
+      {
+        "key": "D",
+        "text": "0 or 3"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nFactor out 3x:\n3x(x - 3) = 0\nEither 3x = 0 ⇒ x = 0\nOr x - 3 = 0 ⇒ x = 3.\nRoots are 0 or 3.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
     "id": 99017,
@@ -594,103 +594,104 @@
     "sourceLabel": "Excellence Academy YouTube 2025/2026"
   },
   {
-    "id": 99019,
+    "id": 99211,
     "questionNumber": 19,
-    "exam": "JAMB",
     "subject": "Mathematics",
-    "topic": "Financial Maths",
-    "subtopic": "Percentage Loss & Selling Price",
+    "topic": "Number Bases",
+    "subtopic": "Base Multiplication",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "A merchant acquired a generator for ₦24,000 and subsequently sold it at a loss of 15%. Calculate the actual selling price.",
+    "text": "Multiply 22₃ by 121₃ leaving your answer in base 3.",
     "options": [
       {
         "key": "A",
-        "text": "₦19,800"
+        "text": "11202"
       },
       {
         "key": "B",
-        "text": "₦20,400"
+        "text": "11102"
       },
       {
         "key": "C",
-        "text": "₦21,200"
+        "text": "10202"
       },
       {
         "key": "D",
-        "text": "₦22,000"
+        "text": "10112"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nLoss amount = 15% of ₦24,000 = (15 / 100) × 24,000 = ₦3,600.\nSelling Price = Cost Price - Loss\nSelling Price = ₦24,000 - ₦3,600 = ₦20,400.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "Excellence Academy YouTube 2025/2026"
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nConvert to base 10:\n22₃ = 2(3) + 2 = 8₁₀\n121₃ = 1(9) + 2(3) + 1 = 16₁₀\nMultiply: 8 × 16 = 128₁₀.\nConvert 128 to base 3:\n128 ÷ 3 = 42 R 2\n42 ÷ 3 = 14 R 0\n14 ÷ 3 = 4 R 2\n4 ÷ 3 = 1 R 1\n1 ÷ 3 = 0 R 1\nReading upwards: 11202₃.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99020,
+    "id": 99212,
     "questionNumber": 20,
-    "exam": "JAMB",
     "subject": "Mathematics",
-    "topic": "Coordinate Geometry",
-    "subtopic": "Perpendicular Lines",
+    "topic": "Calculus",
+    "subtopic": "Limits of Algebraic Functions",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "Find the gradient of a straight line perpendicular to the line 3x - 4y + 8 = 0.",
+    "text": "Find the limit of y = (x³ - 2x² + 6x - 12) / (x - 2) as x goes to 2.",
     "options": [
       {
         "key": "A",
-        "text": "3/4"
+        "text": "10"
       },
       {
         "key": "B",
-        "text": "-3/4"
+        "text": "Infinity"
       },
       {
         "key": "C",
-        "text": "-4/3"
+        "text": "12"
       },
       {
         "key": "D",
-        "text": "4/3"
+        "text": "0"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "Chalkboard Calculation:\nRewrite line in slope-intercept form y = mx + c:\n4y = 3x + 8 => y = (3/4)x + 2.\nSlope of given line m₁ = 3/4.\nFor perpendicular lines, m₁ × m₂ = -1:\n(3/4) × m₂ = -1 => m₂ = -4/3.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nFactor numerator by grouping:\nx²(x - 2) + 6(x - 2) = (x² + 6)(x - 2).\nDivide by (x - 2): (x² + 6).\nAs x → 2: 2² + 6 = 4 + 6 = 10.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99021,
+    "id": 99213,
     "questionNumber": 21,
-    "exam": "JAMB",
     "subject": "Mathematics",
-    "topic": "Quadratic Equations",
-    "subtopic": "Nature of Roots & Discriminant",
+    "topic": "Algebra",
+    "subtopic": "Linear Inequalities on Number Lines",
     "year": 2026,
-    "difficulty": "Hard",
-    "text": "For what value of k does the quadratic equation 2x² - 8x + k = 0 have equal and real roots?",
+    "difficulty": "Easy",
+    "text": "Which inequality is represented in the diagram above?",
+    "imageUrl": "/diagrams/math_inequality_q21_2026.png",
     "options": [
       {
         "key": "A",
-        "text": "4"
+        "text": "x ≤ -13"
       },
       {
         "key": "B",
-        "text": "8"
+        "text": "x ≥ -13"
       },
       {
         "key": "C",
-        "text": "16"
+        "text": "x < -13"
       },
       {
         "key": "D",
-        "text": "32"
+        "text": "x > -13"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nA quadratic equation ax² + bx + c = 0 has equal roots when the discriminant Δ = b² - 4ac = 0.\nHere a = 2, b = -8, c = k:\n(-8)² - 4(2)(k) = 0\n64 - 8k = 0 => 8k = 64 => k = 8.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "explanation": "Chalkboard Step-by-Step:\nThe diagram displays a solid, shaded circle at -13 with an arrow extending continuously to the right (towards positive values).\nA closed circle denotes inclusion (≥ or ≤), and an arrow pointing to the right represents greater than or equal to: x ≥ -13.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
     "id": 99022,
@@ -726,103 +727,104 @@
     "sourceLabel": "JAMB 2026 CBT Student Recall"
   },
   {
-    "id": 99023,
+    "id": 99442,
     "questionNumber": 23,
-    "exam": "JAMB",
     "subject": "Physics",
-    "topic": "Work & Machines",
-    "subtopic": "Mechanical Advantage & Efficiency",
+    "topic": "Current Electricity",
+    "subtopic": "Electromotive Force (EMF)",
     "year": 2026,
-    "difficulty": "Medium",
-    "text": "A load of 96 N is raised by a lifting machine having a velocity ratio (V.R.) of 5. Calculate the effort required if the efficiency of the machine is 80%.",
+    "difficulty": "Easy",
+    "text": "The emf of a cell is the potential difference across its terminals when it is in:",
     "options": [
       {
         "key": "A",
-        "text": "19.2 N"
+        "text": "open circuit"
       },
       {
         "key": "B",
-        "text": "24.0 N"
+        "text": "parallel connection"
       },
       {
         "key": "C",
-        "text": "30.0 N"
+        "text": "series connection"
       },
       {
         "key": "D",
-        "text": "38.4 N"
+        "text": "closed circuit"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nEfficiency η = (M.A. / V.R.) × 100%\n80% = (M.A. / 5) × 100% => M.A. = (80 × 5) / 100 = 4.0.\nSince M.A. = Load / Effort:\n4.0 = 96 / Effort => Effort = 96 / 4 = 24.0 N.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nThe electromotive force (EMF) of an electric cell is defined as the maximum potential difference between its electrodes when no current is flowing through the external circuit (i.e. in an open circuit).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99024,
+    "id": 99443,
     "questionNumber": 24,
-    "exam": "JAMB",
     "subject": "Physics",
-    "topic": "Motion",
-    "subtopic": "Projectile Motion Maximum Height",
+    "topic": "Electrostatics",
+    "subtopic": "Capacitors & Energy Stored",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "A stone is projected from level ground with an initial velocity of 40 m/s at an angle of 30° to the horizontal. Calculate the maximum height attained (Take g = 10 m/s²).",
+    "text": "What is the value of a capacitor that can retain 8 x 10⁻² J of energy when fully charged with a 100 V battery?",
     "options": [
       {
         "key": "A",
-        "text": "10 m"
+        "text": "16 μF"
       },
       {
         "key": "B",
-        "text": "20 m"
+        "text": "14 μF"
       },
       {
         "key": "C",
-        "text": "40 m"
+        "text": "24 μF"
       },
       {
         "key": "D",
-        "text": "80 m"
+        "text": "18 μF"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nMaximum height H = (u² sin² θ) / (2g).\nGiven u = 40 m/s, θ = 30°, sin 30° = 0.5:\nH = (40² × (0.5)²) / (2 × 10)\nH = (1600 × 0.25) / 20 = 400 / 20 = 20 m.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "DTW Tutorials YouTube 2025/2026"
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nEnergy stored in capacitor: E = ½ C V²\nC = 2E / V² = 2(8 x 10⁻²) / (100²)\nC = 16 x 10⁻² / 10⁴ = 16 x 10⁻⁶ F = 16 μF.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99025,
+    "id": 99444,
     "questionNumber": 25,
-    "exam": "JAMB",
     "subject": "Physics",
-    "topic": "Alternating Current",
-    "subtopic": "Resonance in RLC Circuits",
+    "topic": "Mechanics",
+    "subtopic": "Moments of Inclined Forces",
     "year": 2026,
     "difficulty": "Hard",
-    "text": "In a series AC circuit containing an inductor of 0.2 H and a capacitor of 50 µF, calculate the resonant frequency f₀ (Take π ≈ 3.142).",
+    "text": "The moment of a 10N force about O in the diagram is:",
+    "imageUrl": "/diagrams/phys_moment_inclined_q25_2026.png",
     "options": [
       {
         "key": "A",
-        "text": "25.17 Hz"
+        "text": "25Nm"
       },
       {
         "key": "B",
-        "text": "50.33 Hz"
+        "text": "30Nm"
       },
       {
         "key": "C",
-        "text": "100.66 Hz"
+        "text": "20Nm"
       },
       {
         "key": "D",
-        "text": "316.20 Hz"
+        "text": "10Nm"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nResonant frequency f₀ = 1 / (2π√(LC)).\nLC = 0.2 × (50 × 10⁻⁶) = 10 × 10⁻⁶ = 10⁻⁵.\n√(LC) = √(10⁻⁵) = 3.162 × 10⁻³ s.\nf₀ = 1 / (2 × 3.142 × 3.162 × 10⁻³) = 1 / (0.01987) ≈ 50.33 Hz.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "DTW Tutorials YouTube 2025/2026"
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\n1. Length of bar from pivot O to application point = 5 m.\n2. Force F = 10 N acts at an angle of 30° to the bar.\n3. Perpendicular component of force = F sin(30°) = 10 x 0.5 = 5 N.\n4. Moment about O = F_perpendicular x distance = 5 N x 5 m = 25 Nm.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
     "id": 99026,
@@ -858,103 +860,103 @@
     "sourceLabel": "DTW Tutorials YouTube 2025/2026"
   },
   {
-    "id": 99027,
+    "id": 99445,
     "questionNumber": 27,
-    "exam": "JAMB",
     "subject": "Physics",
-    "topic": "Elasticity",
-    "subtopic": "Elastic Potential Energy",
+    "topic": "Fluids",
+    "subtopic": "Archimedes' Principle & Upthrust",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "An elastic spring of force constant k = 1300 N/m is stretched by a tensile force of 50 N. Calculate the elastic potential energy stored in the spring.",
+    "text": "An object that is partially submerged in a fluid of density 780 kgm⁻³ experiences a buoyant force of 250N. Calculate the volume of the liquid displaced. [g = 10 ms⁻²]",
     "options": [
       {
         "key": "A",
-        "text": "0.48 J"
+        "text": "26 x 10⁻³m³"
       },
       {
         "key": "B",
-        "text": "0.96 J"
+        "text": "3.7 x 10⁻³m³"
       },
       {
         "key": "C",
-        "text": "1.92 J"
+        "text": "45 x 10⁻³m³"
       },
       {
         "key": "D",
-        "text": "3.85 J"
+        "text": "32 x 10⁻³m³"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nElastic Potential Energy P.E. = 1/2 k e² = F² / (2k).\nGiven F = 50 N and k = 1300 N/m:\nP.E. = (50)² / (2 × 1300) = 2500 / 2600 ≈ 0.9615 J ≈ 0.96 J.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nUpthrust U = ρ V g\n250 = 780 x V x 10 = 7800 V\nV = 250 / 7800 = 0.03205 m³ = 32 x 10⁻³ m³.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99028,
+    "id": 99446,
     "questionNumber": 28,
-    "exam": "JAMB",
     "subject": "Physics",
-    "topic": "Heat Energy",
-    "subtopic": "Apparent Expansivity of Liquids",
-    "year": 2026,
-    "difficulty": "Hard",
-    "text": "The real cubic expansivity of mercury is 1.80 × 10⁻⁴ K⁻¹ and the linear expansivity of glass is 8.0 × 10⁻⁶ K⁻¹. What is the apparent cubic expansivity of mercury in a glass bulb?",
-    "options": [
-      {
-        "key": "A",
-        "text": "1.00 × 10⁻⁴ K⁻¹"
-      },
-      {
-        "key": "B",
-        "text": "1.56 × 10⁻⁴ K⁻¹"
-      },
-      {
-        "key": "C",
-        "text": "1.72 × 10⁻⁴ K⁻¹"
-      },
-      {
-        "key": "D",
-        "text": "2.04 × 10⁻⁴ K⁻¹"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nCubic expansivity of glass container γ_glass = 3 × α_glass = 3 × (8.0 × 10⁻⁶) = 2.4 × 10⁻⁵ K⁻¹ = 0.24 × 10⁻⁴ K⁻¹.\nApparent expansivity γ_apparent = γ_real - γ_glass\nγ_apparent = 1.80 × 10⁻⁴ - 0.24 × 10⁻⁴ = 1.56 × 10⁻⁴ K⁻¹.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
-  },
-  {
-    "id": 99029,
-    "questionNumber": 29,
-    "exam": "JAMB",
-    "subject": "Physics",
-    "topic": "Measurements",
-    "subtopic": "Dimensions of Physical Quantities",
+    "topic": "Waves & Sound",
+    "subtopic": "Musical Instruments",
     "year": 2026,
     "difficulty": "Easy",
-    "text": "What is the dimensional formula for Power?",
+    "text": "Sound is produced in a wind instrument as a result of the vibration of:",
     "options": [
       {
         "key": "A",
-        "text": "[M L T⁻²]"
+        "text": "piece of wood"
       },
       {
         "key": "B",
-        "text": "[M L² T⁻²]"
+        "text": "stretched strings"
       },
       {
         "key": "C",
-        "text": "[M L² T⁻³]"
+        "text": "air column"
       },
       {
         "key": "D",
-        "text": "[M L⁻¹ T⁻²]"
+        "text": "stretched membranes"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Power = Work / Time = (Force × Displacement) / Time.\n[Force] = [M L T⁻²]\n[Work] = [M L T⁻²] × [L] = [M L² T⁻²]\n[Power] = [M L² T⁻²] / [T] = [M L² T⁻³].",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "explanation": "Chalkboard Step-by-Step:\nIn wind instruments (e.g. flutes, clarinets, organ pipes), sound is generated through standing waves created by the vibration of an enclosed column of air.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99447,
+    "questionNumber": 29,
+    "subject": "Physics",
+    "topic": "Optics",
+    "subtopic": "Electromagnetic Spectrum",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Which of these colours in the visible spectrum has the longest wavelength?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Violet"
+      },
+      {
+        "key": "B",
+        "text": "Blue"
+      },
+      {
+        "key": "C",
+        "text": "Yellow"
+      },
+      {
+        "key": "D",
+        "text": "Red"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nIn visible light (ROYGBIV), Red has the longest wavelength (~700 nm) and lowest frequency, while Violet has the shortest wavelength (~400 nm) and highest frequency.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
     "id": 99030,
@@ -990,103 +992,103 @@
     "sourceLabel": "JAMB 2026 CBT Student Recall"
   },
   {
-    "id": 99031,
+    "id": 99420,
     "questionNumber": 31,
-    "exam": "JAMB",
     "subject": "Chemistry",
-    "topic": "Organic Chemistry",
-    "subtopic": "IUPAC Nomenclature of Alkenes",
+    "topic": "Atomic Structure",
+    "subtopic": "Quantum Numbers & Electronic Shells",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "Give the systematic IUPAC name for the organic compound: CH₃-CH=C(CH₃)₂.",
+    "text": "When n = 3, the maximum number of electrons an element can hold in this principal shell is:",
     "options": [
       {
         "key": "A",
-        "text": "2-methylbut-2-ene"
+        "text": "18"
       },
       {
         "key": "B",
-        "text": "3-methylbut-2-ene"
+        "text": "21"
       },
       {
         "key": "C",
-        "text": "2-methylbut-3-ene"
+        "text": "3"
       },
       {
         "key": "D",
-        "text": "Pent-2-ene"
+        "text": "9"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Chalkboard Breakdown:\n1. Longest continuous carbon chain containing double bond has 4 carbons -> root 'butene'.\n2. Number the chain from the right to give both double bond and methyl branch the lowest locants:\nC1: CH₃ (part of =C(CH₃)₂)\nC2: =C(CH₃) carrying the methyl substituent\nC3: =CH\nC4: -CH₃\nName: 2-methylbut-2-ene.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "explanation": "Chalkboard Step-by-Step:\nMaximum number of electrons in a principal quantum shell n is given by 2n².\nFor n = 3:\nMax electrons = 2(3²) = 2(9) = 18 electrons (2 in 3s, 6 in 3p, 10 in 3d).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99032,
+    "id": 99421,
     "questionNumber": 32,
-    "exam": "JAMB",
     "subject": "Chemistry",
-    "topic": "Volumetric Analysis",
-    "subtopic": "Dilution Law",
+    "topic": "Quantitative Analysis",
+    "subtopic": "Acid-Base Titration",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "Calculate the volume of distilled water that must be added to 25 cm³ of a standard solution to dilute its concentration tenfold (10 times).",
+    "text": "The volume in cm³ of a 0.12 mol dm⁻³ HCl required to completely neutralize 20 cm³ of 0.20 mol dm⁻³ NaOH is:",
     "options": [
       {
         "key": "A",
-        "text": "250 cm³"
+        "text": "0.0012"
       },
       {
         "key": "B",
-        "text": "225 cm³"
+        "text": "12.00"
       },
       {
         "key": "C",
-        "text": "200 cm³"
+        "text": "2.40"
       },
       {
         "key": "D",
-        "text": "175 cm³"
+        "text": "33.33"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nDilution law: C₁V₁ = C₂V₂.\nIf diluted 10 times, C₂ = C₁ / 10.\nC₁ × 25 = (C₁ / 10) × V₂ => V₂ = 25 × 10 = 250 cm³ (Final total volume).\nVolume of water added = Final Volume - Initial Volume\n= 250 cm³ - 25 cm³ = 225 cm³.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nReaction: HCl + NaOH → NaCl + H₂O (1:1 mole ratio).\nC_A V_A / C_B V_B = 1 / 1\n0.12 x V_A = 0.20 x 20 = 4.0\nV_A = 4.0 / 0.12 = 33.33 cm³.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99033,
+    "id": 99422,
     "questionNumber": 33,
-    "exam": "JAMB",
     "subject": "Chemistry",
-    "topic": "Gases and Gas Laws",
-    "subtopic": "Fountain Experiment & Gas Solubility",
+    "topic": "Inorganic Chemistry",
+    "subtopic": "Identification of Anions",
     "year": 2026,
-    "difficulty": "Medium",
-    "text": "The fountain experiment is uniquely demonstrated in the laboratory using which pair of extremely soluble gases?",
+    "difficulty": "Easy",
+    "text": "A gas that turns lime water milky is likely to be liberated from:",
     "options": [
       {
         "key": "A",
-        "text": "Oxygen and Nitrogen"
+        "text": "Trioxonitrate(V)"
       },
       {
         "key": "B",
-        "text": "Ammonia (NH₃) and Hydrogen chloride (HCl)"
+        "text": "Chloride"
       },
       {
         "key": "C",
-        "text": "Carbon dioxide and Sulphur dioxide"
+        "text": "Trioxocarbonate(IV)"
       },
       {
         "key": "D",
-        "text": "Hydrogen and Methane"
+        "text": "Tetraoxosulphate(VI)"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "The fountain experiment demonstrates the extraordinary aqueous solubility of ammonia (NH₃) and hydrogen chloride (HCl). When a small drop of water dissolves a huge volume of gas, a rapid vacuum forms, sucking up water as a dynamic fountain.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nTrioxocarbonate(IV) (CO₃²⁻) reacts with dilute acid to evolve carbon dioxide (CO₂) gas:\nCO₃²⁻(aq) + 2H⁺(aq) → H₂O(l) + CO₂(g).\nCO₂ turns lime water (Ca(OH)₂) milky by forming an insoluble precipitate of calcium carbonate (CaCO₃).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
     "id": 99034,
@@ -1122,202 +1124,202 @@
     "sourceLabel": "JAMB 2026 CBT Student Recall"
   },
   {
-    "id": 99035,
+    "id": 99423,
     "questionNumber": 35,
-    "exam": "JAMB",
     "subject": "Chemistry",
     "topic": "Chemical Equilibrium",
-    "subtopic": "Le Chatelier's Principle & Temperature",
-    "year": 2026,
-    "difficulty": "Medium",
-    "text": "For the endothermic reversible synthesis of nitric oxide:\nN₂(g) + O₂(g) ⇌ 2NO(g), ΔH = +180 kJ/mol\nWhat happens to the equilibrium mixture when the temperature is elevated?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Equilibrium shifts to the left, decreasing NO yield"
-      },
-      {
-        "key": "B",
-        "text": "Equilibrium shifts to the right, increasing NO yield"
-      },
-      {
-        "key": "C",
-        "text": "The equilibrium position remains unchanged"
-      },
-      {
-        "key": "D",
-        "text": "The equilibrium constant Kc decreases"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "According to Le Chatelier's principle, an increase in temperature favours the endothermic direction (the direction that absorbs heat). Since the forward reaction is endothermic (ΔH > 0), increasing temperature shifts equilibrium to the right, producing more NO.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "Excellence Academy YouTube 2025/2026"
-  },
-  {
-    "id": 99036,
-    "questionNumber": 36,
-    "exam": "JAMB",
-    "subject": "Chemistry",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws of Electrolysis",
-    "year": 2026,
-    "difficulty": "Hard",
-    "text": "Calculate the quantity of electricity (in Coulombs) needed to deposit 0.54 g of silver from an aqueous solution of AgNO₃ (Ag = 108, 1 Faraday = 96,500 C).",
-    "options": [
-      {
-        "key": "A",
-        "text": "241.25 C"
-      },
-      {
-        "key": "B",
-        "text": "482.50 C"
-      },
-      {
-        "key": "C",
-        "text": "965.00 C"
-      },
-      {
-        "key": "D",
-        "text": "1930.00 C"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nCathode half-reaction: Ag⁺(aq) + e⁻ → Ag(s).\n1 mole of Ag (108 g) requires 1 Faraday = 96,500 Coulombs.\nTo deposit 0.54 g of Ag:\nQuantity Q = (0.54 × 96,500) / 108 = 52,110 / 108 = 482.50 Coulombs.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "Excellence Academy YouTube 2025/2026"
-  },
-  {
-    "id": 99037,
-    "questionNumber": 37,
-    "exam": "JAMB",
-    "subject": "Chemistry",
-    "topic": "Organic Chemistry",
-    "subtopic": "Preparation of Alkynes",
+    "subtopic": "Dynamic Equilibrium",
     "year": 2026,
     "difficulty": "Easy",
-    "text": "The action of cold water on calcium carbide (CaC₂) liberates which colourless gas that burns with a smoky luminous flame?",
+    "text": "N₂(g) + 3H₂(g) ⇌ 2NH₃(g)\nAn equilibrium can be established in the reaction above if:",
     "options": [
       {
         "key": "A",
-        "text": "Methane"
+        "text": "The rate of the backward reaction is greater than that of the forward reaction"
       },
       {
         "key": "B",
-        "text": "Ethyne (Acetylene)"
+        "text": "Both the forward and the backward reactions have the same rate"
       },
       {
         "key": "C",
-        "text": "Ethene"
+        "text": "The rate of the forward reaction is greater than that of the backward reaction"
       },
       {
         "key": "D",
-        "text": "Propane"
+        "text": "The forward and the backward reactions have stopped"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Reaction: CaC₂(s) + 2H₂O(l) → Ca(OH)₂(aq) + C₂H₂(g).\nEthyne (acetylene) is an alkyne produced by hydrolysing calcium carbide, commonly used in oxy-acetylene welding.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "explanation": "Chalkboard Step-by-Step:\nChemical dynamic equilibrium is attained when the rate of the forward reaction equals the rate of the reverse/backward reaction, and concentrations of reactants and products remain constant.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99038,
-    "questionNumber": 38,
-    "exam": "JAMB",
+    "id": 99424,
+    "questionNumber": 36,
     "subject": "Chemistry",
-    "topic": "Applied Chemistry",
-    "subtopic": "Synthetic Detergents",
+    "topic": "Halogens & Compounds",
+    "subtopic": "Chlorine Tests",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "Unlike soapy detergents which form scum with hard water, soapless (synthetic) detergents can be chemically represented by:",
+    "text": "The colour change when damp starch-iodide paper is inserted in a jar of chlorine gas is:",
     "options": [
       {
         "key": "A",
-        "text": "R-COONa"
+        "text": "yellow"
       },
       {
         "key": "B",
-        "text": "R-SO₃⁻Na⁺"
+        "text": "brown"
       },
       {
         "key": "C",
-        "text": "R-COOK"
+        "text": "green"
       },
       {
         "key": "D",
-        "text": "R-OH"
+        "text": "blue-black"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Soapless detergents are sodium salts of alkyl hydrogen sulphates or alkyl benzene sulphonates (general formula: R-OSO₃⁻Na⁺ or R-C₆H₄-SO₃⁻Na⁺). Their calcium and magnesium salts are soluble in water, preventing scum formation in hard water.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nChlorine is a stronger oxidizing agent than iodine.\nCl₂(g) + 2I⁻(aq) → 2Cl⁻(aq) + I₂(aq).\nThe liberated free iodine (I₂) reacts with starch to produce an intense blue-black coloration.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99039,
-    "questionNumber": 39,
-    "exam": "JAMB",
-    "subject": "Biology",
-    "topic": "Animal Diversity & Morphology",
-    "subtopic": "Body Organization & Coelenterates",
+    "id": 99425,
+    "questionNumber": 37,
+    "subject": "Chemistry",
+    "topic": "Separation Techniques",
+    "subtopic": "Mixtures and Purification",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "Which of the following organisms exhibits a blind-sac body plan possessing only one body opening serving as both mouth and anus?",
+    "text": "The best sequence of operation to obtain pure alum from a powdered mixture of alum and sand is:",
     "options": [
       {
         "key": "A",
-        "text": "Amoeba"
+        "text": "dissolution → filtration → sublimation"
       },
       {
         "key": "B",
-        "text": "Euglena"
+        "text": "sublimation → dissolution → filtration → drying"
       },
       {
         "key": "C",
-        "text": "Hydra"
+        "text": "dissolution → filtration → crystallization"
       },
       {
         "key": "D",
-        "text": "Earthworm"
+        "text": "sublimation → filtration → drying"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Hydra belongs to the phylum Cnidaria (Coelenterata), featuring diploblastic tissue organization with a single gastrovascular aperture (mouth) used for both ingesting prey and egesting undigested debris.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "JAMB 2026 CBT Student Recall"
+    "explanation": "Chalkboard Step-by-Step:\n1. Alum dissolves in water while sand is insoluble (dissolution).\n2. Filter the mixture to remove sand as the insoluble residue (filtration).\n3. Evaporate the filtrate to saturation point and allow to cool to obtain pure alum crystals (crystallization).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99040,
-    "questionNumber": 40,
-    "exam": "JAMB",
-    "subject": "Biology",
-    "topic": "Cell Biology & Genetics",
-    "subtopic": "Meiosis & Crossing Over",
+    "id": 99426,
+    "questionNumber": 38,
+    "subject": "Chemistry",
+    "topic": "Water & Environmental Chemistry",
+    "subtopic": "Water Treatment",
     "year": 2026,
-    "difficulty": "Hard",
-    "text": "Crossing over and the genetic recombination of non-sister chromatids occurs during which specific phase of meiosis?",
+    "difficulty": "Easy",
+    "text": "In the treatment of water for municipal supply, chlorine is used to:",
     "options": [
       {
         "key": "A",
-        "text": "Leptotene of Prophase I"
+        "text": "prevent tooth decay"
       },
       {
         "key": "B",
-        "text": "Pachytene of Prophase I"
+        "text": "kill germs"
       },
       {
         "key": "C",
-        "text": "Metaphase II"
+        "text": "prevent goiter"
       },
       {
         "key": "D",
-        "text": "Anaphase I"
+        "text": "remove colour or odour"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "During the pachytene sub-stage of Prophase I of meiosis, homologous chromosomes undergo genetic exchange (crossing over) at chiasmata, creating genetic variability.",
-    "repeatBadge": "2026 JAMB UTME Verified Student Recall",
-    "sourceLabel": "Flashlearners & O3 Schools YouTube"
+    "explanation": "Chalkboard Step-by-Step:\nChlorine acts as a germicide and disinfectant by forming hypochlorous acid (HOCl) which kills disease-causing micro-organisms and pathogens in drinking water.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99484,
+    "questionNumber": 39,
+    "subject": "Biology",
+    "topic": "Animal Behavior",
+    "subtopic": "Social Organization & Overcrowding",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The organisms that adopt swarming as an adaptation to overcome colony overcrowding are:",
+    "options": [
+      {
+        "key": "A",
+        "text": "termites"
+      },
+      {
+        "key": "B",
+        "text": "rats"
+      },
+      {
+        "key": "C",
+        "text": "tilapia"
+      },
+      {
+        "key": "D",
+        "text": "Agama lizards"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nWinged reproductive castes (alates) of termites swarm out from overcrowded colonies during warm rainy seasons to disperse, mate, and establish new mounds.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99485,
+    "questionNumber": 40,
+    "subject": "Biology",
+    "topic": "Plant Reproduction",
+    "subtopic": "Vegetative Propagation",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "An example of artificial vegetative propagation where the new plant receives moisture and nutrients from its parent while developing roots is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "grafting"
+      },
+      {
+        "key": "B",
+        "text": "layering"
+      },
+      {
+        "key": "C",
+        "text": "cutting"
+      },
+      {
+        "key": "D",
+        "text": "budding"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nIn layering, an intact bent branch is pegged into the soil while remaining connected to the parent shoot, allowing it to draw continuous water and nutrients until adventitious roots form.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
     "id": 99041,
@@ -1947,268 +1949,268 @@
     "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
   },
   {
-    "id": 99110,
+    "id": 99400,
     "questionNumber": 10,
-    "exam": "JAMB",
     "subject": "Chemistry",
-    "topic": "Chemical Combinations & Formulae",
-    "subtopic": "Molecular Formula Determination",
+    "topic": "Inorganic Chemistry",
+    "subtopic": "Qualitative Analysis & Cations",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "The molecular formula of a hydrocarbon with an empirical formula of CH₃ and a molar mass of 30 g/mol is:",
+    "text": "Cu²⁺(aq) + 2NaOH(aq) →\nIn the test for copper(II) ions using sodium hydroxide above, the products obtained are:",
     "options": [
       {
         "key": "A",
-        "text": "C₆H₆"
+        "text": "2Cu²⁺ + 2NaOH"
       },
       {
         "key": "B",
-        "text": "C₂H₆"
+        "text": "Cu(OH)₂(s) + 2Na⁺(aq)"
       },
       {
         "key": "C",
-        "text": "C₂H₄"
+        "text": "NaOH + Cu"
       },
       {
         "key": "D",
-        "text": "C₃H₃"
+        "text": "Cu(OH)₂ + 2NaH"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Chalkboard Calculation:\nEmpirical formula mass of CH₃ = 12 + 3(1) = 15.\n(CH₃)ₙ = 30 => 15n = 30 => n = 2.\nMolecular formula = (CH₃)₂ = C₂H₆ (Ethane).",
+    "explanation": "Chalkboard Step-by-Step:\n1. When aqueous sodium hydroxide (NaOH) is added dropwise to a solution containing copper(II) ions (Cu²⁺), a pale blue precipitate of copper(II) hydroxide, Cu(OH)₂(s), is formed.\n2. The net ionic reaction is: Cu²⁺(aq) + 2OH⁻(aq) → Cu(OH)₂(s).\n3. Spectator sodium ions remain dissolved: Cu²⁺(aq) + 2NaOH(aq) → Cu(OH)₂(s) + 2Na⁺(aq).",
     "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99111,
+    "id": 99435,
     "questionNumber": 11,
-    "exam": "JAMB",
     "subject": "Physics",
-    "topic": "Alternating Current",
-    "subtopic": "AC Waveform & Peak Value",
+    "topic": "Gravitation",
+    "subtopic": "Newton's Law of Universal Gravitation",
     "year": 2026,
-    "difficulty": "Medium",
-    "text": "An alternating current having a sinusoidal waveform is represented by X = X₀ sin ωt. Which distance on the waveform diagram represents X₀?",
+    "difficulty": "Easy",
+    "text": "The gravitational pull between two bodies is 20N. Find the gravitational pull when their distance of separation is doubled.",
     "options": [
       {
         "key": "A",
-        "text": "RT"
+        "text": "20N"
       },
       {
         "key": "B",
-        "text": "OR"
+        "text": "13N"
       },
       {
         "key": "C",
-        "text": "PQ"
+        "text": "10N"
       },
       {
         "key": "D",
-        "text": "OS"
+        "text": "5N"
       }
     ],
-    "correctAnswer": "C",
-    "explanation": "In the sinusoidal wave equation X = X₀ sin ωt, X₀ represents the peak value or amplitude. On the waveform, the vertical distance from the zero-line reference (Q) to the crest or peak (P) corresponds to PQ.",
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nF ∝ 1 / r²\nWhen distance is doubled (r' = 2r):\nF' = F / 2² = 20 / 4 = 5 N.",
     "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99112,
+    "id": 99436,
     "questionNumber": 12,
-    "exam": "JAMB",
     "subject": "Physics",
-    "topic": "Equilibrium of Forces",
-    "subtopic": "Principle of Moments",
+    "topic": "Thermal Physics",
+    "subtopic": "Thermal Conductivity",
     "year": 2026,
     "difficulty": "Easy",
-    "text": "The principle of moment of force is applied in laboratory apparatus for the measurement of:",
+    "text": "Which of the following has the least thermal conductivity?",
     "options": [
       {
         "key": "A",
-        "text": "mass"
+        "text": "water"
       },
       {
         "key": "B",
-        "text": "force"
+        "text": "air"
       },
       {
         "key": "C",
-        "text": "acceleration"
+        "text": "ash"
       },
       {
         "key": "D",
-        "text": "velocity"
+        "text": "glass"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "The beam balance and chemical balance operate on the principle of moments (anticlockwise moment = clockwise moment about a fulcrum) to measure the unknown mass of an object by balancing it against known standard masses.",
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nGases have widely spaced particles, making heat transfer by conduction extremely inefficient. Air has the lowest thermal conductivity (~0.026 W/m·K) among all choices.",
     "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99113,
+    "id": 99458,
     "questionNumber": 13,
-    "exam": "JAMB",
     "subject": "Biology",
-    "topic": "Ecology",
-    "subtopic": "Adaptations in Mangrove Habitats",
+    "topic": "Microorganisms & Diseases",
+    "subtopic": "Viral Diseases",
     "year": 2026,
-    "difficulty": "Medium",
-    "text": "The possession of pneumatophores is one of the specialized structural adaptations of plants found in:",
+    "difficulty": "Easy",
+    "text": "Which of the following is a viral disease?",
     "options": [
       {
         "key": "A",
-        "text": "mangrove forest"
+        "text": "Typhoid"
       },
       {
         "key": "B",
-        "text": "tropical rain forest"
+        "text": "Syphilis"
       },
       {
         "key": "C",
-        "text": "deciduous forest"
+        "text": "Measles"
       },
       {
         "key": "D",
-        "text": "evergreen forest"
+        "text": "Cholera"
       }
     ],
-    "correctAnswer": "A",
-    "explanation": "Pneumatophores are specialized erect aerial breathing roots (e.g. in Avicennia and Rhizophora) that project upward above the mud surface in oxygen-poor, waterlogged mangrove swamp environments to facilitate gaseous exchange.",
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nMeasles is caused by a paramyxovirus (Morbillivirus). Typhoid (Salmonella typhi), Syphilis (Treponema pallidum), and Cholera (Vibrio cholerae) are all bacterial infections.",
     "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99114,
+    "id": 99459,
     "questionNumber": 14,
-    "exam": "JAMB",
     "subject": "Biology",
-    "topic": "Ecology",
-    "subtopic": "Savanna Xerophytic Adaptations",
+    "topic": "Skeletal System",
+    "subtopic": "Human Vertebral Column",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "The structural adaptation of savanna vegetation to conserve water during dry periods is:",
+    "text": "The number of vertebrae in the human vertebral column is:",
     "options": [
       {
         "key": "A",
-        "text": "small and airy leaves"
+        "text": "38"
       },
       {
         "key": "B",
-        "text": "large and leathery leaves"
+        "text": "39"
       },
       {
         "key": "C",
-        "text": "small and thick leaves"
+        "text": "30"
       },
       {
         "key": "D",
-        "text": "long and needle-like leaves"
+        "text": "33"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nThe human vertebral column comprises 33 vertebrae:\n- 7 cervical\n- 12 thoracic\n- 5 lumbar\n- 5 sacral (fused)\n- 4 caudal/coccygeal (fused)\nTotal = 7 + 12 + 5 + 5 + 4 = 33.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99460,
+    "questionNumber": 15,
+    "subject": "Biology",
+    "topic": "Evolution",
+    "subtopic": "Darwinian Natural Selection",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The postulate which explains that species of organisms have the ability to produce large numbers of offspring into the environment was by:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Robert Hooke"
+      },
+      {
+        "key": "B",
+        "text": "Lamarck"
+      },
+      {
+        "key": "C",
+        "text": "Darwin"
+      },
+      {
+        "key": "D",
+        "text": "Mendel"
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Savanna plants exhibit xeromorphic adaptations including small, reduced leaf surface areas with thick waxy cuticles and sunken stomata to minimize water loss through transpiration.",
+    "explanation": "Chalkboard Step-by-Step:\nCharles Darwin's first postulate of evolution by natural selection states that living organisms have high biotic potential and produce far more offspring than the environment can support, leading to a struggle for existence.",
     "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
-    "id": 99115,
-    "questionNumber": 15,
-    "exam": "JAMB",
+    "id": 99461,
+    "questionNumber": 16,
     "subject": "Biology",
-    "topic": "Cell Biology",
-    "subtopic": "Plant vs Animal Cell Differences",
+    "topic": "Evolution",
+    "subtopic": "Evidence of Evolution",
     "year": 2026,
-    "difficulty": "Easy",
-    "text": "The cellular organelle that is conspicuously absent in higher plant cells is:",
+    "difficulty": "Medium",
+    "text": "Vertebrates are believed to have evolved from common ancestors and develop a phylogenetic relationship by having a:",
     "options": [
       {
         "key": "A",
-        "text": "centriole"
+        "text": "skeletal system"
       },
       {
         "key": "B",
-        "text": "mitochondria"
+        "text": "body covered with hair"
       },
       {
         "key": "C",
-        "text": "chloroplast"
+        "text": "endocrine system"
       },
       {
         "key": "D",
-        "text": "ribosome"
+        "text": "homologous structure"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nHomologous structures (such as the pentadactyl limb in humans, birds, whales, and bats) share the same basic anatomical plan inherited from a common ancestor, providing direct evidence of phylogenetic relationship.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99462,
+    "questionNumber": 17,
+    "subject": "Biology",
+    "topic": "Excretory System",
+    "subtopic": "Excretion in Earthworm",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "The main excretory product of the earthworm is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "urea"
+      },
+      {
+        "key": "B",
+        "text": "carbon dioxide"
+      },
+      {
+        "key": "C",
+        "text": "uric acid"
+      },
+      {
+        "key": "D",
+        "text": "ammonia"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Centrioles are barrel-shaped organelles found in animal cells to organize mitotic spindle fibers. Higher plant cells do not possess centrioles; their mitotic spindle is organized directly by nuclear microtubule organizing centres.",
+    "explanation": "Chalkboard Step-by-Step:\nEarthworms excrete through segmented nephridia. When in terrestrial damp soil, earthworms are ureotelic, excreting predominantly urea to conserve body water.",
     "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
-  },
-  {
-    "id": 99116,
-    "questionNumber": 16,
-    "exam": "JAMB",
-    "subject": "Biology",
-    "topic": "Organization of Life",
-    "subtopic": "Levels of Organization",
-    "year": 2026,
-    "difficulty": "Easy",
-    "text": "In the structural hierarchy of living organisms: [CELL (I)] → [TISSUE (II)] → [ORGAN (III)] → [SYSTEM (IV)], the flower of an angiosperm belongs to:",
-    "options": [
-      {
-        "key": "A",
-        "text": "I"
-      },
-      {
-        "key": "B",
-        "text": "II"
-      },
-      {
-        "key": "C",
-        "text": "III"
-      },
-      {
-        "key": "D",
-        "text": "IV"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "In flowering plants, the flower is composed of multiple tissues (sepals, petals, stamens, carpels) functioning together as a specialized reproductive organ (Level III).",
-    "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
-  },
-  {
-    "id": 99117,
-    "questionNumber": 17,
-    "exam": "JAMB",
-    "subject": "Biology",
-    "topic": "Animal Nutrition & Physiology",
-    "subtopic": "Essential Mineral Elements",
-    "year": 2026,
-    "difficulty": "Easy",
-    "text": "The mineral element required for the synthesis and formation of red blood cells in animals is:",
-    "options": [
-      {
-        "key": "A",
-        "text": "iodine"
-      },
-      {
-        "key": "B",
-        "text": "sodium"
-      },
-      {
-        "key": "C",
-        "text": "iron"
-      },
-      {
-        "key": "D",
-        "text": "calcium"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Iron (Fe²⁺) is the core constituent of the haem moiety in hemoglobin. Deficiency of dietary iron impairs erythrocyte maturation, causing microcytic nutritional anemia.",
-    "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   },
   {
     "id": 99118,
@@ -2343,15 +2345,312 @@
     "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
   },
   {
-    "id": 99122,
+    "id": 99214,
     "questionNumber": 22,
-    "exam": "JAMB",
     "subject": "Mathematics",
-    "topic": "Probability",
-    "subtopic": "Permutations of Repeated Letters",
+    "topic": "Algebra",
+    "subtopic": "Solving Linear Inequalities",
     "year": 2026,
     "difficulty": "Medium",
-    "text": "In how many distinct ways can the letters of the word PATAPATA be arranged?",
+    "text": "Find the range of values of x for which 5 - 3x ≥ 17.",
+    "options": [
+      {
+        "key": "A",
+        "text": "x ≥ -4"
+      },
+      {
+        "key": "B",
+        "text": "x ≤ -4"
+      },
+      {
+        "key": "C",
+        "text": "x > -4"
+      },
+      {
+        "key": "D",
+        "text": "x < 4"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\n5 - 3x ≥ 17\n-3x ≥ 17 - 5\n-3x ≥ 12\nDividing by a negative number (-3) reverses the inequality sign:\nx ≤ 12 / -3 ⇒ x ≤ -4.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99200,
+    "questionNumber": 1,
+    "subject": "Mathematics",
+    "topic": "Sets",
+    "subtopic": "Set Operations & Intersection",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "If M = {2, 3, 4, 5, 6}, P = {1, 3, 5, 7, 9} and Q = {2, 5}, find (M ∩ P) ∪ Q.",
+    "options": [
+      {
+        "key": "A",
+        "text": "{2, 3, 5, 7}"
+      },
+      {
+        "key": "B",
+        "text": "{2, 3, 5}"
+      },
+      {
+        "key": "C",
+        "text": "{2, 5}"
+      },
+      {
+        "key": "D",
+        "text": "{3, 5, 7}"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\n1. Find M ∩ P (elements in both M and P): M ∩ P = {3, 5}.\n2. Find (M ∩ P) ∪ Q: union with Q = {2, 5}.\n{3, 5} ∪ {2, 5} = {2, 3, 5}.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99201,
+    "questionNumber": 2,
+    "subject": "Mathematics",
+    "topic": "Sets",
+    "subtopic": "Cardinality & Number Properties",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Find the cardinality of the set {Perfect cubes between 1 and 30}.",
+    "options": [
+      {
+        "key": "A",
+        "text": "3"
+      },
+      {
+        "key": "B",
+        "text": "4"
+      },
+      {
+        "key": "C",
+        "text": "5"
+      },
+      {
+        "key": "D",
+        "text": "2"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nPerfect cubes: 1³ = 1, 2³ = 8, 3³ = 27, 4³ = 64.\nThe perfect cubes strictly between 1 and 30 are 8 and 27.\nThe set is {8, 27}, which has 2 elements. Cardinality = 2.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99202,
+    "questionNumber": 3,
+    "subject": "Mathematics",
+    "topic": "Geometry",
+    "subtopic": "Circle Theorems & Cyclic Quadrilaterals",
+    "year": 2026,
+    "difficulty": "Hard",
+    "text": "In the diagram, ∠RPS = 50°, ∠RPQ = 30° and PQ = QR. Find the value of ∠PRS.",
+    "imageUrl": "/diagrams/math_cyclic_quad_q3_2026.png",
+    "options": [
+      {
+        "key": "A",
+        "text": "60°"
+      },
+      {
+        "key": "B",
+        "text": "70°"
+      },
+      {
+        "key": "C",
+        "text": "50°"
+      },
+      {
+        "key": "D",
+        "text": "80°"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\n1. In ΔPQR, PQ = QR, so ΔPQR is isosceles. Base angles are equal: ∠PRQ = ∠RPQ = 30°.\n2. In ΔPQR, ∠PQR = 180° - (30° + 30°) = 120°.\n3. Since PQRS is a cyclic quadrilateral (all four vertices touch the circle), opposite angles sum to 180°:\n∠PSR + ∠PQR = 180° ⇒ ∠PSR = 180° - 120° = 60°.\n4. Now in ΔPSR, sum of angles = 180°:\n∠PRS = 180° - (∠RPS + ∠PSR) = 180° - (50° + 60°) = 180° - 110° = 70°.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99203,
+    "questionNumber": 8,
+    "subject": "Mathematics",
+    "topic": "Mensuration",
+    "subtopic": "Volume of Solid Shapes",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Calculate the volume of a cube whose length is 3cm.",
+    "options": [
+      {
+        "key": "A",
+        "text": "9cm²"
+      },
+      {
+        "key": "B",
+        "text": "27cm²"
+      },
+      {
+        "key": "C",
+        "text": "9cm³"
+      },
+      {
+        "key": "D",
+        "text": "27cm³"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nVolume of a cube = L³ = (3 cm)³ = 27 cm³.\nNote: Volume is measured in cubic units (cm³), not square units.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99204,
+    "questionNumber": 9,
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "subtopic": "Angles of Elevation",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "The angle of elevation of a top of a vertical mast from a point on the ground level 300m away from the foot of the mast is 45°. How high is the mast?",
+    "options": [
+      {
+        "key": "A",
+        "text": "400m"
+      },
+      {
+        "key": "B",
+        "text": "300m"
+      },
+      {
+        "key": "C",
+        "text": "250m"
+      },
+      {
+        "key": "D",
+        "text": "450m"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nLet h be the height of the mast.\ntan(θ) = Opposite / Adjacent\ntan(45°) = h / 300m\nSince tan(45°) = 1:\n1 = h / 300m ⇒ h = 300m.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99205,
+    "questionNumber": 11,
+    "subject": "Mathematics",
+    "topic": "Sequences and Series",
+    "subtopic": "Arithmetic Progression (A.P)",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "If the second term of an arithmetic progression (A.P) is 5 and the 5th term is 14, find the 8th term of the sequence.",
+    "options": [
+      {
+        "key": "A",
+        "text": "20"
+      },
+      {
+        "key": "B",
+        "text": "23"
+      },
+      {
+        "key": "C",
+        "text": "17"
+      },
+      {
+        "key": "D",
+        "text": "26"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nT₂ = a + d = 5\nT₅ = a + 4d = 14\nSubtracting: (a + 4d) - (a + d) = 14 - 5 ⇒ 3d = 9 ⇒ d = 3.\na = 5 - 3 = 2.\nT₈ = a + 7d = 2 + 7(3) = 2 + 21 = 23.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99206,
+    "questionNumber": 12,
+    "subject": "Mathematics",
+    "topic": "Sequences and Series",
+    "subtopic": "Sum of Arithmetic Progression",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "Find the sum of the first 20 terms of 2 + 5 + 8 + ....",
+    "options": [
+      {
+        "key": "A",
+        "text": "615"
+      },
+      {
+        "key": "B",
+        "text": "620"
+      },
+      {
+        "key": "C",
+        "text": "610"
+      },
+      {
+        "key": "D",
+        "text": "625"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nFirst term a = 2, common difference d = 5 - 2 = 3, n = 20.\nSₙ = (n/2)[2a + (n - 1)d]\nS₂₀ = (20/2)[2(2) + (19)(3)] = 10[4 + 57] = 10(61) = 610.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99207,
+    "questionNumber": 13,
+    "subject": "Mathematics",
+    "topic": "Permutations & Combinations",
+    "subtopic": "Arrangements with Restricted Conditions",
+    "year": 2026,
+    "difficulty": "Hard",
+    "text": "All the letters of the word 'EAMCOT' are arranged in different possible ways. Find the number of such arrangements in which no two vowels are adjacent to each other.",
+    "options": [
+      {
+        "key": "A",
+        "text": "360"
+      },
+      {
+        "key": "B",
+        "text": "720"
+      },
+      {
+        "key": "C",
+        "text": "576"
+      },
+      {
+        "key": "D",
+        "text": "144"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nWord 'EAMCOT' has 6 letters: 3 vowels (E, A, O) and 3 consonants (M, C, T).\n1. Arrange consonants first: _ C₁ _ C₂ _ C₃ _ in 3! = 6 ways.\n2. The vowels must occupy the 4 spaces (before, between, after) so none are adjacent: ⁴P₃ = 4 × 3 × 2 = 24 ways.\nTotal = 3! × ⁴P₃ = 6 × 24 = 144 ways.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99208,
+    "questionNumber": 14,
+    "subject": "Mathematics",
+    "topic": "Permutations & Combinations",
+    "subtopic": "Permutations of Repeated Elements",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "In how many ways can the letters of the word PATAPATA be arranged?",
     "options": [
       {
         "key": "A",
@@ -2371,8 +2670,2324 @@
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Chalkboard Calculation:\nTotal letters n = 8 (P = 2, A = 4, T = 2).\nNumber of distinct arrangements = n! / (p! × a! × t!)\n= 8! / (2! × 4! × 2!)\n= 40,320 / (2 × 24 × 2) = 40,320 / 96 = 420 ways.",
+    "explanation": "Chalkboard Step-by-Step:\nIn PATAPATA: Total n = 8 letters.\nP appears 2 times, A appears 4 times, T appears 2 times.\nNumber of arrangements = 8! / (2! × 4! × 2!) = 40320 / (2 × 24 × 2) = 40320 / 96 = 420 ways.",
     "repeatBadge": "2026 JAMB Official Live CBT Paper",
-    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot"
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99209,
+    "questionNumber": 15,
+    "subject": "Mathematics",
+    "topic": "Calculus",
+    "subtopic": "Indefinite Integration",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "Integrate y = 4x³ + 2x + cos x.",
+    "options": [
+      {
+        "key": "A",
+        "text": "x⁴ - x² + sin x + C"
+      },
+      {
+        "key": "B",
+        "text": "x⁴ + x² - sin x + C"
+      },
+      {
+        "key": "C",
+        "text": "x⁴ + x² + sin x + C"
+      },
+      {
+        "key": "D",
+        "text": "x⁴ - x² - sin x + C"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\n∫(4x³ + 2x + cos x) dx\n= 4(x⁴/4) + 2(x²/2) + sin x + C\n= x⁴ + x² + sin x + C.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99215,
+    "questionNumber": 23,
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "subtopic": "Simple Probability of Dice",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Find the probability of getting an even number in a single throw of a six-faced die.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2/3"
+      },
+      {
+        "key": "B",
+        "text": "1/6"
+      },
+      {
+        "key": "C",
+        "text": "1/3"
+      },
+      {
+        "key": "D",
+        "text": "1/2"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nSample space S = {1, 2, 3, 4, 5, 6} (6 outcomes).\nEven numbers E = {2, 4, 6} (3 outcomes).\nP(Even) = 3 / 6 = 1/2.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99216,
+    "questionNumber": 36,
+    "subject": "Mathematics",
+    "topic": "Statistics",
+    "subtopic": "Measures of Dispersion & Percentiles",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "In data representation, the 75th percentile is also known as the:",
+    "options": [
+      {
+        "key": "A",
+        "text": "2nd decile"
+      },
+      {
+        "key": "B",
+        "text": "1st quartile"
+      },
+      {
+        "key": "C",
+        "text": "3rd quartile"
+      },
+      {
+        "key": "D",
+        "text": "3rd percentile"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nIn statistics, the 25th percentile (P₂₅) is the 1st or lower quartile (Q₁), the 50th percentile (P₅₀) is the median (Q₂), and the 75th percentile (P₇₅) is the 3rd or upper quartile (Q₃).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99401,
+    "questionNumber": 11,
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "subtopic": "Isomerism",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Ethanol and dimethyl ether are examples of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "position isomers"
+      },
+      {
+        "key": "B",
+        "text": "functional group isomers"
+      },
+      {
+        "key": "C",
+        "text": "geometric isomers"
+      },
+      {
+        "key": "D",
+        "text": "chain isomers"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nEthanol (CH₃CH₂OH) is an alkanol, while dimethyl ether (CH₃OCH₃) is an ether.\nBoth share the identical molecular formula C₂H₆O, but belong to different homologous series with different functional groups (-OH vs -O-).\nTherefore, they are functional group isomers.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99402,
+    "questionNumber": 12,
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "subtopic": "IUPAC Nomenclature of Alkanols",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "The IUPAC nomenclature of the compound shown in the diagram is:",
+    "imageUrl": "/diagrams/chem_iupac_q12_2026.png",
+    "options": [
+      {
+        "key": "A",
+        "text": "2-methyl propan-1-ol"
+      },
+      {
+        "key": "B",
+        "text": "2-methyl propan-2-ol"
+      },
+      {
+        "key": "C",
+        "text": "propan-1-ol"
+      },
+      {
+        "key": "D",
+        "text": "butan-1-ol"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\n1. Longest continuous carbon chain containing the -OH group has 3 carbon atoms → propane.\n2. Both the hydroxyl group (-OH) and the methyl substituent (-CH₃) are bonded to carbon 2.\n3. IUPAC name is 2-methylpropan-2-ol (tertiary butyl alcohol).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99403,
+    "questionNumber": 13,
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "subtopic": "Hydrocarbons",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The difference in the relative molecular mass between hexene and hexyne is: [H = 1, C = 12]",
+    "options": [
+      {
+        "key": "A",
+        "text": "2"
+      },
+      {
+        "key": "B",
+        "text": "4"
+      },
+      {
+        "key": "C",
+        "text": "12"
+      },
+      {
+        "key": "D",
+        "text": "14"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\n1. Hexene formula: C₆H₁₂ (molar mass = 6(12) + 12(1) = 84 g/mol).\n2. Hexyne formula: C₆H₁₀ (molar mass = 6(12) + 10(1) = 82 g/mol).\n3. Difference = 84 - 82 = 2 (corresponding to 2 hydrogen atoms).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99404,
+    "questionNumber": 14,
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "subtopic": "Functional Groups & Isomers",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "From the table shown in the diagram, which of these two compounds can form functional group isomers?",
+    "imageUrl": "/diagrams/chem_functional_isomers_table_q14_2026.png",
+    "options": [
+      {
+        "key": "A",
+        "text": "S and T"
+      },
+      {
+        "key": "B",
+        "text": "T and V"
+      },
+      {
+        "key": "C",
+        "text": "S and V"
+      },
+      {
+        "key": "D",
+        "text": "T and U"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nIn the table:\nS = ROR' (ether)\nV = ROH' (alkanol)\nAlkanols and ethers with the general formula CₙH₂ₙ₊₂O form functional group isomers.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99405,
+    "questionNumber": 15,
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "subtopic": "Fats and Oils",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The trihydric alkanol obtained from the hydrolysis of fats and oils is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "glycerol"
+      },
+      {
+        "key": "B",
+        "text": "glycol"
+      },
+      {
+        "key": "C",
+        "text": "ethanol"
+      },
+      {
+        "key": "D",
+        "text": "methanol"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nFats and oils are triesters of propane-1,2,3-triol (glycerol) and long-chain fatty acids.\nHydrolysis yields glycerol (propane-1,2,3-triol) and fatty acid salts.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99406,
+    "questionNumber": 16,
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "subtopic": "Esterification",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The reaction between ethanoic acid and ethanol in the presence of concentrated H₂SO₄ produces:",
+    "options": [
+      {
+        "key": "A",
+        "text": "methyl ethanoate"
+      },
+      {
+        "key": "B",
+        "text": "ethyl methanoate"
+      },
+      {
+        "key": "C",
+        "text": "diethyl ether"
+      },
+      {
+        "key": "D",
+        "text": "ethyl ethanoate"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nCH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O.\nThe ester produced is ethyl ethanoate, with a sweet fruity smell.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99407,
+    "questionNumber": 17,
+    "subject": "Chemistry",
+    "topic": "Metals & Compounds",
+    "subtopic": "Corrosion of Iron",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Rust is chemically represented as:",
+    "options": [
+      {
+        "key": "A",
+        "text": "anhydrous iron(II) oxide"
+      },
+      {
+        "key": "B",
+        "text": "hydrated iron(II) oxide"
+      },
+      {
+        "key": "C",
+        "text": "hydrated iron(III) oxide"
+      },
+      {
+        "key": "D",
+        "text": "iron(III) trioxocarbonate"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nRusting requires both oxygen and moisture.\nThe reddish-brown coating formed is hydrated iron(III) oxide: Fe₂O₃·xH₂O.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99408,
+    "questionNumber": 19,
+    "subject": "Chemistry",
+    "topic": "Metals & Alloys",
+    "subtopic": "Alloys",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "Permalloy is an alloy composed mainly of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "iron and nickel"
+      },
+      {
+        "key": "B",
+        "text": "copper and zinc"
+      },
+      {
+        "key": "C",
+        "text": "iron and chromium"
+      },
+      {
+        "key": "D",
+        "text": "lead and tin"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nPermalloy is a magnetic alloy consisting of nickel (approx 80%) and iron (approx 20%), known for high magnetic permeability.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99409,
+    "questionNumber": 20,
+    "subject": "Chemistry",
+    "topic": "Chemical Reactions",
+    "subtopic": "Acids and Metals",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "When a reactive metal reacts with a dilute mineral acid, the products formed are:",
+    "options": [
+      {
+        "key": "A",
+        "text": "salt and oxygen"
+      },
+      {
+        "key": "B",
+        "text": "salt and water"
+      },
+      {
+        "key": "C",
+        "text": "base and hydrogen"
+      },
+      {
+        "key": "D",
+        "text": "salt and hydrogen"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nReactive metal + Dilute acid → Salt + Hydrogen gas (H₂).\nExample: Zn + 2HCl → ZnCl₂ + H₂↑.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99410,
+    "questionNumber": 21,
+    "subject": "Chemistry",
+    "topic": "Environmental Chemistry",
+    "subtopic": "Air Pollution",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Which of the following is a dangerous atmospheric pollutant produced by incomplete combustion of fossil fuels?",
+    "options": [
+      {
+        "key": "A",
+        "text": "CO₂"
+      },
+      {
+        "key": "B",
+        "text": "N₂"
+      },
+      {
+        "key": "C",
+        "text": "O₂"
+      },
+      {
+        "key": "D",
+        "text": "CO"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nCarbon monoxide (CO) is a toxic, colorless, odorless gas produced by incomplete combustion of carbon fuels, binding irreversibly to hemoglobin.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99411,
+    "questionNumber": 22,
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "subtopic": "Rate Law & Half Life",
+    "year": 2026,
+    "difficulty": "Hard",
+    "text": "A first-order reaction has a rate constant of 4.5 x 10⁻³ s⁻¹. What is its half-life (t₁/₂)?",
+    "options": [
+      {
+        "key": "A",
+        "text": "308 s"
+      },
+      {
+        "key": "B",
+        "text": "225 s"
+      },
+      {
+        "key": "C",
+        "text": "77 s"
+      },
+      {
+        "key": "D",
+        "text": "154 s"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nFor a first-order reaction:\nt₁/₂ = ln(2) / k = 0.693 / (4.5 x 10⁻³ s⁻¹)\nt₁/₂ = 693 / 4.5 = 154 s.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99412,
+    "questionNumber": 23,
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "subtopic": "Industrial Electrolysis",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "In the Castner-Kellner cell for the electrolysis of concentrated brine, the products collected are:",
+    "options": [
+      {
+        "key": "A",
+        "text": "chlorine and hydrogen at mercury cathode"
+      },
+      {
+        "key": "B",
+        "text": "sodium and oxygen"
+      },
+      {
+        "key": "C",
+        "text": "chlorine at anode and sodium amalgam at cathode"
+      },
+      {
+        "key": "D",
+        "text": "hydrogen and oxygen"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nIn the Castner-Kellner process using a flowing mercury cathode:\nAnode (graphite): 2Cl⁻ → Cl₂ + 2e⁻ (chlorine gas).\nCathode (mercury): Na⁺ + e⁻ + Hg → Na/Hg (sodium amalgam, later reacted with water to yield NaOH and H₂).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99413,
+    "questionNumber": 24,
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws",
+    "year": 2026,
+    "difficulty": "Hard",
+    "text": "The same quantity of electricity that deposits 15.87 g of silver (Ag) from a solution of AgNO₃ will deposit what mass of magnesium from molten MgCl₂? [Ag = 108, Mg = 24, 1 F = 96,500 C]",
+    "options": [
+      {
+        "key": "A",
+        "text": "3.53 g"
+      },
+      {
+        "key": "B",
+        "text": "0.88 g"
+      },
+      {
+        "key": "C",
+        "text": "1.76 g"
+      },
+      {
+        "key": "D",
+        "text": "7.05 g"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\n1. Moles of electrons Q/F = mass of Ag / equivalent mass of Ag = 15.87 / (108 / 1) = 0.1469 F.\n2. Equivalent mass of Mg = Molar mass / valency = 24 / 2 = 12 g/equiv.\n3. Mass of Mg deposited = 0.1469 F x 12 g/F = 1.763 g ≈ 1.76 g.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99414,
+    "questionNumber": 25,
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "subtopic": "Factors Affecting Reaction Rates",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Which of the following factors does not affect the rate of a chemical reaction?",
+    "options": [
+      {
+        "key": "A",
+        "text": "temperature"
+      },
+      {
+        "key": "B",
+        "text": "volume of container alone without pressure change"
+      },
+      {
+        "key": "C",
+        "text": "catalyst"
+      },
+      {
+        "key": "D",
+        "text": "concentration of reactants"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nFactors affecting reaction rate are: temperature, concentration/pressure, surface area, and catalyst.\nVolume alone without alteration of concentration/pressure does not alter rate.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99415,
+    "questionNumber": 26,
+    "subject": "Chemistry",
+    "topic": "Colloids & Solutions",
+    "subtopic": "Aerosols & Fog",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Fog is a colloidal system consisting of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "liquid dispersed in gas"
+      },
+      {
+        "key": "B",
+        "text": "gas dispersed in liquid"
+      },
+      {
+        "key": "C",
+        "text": "solid dispersed in gas"
+      },
+      {
+        "key": "D",
+        "text": "liquid dispersed in liquid"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nFog is a liquid aerosol where fine water droplets (liquid dispersed phase) are dispersed in air (gas dispersion medium).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99416,
+    "questionNumber": 27,
+    "subject": "Chemistry",
+    "topic": "Stoichiometry & Solutions",
+    "subtopic": "Dilution of Solutions",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "What is the concentration of a solution prepared by diluting 20 cm³ of 0.5 mol dm⁻³ H₂SO₄ to a final volume of 500 cm³?",
+    "options": [
+      {
+        "key": "A",
+        "text": "0.02 mol dm⁻³"
+      },
+      {
+        "key": "B",
+        "text": "0.05 mol dm⁻³"
+      },
+      {
+        "key": "C",
+        "text": "0.20 mol dm⁻³"
+      },
+      {
+        "key": "D",
+        "text": "0.10 mol dm⁻³"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nUsing dilution equation: C₁V₁ = C₂V₂\n(0.5 mol dm⁻³) x (20 cm³) = C₂ x (500 cm³)\n10 = 500 C₂\nC₂ = 10 / 500 = 0.02 mol dm⁻³.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99417,
+    "questionNumber": 28,
+    "subject": "Chemistry",
+    "topic": "Nuclear Chemistry",
+    "subtopic": "Nuclear Reactions",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "The nuclear reaction ²³⁸₉₂U + ¹₀n → ²³⁹₉₂U produces an unstable nucleus that undergoes radioactive decay. The produced ²³⁹₉₂U is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "an alpha emitter"
+      },
+      {
+        "key": "B",
+        "text": "a radioactive isotope of uranium"
+      },
+      {
+        "key": "C",
+        "text": "a stable lead isotope"
+      },
+      {
+        "key": "D",
+        "text": "a gamma ray beam only"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\n²³⁸₉₂U absorbs a neutron to produce ²³⁹₉₂U (Uranium-239), which has the same atomic number (92) but different mass number, hence it is a radioactive isotope of uranium (half-life ~23.5 minutes) that beta-decays to neptunium.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99418,
+    "questionNumber": 29,
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "subtopic": "Molecular Geometry",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The shape of the carbon dioxide (CO₂) molecule is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "tetrahedral"
+      },
+      {
+        "key": "B",
+        "text": "linear"
+      },
+      {
+        "key": "C",
+        "text": "V-shaped / bent"
+      },
+      {
+        "key": "D",
+        "text": "trigonal planar"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nCO₂ has two double bonds (O=C=O) and no lone pairs on the central carbon atom (sp hybridization). The bond angle is 180°, giving it a linear geometry.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99419,
+    "questionNumber": 30,
+    "subject": "Chemistry",
+    "topic": "Atomic Structure",
+    "subtopic": "Discovery of Subatomic Particles",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The discharge tube experiments that led to the discovery of cathode rays and electrons were conducted by:",
+    "options": [
+      {
+        "key": "A",
+        "text": "J. J. Thomson"
+      },
+      {
+        "key": "B",
+        "text": "John Dalton"
+      },
+      {
+        "key": "C",
+        "text": "Ernest Rutherford"
+      },
+      {
+        "key": "D",
+        "text": "James Chadwick"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nJ. J. Thomson in 1897 used discharge tubes to demonstrate that cathode rays consist of negatively charged subatomic particles, now named electrons.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99427,
+    "questionNumber": 39,
+    "subject": "Chemistry",
+    "topic": "Gas Laws",
+    "subtopic": "Ideal Gas Equation",
+    "year": 2026,
+    "difficulty": "Hard",
+    "text": "The volume occupied by 1 mole of an ideal gas at a temperature of 13°C and a pressure of 1.58 atm is: [R = 0.082 atm dm³ K⁻¹ mol⁻¹]",
+    "options": [
+      {
+        "key": "A",
+        "text": "14.84 cm³"
+      },
+      {
+        "key": "B",
+        "text": "0.64 dm³"
+      },
+      {
+        "key": "C",
+        "text": "0.64 cm³"
+      },
+      {
+        "key": "D",
+        "text": "14.84 dm³"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\n1. T = 13 + 273 = 286 K.\n2. PV = nRT ⟹ V = nRT / P\n3. V = (1 x 0.082 x 286) / 1.58 = 23.452 / 1.58 = 14.84 dm³.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99428,
+    "questionNumber": 40,
+    "subject": "Chemistry",
+    "topic": "Gas Laws",
+    "subtopic": "Graham's Law of Diffusion",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "At a given temperature and pressure, a gas X diffuses twice as fast as gas Y. It follows that:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Gas Y is monoatomic"
+      },
+      {
+        "key": "B",
+        "text": "Gas Y is two times as heavy as gas X"
+      },
+      {
+        "key": "C",
+        "text": "Gas Y is four times as heavy as gas X"
+      },
+      {
+        "key": "D",
+        "text": "Gas X is diatomic"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nGraham's Law: R_X / R_Y = √(M_Y / M_X)\nGiven R_X / R_Y = 2:\n2 = √(M_Y / M_X) ⟹ 4 = M_Y / M_X ⟹ M_Y = 4 M_X.\nThus, Gas Y is four times as heavy (dense) as gas X.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99429,
+    "questionNumber": 1,
+    "subject": "Physics",
+    "topic": "Vectors",
+    "subtopic": "Vector Resolution & Resultant",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "A man moves 6.0m East and then 10.0m N30°E. How far is he from his starting point?",
+    "options": [
+      {
+        "key": "A",
+        "text": "12.0m"
+      },
+      {
+        "key": "B",
+        "text": "17.0m"
+      },
+      {
+        "key": "C",
+        "text": "15.0m"
+      },
+      {
+        "key": "D",
+        "text": "14.0 m"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\n1. First displacement: 6.0 m East → x₁ = 6.0, y₁ = 0.\n2. Second displacement: 10.0 m on bearing N30°E (30° east of north, angle with east axis is 60°):\nx₂ = 10 sin(30°) = 5.0 m.\ny₂ = 10 cos(30°) = 10(0.8660) = 8.66 m.\n3. Total components: X = 6.0 + 5.0 = 11.0 m; Y = 8.66 m.\n4. Distance R = √(11.0² + 8.66²) = √(121 + 75) = √196 = 14.0 m.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99430,
+    "questionNumber": 2,
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "subtopic": "Friction & Newton's Second Law",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "A force of 18 N pulls a 40 kg mass on a horizontal floor at 0.3 ms⁻². Find the coefficient of friction. [g = 10 ms⁻²]",
+    "options": [
+      {
+        "key": "A",
+        "text": "0.003"
+      },
+      {
+        "key": "B",
+        "text": "0.015"
+      },
+      {
+        "key": "C",
+        "text": "0.300"
+      },
+      {
+        "key": "D",
+        "text": "0.600"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\n1. F_net = ma ⟹ F - F_r = ma\n18 - F_r = 40 x 0.3 = 12 N\nF_r = 18 - 12 = 6 N.\n2. Normal reaction R = mg = 40 x 10 = 400 N.\n3. F_r = μR ⟹ μ = F_r / R = 6 / 400 = 0.015.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99431,
+    "questionNumber": 3,
+    "subject": "Physics",
+    "topic": "Machines",
+    "subtopic": "Inclined Plane",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "A plane inclined at 45° was used to move a load to a height of 20 m. Calculate the distance moved by the effort.",
+    "options": [
+      {
+        "key": "A",
+        "text": "28.28 m"
+      },
+      {
+        "key": "B",
+        "text": "16.42 m"
+      },
+      {
+        "key": "C",
+        "text": "34.36 m"
+      },
+      {
+        "key": "D",
+        "text": "6.71 m"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nFor an inclined plane:\nsin(45°) = height / slant length = h / L\nL = 20 / sin(45°) = 20 / (1 / √2) = 20√2 = 20 x 1.4142 = 28.28 m.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99432,
+    "questionNumber": 5,
+    "subject": "Physics",
+    "topic": "Current Electricity",
+    "subtopic": "Electric Power",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "A 6V battery delivers current through an external load of 1.25Ω. What is the power supplied?",
+    "options": [
+      {
+        "key": "A",
+        "text": "12.0W"
+      },
+      {
+        "key": "B",
+        "text": "72.0W"
+      },
+      {
+        "key": "C",
+        "text": "18.0W"
+      },
+      {
+        "key": "D",
+        "text": "28.8W"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nP = V² / R = 6² / 1.25 = 36 / 1.25 = 28.8 W.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99433,
+    "questionNumber": 6,
+    "subject": "Physics",
+    "topic": "Current Electricity",
+    "subtopic": "Power & Current",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "A 500W electric oven plugged into a 220 V source will consume an electric current of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "4.88A"
+      },
+      {
+        "key": "B",
+        "text": "3.23A"
+      },
+      {
+        "key": "C",
+        "text": "2.27A"
+      },
+      {
+        "key": "D",
+        "text": "6.43A"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nP = I x V ⟹ I = P / V = 500 / 220 = 2.2727 A ≈ 2.27 A.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99434,
+    "questionNumber": 9,
+    "subject": "Physics",
+    "topic": "Modern Physics",
+    "subtopic": "Semiconductors & Doping",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "By adding pentavalent impurity atoms to an intrinsic semiconductor material, the number of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "free electron double"
+      },
+      {
+        "key": "B",
+        "text": "holes increased"
+      },
+      {
+        "key": "C",
+        "text": "free electrons increased"
+      },
+      {
+        "key": "D",
+        "text": "atomic number increases"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nPentavalent impurities (e.g. arsenic, phosphorus) have 5 valence electrons. 4 bond with silicon atoms, leaving 1 extra electron per dopant atom free to conduct. This increases the number of free conduction electrons, forming an n-type semiconductor.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99437,
+    "questionNumber": 13,
+    "subject": "Physics",
+    "topic": "Mechanics",
+    "subtopic": "Equilibrium & Moments",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "Weight of 50 N and 80 N are hung as shown in the diagram. Find the moment at point O.",
+    "imageUrl": "/diagrams/phys_moments_lever_q13_2026.png",
+    "options": [
+      {
+        "key": "A",
+        "text": "moment of 50 N is 15 Nm and 80 N is 4 Nm"
+      },
+      {
+        "key": "B",
+        "text": "moment of 50 N is 200 Nm and 80 N is 400 Nm"
+      },
+      {
+        "key": "C",
+        "text": "moment of 50 N is 150 Nm and 80 N is 320 Nm"
+      },
+      {
+        "key": "D",
+        "text": "moment of 50 N is 80 Nm and 80 N is 80 Nm"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nMoment = Force x Perpendicular distance from pivot O.\n1. Moment of 50 N = 50 N x 3 m = 150 Nm (anticlockwise).\n2. Moment of 80 N = 80 N x 4 m = 320 Nm (clockwise).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99438,
+    "questionNumber": 15,
+    "subject": "Physics",
+    "topic": "Thermal Physics",
+    "subtopic": "Thermometry",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The thermometric property of mercury is based on the change in:",
+    "options": [
+      {
+        "key": "A",
+        "text": "resistance with temperature"
+      },
+      {
+        "key": "B",
+        "text": "pressure with temperature"
+      },
+      {
+        "key": "C",
+        "text": "density with temperature"
+      },
+      {
+        "key": "D",
+        "text": "volume with temperature"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nMercury thermometers rely on the uniform thermal expansion of liquid mercury volume as temperature changes.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99439,
+    "questionNumber": 16,
+    "subject": "Physics",
+    "topic": "Thermal Physics",
+    "subtopic": "Gas Laws",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The graphical representation of pressure law is always a straight line passing through the origin only if the temperature is measured in:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rankine"
+      },
+      {
+        "key": "B",
+        "text": "thermodynamic (Kelvin)"
+      },
+      {
+        "key": "C",
+        "text": "Celsius"
+      },
+      {
+        "key": "D",
+        "text": "Fahrenheit"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nPressure Law (Gay-Lussac's Law) states P ∝ T only when T is measured on the absolute thermodynamic scale (Kelvin). The graph of P against T(K) passes directly through the origin (0 K).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99440,
+    "questionNumber": 18,
+    "subject": "Physics",
+    "topic": "Alternating Current",
+    "subtopic": "AC Waveforms",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "An alternating current, having the wave form shown in the diagram below is represented by X = X₀ sin ωt. Which of the following represents X₀?",
+    "imageUrl": "/diagrams/phys_ac_waveform_2026.png",
+    "options": [
+      {
+        "key": "A",
+        "text": "RT"
+      },
+      {
+        "key": "B",
+        "text": "OR"
+      },
+      {
+        "key": "C",
+        "text": "PQ"
+      },
+      {
+        "key": "D",
+        "text": "OS"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nIn sinusoidal expression X = X₀ sin ωt, X₀ represents the peak amplitude of the alternating waveform, measured from the zero axis (Q) to the maximum crest (P), which is segment PQ.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99441,
+    "questionNumber": 21,
+    "subject": "Physics",
+    "topic": "Thermal Physics",
+    "subtopic": "Gas Laws",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "For a gas, which pair of variables is inversely proportional to each other (provided other conditions are constant) where P=pressure, T=temperature, V=volume and n=number of molecules?",
+    "options": [
+      {
+        "key": "A",
+        "text": "n, P"
+      },
+      {
+        "key": "B",
+        "text": "P, T"
+      },
+      {
+        "key": "C",
+        "text": "V, T"
+      },
+      {
+        "key": "D",
+        "text": "P, V"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nAccording to Boyle's law, for a fixed mass of gas at constant temperature, pressure is inversely proportional to volume (P ∝ 1/V).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99448,
+    "questionNumber": 31,
+    "subject": "Physics",
+    "topic": "Fluids",
+    "subtopic": "Relative Density & Upthrust",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "A pendulum bob displaces 10 N and 15 N when totally immersed in water and liquid Y respectively. Calculate the relative density of Y.",
+    "options": [
+      {
+        "key": "A",
+        "text": "5.00"
+      },
+      {
+        "key": "B",
+        "text": "1.50"
+      },
+      {
+        "key": "C",
+        "text": "0.67"
+      },
+      {
+        "key": "D",
+        "text": "2.50"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nRelative Density = (Weight of liquid displaced) / (Weight of equal volume of water displaced)\nRelative Density = Upthrust in Y / Upthrust in water = 15 N / 10 N = 1.50.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99449,
+    "questionNumber": 33,
+    "subject": "Physics",
+    "topic": "Work, Energy & Power",
+    "subtopic": "Power",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "A boy uses a single string pulley system to lift a mass of 20kg moving with a velocity of 5ms⁻¹. What is the power developed by the boy if g = 10ms⁻²?",
+    "options": [
+      {
+        "key": "A",
+        "text": "40W"
+      },
+      {
+        "key": "B",
+        "text": "100W"
+      },
+      {
+        "key": "C",
+        "text": "250W"
+      },
+      {
+        "key": "D",
+        "text": "1000W"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nForce F = mg = 20 x 10 = 200 N.\nPower P = F x v = 200 N x 5 ms⁻¹ = 1000 W.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99450,
+    "questionNumber": 36,
+    "subject": "Physics",
+    "topic": "Waves & Sound",
+    "subtopic": "Speed of Sound & Temperature",
+    "year": 2026,
+    "difficulty": "Hard",
+    "text": "The speed of sound in a medium at 0 °C is 1000 ms⁻¹, what is its speed at 25 °C?",
+    "options": [
+      {
+        "key": "A",
+        "text": "1043 ms⁻¹"
+      },
+      {
+        "key": "B",
+        "text": "1044 ms⁻¹"
+      },
+      {
+        "key": "C",
+        "text": "1045 ms⁻¹"
+      },
+      {
+        "key": "D",
+        "text": "1042 ms⁻¹"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nSpeed of sound is proportional to the square root of absolute temperature:\nv_T / v₀ = √(T / T₀)\nv₂₅ = 1000 x √((273 + 25) / 273) = 1000 x √(298 / 273) = 1000 x √1.091575 = 1000 x 1.04478 = 1045 ms⁻¹.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99451,
+    "questionNumber": 6,
+    "subject": "Biology",
+    "topic": "Digestive System",
+    "subtopic": "Intestinal Microflora",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The bacteria in the large intestine of man synthesises:",
+    "options": [
+      {
+        "key": "A",
+        "text": "vitamins and mineral"
+      },
+      {
+        "key": "B",
+        "text": "amino acids and minerals"
+      },
+      {
+        "key": "C",
+        "text": "amino acids and vitamins"
+      },
+      {
+        "key": "D",
+        "text": "vitamins and glucose"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nSymbiotic gut bacteria (such as Escherichia coli) living in the human colon synthesize essential vitamins, notably Vitamin K and several B-complex vitamins, along with releasing trace mineral ions.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99452,
+    "questionNumber": 7,
+    "subject": "Biology",
+    "topic": "Plant Anatomy & Tissues",
+    "subtopic": "Supporting Tissues",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The sclerenchyma tissues consist of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "living cell"
+      },
+      {
+        "key": "B",
+        "text": "meristematic cell"
+      },
+      {
+        "key": "C",
+        "text": "tracheid cell"
+      },
+      {
+        "key": "D",
+        "text": "dead cell"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nSclerenchyma consists of dead cells with heavily lignified, thickened secondary walls that provide rigid mechanical support and tensile strength to plant stems.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99453,
+    "questionNumber": 8,
+    "subject": "Biology",
+    "topic": "Ecology",
+    "subtopic": "Ecological Succession",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "A shallow lake gradually filled up with vegetation to become a marsh and eventually a forest is an example of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "climax community"
+      },
+      {
+        "key": "B",
+        "text": "ecosystem"
+      },
+      {
+        "key": "C",
+        "text": "primary succession"
+      },
+      {
+        "key": "D",
+        "text": "secondary succession"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nThis transition (hydrosere) begins in a newly formed aquatic habitat with no prior soil and progresses through reed swamp, marsh, and woodland to a terrestrial forest climax community, characterizing primary succession.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99454,
+    "questionNumber": 9,
+    "subject": "Biology",
+    "topic": "Animal Diversity",
+    "subtopic": "Phylum Nematoda",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Bilateral symmetry, cylindrical bodies and double openings (mouth and anus) are characteristic features of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "hydra"
+      },
+      {
+        "key": "B",
+        "text": "protozoa"
+      },
+      {
+        "key": "C",
+        "text": "protists"
+      },
+      {
+        "key": "D",
+        "text": "nematodes"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nNematodes (roundworms) possess unsegmented, cylindrical bodies, bilateral symmetry, and a complete alimentary tract with both mouth and anus.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99455,
+    "questionNumber": 10,
+    "subject": "Biology",
+    "topic": "Sensory Organs",
+    "subtopic": "Structure of Eye",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The cone in the retina of the eye is an example of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "system"
+      },
+      {
+        "key": "B",
+        "text": "tissue"
+      },
+      {
+        "key": "C",
+        "text": "organ"
+      },
+      {
+        "key": "D",
+        "text": "cell"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nCones (cone cells) are specialized light-sensitive photoreceptor cells situated in the fovea centralis of the retina that mediate photopic (color) vision.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99456,
+    "questionNumber": 11,
+    "subject": "Biology",
+    "topic": "Adaptations",
+    "subtopic": "Dormancy & Environmental Stress",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Which of the following conditions causes aestivation in animals?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rain"
+      },
+      {
+        "key": "B",
+        "text": "Drought"
+      },
+      {
+        "key": "C",
+        "text": "Cold"
+      },
+      {
+        "key": "D",
+        "text": "Wind"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nAestivation (summer dormancy) is a state of animal dormancy characterized by inactivity and lowered metabolic rate entered in response to extreme high temperatures and arid drought conditions.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99457,
+    "questionNumber": 12,
+    "subject": "Biology",
+    "topic": "Respiratory System",
+    "subtopic": "Comparative Respiratory Organs",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "A characteristic feature common to gills and lungs as respiratory organs is that they:",
+    "options": [
+      {
+        "key": "A",
+        "text": "are always exposed to the atmosphere"
+      },
+      {
+        "key": "B",
+        "text": "have surface not kept moist"
+      },
+      {
+        "key": "C",
+        "text": "are internally situated"
+      },
+      {
+        "key": "D",
+        "text": "are highly vascularized"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nBoth lungs and gills require an extensive capillary blood supply (high vascularization) across their thin, moist surface membranes to facilitate rapid gaseous exchange by diffusion.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99463,
+    "questionNumber": 18,
+    "subject": "Biology",
+    "topic": "Excretory System",
+    "subtopic": "Kidney Function & Nephron",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The part of the kidney nephron where selective reabsorption takes place is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Henle's loop"
+      },
+      {
+        "key": "B",
+        "text": "glomerulus"
+      },
+      {
+        "key": "C",
+        "text": "urethra"
+      },
+      {
+        "key": "D",
+        "text": "Bowman's capsule"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nUltrafiltration takes place in Bowman's capsule/glomerulus, while selective reabsorption of essential substances (water, sodium, glucose, ions) occurs in the renal tubules and Henle's loop.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99464,
+    "questionNumber": 19,
+    "subject": "Biology",
+    "topic": "Microorganisms",
+    "subtopic": "Paramecium Structure",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "The depressed side of Paramecium which is lined with cilia leads to a tube-like structure called:",
+    "options": [
+      {
+        "key": "A",
+        "text": "anal pore"
+      },
+      {
+        "key": "B",
+        "text": "oral groove"
+      },
+      {
+        "key": "C",
+        "text": "food vacuole"
+      },
+      {
+        "key": "D",
+        "text": "gullet"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nThe ciliated shallow oral groove on the ventral side sweeps food particles downward into a tubular cytopharynx or gullet, at the end of which food vacuoles are pinched off.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99465,
+    "questionNumber": 20,
+    "subject": "Biology",
+    "topic": "Plant Diversity",
+    "subtopic": "Alternation of Generations",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "Which of the following shows alternation of generations?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Fern"
+      },
+      {
+        "key": "B",
+        "text": "Moss"
+      },
+      {
+        "key": "C",
+        "text": "Liverworts"
+      },
+      {
+        "key": "D",
+        "text": "Spirogyra"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nFerns (pteridophytes) exhibit clear alternation of generations between an independent diploid sporophyte and a free-living haploid gametophyte (prothallus).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99466,
+    "questionNumber": 21,
+    "subject": "Biology",
+    "topic": "Genetics & Variation",
+    "subtopic": "Morphological vs Physiological Variation",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "An example of morphological variation in humans includes:",
+    "options": [
+      {
+        "key": "A",
+        "text": "blood group"
+      },
+      {
+        "key": "B",
+        "text": "ability to taste PTC"
+      },
+      {
+        "key": "C",
+        "text": "tongue rolling"
+      },
+      {
+        "key": "D",
+        "text": "height"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nMorphological variation relates to observable outward anatomical structure (height, skin color, shape of nose). Blood group, PTC tasting, and tongue rolling are physiological/functional variations.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99467,
+    "questionNumber": 22,
+    "subject": "Biology",
+    "topic": "Circulatory System",
+    "subtopic": "Blood Composition & Immunity",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Antibodies are found in the:",
+    "options": [
+      {
+        "key": "A",
+        "text": "blood plasma"
+      },
+      {
+        "key": "B",
+        "text": "blood platelet"
+      },
+      {
+        "key": "C",
+        "text": "white blood cell"
+      },
+      {
+        "key": "D",
+        "text": "red blood cell"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nAlthough produced by B-lymphocytes/plasma cells, functional antibodies (immunoglobulins) circulate dissolved in the liquid blood plasma.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99468,
+    "questionNumber": 23,
+    "subject": "Biology",
+    "topic": "Ecology",
+    "subtopic": "Soil Science",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The soil that contains high humus content is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "loamy"
+      },
+      {
+        "key": "B",
+        "text": "silt"
+      },
+      {
+        "key": "C",
+        "text": "sandy"
+      },
+      {
+        "key": "D",
+        "text": "clay"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nLoam soil has the optimal balance of sand, silt, and clay, and contains abundant decomposing organic matter (humus), giving it high fertility and dark coloration.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99469,
+    "questionNumber": 24,
+    "subject": "Biology",
+    "topic": "Evolution",
+    "subtopic": "Mechanisms of Evolution",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "According to Darwin's theory, the driving force behind evolutionary change is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "genetic drift"
+      },
+      {
+        "key": "B",
+        "text": "gene flow"
+      },
+      {
+        "key": "C",
+        "text": "natural selection"
+      },
+      {
+        "key": "D",
+        "text": "mutation"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nDarwin proposed natural selection as the primary evolutionary mechanism whereby organisms possessing advantageous variations best adapted to their environment survive and reproduce.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99470,
+    "questionNumber": 25,
+    "subject": "Biology",
+    "topic": "Reproduction in Plants",
+    "subtopic": "Flowers and Fruits",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The part of a flower that develops into a seed is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "petal"
+      },
+      {
+        "key": "B",
+        "text": "ovule"
+      },
+      {
+        "key": "C",
+        "text": "pedicel"
+      },
+      {
+        "key": "D",
+        "text": "style"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nFollowing double fertilization in angiosperms, the ovule matures into a seed, while the surrounding ovary wall transforms into the pericarp of the fruit.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99471,
+    "questionNumber": 26,
+    "subject": "Biology",
+    "topic": "Plant Movements",
+    "subtopic": "Nastic Movements",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "The closing of the leaflets of the flamboyant tree due to low light intensity is an example of:",
+    "options": [
+      {
+        "key": "A",
+        "text": "nastic movement"
+      },
+      {
+        "key": "B",
+        "text": "photoperiodic"
+      },
+      {
+        "key": "C",
+        "text": "tactic movement"
+      },
+      {
+        "key": "D",
+        "text": "tropic movement"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nNyctinasty (sleep movement) in legumes and flamboyant trees is a non-directional response to diffuse changes in light intensity and temperature, classifying it as a nastic movement.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99472,
+    "questionNumber": 27,
+    "subject": "Biology",
+    "topic": "Ecology",
+    "subtopic": "Ecological Instruments",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "An instrument used for measuring the intensity of light in an ecosystem is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "anemometer"
+      },
+      {
+        "key": "B",
+        "text": "photometer"
+      },
+      {
+        "key": "C",
+        "text": "hygrometer"
+      },
+      {
+        "key": "D",
+        "text": "thermometer"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nA photometer (or lux meter) measures light intensity. An anemometer measures wind speed, and a hygrometer measures relative humidity.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99473,
+    "questionNumber": 28,
+    "subject": "Biology",
+    "topic": "Plant Responses",
+    "subtopic": "Nastic Movements",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The response of a part of a fixed plant to a non-directional or diffuse stimulus is referred to as:",
+    "options": [
+      {
+        "key": "A",
+        "text": "nastic"
+      },
+      {
+        "key": "B",
+        "text": "diffuse"
+      },
+      {
+        "key": "C",
+        "text": "tropic"
+      },
+      {
+        "key": "D",
+        "text": "tactic"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nNastic movements are non-directional responses of plant organs to diffuse environmental stimuli. Tropisms are directional growth responses.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99474,
+    "questionNumber": 29,
+    "subject": "Biology",
+    "topic": "Circulatory System",
+    "subtopic": "Lymphatic System",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "A common component of blood and lymph is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "fats"
+      },
+      {
+        "key": "B",
+        "text": "white blood cell"
+      },
+      {
+        "key": "C",
+        "text": "plasma"
+      },
+      {
+        "key": "D",
+        "text": "red blood cell"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Chalkboard Step-by-Step:\nLymph lacks erythrocytes (red blood cells) and platelets, but contains white blood cells (especially lymphocytes) suspended in tissue fluid.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99475,
+    "questionNumber": 30,
+    "subject": "Biology",
+    "topic": "Transport System",
+    "subtopic": "Transport in Plants",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "Which of these is a medium of transportation in plants?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Cell sap"
+      },
+      {
+        "key": "B",
+        "text": "Ribosome"
+      },
+      {
+        "key": "C",
+        "text": "Nucleus"
+      },
+      {
+        "key": "D",
+        "text": "Mitochondrion"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nCell sap, the aqueous solution of mineral salts, sugars, and organic acids filling the large central vacuole and xylem/phloem conduits, serves as the medium of transport in vascular plants.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99476,
+    "questionNumber": 31,
+    "subject": "Biology",
+    "topic": "Ecology",
+    "subtopic": "Soil Properties",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "Loamy soil is characterized by:",
+    "options": [
+      {
+        "key": "A",
+        "text": "high humus and moderate porosity"
+      },
+      {
+        "key": "B",
+        "text": "high humus and high porosity"
+      },
+      {
+        "key": "C",
+        "text": "moderate humus and low porosity"
+      },
+      {
+        "key": "D",
+        "text": "low humus and high porosity"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nLoam soil has high organic matter (humus) combined with intermediate pore spacing (moderate porosity and aeration), retaining optimal moisture and nutrients without waterlogging.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99477,
+    "questionNumber": 32,
+    "subject": "Biology",
+    "topic": "Ecology",
+    "subtopic": "Population Density Methods",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "Which of these methods is used to determine the population density of mobile animals in a habitat?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Quadrat method"
+      },
+      {
+        "key": "B",
+        "text": "Transect method"
+      },
+      {
+        "key": "C",
+        "text": "Capture method"
+      },
+      {
+        "key": "D",
+        "text": "Group method"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nThe capture-mark-recapture technique (Lincoln index) is specifically employed to estimate the population size and density of active, mobile animal species.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99478,
+    "questionNumber": 33,
+    "subject": "Biology",
+    "topic": "Ecology",
+    "subtopic": "Biomes & Savanna Vegetation",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The Sudan savanna biome can be found in:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Kano state"
+      },
+      {
+        "key": "B",
+        "text": "Niger state"
+      },
+      {
+        "key": "C",
+        "text": "Kwara state"
+      },
+      {
+        "key": "D",
+        "text": "Bauchi state"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nThe Sudan savanna zone stretches across northwestern and north-central Nigeria, prominently including Kano, Sokoto, and Katsina states.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99479,
+    "questionNumber": 34,
+    "subject": "Biology",
+    "topic": "Genetics",
+    "subtopic": "Monohybrid Inheritance",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "Use the illustration shown in the diagram to answer the question that follows.\nThe probability of producing offspring with homozygous recessive alleles is:",
+    "imageUrl": "/diagrams/bio_monohybrid_cross_q34_2026.png",
+    "options": [
+      {
+        "key": "A",
+        "text": "3/4"
+      },
+      {
+        "key": "B",
+        "text": "1/2"
+      },
+      {
+        "key": "C",
+        "text": "1/4"
+      },
+      {
+        "key": "D",
+        "text": "1"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nCrossing two heterozygous parents (Tt x Tt):\nGametes: T, t and T, t\nOffspring genotypes:\n- 1 TT (homozygous dominant)\n- 2 Tt (heterozygous)\n- 1 tt (homozygous recessive)\nProbability of homozygous recessive (tt) = 1 out of 4 = 1/4 (25%).",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99480,
+    "questionNumber": 35,
+    "subject": "Biology",
+    "topic": "Genetics",
+    "subtopic": "Mendelian Test Cross",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "A heterozygous tongue roller (Tt) marries a non-tongue roller (tt). The phenotypic ratio of their offspring is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "3:1"
+      },
+      {
+        "key": "B",
+        "text": "1:1:1:1"
+      },
+      {
+        "key": "C",
+        "text": "1:2:1"
+      },
+      {
+        "key": "D",
+        "text": "1:1"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nParent cross: Tt x tt\nGametes: (T, t) from roller parent, (t, t) from non-roller.\nOffspring: 50% Tt (tongue rollers), 50% tt (non-rollers).\nPhenotypic ratio is 1:1.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99481,
+    "questionNumber": 36,
+    "subject": "Biology",
+    "topic": "Genetics",
+    "subtopic": "Mendel's Laws",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The garden pea plant (Pisum sativum) was most suitable for Mendel's genetic studies because it is naturally:",
+    "options": [
+      {
+        "key": "A",
+        "text": "water pollinated"
+      },
+      {
+        "key": "B",
+        "text": "wind pollinated"
+      },
+      {
+        "key": "C",
+        "text": "insect pollinated"
+      },
+      {
+        "key": "D",
+        "text": "self-pollinated"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nPeas are predominantly self-pollinating and true-breeding, which allowed Mendel to reliably control parentage and avoid unwanted external pollen contamination.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99482,
+    "questionNumber": 37,
+    "subject": "Biology",
+    "topic": "Circulatory System",
+    "subtopic": "Pulmonary Circulation",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The type of circulation whereby deoxygenated blood is transported from the heart to the lungs of man is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "systemic circulation"
+      },
+      {
+        "key": "B",
+        "text": "open circulation"
+      },
+      {
+        "key": "C",
+        "text": "pulmonary circulation"
+      },
+      {
+        "key": "D",
+        "text": "double circulation"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nPulmonary circulation transports deoxygenated blood from the right ventricle via the pulmonary artery to the lungs for oxygenation and returns it to the left atrium.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99483,
+    "questionNumber": 38,
+    "subject": "Biology",
+    "topic": "Ecology",
+    "subtopic": "Nitrogen Cycle",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "The conversion of soil nitrates into free nitrogen gas by anaerobic bacteria is:",
+    "options": [
+      {
+        "key": "A",
+        "text": "nitrification"
+      },
+      {
+        "key": "B",
+        "text": "putrefaction"
+      },
+      {
+        "key": "C",
+        "text": "ammonification"
+      },
+      {
+        "key": "D",
+        "text": "denitrification"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nDenitrification is carried out by bacteria such as Pseudomonas and Thiobacillus denitrificans, which reduce nitrates (NO₃⁻) into nitrogen gas (N₂) returned to the atmosphere.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99496,
+    "questionNumber": 28,
+    "subject": "Use of English",
+    "topic": "Prescribed Novel: The Lekki Headmaster",
+    "subtopic": "Literary Devices & Figures of Speech",
+    "year": 2026,
+    "difficulty": "Easy",
+    "text": "This question is based on Kabir Garba's The Lekki Headmaster.\n'You again...Mr. Bepo? What business brings you out at this hour? Is this the students' hostel you are supposed to be minding?'\nWhat figure of speech is used in the clauses?",
+    "options": [
+      {
+        "key": "A",
+        "text": "alliteration"
+      },
+      {
+        "key": "B",
+        "text": "simile"
+      },
+      {
+        "key": "C",
+        "text": "paradox"
+      },
+      {
+        "key": "D",
+        "text": "rhetorical question"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Chalkboard Step-by-Step:\nThe speaker asks questions not to elicit information, but to register rebuke and scorn. This is a classic rhetorical question.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99497,
+    "questionNumber": 32,
+    "subject": "Use of English",
+    "topic": "Prescribed Novel: The Lekki Headmaster",
+    "subtopic": "Plot & Character Actions",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "This question is based on Kabir Garba's The Lekki Headmaster.\nWhat was Bepo's answer when Mrs Apeh asked him, 'What is the matter, principal?'",
+    "options": [
+      {
+        "key": "A",
+        "text": "He said nothing"
+      },
+      {
+        "key": "B",
+        "text": "He gave details of what was troubling him"
+      },
+      {
+        "key": "C",
+        "text": "He shouted at her"
+      },
+      {
+        "key": "D",
+        "text": "He laughed"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Chalkboard Step-by-Step:\nIn the novel, when Mrs. Apeh notices the burden on Bepo and inquiries after his wellbeing, Bepo keeps his silence and says nothing, preferring to carry his dilemma alone.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99498,
+    "questionNumber": 35,
+    "subject": "Use of English",
+    "topic": "Prescribed Novel: The Lekki Headmaster",
+    "subtopic": "Novel Context & Background",
+    "year": 2026,
+    "difficulty": "Medium",
+    "text": "This question is based on Kabir Garba's The Lekki Headmaster.\nWhat other business were Stardom Schools' owners involved in?",
+    "options": [
+      {
+        "key": "A",
+        "text": "engineering"
+      },
+      {
+        "key": "B",
+        "text": "manufacturing"
+      },
+      {
+        "key": "C",
+        "text": "real estate"
+      },
+      {
+        "key": "D",
+        "text": "transport"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nIn Kabir Garba's The Lekki Headmaster, the affluent proprietors of Stardom Schools amassed substantial wealth through their primary involvement in commercial real estate and luxury property development in Lekki.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
+  },
+  {
+    "id": 99499,
+    "questionNumber": 38,
+    "subject": "Use of English",
+    "topic": "Sentence Interpretation",
+    "subtopic": "Idiomatic Expressions",
+    "year": 2026,
+    "difficulty": "Hard",
+    "text": "Select the option that best explains the information conveyed in the sentence:\nAfter so many gun battles, the soldiers asked the criminals to surrender at discretion.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The soldiers were afraid to continue the gun battle."
+      },
+      {
+        "key": "B",
+        "text": "The soldiers promised them protection if they surrendered."
+      },
+      {
+        "key": "C",
+        "text": "The criminals are to surrender unconditionally."
+      },
+      {
+        "key": "D",
+        "text": "The criminals were asked to leave the area."
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Chalkboard Step-by-Step:\nTo 'surrender at discretion' is an established idiomatic expression in military and legal English meaning to yield completely without any conditions or guarantees, putting oneself entirely at the mercy of the victor.",
+    "repeatBadge": "2026 JAMB Official Live CBT Paper",
+    "sourceLabel": "JAMB 2026 CBT Live Screen Snapshot",
+    "exam": "JAMB"
   }
 ]

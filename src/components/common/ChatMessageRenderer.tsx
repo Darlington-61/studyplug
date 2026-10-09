@@ -4,11 +4,11 @@ interface ChatMessageRendererProps {
   text: string;
 }
 
-// Helper to format inline markdown like **bold**, *italic*, and `code`
+// Helper to format inline markdown like **bold**, *italic*, `code`, math, and images
 const formatInlineText = (str: string): React.ReactNode[] => {
   const parts: React.ReactNode[] = [];
-  // Regex to match **bold**, *italic*, and `code`
-  const regex = /(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|\$[^\$]+\$)/g;
+  // Regex to match images, **bold**, *italic*, `code`, and $math$
+  const regex = /(!\[[^\]]*\]\([^)]+\)|<img\b[^>]*\/?>|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|\$[^\$]+\$)/g;
   let lastIndex = 0;
   let match: RegExpExecArray | null;
 
@@ -17,7 +17,34 @@ const formatInlineText = (str: string): React.ReactNode[] => {
       parts.push(str.substring(lastIndex, match.index));
     }
     const token = match[0];
-    if (token.startsWith('**') && token.endsWith('**')) {
+    if (token.startsWith('![')) {
+      const imgMatch = token.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+      if (imgMatch) {
+        parts.push(
+          <img
+            key={match.index}
+            src={imgMatch[2].trim()}
+            alt={imgMatch[1].trim() || 'Diagram'}
+            className="max-h-48 max-w-full rounded-lg border border-slate-200 my-1 inline-block object-contain"
+            loading="lazy"
+          />
+        );
+      }
+    } else if (token.startsWith('<img')) {
+      const srcMatch = token.match(/src=["']([^"']+)["']/i);
+      const altMatch = token.match(/alt=["']([^"']+)["']/i);
+      if (srcMatch) {
+        parts.push(
+          <img
+            key={match.index}
+            src={srcMatch[1]}
+            alt={altMatch ? altMatch[1] : 'Diagram'}
+            className="max-h-48 max-w-full rounded-lg border border-slate-200 my-1 inline-block object-contain"
+            loading="lazy"
+          />
+        );
+      }
+    } else if (token.startsWith('**') && token.endsWith('**')) {
       parts.push(
         <strong key={match.index} className="font-extrabold text-slate-900">
           {token.slice(2, -2)}
@@ -101,7 +128,7 @@ export const ChatMessageRenderer: React.FC<ChatMessageRendererProps> = ({ text }
       const heading = trimmed.replace(/^###\s*/, '').trim();
       elements.push(
         <div key={`h3-${i}`} className="my-2 pb-1 border-b border-slate-100 flex items-center justify-between">
-          <h3 className="font-bold text-sm text-[#004D40] tracking-tight">
+          <h3 className="font-bold text-sm text-[#001028] tracking-tight">
             {formatInlineText(heading)}
           </h3>
         </div>

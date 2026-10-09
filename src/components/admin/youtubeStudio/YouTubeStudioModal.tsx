@@ -31,6 +31,7 @@ import { validateVideoContent } from './contentValidator';
 import { buildVideoScenes, generateYouTubeSeo, calculateCostEstimate, calculateVideoPlan } from './sceneBuilder';
 import { drawThumbnailToCanvas, exportThumbnailPng } from './thumbnailGenerator';
 import { StudyPlugVideoRenderer } from './videoRenderer';
+import { FlashcardSceneStudio } from './FlashcardSceneStudio';
 import { VOICEBOX_PROFILES, getRecommendedVoiceProfile } from './voiceboxService';
 import {
   analyzeSubjectAndTopic,
@@ -654,12 +655,12 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-2 sm:p-4 select-none font-sans overflow-hidden">
-      <div className="relative w-full max-w-7xl h-[94vh] bg-white text-[#10201D] rounded-[24px] border-2 border-[#004D40]/20 shadow-2xl flex flex-col overflow-hidden">
+      <div className="relative w-full max-w-7xl h-[94vh] bg-white text-[#10201D] rounded-[24px] border-2 border-[#001028]/20 shadow-2xl flex flex-col overflow-hidden">
 
         {/* ─── Top Executive Bar ─── */}
-        <header className="h-16 px-6 bg-[#004D40] border-b border-[#004D40]/20 flex items-center justify-between shrink-0">
+        <header className="h-16 px-6 bg-[#001028] border-b border-[#001028]/20 flex items-center justify-between shrink-0">
           <div className="flex items-center space-x-3.5">
-            <div className="w-10 h-10 rounded-xl bg-[#004D40] border border-[#FFD600]/40 flex items-center justify-center text-xl shadow-xs">
+            <div className="w-10 h-10 rounded-xl bg-[#001028] border border-[#FFD600]/40 flex items-center justify-center text-xl shadow-xs">
               🎙️
             </div>
             <div>
@@ -667,11 +668,11 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 <h2 className="font-extrabold text-[16px] text-white tracking-tight">
                   StudyPlug 12-Minute YouTube Studio
                 </h2>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#FFD600] text-[#004D40] uppercase tracking-wider">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#FFD600] text-[#001028] uppercase tracking-wider">
                   Voicebox Cloned
                 </span>
               </div>
-              <p className="text-[11px] text-[#004D40]">
+              <p className="text-[11px] text-[#001028]">
                 Notes → Top Concepts → Authentic Past Questions → 12-Min Video → SEO &amp; Thumbnail
               </p>
             </div>
@@ -683,7 +684,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               type="button"
               onClick={() => setActiveTab('select_content')}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer ${
-                activeTab === 'select_content' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'select_content' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
               1. Content
@@ -693,7 +694,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               onClick={() => setActiveTab('top_concepts')}
               disabled={topConcepts.length === 0}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer disabled:opacity-40 ${
-                activeTab === 'top_concepts' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'top_concepts' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
               2. Concepts ({topConcepts.filter(c => c.isSelected).length})
@@ -703,7 +704,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               onClick={() => setActiveTab('script_editor')}
               disabled={scriptSections.length === 0}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer disabled:opacity-40 ${
-                activeTab === 'script_editor' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'script_editor' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
               3. AI Script
@@ -713,7 +714,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               onClick={() => setActiveTab('verification')}
               disabled={!validationResult}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer disabled:opacity-40 ${
-                activeTab === 'verification' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'verification' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
               4. Verification
@@ -722,7 +723,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               type="button"
               onClick={() => setActiveTab('voicebox')}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer ${
-                activeTab === 'voicebox' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'voicebox' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
               5. Voicebox Voice
@@ -732,17 +733,17 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               onClick={() => setActiveTab('scene_timeline')}
               disabled={videoScenes.length === 0}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer disabled:opacity-40 ${
-                activeTab === 'scene_timeline' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'scene_timeline' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
-              6. Timeline ({videoScenes.length})
+              6. Flashcards &amp; Voice ({videoScenes.length})
             </button>
             <button
               type="button"
               onClick={() => setActiveTab('player_export')}
               disabled={videoScenes.length === 0}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer disabled:opacity-40 ${
-                activeTab === 'player_export' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'player_export' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
               7. Player &amp; Render
@@ -752,7 +753,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               onClick={() => setActiveTab('seo_thumbnail')}
               disabled={!seoData}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer disabled:opacity-40 ${
-                activeTab === 'seo_thumbnail' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'seo_thumbnail' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
               8. Titles &amp; SEO
@@ -761,7 +762,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               type="button"
               onClick={() => setActiveTab('library')}
               className={`px-3 py-1.5 rounded-lg font-bold transition cursor-pointer ${
-                activeTab === 'library' ? 'bg-[#FFD600] text-[#004D40]' : 'text-emerald-100 hover:bg-white/10'
+                activeTab === 'library' ? 'bg-[#FFD600] text-[#001028]' : 'text-emerald-100 hover:bg-white/10'
               }`}
             >
               Library ({savedProjects.length})
@@ -771,7 +772,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
           {/* Right Header Badges */}
           <div className="flex items-center space-x-2.5">
             {videoPlan && (
-              <div className="hidden md:flex items-center space-x-2 px-3 py-1 rounded-xl bg-[#004D40] border border-[#FFD600]/30 text-xs">
+              <div className="hidden md:flex items-center space-x-2 px-3 py-1 rounded-xl bg-[#001028] border border-[#FFD600]/30 text-xs">
                 <span className="text-[#FFD600] font-black">⏱️ {videoPlan.formattedDuration}</span>
                 <span className="text-slate-400">•</span>
                 <span className="text-emerald-300 font-bold">{videoPlan.totalScenes} Scenes</span>
@@ -804,16 +805,16 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === 'select_content' && (
             <div className="max-w-5xl mx-auto space-y-6 animate-fadeIn text-left">
-              <div className="bg-white p-6 rounded-[20px] border border-[#004D40]/20 space-y-5">
+              <div className="bg-white p-6 rounded-[20px] border border-[#001028]/20 space-y-5">
                 {/* ─── Mode Switcher Bar ─── */}
-                <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-[#00382E] to-[#002A22] border border-[#004D40]/30/80 shadow-md">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-[#00382E] to-[#002A22] border border-[#001028]/30/80 shadow-md">
                   <div className="flex items-center space-x-2.5">
                     <button
                       type="button"
                       onClick={() => setIs100DaysMode(true)}
                       className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer flex items-center space-x-2 ${
                         is100DaysMode
-                          ? 'bg-[#FFD600] text-[#004D40] shadow-md shadow-[#FFD600]/20'
+                          ? 'bg-[#FFD600] text-[#001028] shadow-md shadow-[#FFD600]/20'
                           : 'bg-black/30 text-emerald-200 hover:bg-black/50'
                       }`}
                     >
@@ -824,7 +825,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                       onClick={() => setIs100DaysMode(false)}
                       className={`px-4 py-2 rounded-xl text-xs font-black transition cursor-pointer flex items-center space-x-2 ${
                         !is100DaysMode
-                          ? 'bg-[#FFD600] text-[#004D40] shadow-md shadow-[#FFD600]/20'
+                          ? 'bg-[#FFD600] text-[#001028] shadow-md shadow-[#FFD600]/20'
                           : 'bg-black/30 text-emerald-200 hover:bg-black/50'
                       }`}
                     >
@@ -854,7 +855,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 </div>
 
                 {/* ─── Subject Pedagogy & Teaching Engine Banner ─── */}
-                <div className="p-4 rounded-2xl bg-slate-50 border border-[#004D40]/20 space-y-3">
+                <div className="p-4 rounded-2xl bg-slate-50 border border-[#001028]/20 space-y-3">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <div className="flex items-center space-x-2.5">
                       <span className="w-2.5 h-2.5 rounded-full animate-ping" style={{ backgroundColor: subjectPedagogy.badgeColor }} />
@@ -898,7 +899,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                               setSelectedComparisonExams([selectedExam]);
                             }
                           }}
-                          className="rounded text-[#004D40] accent-[#FFD600]"
+                          className="rounded text-[#001028] accent-[#FFD600]"
                         />
                         <span>Cross-Exam Comparison Video</span>
                       </label>
@@ -915,8 +916,8 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                               onClick={() => setSelectedExam(exam)}
                               className={`p-3 rounded-xl border text-xs font-black transition cursor-pointer text-center ${
                                 isSelected
-                                  ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600] shadow-md shadow-[#FFD600]/20 scale-102'
-                                  : 'bg-slate-50 border-slate-200 text-white hover:border-[#004D40]/30'
+                                  ? 'bg-[#FFD600] text-[#001028] border-[#FFD600] shadow-md shadow-[#FFD600]/20 scale-102'
+                                  : 'bg-slate-50 border-slate-200 text-white hover:border-[#001028]/30'
                               }`}
                             >
                               {exam}
@@ -945,7 +946,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                                 }}
                                 className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition cursor-pointer ${
                                   isChecked
-                                    ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600]'
+                                    ? 'bg-[#FFD600] text-[#001028] border-[#FFD600]'
                                     : 'bg-slate-50 text-slate-300 border-slate-200'
                                 }`}
                               >
@@ -969,7 +970,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     <select
                       value={selectedSubject}
                       onChange={(e) => setSelectedSubject(e.target.value)}
-                      className="w-full bg-slate-50 border border-[#004D40]/30 rounded-xl px-3 py-2.5 text-sm text-[#10201D] font-bold"
+                      className="w-full bg-slate-50 border border-[#001028]/30 rounded-xl px-3 py-2.5 text-sm text-[#10201D] font-bold"
                     >
                       {ALL_SUBJECT_LIST.map((sub) => (
                         <option key={sub} value={sub}>{sub}</option>
@@ -1020,7 +1021,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                             }}
                             className={`px-3 py-2 rounded-xl border text-xs font-black transition cursor-pointer flex items-center space-x-1.5 ${
                               isSelected
-                                ? 'bg-[#00796B] text-white border-[#34D399] shadow-sm'
+                                ? 'bg-[#001830] text-white border-[#34D399] shadow-sm'
                                 : 'bg-slate-50 border-slate-200 text-slate-300 hover:border-emerald-500'
                             }`}
                           >
@@ -1057,7 +1058,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                         onClick={() => setYearMode('any')}
                         className={`px-3 py-1.5 rounded-full text-xs font-black transition border ${
                           yearMode === 'any'
-                            ? 'bg-[#FFD600] text-[#004D40] border-[#FFD600] shadow-sm'
+                            ? 'bg-[#FFD600] text-[#001028] border-[#FFD600] shadow-sm'
                             : 'bg-black/30 text-slate-300 border-slate-200 hover:border-emerald-400 hover:text-white'
                         }`}
                       >
@@ -1140,7 +1141,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                       <select
                         value={selectedSyllabusSection}
                         onChange={(e) => setSelectedSyllabusSection(e.target.value)}
-                        className="w-full bg-slate-50 border border-[#004D40]/30 rounded-xl px-3 py-2.5 text-xs text-[#10201D] font-bold"
+                        className="w-full bg-slate-50 border border-[#001028]/30 rounded-xl px-3 py-2.5 text-xs text-[#10201D] font-bold"
                       >
                         {availableSyllabusSections.map(sec => (
                           <option key={sec} value={sec}>{sec}</option>
@@ -1156,7 +1157,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                       <select
                         value={selectedTopic}
                         onChange={(e) => setSelectedTopic(e.target.value)}
-                        className="w-full bg-slate-50 border border-[#004D40]/30 rounded-xl px-3 py-2.5 text-sm text-[#10201D] font-bold"
+                        className="w-full bg-slate-50 border border-[#001028]/30 rounded-xl px-3 py-2.5 text-sm text-[#10201D] font-bold"
                       >
                         {availableTopics.map(t => (
                           <option key={t} value={t}>{t}</option>
@@ -1172,7 +1173,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                       <select
                         value={selectedSubtopic}
                         onChange={(e) => setSelectedSubtopic(e.target.value)}
-                        className="w-full bg-slate-50 border border-[#004D40]/30 rounded-xl px-3 py-2.5 text-xs text-[#10201D] font-bold"
+                        className="w-full bg-slate-50 border border-[#001028]/30 rounded-xl px-3 py-2.5 text-xs text-[#10201D] font-bold"
                       >
                         {availableSubtopics.map(sub => (
                           <option key={sub} value={sub}>{sub}</option>
@@ -1183,9 +1184,9 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 </div>
 
                 {/* Subtopics Complete Topic Coverage Checklist */}
-                <div className="p-3.5 rounded-xl bg-black/40 border border-[#004D40]/20 space-y-2">
+                <div className="p-3.5 rounded-xl bg-black/40 border border-[#001028]/20 space-y-2">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-[#004D40]">
+                    <span className="font-bold text-[#001028]">
                       Complete Topic Coverage ({availableSubtopics.length} Syllabus Subtopics):
                     </span>
                     <span className="text-[11px] text-amber-300 font-bold">
@@ -1209,7 +1210,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 <div className="p-4 rounded-xl bg-gradient-to-r from-[#00382E] to-[#00261F] border border-[#FFD600]/40 space-y-3">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#004D40] border border-[#FFD600]/60 flex items-center justify-center text-lg">
+                      <div className="w-10 h-10 rounded-xl bg-[#001028] border border-[#FFD600]/60 flex items-center justify-center text-lg">
                         ⏱️
                       </div>
                       <div>
@@ -1221,7 +1222,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                             topicScaleInfo.scale === 'small'
                               ? 'bg-blue-900/80 text-blue-200'
                               : topicScaleInfo.scale === 'medium'
-                              ? 'bg-emerald-900/80 text-[#004D40]'
+                              ? 'bg-emerald-900/80 text-[#001028]'
                               : topicScaleInfo.scale === 'deep'
                               ? 'bg-purple-900/80 text-purple-200'
                               : 'bg-amber-900/80 text-amber-200'
@@ -1241,7 +1242,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                         type="button"
                         onClick={() => setCustomDurationMinutes(null)}
                         className={`px-2.5 py-1 rounded-lg font-bold transition cursor-pointer ${
-                          customDurationMinutes === null ? 'bg-[#FFD600] text-[#004D40]' : 'text-slate-300 hover:bg-white/10'
+                          customDurationMinutes === null ? 'bg-[#FFD600] text-[#001028]' : 'text-slate-300 hover:bg-white/10'
                         }`}
                       >
                         Auto: {topicScaleInfo.estimatedMinutes}m
@@ -1252,7 +1253,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                           type="button"
                           onClick={() => setCustomDurationMinutes(mins)}
                           className={`px-2 py-1 rounded-lg font-bold transition cursor-pointer ${
-                            customDurationMinutes === mins ? 'bg-[#FFD600] text-[#004D40]' : 'text-slate-300 hover:bg-white/10'
+                            customDurationMinutes === mins ? 'bg-[#FFD600] text-[#001028]' : 'text-slate-300 hover:bg-white/10'
                           }`}
                         >
                           {mins}m
@@ -1272,7 +1273,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                           type="button"
                           onClick={() => setSelectedPartNumber(null)}
                           className={`px-2 py-0.5 rounded text-[11px] font-bold ${
-                            selectedPartNumber === null ? 'bg-[#FFD600] text-[#004D40]' : 'bg-black/40 text-slate-600'
+                            selectedPartNumber === null ? 'bg-[#FFD600] text-[#001028]' : 'bg-black/40 text-slate-600'
                           }`}
                         >
                           Single All-in-One Video ({effectiveTargetDurationMinutes}m)
@@ -1288,7 +1289,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                               onClick={() => setSelectedPartNumber(part.partNumber)}
                               className={`p-2.5 rounded-xl border text-left cursor-pointer transition ${
                                 isPartSelected
-                                  ? 'bg-[#004D40] border-[#FFD600] shadow-sm'
+                                  ? 'bg-[#001028] border-[#FFD600] shadow-sm'
                                   : 'bg-black/30 border-slate-200 hover:border-emerald-500'
                               }`}
                             >
@@ -1323,7 +1324,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                             name="selMode"
                             checked={selectionMode === 'auto'}
                             onChange={() => setSelectionMode('auto')}
-                            className="text-[#004D40] accent-[#FFD600]"
+                            className="text-[#001028] accent-[#FFD600]"
                           />
                           <span className={selectionMode === 'auto' ? 'text-[#FFD600] font-bold' : ''}>Auto Select</span>
                         </label>
@@ -1334,7 +1335,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                             name="selMode"
                             checked={selectionMode === 'manual'}
                             onChange={() => setSelectionMode('manual')}
-                            className="text-[#004D40] accent-[#FFD600]"
+                            className="text-[#001028] accent-[#FFD600]"
                           />
                           <span className={selectionMode === 'manual' ? 'text-[#FFD600] font-bold' : ''}>Manual Select</span>
                         </label>
@@ -1345,7 +1346,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                             name="selMode"
                             checked={selectionMode === 'random'}
                             onChange={() => setSelectionMode('random')}
-                            className="text-[#004D40] accent-[#FFD600]"
+                            className="text-[#001028] accent-[#FFD600]"
                           />
                           <span className={selectionMode === 'random' ? 'text-[#FFD600] font-bold' : ''}>Random</span>
                         </label>
@@ -1360,7 +1361,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                       <select
                         value={difficultyFilter}
                         onChange={(e) => setDifficultyFilter(e.target.value as any)}
-                        className="w-full bg-slate-50 border border-[#004D40]/30 rounded-xl px-3 py-2 text-xs text-[#10201D] font-bold"
+                        className="w-full bg-slate-50 border border-[#001028]/30 rounded-xl px-3 py-2 text-xs text-[#10201D] font-bold"
                       >
                         <option value="All">Mixed / Standard</option>
                         <option value="Easy">Easy Level</option>
@@ -1391,7 +1392,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   </div>
 
                   {/* Recommendation Badge */}
-                  <div className="p-2.5 rounded-lg bg-[#004D40]/50 border border-[#004D40]/20 flex items-center justify-between text-xs">
+                  <div className="p-2.5 rounded-lg bg-[#001028]/50 border border-[#001028]/20 flex items-center justify-between text-xs">
                     <div className="flex items-center space-x-2">
                       <span className="text-amber-300 text-sm">💡</span>
                       <span className="text-[#10201D]">{recommendedInfo.reason}</span>
@@ -1399,7 +1400,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     <button
                       type="button"
                       onClick={() => setQuestionCount(recommendedInfo.count)}
-                      className="px-2 py-1 rounded bg-[#FFD600] text-[#004D40] font-bold text-[10.5px] shrink-0 hover:bg-amber-300"
+                      className="px-2 py-1 rounded bg-[#FFD600] text-[#001028] font-bold text-[10.5px] shrink-0 hover:bg-amber-300"
                     >
                       Use Recommended ({recommendedInfo.count})
                     </button>
@@ -1407,7 +1408,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 </div>
 
                 {/* Row 5: Matching Past Questions Summary Bar */}
-                <div className="p-4 rounded-xl border transition space-y-3 bg-slate-50 border-[#004D40]/20">
+                <div className="p-4 rounded-xl border transition space-y-3 bg-slate-50 border-[#001028]/20">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <div className="flex items-center space-x-2">
                       <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
@@ -1423,7 +1424,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                       <button
                         type="button"
                         onClick={() => setIsReviewQuestionsOpen(true)}
-                        className="px-3 py-1.5 rounded-lg bg-[#004D40] hover:bg-[#00796B] text-[#FFD600] font-bold text-xs border border-[#FFD600]/30 transition"
+                        className="px-3 py-1.5 rounded-lg bg-[#001028] hover:bg-[#001830] text-[#FFD600] font-bold text-xs border border-[#FFD600]/30 transition"
                       >
                         🔍 Review &amp; Pick from All {matchedDatabaseQuestions.length}
                       </button>
@@ -1483,17 +1484,17 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                                     isChecked ? prev.filter(id => id !== q.id) : [...prev, q.id]
                                   );
                                 }}
-                                className="p-3 rounded-xl border text-left transition cursor-pointer flex items-start space-x-3 bg-[#004D40]/80 border-[#FFD600]"
+                                className="p-3 rounded-xl border text-left transition cursor-pointer flex items-start space-x-3 bg-[#001028]/80 border-[#FFD600]"
                               >
                                 <input
                                   type="checkbox"
                                   checked={true}
                                   readOnly
-                                  className="mt-1 rounded text-[#004D40] accent-[#FFD600]"
+                                  className="mt-1 rounded text-[#001028] accent-[#FFD600]"
                                 />
                                 <div className="flex-1 text-xs space-y-1">
                                   <div className="flex items-center justify-between pb-1 flex-wrap gap-1">
-                                    <span className="px-2 py-0.5 rounded font-black text-[10px] tracking-wider uppercase bg-[#FFD600] text-[#004D40]">
+                                    <span className="px-2 py-0.5 rounded font-black text-[10px] tracking-wider uppercase bg-[#FFD600] text-[#001028]">
                                       {q.sourceLabel}
                                     </span>
                                     <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
@@ -1538,14 +1539,14 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
 
                 {/* Primary Action Button */}
                 <div className="pt-4 border-t border-slate-200 flex items-center justify-between flex-wrap gap-3">
-                  <div className="text-xs text-[#004D40]">
+                  <div className="text-xs text-[#001028]">
                     Active Video Setup: <strong>{is100DaysMode ? `100 Days to JAMB (Day ${jambDayNumber}) • ${selectedSubject}` : `${selectedExam} ${selectedSubject}`}</strong> • Topic: <strong>{selectedTopic}</strong> • <strong>{effectiveTargetDurationMinutes} Min ({topicScaleInfo.scale.replace('_', ' ')})</strong>
                   </div>
                   <button
                     type="button"
                     disabled={currentlyChosenQuestions.length === 0}
                     onClick={handleGenerateFull12MinMasterclass}
-                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFD600] to-amber-400 text-[#004D40] font-black text-sm shadow-lg hover:scale-105 active:scale-95 transition cursor-pointer flex items-center space-x-2 disabled:opacity-40 disabled:hover:scale-100"
+                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFD600] to-amber-400 text-[#001028] font-black text-sm shadow-lg hover:scale-105 active:scale-95 transition cursor-pointer flex items-center space-x-2 disabled:opacity-40 disabled:hover:scale-100"
                   >
                     <span>
                       ⚡ {is100DaysMode ? `GENERATE DAY ${jambDayNumber} VIDEO (${effectiveTargetDurationMinutes} MIN)` : `CREATE ${effectiveTargetDurationMinutes}-MINUTE VIDEO (${selectedPaperTypes.join(' + ')})`}
@@ -1557,16 +1558,16 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 {/* Detailed Question Review Modal Drawer */}
                 {isReviewQuestionsOpen && (
                   <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-                    <div className="relative w-full max-w-3xl bg-white border border-[#004D40]/30 rounded-[24px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-                      <div className="bg-[#004D40] p-4 text-white flex items-center justify-between">
+                    <div className="relative w-full max-w-3xl bg-white border border-[#001028]/30 rounded-[24px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+                      <div className="bg-[#001028] p-4 text-white flex items-center justify-between">
                         <div>
                           <h3 className="text-base font-bold text-white flex items-center space-x-2">
                             <span>🔍 Review &amp; Select Questions</span>
-                            <span className="px-2 py-0.5 rounded bg-[#FFD600] text-[#004D40] text-xs font-black">
+                            <span className="px-2 py-0.5 rounded bg-[#FFD600] text-[#001028] text-xs font-black">
                               {currentlyChosenQuestions.length} of {matchedDatabaseQuestions.length} Chosen
                             </span>
                           </h3>
-                          <p className="text-xs text-[#004D40]">
+                          <p className="text-xs text-[#001028]">
                             {selectedExam} • {selectedSubject} • {selectedTopic}
                           </p>
                         </div>
@@ -1592,19 +1593,19 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                               }}
                               className={`p-4 rounded-xl border transition cursor-pointer space-y-2 ${
                                 isChecked
-                                  ? 'bg-[#004D40]/90 border-[#FFD600]'
+                                  ? 'bg-[#001028]/90 border-[#FFD600]'
                                   : 'bg-slate-50 border-slate-200 hover:border-emerald-500'
                               }`}
                             >
                               <div className="flex items-center justify-between">
-                                <span className="px-2.5 py-0.5 rounded text-xs font-black uppercase bg-[#FFD600] text-[#004D40]">
+                                <span className="px-2.5 py-0.5 rounded text-xs font-black uppercase bg-[#FFD600] text-[#001028]">
                                   {q.sourceLabel}
                                 </span>
                                 <input
                                   type="checkbox"
                                   checked={isChecked}
                                   readOnly
-                                  className="rounded text-[#004D40] accent-[#FFD600] scale-125"
+                                  className="rounded text-[#001028] accent-[#FFD600] scale-125"
                                 />
                               </div>
 
@@ -1654,7 +1655,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                         <button
                           type="button"
                           onClick={() => setIsReviewQuestionsOpen(false)}
-                          className="px-5 py-2 rounded-xl bg-[#FFD600] text-[#004D40] font-black text-xs hover:bg-amber-300"
+                          className="px-5 py-2 rounded-xl bg-[#FFD600] text-[#001028] font-black text-xs hover:bg-amber-300"
                         >
                           Confirm Selection ({currentlyChosenQuestions.length} Questions)
                         </button>
@@ -1675,18 +1676,18 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
                     <span>2. Suggested Top Concepts</span>
-                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#004D40] text-[#FFD600]">
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#001028] text-[#FFD600]">
                       {topConcepts.filter(c => c.isSelected).length} Selected
                     </span>
                   </h3>
-                  <p className="text-xs text-[#004D40]">
+                  <p className="text-xs text-[#001028]">
                     Intelligently extracted from StudyPlug note. Add, remove, or edit concepts before script compilation.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setActiveTab('script_editor')}
-                  className="px-5 py-2 rounded-xl bg-[#FFD600] text-[#004D40] font-black text-xs hover:bg-amber-300 transition cursor-pointer"
+                  className="px-5 py-2 rounded-xl bg-[#FFD600] text-[#001028] font-black text-xs hover:bg-amber-300 transition cursor-pointer"
                 >
                   Confirm Concepts &amp; Edit Script →
                 </button>
@@ -1699,7 +1700,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     key={concept.id}
                     className={`p-4 rounded-[16px] border-2 transition text-left space-y-3 ${
                       concept.isSelected
-                        ? 'bg-white border-[#004D40]/30'
+                        ? 'bg-white border-[#001028]/30'
                         : 'bg-slate-50 border-slate-200 opacity-60'
                     }`}
                   >
@@ -1714,7 +1715,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                               prev.map(c => (c.id === concept.id ? { ...c, isSelected: val } : c))
                             );
                           }}
-                          className="w-4 h-4 rounded text-[#004D40]"
+                          className="w-4 h-4 rounded text-[#001028]"
                         />
                         <h4 className="font-extrabold text-sm text-white">
                           Concept {idx + 1}: {concept.title}
@@ -1789,7 +1790,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                       ]);
                       setNewConceptTitle('');
                     }}
-                    className="px-3 py-1.5 rounded-lg bg-[#004D40] text-[#FFD600] text-xs font-bold hover:bg-[#003B32]"
+                    className="px-3 py-1.5 rounded-lg bg-[#001028] text-[#FFD600] text-xs font-bold hover:bg-[#001830]"
                   >
                     + Add Concept
                   </button>
@@ -1807,18 +1808,18 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
                     <span>3. 12-Minute Nigerian Teacher Script</span>
-                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#004D40] text-[#FFD600]">
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#001028] text-[#FFD600]">
                       {scriptSections.length} Sections
                     </span>
                   </h3>
-                  <p className="text-xs text-[#004D40]">
+                  <p className="text-xs text-[#001028]">
                     Sounds like an authentic secondary tutor. Dedicated phonetic field prepared for Voicebox cloning.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setActiveTab('verification')}
-                  className="px-5 py-2 rounded-xl bg-[#FFD600] text-[#004D40] font-black text-xs hover:bg-amber-300"
+                  className="px-5 py-2 rounded-xl bg-[#FFD600] text-[#001028] font-black text-xs hover:bg-amber-300"
                 >
                   Verify Content Safety →
                 </button>
@@ -1829,11 +1830,11 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 {scriptSections.map((sec, idx) => (
                   <div
                     key={sec.id}
-                    className="bg-white p-4 rounded-[16px] border border-[#004D40]/20 space-y-2.5"
+                    className="bg-white p-4 rounded-[16px] border border-[#001028]/20 space-y-2.5"
                   >
                     <div className="flex items-center justify-between border-b border-slate-200 pb-2">
                       <div className="flex items-center space-x-2">
-                        <span className="w-6 h-6 rounded-full bg-[#004D40] text-[#FFD600] font-bold text-xs flex items-center justify-center">
+                        <span className="w-6 h-6 rounded-full bg-[#001028] text-[#FFD600] font-bold text-xs flex items-center justify-center">
                           {idx + 1}
                         </span>
                         <h4 className="font-bold text-sm text-white">{sec.title}</h4>
@@ -1878,11 +1879,11 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === 'verification' && validationResult && (
             <div className="max-w-4xl mx-auto space-y-6 animate-fadeIn text-left">
-              <div className="bg-white p-6 rounded-[20px] border border-[#004D40]/20 space-y-5">
+              <div className="bg-white p-6 rounded-[20px] border border-[#001028]/20 space-y-5">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                   <div>
                     <h3 className="text-lg font-bold text-white">4. Content Safety &amp; Integrity Audit</h3>
-                    <p className="text-xs text-[#004D40]">
+                    <p className="text-xs text-[#001028]">
                       Confirms syllabus alignment, genuine question IDs, answer keys, and lack of AI clichés.
                     </p>
                   </div>
@@ -1923,7 +1924,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   <button
                     type="button"
                     onClick={() => setActiveTab('voicebox')}
-                    className="px-6 py-2.5 rounded-xl bg-[#FFD600] text-[#004D40] font-black text-xs hover:bg-amber-300"
+                    className="px-6 py-2.5 rounded-xl bg-[#FFD600] text-[#001028] font-black text-xs hover:bg-amber-300"
                   >
                     Configure Voicebox Voice Clone →
                   </button>
@@ -1937,16 +1938,16 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === 'voicebox' && (
             <div className="max-w-4xl mx-auto space-y-6 animate-fadeIn text-left">
-              <div className="bg-white p-6 rounded-[20px] border border-[#004D40]/20 space-y-5">
+              <div className="bg-white p-6 rounded-[20px] border border-[#001028]/20 space-y-5">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                   <div>
                     <h3 className="text-lg font-bold text-white flex items-center space-x-2">
                       <span>5. Voicebox Voice Clone Provider</span>
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-black bg-[#FFD600] text-[#004D40]">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-black bg-[#FFD600] text-[#001028]">
                         Primary Provider
                       </span>
                     </h3>
-                    <p className="text-xs text-[#004D40]">
+                    <p className="text-xs text-[#001028]">
                       Scene-by-scene audio narration synthesis with natural Nigerian teacher pacing and pauses.
                     </p>
                   </div>
@@ -1974,7 +1975,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                         }}
                         className={`p-4 rounded-xl border-2 transition cursor-pointer text-left space-y-2 ${
                           isSelected
-                            ? 'bg-[#004D40] border-[#FFD600] shadow-md'
+                            ? 'bg-[#001028] border-[#FFD600] shadow-md'
                             : 'bg-slate-50 border-slate-200 hover:border-emerald-500'
                         }`}
                       >
@@ -1998,7 +1999,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 {/* Voicebox Controls */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-[#004D40]">
+                    <label className="text-xs font-bold text-[#001028]">
                       Speaking Speed: {voiceboxConfig.pace}x
                     </label>
                     <input
@@ -2012,7 +2013,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-[#004D40]">
+                    <label className="text-xs font-bold text-[#001028]">
                       Voice Stability: {Math.round(voiceboxConfig.stability * 100)}%
                     </label>
                     <input
@@ -2026,7 +2027,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-[#004D40]">
+                    <label className="text-xs font-bold text-[#001028]">
                       Question Pause Length: {voiceboxConfig.pauseLengthMs}ms
                     </label>
                     <input
@@ -2065,7 +2066,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   <button
                     type="button"
                     onClick={() => setActiveTab('scene_timeline')}
-                    className="px-6 py-2.5 rounded-xl bg-[#FFD600] text-[#004D40] font-black text-xs hover:bg-amber-300"
+                    className="px-6 py-2.5 rounded-xl bg-[#FFD600] text-[#001028] font-black text-xs hover:bg-amber-300"
                   >
                     Inspect Scene Timeline →
                   </button>
@@ -2075,53 +2076,17 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
           )}
 
           {/* ══════════════════════════════════════════════════════════════════
-              TAB 6: SCENE TIMELINE
+              TAB 6: FLASHCARD STUDIO & VOICE/VIDEO RECORDING
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === 'scene_timeline' && (
-            <div className="max-w-6xl mx-auto space-y-5 animate-fadeIn text-left">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-                <div>
-                  <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                    <span>6. Educational Scene Timeline</span>
-                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#004D40] text-[#FFD600]">
-                      {videoScenes.length} Scenes
-                    </span>
-                  </h3>
-                  <p className="text-xs text-[#004D40]">
-                    Subject Theme: <strong>{videoScenes[0]?.subjectTheme.toUpperCase()}</strong> • Structured educational layout.
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('player_export')}
-                  className="px-5 py-2.5 rounded-xl bg-[#FFD600] text-[#004D40] font-black text-xs hover:bg-amber-300"
-                >
-                  Proceed to Video Player &amp; Render →
-                </button>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {videoScenes.map((scene, idx) => (
-                  <div
-                    key={scene.sceneId}
-                    className="p-4 rounded-[16px] bg-white border border-[#004D40]/20 space-y-2 text-left"
-                  >
-                    <div className="flex items-center justify-between text-xs pb-1.5 border-b border-slate-200">
-                      <span className="font-bold text-[#FFD600]">SCENE {idx + 1}</span>
-                      <span className="px-2 py-0.5 rounded bg-black/40 text-emerald-300 font-mono text-[10px]">
-                        {scene.durationSeconds}s
-                      </span>
-                    </div>
-                    <h4 className="font-bold text-sm text-white leading-tight">{scene.title}</h4>
-                    <p className="text-[11px] text-slate-300 line-clamp-2">{scene.narrationText}</p>
-                    <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-white/5">
-                      <span>Type: {scene.sceneType}</span>
-                      <span>Progress: {scene.progressPercent}%</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <FlashcardSceneStudio
+              scenes={videoScenes}
+              onUpdateScenes={setVideoScenes}
+              aspectRatio={aspectRatio}
+              onProceedToPlayer={() => setActiveTab('player_export')}
+              subjectName={selectedSubject}
+              examName={selectedExam}
+            />
           )}
 
           {/* ══════════════════════════════════════════════════════════════════
@@ -2129,16 +2094,16 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === 'player_export' && (
             <div className="max-w-5xl mx-auto space-y-5 animate-fadeIn text-left">
-              <div className="bg-white p-5 sm:p-6 rounded-[20px] border border-[#004D40]/20 space-y-4">
+              <div className="bg-white p-5 sm:p-6 rounded-[20px] border border-[#001028]/20 space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                   <div>
                     <h3 className="text-base font-bold text-white flex items-center space-x-2">
                       <span>7. Interactive Player &amp; Video Export</span>
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-[#004D40] text-[#FFD600]">
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-[#001028] text-[#FFD600]">
                         1920 × 1080 Full HD
                       </span>
                     </h3>
-                    <p className="text-xs text-[#004D40]">
+                    <p className="text-xs text-[#001028]">
                       Preview before final render. Test thinking timer, progressive calculations, and transitions.
                     </p>
                   </div>
@@ -2165,7 +2130,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     <button
                       type="button"
                       onClick={handleTogglePlay}
-                      className="absolute w-16 h-16 rounded-full bg-[#FFD600] text-[#004D40] flex items-center justify-center text-2xl font-black shadow-2xl hover:scale-110 active:scale-90 transition cursor-pointer"
+                      className="absolute w-16 h-16 rounded-full bg-[#FFD600] text-[#001028] flex items-center justify-center text-2xl font-black shadow-2xl hover:scale-110 active:scale-90 transition cursor-pointer"
                     >
                       ▶
                     </button>
@@ -2177,7 +2142,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                   <button
                     type="button"
                     onClick={handleTogglePlay}
-                    className="w-10 h-10 rounded-xl bg-[#004D40] text-white flex items-center justify-center text-base font-bold hover:bg-[#003B32] transition cursor-pointer shrink-0"
+                    className="w-10 h-10 rounded-xl bg-[#001028] text-white flex items-center justify-center text-base font-bold hover:bg-[#001830] transition cursor-pointer shrink-0"
                   >
                     {isPlaying ? '⏸' : '▶'}
                   </button>
@@ -2224,7 +2189,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
                 {/* Left: Thumbnail Studio */}
-                <div className="bg-white p-5 rounded-[20px] border border-[#004D40]/20 space-y-4">
+                <div className="bg-white p-5 rounded-[20px] border border-[#001028]/20 space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                     <h4 className="font-bold text-sm text-white">YouTube Thumbnail Studio</h4>
                     <button
@@ -2237,7 +2202,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                           );
                         }
                       }}
-                      className="px-3 py-1.5 rounded-xl bg-[#004D40] text-[#FFD600] font-black text-xs hover:bg-[#003B32] transition cursor-pointer flex items-center space-x-1"
+                      className="px-3 py-1.5 rounded-xl bg-[#001028] text-[#FFD600] font-black text-xs hover:bg-[#001830] transition cursor-pointer flex items-center space-x-1"
                     >
                       <span>📥</span>
                       <span>Download PNG</span>
@@ -2265,7 +2230,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 </div>
 
                 {/* Right: 3 Title Options & Pinned Comment */}
-                <div className="bg-white p-5 rounded-[20px] border border-[#004D40]/20 space-y-4">
+                <div className="bg-white p-5 rounded-[20px] border border-[#001028]/20 space-y-4">
                   <div className="border-b border-slate-200 pb-3">
                     <h4 className="font-bold text-sm text-white">3 Title Options &amp; Pinned Comment</h4>
                   </div>
@@ -2282,7 +2247,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                         }}
                         className={`p-3 rounded-xl border text-xs cursor-pointer transition ${
                           selectedTitleId === opt.id
-                            ? 'bg-[#004D40] border-[#FFD600]'
+                            ? 'bg-[#001028] border-[#FFD600]'
                             : 'bg-slate-50 border-slate-200 hover:border-emerald-500'
                         }`}
                       >
@@ -2332,7 +2297,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                         setCopiedChapterFeedback(true);
                         setTimeout(() => setCopiedChapterFeedback(false), 2000);
                       }}
-                      className="w-full py-2.5 rounded-xl bg-[#004D40] hover:bg-[#003B32] text-white font-bold text-xs transition cursor-pointer"
+                      className="w-full py-2.5 rounded-xl bg-[#001028] hover:bg-[#001830] text-white font-bold text-xs transition cursor-pointer"
                     >
                       {copiedChapterFeedback ? '✓ Description Copied!' : '📋 Copy YouTube Description with Chapters'}
                     </button>
@@ -2352,11 +2317,11 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center space-x-2">
                     <span>StudyPlug YouTube Projects Library</span>
-                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#004D40] text-[#FFD600]">
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#001028] text-[#FFD600]">
                       {savedProjects.length} Projects
                     </span>
                   </h3>
-                  <p className="text-xs text-[#004D40]">
+                  <p className="text-xs text-[#001028]">
                     Re-open saved drafts, duplicate projects, or export ready videos.
                   </p>
                 </div>
@@ -2366,7 +2331,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                     setCurrentProjectId(`proj-${Date.now()}`);
                     setActiveTab('select_content');
                   }}
-                  className="px-4 py-2 rounded-xl bg-[#FFD600] text-[#004D40] font-black text-xs hover:bg-amber-300 transition cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#FFD600] text-[#001028] font-black text-xs hover:bg-amber-300 transition cursor-pointer"
                 >
                   + New 12-Min Project
                 </button>
@@ -2399,7 +2364,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                           <td className="p-3.5 text-emerald-300">{proj.subject}</td>
                           <td className="p-3.5 text-amber-300 font-mono">{proj.videoPlan?.formattedDuration || '12 min'}</td>
                           <td className="p-3.5">
-                            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#004D40] text-[#FFD600] border border-[#FFD600]/30 uppercase">
+                            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#001028] text-[#FFD600] border border-[#FFD600]/30 uppercase">
                               {proj.status}
                             </span>
                           </td>
@@ -2407,7 +2372,7 @@ export const YouTubeStudioModal: React.FC<YouTubeStudioModalProps> = ({ isOpen, 
                             <button
                               type="button"
                               onClick={() => handleLoadProject(proj)}
-                              className="px-2.5 py-1 rounded bg-[#004D40] text-white hover:bg-[#003B32] font-bold text-[11px]"
+                              className="px-2.5 py-1 rounded bg-[#001028] text-white hover:bg-[#001830] font-bold text-[11px]"
                             >
                               Open &amp; Edit
                             </button>

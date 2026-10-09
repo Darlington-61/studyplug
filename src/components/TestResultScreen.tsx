@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { getExamTipForQuestion } from '../utils/examTips';
 import { BoardExplanation } from './common/BoardExplanation';
+import {
+  OFFICIAL_LOGO_JAMB,
+  OFFICIAL_LOGO_WAEC,
+  OFFICIAL_LOGO_NECO,
+  OFFICIAL_LOGO_NABTEB
+} from '../data/examLogosData';
+import { ExamScoreForecastCard } from './common/ExamScoreForecastCard';
 
 export const TestResultScreen: React.FC = () => {
-  const { lastTestResult, retakeTest, setActiveView, questions, toggleBookmarkQuestion, isQuestionBookmarked } = useApp();
+  const { lastTestResult, retakeTest, setActiveView, goBack, questions, toggleBookmarkQuestion, isQuestionBookmarked } = useApp();
   const [filter, setFilter] = useState<'all' | 'correct' | 'incorrect' | 'flagged'>('all');
   const [expandedExplanation, setExpandedExplanation] = useState<Record<number, boolean>>({});
 
@@ -14,7 +21,7 @@ export const TestResultScreen: React.FC = () => {
         <h2 className="text-xl font-bold text-slate-800">No test results found</h2>
         <button
           type="button"
-          onClick={() => setActiveView('dashboard')}
+          onClick={() => goBack()}
           className="mt-4 px-6 py-2.5 rounded-xl bg-[#0E382B] text-white font-bold text-xs"
         >
           Return to Dashboard
@@ -144,13 +151,22 @@ export const TestResultScreen: React.FC = () => {
 
           <button
             type="button"
-            onClick={() => setActiveView('dashboard')}
+            onClick={() => goBack()}
             className="px-6 py-3 rounded-2xl border-2 border-[#C4823F]/70 bg-[#082218] hover:bg-[#0E3526] text-white font-extrabold text-xs transition cursor-pointer shadow-md"
           >
             Return to Dashboard
           </button>
         </div>
       </div>
+
+      {/* 🔮 Predictive Exam Score Forecast: What You Can Score If You Practice More */}
+      <ExamScoreForecastCard
+        currentAccuracy={accuracy}
+        currentCompositeScore={lastTestResult.compositeScore}
+        weakestSubject={lastTestResult.subjectBreakdowns?.[0]?.subject || lastTestResult.subject || 'Mathematics'}
+        strongestSubject={lastTestResult.subjectBreakdowns?.[lastTestResult.subjectBreakdowns.length - 1]?.subject || 'English'}
+        onPracticeMore={retakeTest}
+      />
 
       {/* Answer Key & Explanation Review */}
       <div className="space-y-4">
@@ -330,18 +346,33 @@ export const TestResultScreen: React.FC = () => {
                       topic={q.topic || 'Calculation'}
                     />
 
-                    {/* 💡 High-Yield JAMB Exam Tip Box */}
-                    <div className="p-4 rounded-xl bg-[#082218] border-2 border-[#FFCC00]/80 text-amber-200 text-sm flex items-start space-x-3 mt-4">
-                      <span className="text-2xl leading-none select-none">💡</span>
-                      <div>
-                        <span className="font-black text-[#FFCC00] block text-xs uppercase tracking-wider">
-                          JAMB High-Yield Exam Tip:
-                        </span>
-                        <p className="text-white font-medium mt-1 leading-relaxed">
-                          {getExamTipForQuestion(q.subject || 'JAMB', q.topic || 'General', q.text, q.explanation)}
-                        </p>
-                      </div>
-                    </div>
+                    {/* Authentic Chief Examiner Blueprint with Real Official Logo Image */}
+                    {(() => {
+                      const sUpper = (q.subject || '').toUpperCase();
+                      const logo = sUpper.includes('WAEC') ? OFFICIAL_LOGO_WAEC : sUpper.includes('NECO') ? OFFICIAL_LOGO_NECO : sUpper.includes('NABTEB') ? OFFICIAL_LOGO_NABTEB : OFFICIAL_LOGO_JAMB;
+                      const bodyName = sUpper.includes('WAEC') ? 'WAEC' : sUpper.includes('NECO') ? 'NECO' : sUpper.includes('NABTEB') ? 'NABTEB' : 'JAMB';
+                      const tip = getExamTipForQuestion(q.subject || 'JAMB', q.topic || 'General', q.text, q.explanation);
+                      if (!tip) return null;
+                      return (
+                        <div className="p-4 rounded-xl bg-gradient-to-br from-[#0A261D] to-[#04140F] border-2 border-[#FFD600]/80 text-white text-sm flex items-start space-x-3.5 mt-4 shadow-lg">
+                          <div className="w-8 h-8 rounded-full bg-white/10 p-0.5 flex items-center justify-center shrink-0 border border-amber-500/40 shadow-xs">
+                            <img
+                              src={logo}
+                              alt={`${bodyName} Official Emblem`}
+                              className="w-7 h-7 object-contain rounded-full"
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <span className="font-black text-[#FFD600] block text-xs uppercase tracking-wider">
+                              {bodyName} Chief Examiner Blueprint & Syllabus Directive:
+                            </span>
+                            <p className="text-emerald-50 font-medium mt-1 leading-relaxed text-[13px]">
+                              {tip.replace(/^(?:💡\s*)?(?:Math\s+|Physics\s+|Chemistry\s+|Biology\s+|JAMB\s+|WAEC\s+)?CBT\s+Tip:\s*/i, '').replace(/^(?:💡\s*)?(?:Exam\s+Tip|Tip|Note):\s*/i, '')}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })()}
                   </div>
                 )}
               </div>

@@ -20,7 +20,7 @@ export const AnimatedStudyNotesIcon: React.FC = () => (
       style={{ animation: 'subtleFloat 3.5s ease-in-out infinite' }}
     >
       {/* Book Cover Shadow */}
-      <ellipse cx="32" cy="54" rx="20" ry="3.5" fill="#004D40" fillOpacity="0.15" />
+      <ellipse cx="32" cy="54" rx="20" ry="3.5" fill="#001028" fillOpacity="0.15" />
       
       {/* Left Page Base (Emerald) */}
       <path
@@ -44,14 +44,14 @@ export const AnimatedStudyNotesIcon: React.FC = () => (
       />
 
       {/* Text lines on Left Page */}
-      <line x1="16" y1="26" x2="28" y2="24.5" stroke="#004D40" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.5" />
-      <line x1="16" y1="31" x2="28" y2="29.5" stroke="#004D40" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.35" />
-      <line x1="16" y1="36" x2="25" y2="34.8" stroke="#004D40" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.35" />
+      <line x1="16" y1="26" x2="28" y2="24.5" stroke="#001028" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.5" />
+      <line x1="16" y1="31" x2="28" y2="29.5" stroke="#001028" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.35" />
+      <line x1="16" y1="36" x2="25" y2="34.8" stroke="#001028" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.35" />
 
       {/* Text lines on Right Page */}
-      <line x1="36" y1="24.5" x2="48" y2="26" stroke="#004D40" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.5" />
-      <line x1="36" y1="29.5" x2="48" y2="31" stroke="#004D40" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.35" />
-      <line x1="36" y1="34.8" x2="44" y2="36" stroke="#004D40" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.35" />
+      <line x1="36" y1="24.5" x2="48" y2="26" stroke="#001028" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.5" />
+      <line x1="36" y1="29.5" x2="48" y2="31" stroke="#001028" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.35" />
+      <line x1="36" y1="34.8" x2="44" y2="36" stroke="#001028" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.35" />
 
       {/* Golden Bookmark Ribbon */}
       <path
@@ -70,7 +70,7 @@ export const AnimatedStudyNotesIcon: React.FC = () => (
       <defs>
         <linearGradient id="emeraldBookLeft" x1="10" y1="18" x2="32" y2="47" gradientUnits="userSpaceOnUse">
           <stop stopColor="#059669" />
-          <stop offset="1" stopColor="#004D40" />
+          <stop offset="1" stopColor="#001028" />
         </linearGradient>
         <linearGradient id="emeraldBookRight" x1="54" y1="18" x2="32" y2="47" gradientUnits="userSpaceOnUse">
           <stop stopColor="#10B981" />

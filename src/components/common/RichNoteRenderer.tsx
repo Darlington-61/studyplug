@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import katex from 'katex';
+import { sanitizeHtml } from '../../utils/security';
 
-interface RichNoteRendererProps {
+
+export interface RichNoteRendererProps {
   content: string;
   chalkboard?: boolean;
+  topicTitle?: string;
+  subject?: string;
 }
 
-function renderLatexToHtml(latex: string, isDisplay: boolean): string {
+export function renderLatexToHtml(latex: string, isDisplay = false): string {
   try {
     return katex.renderToString(latex.trim(), {
       displayMode: isDisplay,
@@ -65,6 +69,15 @@ export function formatClassroomHtml(rawHtml: string): string {
     </div>`;
   });
 
+  // 7. Convert markdown images ![alt](url) to HTML <img> with clean container
+  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_match, alt, src) => {
+    const trimmedAlt = (alt || '').trim();
+    return `<figure class="my-5 flex flex-col items-center justify-center p-3 bg-white rounded-2xl border border-slate-200 shadow-xs max-w-lg mx-auto">
+      <img src="${src.trim()}" alt="${trimmedAlt}" class="max-h-80 w-auto max-w-full object-contain rounded-xl" loading="lazy" />
+      ${trimmedAlt ? `<figcaption class="mt-2 text-xs font-semibold text-slate-500 text-center">${trimmedAlt}</figcaption>` : ''}
+    </figure>`;
+  });
+
   return html;
 }
 
@@ -84,11 +97,12 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     const formattedHtml = formatClassroomHtml(content);
     return (
       <div
-        className="classroom-html-content select-text leading-relaxed text-slate-900 text-sm sm:text-base space-y-4"
-        dangerouslySetInnerHTML={{ __html: formattedHtml }}
+        className="classroom-html-content select-text leading-relaxed text-slate-900 text-sm sm:text-base space-y-4 [&_img]:max-w-full [&_img]:h-auto [&_img]:mx-auto [&_img]:block [&_img]:rounded-xl [&_img]:shadow-xs"
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(formattedHtml) }}
       />
     );
   }
+
 
   const [revealedAnswers, setRevealedAnswers] = useState<Record<string, boolean>>({});
 
@@ -117,35 +131,35 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     elements.push(
       <div
         key={`table-${idx}`}
-        className="my-5 rounded-xl border border-[#DDE7E3] bg-white shadow-xs overflow-hidden"
+        className="my-5 rounded-xl border border-[#E8E8E8] bg-white shadow-xs overflow-hidden"
       >
         <div className="overflow-x-auto">
           <table className="min-w-full w-full text-left text-sm border-collapse">
             <thead>
-              <tr className="bg-[#E8F5E9] border-b border-[#DDE7E3] text-[#102A2A]">
+              <tr className="bg-[#001028] border-b border-[#001830] text-white">
                 {headers.map((h, hIdx) => (
                   <th
                     key={hIdx}
-                    className="px-4 py-2.5 font-extrabold text-xs uppercase tracking-wider whitespace-nowrap text-[#102A2A]"
+                    className="px-4 py-2.5 font-extrabold text-xs uppercase tracking-wider whitespace-nowrap text-[#F8C800]"
                   >
                     {renderInline(h)}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#DDE7E3]">
+            <tbody className="divide-y divide-[#E8E8E8]">
               {rows.map((row, rIdx) => (
                 <tr
                   key={rIdx}
-                  className={rIdx % 2 === 0 ? 'bg-white' : 'bg-[#F7F9F7]'}
+                  className={rIdx % 2 === 0 ? 'bg-white' : 'bg-[#F8F8F8]'}
                 >
                   {row.map((cell, cIdx) => (
                     <td
                       key={cIdx}
                       className={`px-4 py-2.5 leading-relaxed text-sm ${
                         cIdx === 0
-                          ? 'font-bold text-[#102A2A]'
-                          : 'font-normal text-[#102A2A]'
+                          ? 'font-bold text-[#001028]'
+                          : 'font-normal text-[#1F2937]'
                       }`}
                     >
                       {renderInline(cell)}
@@ -195,37 +209,11 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     inSvgBlock = false;
   };
 
-  // Mathematical Symbol & LaTeX Cleanup
-  const formatChalkMath = (raw: string): string => {
-    if (!raw) return '';
-    return raw
-      .replace(/\(\$([^$]+)\$\)/g, '($1)')
-      .replace(/\$([a-zA-Z0-9_{}\s+\-*/=()\\%]+)\$/g, '$1')
-      .replace(/\\(?:text|mathrm|mathbf|boldsymbol|textbf)\{([^}]*)\}/g, '$1')
-      .replace(/\\text\b/g, '')
-      .replace(/\\%/g, '%')
-      .replace(/\\quad|\\qquad|\\;|\\,|\\!/g, ' ')
-      .replace(/\\left\b|\\right\b/g, '')
-      .replace(/\\&/g, '&')
-      .replace(/\\#/g, '#')
-      // Greek symbols
-      .replace(/\\eta\b/g, 'η')
-      .replace(/\\theta\b/g, 'θ')
-      .replace(/\\pi\b/g, 'π')
-      .replace(/\\mu\b/g, 'μ')
-      .replace(/\\lambda\b/g, 'λ')
-      .replace(/\\alpha\b/g, 'α')
-      .replace(/\\beta\b/g, 'β')
-      .replace(/\\gamma\b/g, 'γ')
-      .replace(/\\Delta\b/g, 'Δ')
-      .replace(/\\Omega\b/g, 'Ω')
-      .replace(/\\omega\b/g, 'ω')
-      .replace(/\\phi\b/g, 'φ')
-      .replace(/\\rho\b/g, 'ρ')
-      .replace(/\\sigma\b/g, 'σ')
-      .replace(/\\tau\b/g, 'τ')
-      .replace(/\\epsilon\b/g, 'ε')
-      // Operators
+  // Plain text symbol cleaner (only applied to non-LaTeX text chunks)
+  const cleanPlainTextSymbols = (str: string): string => {
+    if (!str) return '';
+    return str
+      .replace(/###\s*/g, '')
       .replace(/\\times\b/g, '×')
       .replace(/\\cdot\b/g, '·')
       .replace(/\\div\b/g, '÷')
@@ -235,154 +223,151 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
       .replace(/\\leq\b/g, '≤')
       .replace(/\\geq\b/g, '≥')
       .replace(/\\infty\b/g, '∞')
-      .replace(/\\propto\b/g, '∝')
-      .replace(/\\therefore\b/g, '∴')
-      .replace(/\\because\b/g, '∵')
       .replace(/\\rightarrow\b|\\to\b/g, '→')
-      .replace(/\\leftarrow\b/g, '←')
-      .replace(/\\implies\b|\\Rightarrow\b/g, '⇒')
-      .replace(/\\Leftarrow\b/g, '⇐')
-      .replace(/\\leftrightarrow\b|\\iff\b/g, '↔')
-      .replace(/\\degree\b|\^\\circ\b/g, '°')
-      .replace(/\\operatorname\{([^}]*)\}/g, '$1')
-      .replace(/\\sqrt\{([^}]*)\}/g, '√($1)')
-      .replace(/\\frac\{([^{}]+)\}\{([^{}]+)\}/g, '($1 / $2)')
-      .replace(/\^2\b/g, '²')
-      .replace(/\^3\b/g, '³')
-      .replace(/\^4\b/g, '⁴')
-      .replace(/\^n\b/g, 'ⁿ')
-      .replace(/\^0\b/g, '⁰')
-      .replace(/\^1\b/g, '¹')
-      .replace(/\^-1\b/g, '⁻¹')
-      .replace(/\^-2\b/g, '⁻²')
-      .replace(/_1\b/g, '₁')
-      .replace(/_2\b/g, '₂')
-      .replace(/_3\b/g, '₃')
-      .replace(/_0\b/g, '₀')
-      .replace(/_E\b/g, 'ₑ')
-      .replace(/_L\b/g, 'ₗ')
-      .replace(/_k\b/g, 'ₖ')
-      .replace(/_s\b/g, 'ₛ')
-      .replace(/_x\b/g, 'ₓ')
-      .replace(/_y\b/g, 'ᵧ')
-      .replace(/_A\b/g, 'ₐ')
-      .replace(/_B\b/g, 'ᵦ')
-      .replace(/_\{([^}]*)\}/g, '_$1');
+      .replace(/\\degree\b/g, '°');
   };
 
-  const renderChalkMathContent = (math: string, keyPrefix = 'm'): React.ReactNode => {
-    if (!math) return null;
-    const fracRegex = /\\frac\{([^{}]+)\}\{([^{}]+)\}/g;
-    if (!fracRegex.test(math)) {
-      return <span>{formatChalkMath(math)}</span>;
-    }
-    fracRegex.lastIndex = 0;
-    const parts: React.ReactNode[] = [];
-    let lastIdx = 0;
-    let match: RegExpExecArray | null;
-    let counter = 0;
-
-    while ((match = fracRegex.exec(math)) !== null) {
-      if (match.index > lastIdx) {
-        parts.push(
-          <span key={`${keyPrefix}-t-${counter++}`}>
-            {formatChalkMath(math.slice(lastIdx, match.index))}
-          </span>
-        );
-      }
-      const num = formatChalkMath(match[1].trim());
-      const den = formatChalkMath(match[2].trim());
-      parts.push(
-        <span
-          key={`${keyPrefix}-frac-${counter++}`}
-          className="inline-flex flex-col items-center justify-center align-middle mx-1 text-center font-bold font-mono text-slate-900"
-          style={{ verticalAlign: '-0.45em', lineHeight: 1.1 }}
-        >
-          <span className="border-b-2 border-slate-900 pb-0.5 px-1 text-center text-xs sm:text-sm">
-            {num}
-          </span>
-          <span className="pt-0.5 px-1 text-center text-xs sm:text-sm">
-            {den}
-          </span>
-        </span>
-      );
-      lastIdx = match.index + match[0].length;
-    }
-
-    if (lastIdx < math.length) {
-      parts.push(
-        <span key={`${keyPrefix}-t-end`}>
-          {formatChalkMath(math.slice(lastIdx))}
-        </span>
-      );
-    }
-
-    return <>{parts}</>;
-  };
-
-  const cleanLatexAndSymbols = (str: string): string => {
-    if (!str) return str;
-    return formatChalkMath(str).replace(/###\s*/g, '');
-  };
-
-  const renderInline = (rawText: string): React.ReactNode => {
+  const renderInlineTextOnly = (rawText: string): React.ReactNode => {
     if (!rawText) return rawText;
-    const text = cleanLatexAndSymbols(rawText);
     const parts: React.ReactNode[] = [];
-    const regex = /(\$\$.*?\$\$|\*\*[^*\n]+?\*\*|__[^_\n]+?__|\*[^*\n]+?\*|_[^_\n]+?_|`[^`\n]+?`|\$[^$\n]+?\$)/g;
+    // Token regex matches display math ($$...$$ or \[...\]), inline math ($...$ or \(...\)), bold (**...** or __...__), italic (*...* or _..._), code (`...`)
+    const regex = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$[^\$\n]+?\$|\\\([\s\S]*?\\\)|\*\*[^*\n]+?\*\*|__[^_\n]+?__|(?<!\*)\*[^*\n]+?\*(?!\*)|(?<!_)_[^_\n]+?_(?!_)|`[^`\n]+?`)/g;
     let lastIdx = 0;
     let match: RegExpExecArray | null;
 
-    while ((match = regex.exec(text)) !== null) {
+    while ((match = regex.exec(rawText)) !== null) {
       if (match.index > lastIdx) {
-        parts.push(text.slice(lastIdx, match.index));
+        const plain = cleanPlainTextSymbols(rawText.slice(lastIdx, match.index));
+        if (plain) parts.push(plain);
       }
       const token = match[0];
-      if (token.startsWith('**') && token.endsWith('**')) {
+      if (token.startsWith('$$') && token.endsWith('$$')) {
+        const inner = token.slice(2, -2).trim();
         parts.push(
-          <strong key={match.index} className="font-extrabold text-slate-950">
-            {renderInline(token.slice(2, -2))}
+          <span
+            key={`math-disp-${match.index}`}
+            className="inline-block my-1 align-middle text-[#001028] overflow-x-auto select-text"
+            dangerouslySetInnerHTML={{ __html: renderLatexToHtml(inner, true) }}
+          />
+        );
+      } else if (token.startsWith('\\[') && token.endsWith('\\]')) {
+        const inner = token.slice(2, -2).trim();
+        parts.push(
+          <span
+            key={`math-disp-${match.index}`}
+            className="inline-block my-1 align-middle text-[#001028] overflow-x-auto select-text"
+            dangerouslySetInnerHTML={{ __html: renderLatexToHtml(inner, true) }}
+          />
+        );
+      } else if (token.startsWith('$') && token.endsWith('$')) {
+        const inner = token.slice(1, -1).trim();
+        parts.push(
+          <span
+            key={`math-inl-${match.index}`}
+            className="katex-inline px-0.5 text-[#001028] align-baseline select-text font-medium"
+            dangerouslySetInnerHTML={{ __html: renderLatexToHtml(inner, false) }}
+          />
+        );
+      } else if (token.startsWith('\\(') && token.endsWith('\\)')) {
+        const inner = token.slice(2, -2).trim();
+        parts.push(
+          <span
+            key={`math-inl-${match.index}`}
+            className="katex-inline px-0.5 text-[#001028] align-baseline select-text font-medium"
+            dangerouslySetInnerHTML={{ __html: renderLatexToHtml(inner, false) }}
+          />
+        );
+      } else if (token.startsWith('**') && token.endsWith('**')) {
+        parts.push(
+          <strong key={match.index} className="font-extrabold text-[#001028]">
+            {renderInlineTextOnly(token.slice(2, -2))}
           </strong>
         );
       } else if (token.startsWith('__') && token.endsWith('__')) {
         parts.push(
-          <strong key={match.index} className="font-extrabold text-slate-950">
-            {renderInline(token.slice(2, -2))}
+          <strong key={match.index} className="font-extrabold text-[#001028]">
+            {renderInlineTextOnly(token.slice(2, -2))}
           </strong>
         );
       } else if ((token.startsWith('*') && token.endsWith('*')) || (token.startsWith('_') && token.endsWith('_'))) {
         parts.push(
-          <em key={match.index} className="italic text-slate-800">
-            {renderInline(token.slice(1, -1))}
+          <em key={match.index} className="italic text-[#1F2937]">
+            {renderInlineTextOnly(token.slice(1, -1))}
           </em>
         );
       } else if (token.startsWith('`') && token.endsWith('`')) {
         parts.push(
-          <code key={match.index} className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-xs text-slate-900 font-bold">
+          <code key={match.index} className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-xs text-[#001028] font-bold">
             {token.slice(1, -1)}
           </code>
-        );
-      } else if (token.startsWith('$$') && token.endsWith('$$')) {
-        const inner = token.slice(2, -2);
-        parts.push(
-          <span key={match.index} className="font-mono font-bold text-slate-900 inline-flex items-center align-baseline">
-            {renderChalkMathContent(inner, `display-${match.index}`)}
-          </span>
-        );
-      } else if (token.startsWith('$') && token.endsWith('$')) {
-        const inner = token.slice(1, -1);
-        parts.push(
-          <span key={match.index} className="font-mono font-bold text-slate-900 inline-flex items-center align-baseline">
-            {renderChalkMathContent(inner, `inline-${match.index}`)}
-          </span>
         );
       }
       lastIdx = match.index + token.length;
     }
-    if (lastIdx < text.length) {
-      parts.push(text.slice(lastIdx));
+    if (lastIdx < rawText.length) {
+      const remaining = cleanPlainTextSymbols(rawText.slice(lastIdx));
+      if (remaining) parts.push(remaining);
     }
-    return parts.length > 0 ? parts : text;
+    return parts.length > 0 ? parts : rawText;
+  };
+
+  const renderInline = (rawText: string): React.ReactNode => {
+    if (!rawText) return rawText;
+
+    // Check if rawText contains markdown images or HTML images
+    const imgRegex = /(!\[([^\]]*)\]\(([^)]+)\)|<img\b[^>]*\/?>)/g;
+    if (imgRegex.test(rawText)) {
+      imgRegex.lastIndex = 0;
+      const parts: React.ReactNode[] = [];
+      let lastIdx = 0;
+      let match: RegExpExecArray | null;
+      let counter = 0;
+
+      while ((match = imgRegex.exec(rawText)) !== null) {
+        if (match.index > lastIdx) {
+          parts.push(renderInlineTextOnly(rawText.slice(lastIdx, match.index)));
+        }
+        const token = match[0];
+        if (token.startsWith('![')) {
+          const alt = match[2] || '';
+          const src = match[3] || '';
+          parts.push(
+            <figure
+              key={`inline-img-${counter++}`}
+              className="my-3 flex flex-col items-center justify-center p-2.5 bg-white rounded-xl border border-slate-200 shadow-xs max-w-md mx-auto"
+            >
+              <img
+                src={src.trim()}
+                alt={alt}
+                className="max-h-72 max-w-full object-contain rounded-lg"
+                loading="lazy"
+              />
+              {alt && (
+                <figcaption className="mt-1 text-xs text-slate-500 font-medium text-center">
+                  {alt}
+                </figcaption>
+              )}
+            </figure>
+          );
+        } else {
+          // HTML img
+          parts.push(
+            <span
+              key={`inline-html-img-${counter++}`}
+              className="inline-block my-2 max-w-full overflow-hidden [&_img]:max-h-72 [&_img]:max-w-full [&_img]:object-contain [&_img]:rounded-lg"
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(token) }}
+            />
+          );
+        }
+        lastIdx = match.index + token.length;
+      }
+      if (lastIdx < rawText.length) {
+        parts.push(renderInlineTextOnly(rawText.slice(lastIdx)));
+      }
+      return parts;
+    }
+
+    return renderInlineTextOnly(rawText);
   };
 
   lines.forEach((line, i) => {
@@ -440,17 +425,73 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
 
     if (trimmed.length === 0) return;
 
+    // Handle Standalone Markdown Image (![alt](url))
+    const mdImgMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (mdImgMatch) {
+      const altText = mdImgMatch[1].trim();
+      const srcUrl = mdImgMatch[2].trim();
+      elements.push(
+        <figure
+          key={`diagram-fig-${i}`}
+          className="my-5 flex flex-col items-center justify-center p-3.5 bg-white rounded-2xl border border-[#E8E8E8] shadow-xs max-w-lg mx-auto overflow-hidden"
+        >
+          <img
+            src={srcUrl}
+            alt={altText || 'Study Diagram'}
+            className="max-h-80 w-auto max-w-full object-contain rounded-xl"
+            loading="lazy"
+          />
+          {altText && (
+            <figcaption className="mt-2 text-xs font-semibold text-slate-500 text-center">
+              {altText}
+            </figcaption>
+          )}
+        </figure>
+      );
+      return;
+    }
+
+    // Handle Standalone HTML Image (<img ...>)
+    if (/^<img\b[^>]*\/?>$/i.test(trimmed) || (trimmed.startsWith('<img') && trimmed.endsWith('>'))) {
+      elements.push(
+        <div
+          key={`diagram-html-img-${i}`}
+          className="my-5 flex justify-center p-3 bg-white rounded-2xl border border-[#E8E8E8] shadow-xs max-w-lg mx-auto overflow-hidden [&_img]:max-h-80 [&_img]:w-auto [&_img]:max-w-full [&_img]:object-contain [&_img]:rounded-xl"
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(trimmed) }}
+        />
+      );
+      return;
+    }
+
     // Handle Display Math ($$ ... $$)
     if (trimmed.startsWith('$$') && trimmed.endsWith('$$') && trimmed.length >= 4) {
       const mathContent = trimmed.slice(2, -2).trim();
       elements.push(
         <div
           key={`math-block-${i}`}
-          className="my-3 py-2 px-4 rounded-xl bg-slate-50 border border-slate-200 overflow-x-auto text-center select-text"
+          className="my-3.5 py-3 px-4 rounded-2xl bg-[#F8F9FA] border border-[#E8E8E8] overflow-x-auto text-center select-text shadow-xs"
         >
-          <div className="font-mono font-bold text-sm sm:text-base tracking-wide inline-flex items-center justify-center flex-wrap gap-1 text-slate-900">
-            {renderChalkMathContent(mathContent, `display-${i}`)}
-          </div>
+          <div
+            className="text-sm sm:text-base tracking-wide text-[#001028] overflow-x-auto"
+            dangerouslySetInnerHTML={{ __html: renderLatexToHtml(mathContent, true) }}
+          />
+        </div>
+      );
+      return;
+    }
+
+    // Handle Display Math (\[ ... \])
+    if (trimmed.startsWith('\\[') && trimmed.endsWith('\\]') && trimmed.length >= 4) {
+      const mathContent = trimmed.slice(2, -2).trim();
+      elements.push(
+        <div
+          key={`math-block-bracket-${i}`}
+          className="my-3.5 py-3 px-4 rounded-2xl bg-[#F8F9FA] border border-[#E8E8E8] overflow-x-auto text-center select-text shadow-xs"
+        >
+          <div
+            className="text-sm sm:text-base tracking-wide text-[#001028] overflow-x-auto"
+            dangerouslySetInnerHTML={{ __html: renderLatexToHtml(mathContent, true) }}
+          />
         </div>
       );
       return;
@@ -460,7 +501,7 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     if (/^(\d+\.\d+|\d+\.)\s+[A-Z]/.test(trimmed) && trimmed.length < 80) {
       elements.push(
         <div key={`sec-badge-${i}`} className="my-4">
-          <span className="inline-block px-3 py-1 bg-[#FFD21F] text-[#102A2A] font-black text-sm sm:text-base rounded-md sm:rounded-lg shadow-xs">
+          <span className="inline-block px-3 py-1 bg-[#F8C800] text-[#001028] font-black text-sm sm:text-base rounded-md sm:rounded-lg shadow-xs">
             {renderInline(trimmed)}
           </span>
         </div>
@@ -472,7 +513,7 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     if (trimmed.startsWith('# ')) {
       const title = trimmed.replace(/^#\s*/, '').trim();
       elements.push(
-        <h1 key={`h1-${i}`} className="text-xl sm:text-2xl font-black text-[#102A2A] mt-6 mb-3 pb-2 border-b border-[#DDE7E3] leading-snug">
+        <h1 key={`h1-${i}`} className="text-xl sm:text-2xl font-black text-[#001028] mt-6 mb-3 pb-2 border-b border-[#E8E8E8] leading-snug">
           {renderInline(title)}
         </h1>
       );
@@ -509,11 +550,11 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
       const label = match ? match[1] : 'Tip';
       const body = match ? match[2] : trimmed;
       elements.push(
-        <div key={`tip-box-${i}`} className="my-3.5 p-3.5 rounded-xl bg-[#E8F5E9] border border-[#DDE7E3] text-[#102A2A] text-xs sm:text-sm leading-relaxed flex items-start gap-2.5">
+        <div key={`tip-box-${i}`} className="my-3.5 p-3.5 rounded-xl bg-[#F8F8F8] border border-[#E8E8E8] border-l-4 border-l-[#F8C800] text-[#001028] text-xs sm:text-sm leading-relaxed flex items-start gap-2.5 shadow-xs">
           <span className="text-base select-none shrink-0">💡</span>
           <div>
-            <div className="font-extrabold text-[#102A2A] mb-0.5">{label}:</div>
-            <div className="text-[#102A2A] font-medium">{renderInline(body)}</div>
+            <div className="font-extrabold text-[#001028] mb-0.5">{label}:</div>
+            <div className="text-[#374151] font-medium">{renderInline(body)}</div>
           </div>
         </div>
       );
@@ -523,7 +564,7 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     // Handle Question labels: e.g. "Question 1 (JAMB 1978)" or "QUESTION 1:"
     if (/^QUESTION\s+\d+[:\s]/i.test(trimmed) || /^\*\*Question\s+\d+/i.test(trimmed)) {
       elements.push(
-        <div key={`q-hdr-${i}`} className="mt-5 mb-1 text-sm sm:text-base font-extrabold text-[#004D40]">
+        <div key={`q-hdr-${i}`} className="mt-5 mb-1 text-sm sm:text-base font-extrabold text-[#001028]">
           {renderInline(trimmed)}
         </div>
       );
@@ -533,8 +574,9 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     // Handle "Correct Answer: " lines
     if (/^Correct Answer:\s*/i.test(trimmed)) {
       elements.push(
-        <div key={`correct-ans-${i}`} className="my-1.5 text-xs sm:text-sm font-bold text-[#004D40] flex items-center gap-1.5 bg-[#E8F5E9] px-3 py-1.5 rounded-lg border border-[#DDE7E3]">
-          <span>✓ {renderInline(trimmed)}</span>
+        <div key={`correct-ans-${i}`} className="my-1.5 text-xs sm:text-sm font-bold text-white flex items-center gap-1.5 bg-[#001028] px-3.5 py-2 rounded-xl border border-[#001830] shadow-xs">
+          <span className="text-[#F8C800] font-black">✓</span>
+          <span>{renderInline(trimmed)}</span>
         </div>
       );
       return;
@@ -544,9 +586,9 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     if (/^Explanation:\s*/i.test(trimmed)) {
       const explText = trimmed.replace(/^Explanation:\s*/i, '').trim();
       elements.push(
-        <div key={`expl-${i}`} className="my-2 p-3 bg-[#F7F9F7] border-l-4 border-[#004D40] rounded-r-lg text-xs sm:text-sm text-[#102A2A] leading-relaxed">
-          <strong className="text-[#004D40] font-bold">Explanation: </strong>
-          <span>{renderInline(explText)}</span>
+        <div key={`expl-${i}`} className="my-2.5 p-3.5 bg-[#F8F8F8] border border-[#E8E8E8] border-l-4 border-l-[#001028] rounded-r-xl text-xs sm:text-sm text-[#001028] leading-relaxed shadow-xs">
+          <strong className="text-[#001028] font-black">Explanation: </strong>
+          <span className="text-[#374151]">{renderInline(explText)}</span>
         </div>
       );
       return;
@@ -554,15 +596,15 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
 
     // Handle Horizontal Dividers
     if (trimmed === '---') {
-      elements.push(<hr key={`hr-${i}`} className="my-5 border-[#DDE7E3]" />);
+      elements.push(<hr key={`hr-${i}`} className="my-5 border-[#E8E8E8]" />);
       return;
     }
 
-    // Handle Callouts (> ...) with clean Light Green styling
+    // Handle Callouts (> ...) with clean StudyPlug Gold & Light Grey styling
     if (trimmed.startsWith('> ')) {
       const quote = trimmed.replace(/^>\s*/, '').trim();
       elements.push(
-        <blockquote key={`quote-${i}`} className="my-3 p-3.5 rounded-xl border-l-4 border-[#004D40] bg-[#E8F5E9] text-xs sm:text-sm text-[#102A2A] leading-relaxed italic">
+        <blockquote key={`quote-${i}`} className="my-3 p-3.5 rounded-xl border border-[#E8E8E8] border-l-4 border-l-[#F8C800] bg-[#F8F8F8] text-xs sm:text-sm text-[#001028] leading-relaxed italic shadow-xs">
           {renderInline(quote)}
         </blockquote>
       );
@@ -575,9 +617,9 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
       const isShowing = Boolean(revealedAnswers[ansKey]);
 
       elements.push(
-        <div key={ansKey} className="my-2.5 p-3 rounded-xl border border-emerald-200 bg-emerald-50/70 flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2">
-          <div className="font-extrabold flex items-center space-x-2 text-emerald-950">
-            <span className="w-5 h-5 rounded-full bg-emerald-200 text-emerald-900 flex items-center justify-center text-[11px] font-bold">
+        <div key={ansKey} className="my-2.5 p-3 rounded-xl border border-[#E8E8E8] bg-[#F8F8F8] flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 shadow-xs">
+          <div className="font-extrabold flex items-center space-x-2 text-[#001028]">
+            <span className="w-5 h-5 rounded-full bg-[#001028] text-[#F8C800] flex items-center justify-center text-[11px] font-black">
               ✓
             </span>
             <span>{renderInline(trimmed)}</span>
@@ -585,7 +627,7 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
           <button
             type="button"
             onClick={() => toggleAnswer(ansKey)}
-            className="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 transition cursor-pointer self-start sm:self-auto"
+            className="text-[11px] font-bold px-3 py-1.5 rounded-lg bg-[#001028] text-[#F8C800] hover:bg-[#001830] transition cursor-pointer self-start sm:self-auto shadow-xs"
           >
             {isShowing ? 'Hide Working' : 'View Full Working'}
           </button>
@@ -601,11 +643,11 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
         const num = match[1];
         const content = match[2];
         elements.push(
-          <div key={`step-${i}`} className="flex items-center space-x-2.5 my-2 text-sm sm:text-base leading-relaxed text-[#102A2A] pl-1">
-            <span className="w-5 h-5 rounded-full bg-[#004D40] text-white text-[11px] font-bold flex items-center justify-center shrink-0 shadow-xs">
+          <div key={`step-${i}`} className="flex items-center space-x-2.5 my-2.5 text-sm sm:text-base leading-relaxed text-[#1F2937] pl-1">
+            <span className="w-5 h-5 rounded-full bg-[#001028] text-white text-[11px] font-bold flex items-center justify-center shrink-0 shadow-xs">
               {num}
             </span>
-            <span className="flex-1 font-medium">{renderInline(content)}</span>
+            <div className="flex-1 font-medium overflow-x-auto">{renderInline(content)}</div>
           </div>
         );
         return;
@@ -619,9 +661,9 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
         const num = match[1];
         const itemContent = match[2];
         elements.push(
-          <div key={`num-${i}`} className="flex items-start space-x-2.5 my-1.5 text-sm sm:text-base leading-relaxed text-[#102A2A] pl-1">
-            <span className="font-bold text-[#607070] shrink-0 select-none min-w-[1.25rem]">{num}.</span>
-            <span className="flex-1 font-normal">{renderInline(itemContent)}</span>
+          <div key={`num-${i}`} className="flex items-start space-x-2.5 my-2 text-sm sm:text-base leading-relaxed text-[#1F2937] pl-1">
+            <span className="font-extrabold text-[#001028] shrink-0 select-none min-w-[1.25rem] mt-0.5">{num}.</span>
+            <div className="flex-1 font-normal overflow-x-auto">{renderInline(itemContent)}</div>
           </div>
         );
         return;
@@ -632,9 +674,9 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
     if (trimmed.startsWith('- ') || trimmed.startsWith('* ') || trimmed.startsWith('• ')) {
       const bulletContent = trimmed.replace(/^[-*•]\s*/, '');
       elements.push(
-        <div key={`bullet-${i}`} className="flex items-start space-x-2.5 my-1.5 text-sm sm:text-base leading-relaxed text-[#102A2A] pl-2">
-          <span className="text-[#004D40] font-black select-none shrink-0 mt-0.5">•</span>
-          <span className="flex-1 font-normal">{renderInline(bulletContent)}</span>
+        <div key={`bullet-${i}`} className="flex items-start space-x-2.5 my-2 text-sm sm:text-base leading-relaxed text-[#1F2937] pl-2">
+          <span className="text-[#F8C800] font-black select-none shrink-0 mt-1">•</span>
+          <div className="flex-1 font-normal overflow-x-auto">{renderInline(bulletContent)}</div>
         </div>
       );
       return;
@@ -642,7 +684,7 @@ export const RichNoteRenderer: React.FC<RichNoteRendererProps> = ({ content, cha
 
     // Regular line / Paragraph
     elements.push(
-      <p key={`p-${i}`} className="my-2 text-sm sm:text-base leading-relaxed text-[#102A2A] select-text">
+      <p key={`p-${i}`} className="my-2.5 text-sm sm:text-base leading-relaxed text-[#1F2937] select-text">
         {renderInline(trimmed)}
       </p>
     );

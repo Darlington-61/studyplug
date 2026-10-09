@@ -19,6 +19,7 @@ import {
   ExamPills,
   ExamCategory
 } from './design-system';
+import { ShareStudyCardModal } from './common/ShareStudyCardModal';
 
 interface SubjectCardConfig {
   year: number | 'all';
@@ -29,12 +30,17 @@ interface SubjectCardConfig {
 export const PracticeMode: React.FC = () => {
   const {
     setActiveView,
+    goBack,
     toggleBookmarkQuestion,
     isQuestionBookmarked,
     openAiTutor,
     openCalculator,
+    startTestForSubject,
+    startMultiSubjectTest,
     selectedSubject: appSelectedSubject,
+    setSelectedSubject: setAppSelectedSubject,
     selectedSubjects: appSelectedSubjects,
+    setSelectedSubjects: setAppSelectedSubjects,
     selectedExam: appSelectedExam,
     setSelectedExam: setAppSelectedExam
   } = useApp();
@@ -45,6 +51,7 @@ export const PracticeMode: React.FC = () => {
   // ─── Speech Synthesis & Question Palette State ─────────────────────────────
   const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   const [isQuestionPaletteOpen, setIsQuestionPaletteOpen] = useState<boolean>(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState<boolean>(false);
   const speechUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   // ─── Target Exam (synced with AppContext) ──────────────────────────────────
@@ -59,12 +66,13 @@ export const PracticeMode: React.FC = () => {
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>(() => {
     if (appSelectedSubjects && appSelectedSubjects.length > 0) return appSelectedSubjects;
     if (appSelectedSubject && appSelectedSubject.trim() !== '') return [appSelectedSubject];
-    return ['Physics'];
+    return ['Use of English'];
   });
 
   // ─── Per-Subject Configuration (Year, Question Count, Topics) ─────────────
   const [subjectConfigs, setSubjectConfigs] = useState<Record<string, SubjectCardConfig>>({
     'Use of English': { year: 'all', questionCount: 20, selectedTopics: ['all'] },
+    'English Language': { year: 'all', questionCount: 20, selectedTopics: ['all'] },
     'Mathematics': { year: 'all', questionCount: 20, selectedTopics: ['all'] },
     'Physics': { year: 'all', questionCount: 20, selectedTopics: ['all'] },
     'Chemistry': { year: 'all', questionCount: 20, selectedTopics: ['all'] },
@@ -76,8 +84,15 @@ export const PracticeMode: React.FC = () => {
 
   // Active subject being drilled when session is running
   const [activeSubjectTab, setActiveSubjectTab] = useState<string>(() => {
-    return selectedSubjects[0] || 'Physics';
+    return selectedSubjects[0] || 'Use of English';
   });
+
+  // Keep activeSubjectTab always valid within selectedSubjects
+  useEffect(() => {
+    if (selectedSubjects.length > 0 && !selectedSubjects.includes(activeSubjectTab)) {
+      setActiveSubjectTab(selectedSubjects[0]);
+    }
+  }, [selectedSubjects, activeSubjectTab]);
 
   // Sync local selectedSubjects & activeSubjectTab whenever context subject changes
   useEffect(() => {
@@ -108,11 +123,18 @@ export const PracticeMode: React.FC = () => {
   const [isReviewingCorrections, setIsReviewingCorrections] = useState<boolean>(false);
   const [correctionsFilter, setCorrectionsFilter] = useState<'all' | 'incorrect' | 'correct' | 'unanswered'>('all');
 
+  // Scroll to top of viewport when question changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [practiceIndex]);
+
   // Available subjects catalog
   const availableSubjectCatalog = [
-    { name: 'Physics', icon: '⚛️', count: 1420 },
-    { name: 'Mathematics', icon: '📐', count: 1850 },
     { name: 'Use of English', icon: '📖', count: 3144 },
+    { name: 'Mathematics', icon: '📐', count: 1850 },
+    { name: 'Physics', icon: '⚛️', count: 1420 },
     { name: 'Chemistry', icon: '🧪', count: 1380 },
     { name: 'Biology', icon: '🍃', count: 1560 },
     { name: 'Economics', icon: '📈', count: 980 },
@@ -157,7 +179,8 @@ export const PracticeMode: React.FC = () => {
   };
 
   // Compute active question bank for the active subject tab
-  const activeSubjectConfig = getConfigForSubject(activeSubjectTab);
+  const targetSub = activeSubjectTab || selectedSubjects[0] || 'Use of English';
+  const activeSubjectConfig = getConfigForSubject(targetSub);
   const activeQuestionList = useMemo(() => {
     try {
       const topicsList = Array.isArray(activeSubjectConfig?.selectedTopics)
@@ -166,31 +189,35 @@ export const PracticeMode: React.FC = () => {
       const rawTopic =
         topicsList.includes('all') || topicsList.length === 0 ? 'all' : topicsList[0] || 'all';
 
+      const reqCount = activeSubjectConfig?.questionCount;
+      const limit = typeof reqCount === 'number' && reqCount > 0 ? reqCount : undefined;
+
       let qs = getFilteredQuestions({
         exam: (selectedExam || 'JAMB') as ExamType,
-        subject: activeSubjectTab || 'Physics',
+        subject: targetSub,
         year: activeSubjectConfig?.year ?? 'all',
         topic: rawTopic,
-        limit: activeSubjectConfig?.questionCount ?? 20
+        limit,
+        paperType: 'OBJ'
       });
 
       if (!qs || qs.length === 0) {
-        qs = getBaseQuestionsForSubject(activeSubjectTab || 'Physics') || [];
+        qs = getBaseQuestionsForSubject(targetSub) || [];
       }
 
       if (shuffleQuestions && qs.length > 1) {
         return [...qs].sort(() => 0.5 - Math.random());
       }
-      return qs && qs.length > 0 ? qs : ALL_QUESTIONS.slice(0, 20);
+      return qs && qs.length > 0 ? qs : getBaseQuestionsForSubject(targetSub);
     } catch (err) {
       console.warn('activeQuestionList generation fallback:', err);
-      return ALL_QUESTIONS.slice(0, 20);
+      return getBaseQuestionsForSubject(targetSub);
     }
-  }, [selectedExam, activeSubjectTab, activeSubjectConfig, shuffleQuestions]);
+  }, [selectedExam, targetSub, activeSubjectConfig, shuffleQuestions]);
 
   // Safe question fallback
   const safeIndex = practiceIndex >= activeQuestionList.length ? 0 : practiceIndex;
-  const currentQ: Question = activeQuestionList[safeIndex] || activeQuestionList[0] || ALL_QUESTIONS[0];
+  const currentQ: Question = activeQuestionList[safeIndex] || activeQuestionList[0] || getBaseQuestionsForSubject(targetSub)[0];
   const isBookmarked = currentQ?.id ? isQuestionBookmarked(currentQ.id) : false;
   const currentAnswer = currentQ?.id ? userSelections[currentQ.id] : undefined;
   const isCurrentRevealed = currentQ?.id ? revealedSolutions[currentQ.id] : false;
@@ -272,6 +299,18 @@ export const PracticeMode: React.FC = () => {
 
   // Start Session
   const handleStartPractice = () => {
+    // If student selected Mock Exam mode, route to the authentic full CBT Exam simulator
+    if (practiceMode === 'exam') {
+      const yearToUse = selectedYear === 'all' ? 2026 : Number(selectedYear) || 2026;
+      if (selectedSubjects.length > 1) {
+        startMultiSubjectTest(selectedSubjects, yearToUse);
+      } else {
+        startTestForSubject(activeSubjectTab, yearToUse);
+      }
+      setActiveView('test');
+      return;
+    }
+
     setPracticeIndex(0);
     setUserSelections({});
     setRevealedSolutions({});
@@ -371,15 +410,15 @@ export const PracticeMode: React.FC = () => {
     return (
       <div className="w-full bg-[#F7F9F8] min-h-screen text-[#10201D] font-sans pb-24 select-none animate-page-enter flex flex-col justify-between">
         <div className="w-full">
-          {/* ─── Top Header Strip: Deep Green (#004D40) ─── */}
-          <header className="w-full bg-[#004D40] text-white px-4 sm:px-6 pt-4 pb-5 shadow-sm">
+          {/* ─── Top Header Strip: Deep Green (#001028) ─── */}
+          <header className="w-full bg-[#001028] text-white px-4 sm:px-6 pt-4 pb-5 shadow-sm">
             <div className="max-w-2xl mx-auto flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <button
                   type="button"
-                  onClick={() => setActiveView('dashboard')}
+                  onClick={() => goBack()}
                   className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition cursor-pointer touch-press"
-                  title="Back to Dashboard"
+                  title="Back"
                 >
                   ←
                 </button>
@@ -387,7 +426,7 @@ export const PracticeMode: React.FC = () => {
                   <h1 className="text-base sm:text-lg font-bold text-white tracking-tight">
                     Practice &amp; Drill
                   </h1>
-                  <p className="text-[12px] text-emerald-100/90 font-medium">
+                  <p className="text-[12px] text-white/80 font-medium">
                     Customize your CBT practice session
                   </p>
                 </div>
@@ -412,14 +451,14 @@ export const PracticeMode: React.FC = () => {
                 <label className="text-xs font-bold text-[#66736F] uppercase tracking-wider">
                   Target Examination
                 </label>
-                <span className="text-[11px] font-bold text-[#004D40] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                <span className="text-[11px] font-bold text-[#001028] bg-[#F8F8F8] px-2 py-0.5 rounded-full border border-[#E8E8E8]">
                   {selectedExam} Syllabus Active
                 </span>
               </div>
               <ExamPills
                 activeExam={selectedExam}
                 onSelectExam={handleSelectExam}
-                exams={['JAMB', 'WAEC', 'NECO', 'BECE']}
+                exams={['JAMB', 'WAEC', 'NECO', 'NABTEB', 'POST-UTME', 'BECE', 'WAEC GCE', 'NECO GCE']}
               />
             </div>
 
@@ -435,7 +474,7 @@ export const PracticeMode: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsSubjectPickerOpen(true)}
-                  className="px-3 py-1.5 rounded-[10px] bg-emerald-50 text-[#004D40] hover:bg-emerald-100 text-xs font-bold border border-emerald-200 transition cursor-pointer flex items-center space-x-1 touch-press"
+                  className="px-3 py-1.5 rounded-[10px] bg-[#F8F8F8] text-[#001028] hover:bg-slate-100 text-xs font-bold border border-[#E8E8E8] transition cursor-pointer flex items-center space-x-1 touch-press"
                 >
                   <span>+</span>
                   <span>Select Subjects</span>
@@ -461,15 +500,28 @@ export const PracticeMode: React.FC = () => {
                   return (
                     <div
                       key={sub}
-                      className="p-3.5 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] space-y-2.5 card-hover-pop"
+                      onClick={() => {
+                        setActiveSubjectTab(sub);
+                        if (setAppSelectedSubject) setAppSelectedSubject(sub);
+                      }}
+                      className={`p-3.5 rounded-[12px] border space-y-2.5 transition cursor-pointer ${
+                        activeSubjectTab === sub
+                          ? 'bg-[#F8F8F8] border-[#001028] ring-1 ring-[#001028]/30 shadow-xs'
+                          : 'bg-[#F7F9F8] border-[#E4EAE8] hover:border-gray-300'
+                      }`}
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2.5">
                           <span className="text-lg">{subMeta.icon}</span>
                           <span className="text-sm font-bold text-[#10201D]">{sub}</span>
+                          {activeSubjectTab === sub && (
+                            <span className="px-1.5 py-0.5 rounded text-[9.5px] font-black bg-[#001028] text-white">
+                              Active Target
+                            </span>
+                          )}
                         </div>
-                        <span className="text-[11px] font-semibold text-[#004D40] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                          {cfg.questionCount} Questions
+                        <span className="text-[11px] font-semibold text-[#001028] bg-[#F8F8F8] px-2 py-0.5 rounded-full border border-[#E8E8E8]">
+                          {cfg.questionCount > 0 ? `${cfg.questionCount} Questions` : 'All Questions'}
                         </span>
                       </div>
 
@@ -499,7 +551,7 @@ export const PracticeMode: React.FC = () => {
                           </select>
                         </div>
 
-                        {/* Question Count Selector (Guarantee 10, 20, 30, 40) */}
+                        {/* Question Count Selector (Guarantee 10, 20, 30, 40, 50, 100, All) */}
                         <div>
                           <label className="block text-[10px] font-bold text-[#66736F] uppercase mb-1">
                             Count
@@ -517,6 +569,8 @@ export const PracticeMode: React.FC = () => {
                             <option value={30}>30 Questions</option>
                             <option value={40}>40 Questions</option>
                             <option value={50}>50 Questions</option>
+                            <option value={100}>100 Questions</option>
+                            <option value={0}>All Questions (Full Bank)</option>
                           </select>
                         </div>
 
@@ -528,7 +582,7 @@ export const PracticeMode: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => handleOpenTopicModal(sub)}
-                            className="w-full bg-white border border-[#E4EAE8] hover:border-[#004D40] text-[#004D40] font-bold rounded-[8px] px-2 py-1.5 truncate text-left flex items-center justify-between touch-press"
+                            className="w-full bg-white border border-[#E4EAE8] hover:border-[#001028] text-[#001028] font-bold rounded-[8px] px-2 py-1.5 truncate text-left flex items-center justify-between touch-press"
                             title="Filter Topics"
                           >
                             <span className="truncate">{topicsLabel}</span>
@@ -553,7 +607,7 @@ export const PracticeMode: React.FC = () => {
                   onClick={() => setPracticeMode('study')}
                   className={`p-3 rounded-[12px] border text-left transition cursor-pointer touch-press ${
                     practiceMode === 'study'
-                      ? 'bg-emerald-50/80 border-[#004D40] text-[#004D40] shadow-xs'
+                      ? 'bg-[#F8F8F8] border-[#001028] text-[#001028] shadow-xs'
                       : 'bg-white border-[#E4EAE8] text-[#66736F] hover:border-gray-300'
                   }`}
                 >
@@ -571,7 +625,7 @@ export const PracticeMode: React.FC = () => {
                   onClick={() => setPracticeMode('exam')}
                   className={`p-3 rounded-[12px] border text-left transition cursor-pointer touch-press ${
                     practiceMode === 'exam'
-                      ? 'bg-emerald-50/80 border-[#004D40] text-[#004D40] shadow-xs'
+                      ? 'bg-[#F8F8F8] border-[#001028] text-[#001028] shadow-xs'
                       : 'bg-white border-[#E4EAE8] text-[#66736F] hover:border-gray-300'
                   }`}
                 >
@@ -614,7 +668,7 @@ export const PracticeMode: React.FC = () => {
                       type="checkbox"
                       checked={shuffleQuestions}
                       onChange={(e) => setShuffleQuestions(e.target.checked)}
-                      className="accent-[#004D40] w-4 h-4 rounded cursor-pointer"
+                      className="accent-[#001028] w-4 h-4 rounded cursor-pointer"
                     />
                     <span>Shuffle Questions</span>
                   </label>
@@ -627,10 +681,14 @@ export const PracticeMode: React.FC = () => {
               <button
                 type="button"
                 onClick={handleStartPractice}
-                className="w-full py-3.5 px-6 rounded-[14px] bg-[#004D40] hover:bg-[#003B32] text-white font-bold text-sm shadow-md transition-all duration-200 cursor-pointer flex items-center justify-center space-x-2 touch-press"
+                className="w-full py-3.5 px-6 rounded-[14px] bg-[#001028] hover:bg-[#001830] text-white font-bold text-sm shadow-md transition-all duration-200 cursor-pointer flex items-center justify-center space-x-2 touch-press"
               >
-                <span>▶</span>
-                <span>Start Practice ({activeSubjectConfig.questionCount} Questions)</span>
+                <span>{practiceMode === 'exam' ? '⏱️' : '▶'}</span>
+                <span>
+                  {practiceMode === 'exam'
+                    ? `Launch CBT Mock Exam (${selectedSubjects.length > 1 ? `${selectedSubjects.length} Subjects` : activeSubjectTab})`
+                    : `Start Practice (${activeSubjectConfig.questionCount > 0 ? `${activeSubjectConfig.questionCount} Questions` : 'All Questions'})`}
+                </span>
               </button>
             </div>
           </main>
@@ -672,8 +730,11 @@ export const PracticeMode: React.FC = () => {
                       onClick={() => {
                         setSelectedSubjects(p.subs);
                         setActiveSubjectTab(p.subs[0]);
+                        if (setAppSelectedSubject) {
+                          setAppSelectedSubject(p.subs[0]);
+                        }
                       }}
-                      className="px-2.5 py-1 rounded-[8px] bg-[#F7F9F8] border border-[#E4EAE8] text-[11px] font-bold text-[#10201D] hover:border-[#004D40] cursor-pointer touch-press"
+                      className="px-2.5 py-1 rounded-[8px] bg-[#F7F9F8] border border-[#E4EAE8] text-[11px] font-bold text-[#10201D] hover:border-[#001028] cursor-pointer touch-press"
                     >
                       {p.name}
                     </button>
@@ -690,7 +751,7 @@ export const PracticeMode: React.FC = () => {
                       key={sub.name}
                       className={`p-2.5 rounded-[10px] border flex items-center justify-between cursor-pointer transition select-none ${
                         isChecked
-                          ? 'bg-emerald-50/80 border-[#004D40] text-[#004D40]'
+                          ? 'bg-[#F8F8F8] border-[#001028] text-[#001028]'
                           : 'bg-[#F7F9F8] border-[#E4EAE8] text-[#10201D] hover:border-gray-300'
                       }`}
                     >
@@ -703,19 +764,25 @@ export const PracticeMode: React.FC = () => {
                         checked={isChecked}
                         onChange={() => {
                           setSelectedSubjects((prev) => {
+                            let next: string[];
                             if (prev.includes(sub.name)) {
                               if (prev.length === 1) return prev;
-                              return prev.filter((s) => s !== sub.name);
+                              next = prev.filter((s) => s !== sub.name);
                             } else {
                               if (prev.length >= 4) {
                                 alert('Maximum 4 subjects allowed for UTME combinations.');
                                 return prev;
                               }
-                              return [...prev, sub.name];
+                              next = [...prev, sub.name];
                             }
+                            setActiveSubjectTab(next[0] || sub.name);
+                            if (setAppSelectedSubject) {
+                              setAppSelectedSubject(next[0] || sub.name);
+                            }
+                            return next;
                           });
                         }}
-                        className="accent-[#004D40] w-4 h-4 cursor-pointer"
+                        className="accent-[#001028] w-4 h-4 cursor-pointer"
                       />
                     </label>
                   );
@@ -725,8 +792,16 @@ export const PracticeMode: React.FC = () => {
               <div className="flex justify-end pt-2 border-t border-[#E4EAE8]">
                 <button
                   type="button"
-                  onClick={() => setIsSubjectPickerOpen(false)}
-                  className="px-6 py-2 rounded-[10px] bg-[#004D40] text-white font-bold text-xs hover:bg-[#003B32] transition cursor-pointer touch-press"
+                  onClick={() => {
+                    if (selectedSubjects.length > 0 && !selectedSubjects.includes(activeSubjectTab)) {
+                      setActiveSubjectTab(selectedSubjects[0]);
+                    }
+                    if (setAppSelectedSubject && selectedSubjects[0]) {
+                      setAppSelectedSubject(selectedSubjects[0]);
+                    }
+                    setIsSubjectPickerOpen(false);
+                  }}
+                  className="px-6 py-2 rounded-[10px] bg-[#001028] text-white font-bold text-xs hover:bg-[#001830] transition cursor-pointer touch-press"
                 >
                   Done
                 </button>
@@ -739,7 +814,7 @@ export const PracticeMode: React.FC = () => {
         {topicModalSubject && (
           <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-page-enter">
             <div className="w-full max-w-lg rounded-[20px] bg-white border border-[#E4EAE8] shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
-              <div className="bg-[#004D40] px-5 py-3.5 text-white flex items-center justify-between">
+              <div className="bg-[#001028] px-5 py-3.5 text-white flex items-center justify-between">
                 <h3 className="text-sm font-bold">
                   Select {topicModalSubject} Topics
                 </h3>
@@ -765,7 +840,7 @@ export const PracticeMode: React.FC = () => {
                         setTempSelectedTopics([]);
                       }
                     }}
-                    className="accent-[#004D40] w-4 h-4 cursor-pointer"
+                    className="accent-[#001028] w-4 h-4 cursor-pointer"
                   />
                   <span>Select All Topics</span>
                 </label>
@@ -779,7 +854,7 @@ export const PracticeMode: React.FC = () => {
                   return (
                     <label
                       key={top}
-                      className="pt-2 flex items-center space-x-3 text-xs font-semibold text-[#10201D] hover:text-[#004D40] cursor-pointer select-none"
+                      className="pt-2 flex items-center space-x-3 text-xs font-semibold text-[#10201D] hover:text-[#001028] cursor-pointer select-none"
                     >
                       <input
                         type="checkbox"
@@ -796,7 +871,7 @@ export const PracticeMode: React.FC = () => {
                             }
                           }
                         }}
-                        className="accent-[#004D40] w-4 h-4 cursor-pointer"
+                        className="accent-[#001028] w-4 h-4 cursor-pointer"
                       />
                       <span>{top}</span>
                     </label>
@@ -815,7 +890,7 @@ export const PracticeMode: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleSaveTopicModal}
-                  className="px-6 py-2 rounded-[10px] bg-[#004D40] text-white font-bold text-xs hover:bg-[#003B32] transition cursor-pointer touch-press"
+                  className="px-6 py-2 rounded-[10px] bg-[#001028] text-white font-bold text-xs hover:bg-[#001830] transition cursor-pointer touch-press"
                 >
                   Save Topics
                 </button>
@@ -834,13 +909,13 @@ export const PracticeMode: React.FC = () => {
                 <br /><br />
                 • <strong>Mock Exam:</strong> Simulates official JAMB/WAEC CBT conditions with a countdown timer. Your score percentage is revealed upon submission.
                 <br /><br />
-                • <strong>Built-in Tools:</strong> During practice, you can tap <strong>🧮 Calculator</strong> for calculations, <strong>🔊 Speech</strong> to read questions aloud, and <strong>🔢 Question Palette</strong> to jump directly to any question.
+                • <strong>Built-in Tools:</strong> During practice, you can tap <strong>🔊 Speech</strong> to read questions aloud, and <strong>🔢 Question Palette</strong> to jump directly to any question.
               </p>
               <div className="flex justify-end pt-2">
                 <button
                   type="button"
                   onClick={() => setIsInstructionOpen(false)}
-                  className="px-5 py-2 rounded-[10px] bg-[#004D40] text-white font-bold text-xs cursor-pointer touch-press"
+                  className="px-5 py-2 rounded-[10px] bg-[#001028] text-white font-bold text-xs cursor-pointer touch-press"
                 >
                   Got It
                 </button>
@@ -856,9 +931,9 @@ export const PracticeMode: React.FC = () => {
   // VIEW 2: ACTIVE QUESTION SCREEN (Exact Screen 8 Matching Reference + Tools)
   // ══════════════════════════════════════════════════════════════════════════════
   return (
-    <div className="w-full bg-[#F7F9F8] min-h-screen text-[#10201D] font-sans select-none pb-20 animate-page-enter">
-      {/* ─── Screen 8 Header: Deep Green (#004D40) with CBT Tools ─── */}
-      <header className="w-full bg-[#004D40] text-white px-3 sm:px-6 pt-3 pb-3.5 shadow-md sticky top-0 z-30">
+    <div data-exam-content className="w-full bg-[#F7F9F8] min-h-screen text-[#10201D] font-sans select-none pb-20 animate-page-enter">
+      {/* ─── Screen 8 Header: Deep Green (#001028) with CBT Tools ─── */}
+      <header className="w-full bg-[#001028] text-white px-3 sm:px-6 pt-3 pb-3.5 shadow-md sticky top-0 z-30">
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           {/* Back & Title */}
           <div className="flex items-center space-x-2.5">
@@ -877,24 +952,14 @@ export const PracticeMode: React.FC = () => {
               <h1 className="text-[14px] sm:text-[15px] font-bold text-white tracking-tight truncate max-w-[150px] sm:max-w-xs">
                 {selectedExam} {currentQ?.year || '2024'} • {activeSubjectTab}
               </h1>
-              <p className="text-[11px] text-emerald-100 font-medium">
+              <p className="text-[11px] text-slate-100 font-medium">
                 Question {practiceIndex + 1} of {activeQuestionList.length}
               </p>
             </div>
           </div>
 
-          {/* Right CBT Tools Strip: Calculator, Speech, Palette, Timer */}
+          {/* Right CBT Tools Strip: Speech, Palette, Timer */}
           <div className="flex items-center space-x-1.5 sm:space-x-2">
-            {/* 🧮 CBT Calculator */}
-            <button
-              type="button"
-              onClick={openCalculator}
-              className="p-1.5 sm:px-2 sm:py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white transition flex items-center space-x-1 cursor-pointer touch-press"
-              title="CBT Calculator"
-            >
-              <span className="text-sm sm:text-base">🧮</span>
-              <span className="text-[11px] font-bold hidden sm:inline">Calc</span>
-            </button>
 
             {/* 🔊 Text-To-Speech Button */}
             <button
@@ -902,7 +967,7 @@ export const PracticeMode: React.FC = () => {
               onClick={toggleSpeech}
               className={`p-1.5 sm:px-2 sm:py-1 rounded-lg transition flex items-center space-x-1 cursor-pointer touch-press ${
                 isSpeaking
-                  ? 'bg-yellow-400 text-[#004D40] font-black animate-badge-pulse shadow'
+                  ? 'bg-yellow-400 text-[#001028] font-black animate-badge-pulse shadow'
                   : 'bg-white/10 hover:bg-white/20 text-white'
               }`}
               title={isSpeaking ? 'Stop Reading' : 'Read Question Aloud'}
@@ -913,32 +978,51 @@ export const PracticeMode: React.FC = () => {
               </span>
             </button>
 
-            {/* 🔢 Question Palette Trigger */}
+            {/* 📋 Question Palette Trigger: Prominently Visible */}
             <button
               type="button"
               onClick={() => setIsQuestionPaletteOpen(true)}
-              className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white transition flex items-center space-x-1 cursor-pointer font-bold text-xs touch-press"
-              title="Question Palette (Jump to question)"
+              className="px-2.5 sm:px-3 py-1.5 rounded-xl bg-[#001028]/90 hover:bg-[#001028] text-white border border-[#F8C800]/50 shadow-xs transition flex items-center space-x-1.5 cursor-pointer font-extrabold text-[11px] sm:text-xs touch-press shrink-0"
+              title="Question Palette (Click to jump to any question)"
             >
-              <span>🔢</span>
-              <span className="text-[11px]">
+              <span className="text-sm">📋</span>
+              <span className="hidden xs:inline">Palette</span>
+              <span className="px-1.5 py-0.5 rounded-md bg-[#001028]/70 text-[#F8C800] font-mono text-[10.5px]">
                 {practiceIndex + 1}/{activeQuestionList.length}
               </span>
+              <span className="text-[10px] text-[#E8E8E8]">▾</span>
             </button>
+
+            {/* Bookmark Button in Top Header */}
+            {currentQ && (
+              <button
+                type="button"
+                onClick={() => toggleBookmarkQuestion(currentQ.id)}
+                className={`px-2.5 sm:px-3 py-1.5 rounded-xl border text-[11px] sm:text-xs font-bold transition flex items-center space-x-1 cursor-pointer touch-press shrink-0 ${
+                  isBookmarked
+                    ? 'bg-amber-400 text-slate-950 border-amber-300 font-extrabold shadow-sm'
+                    : 'bg-[#001028]/90 hover:bg-[#001028] text-white border-[#F8C800]/50'
+                }`}
+                title={isBookmarked ? 'Bookmarked (Click to remove)' : 'Bookmark Question'}
+              >
+                <span>{isBookmarked ? '★' : '🔖'}</span>
+                <span className="hidden xs:inline">{isBookmarked ? 'Saved' : 'Bookmark'}</span>
+              </button>
+            )}
 
             {/* Timer Badge */}
             {examDurationMins !== 'untimed' ? (
-              <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-[#003B32] border border-emerald-400/30 text-emerald-300 flex items-center space-x-1">
+              <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-[#001830] border border-[#F8C800]/30 text-[#F8C800] flex items-center space-x-1">
                 <span>⏱</span>
                 <span>{formatTimer(timeRemainingSeconds)}</span>
               </span>
             ) : (
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#003B32] border border-emerald-400/30 text-emerald-300 hidden sm:inline">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#001830] border border-[#F8C800]/30 text-[#F8C800] hidden sm:inline">
                 Practice
               </span>
             )}
 
-            {/* Quick Finish / Submit & Review Button */}
+            {/* Submit Button: Prominent & Clearly Written */}
             {!isSessionComplete && (
               <button
                 type="button"
@@ -947,11 +1031,11 @@ export const PracticeMode: React.FC = () => {
                   setIsSessionComplete(true);
                   setIsReviewingCorrections(false);
                 }}
-                className="px-2.5 py-1 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-[#002820] font-black text-[11px] sm:text-xs transition flex items-center space-x-1 cursor-pointer touch-press shadow-xs"
-                title="Finish & Review Corrections"
+                className="px-3 sm:px-3.5 py-1.5 rounded-xl bg-[#16A34A] hover:bg-[#F8F8F8]0 text-white font-black text-xs sm:text-[13px] uppercase tracking-wider transition flex items-center space-x-1.5 cursor-pointer touch-press shadow-sm active:scale-95 border border-[#F8C800]/40 shrink-0"
+                title="Submit & Finish Practice Session"
               >
                 <span>✓</span>
-                <span className="hidden sm:inline">Finish</span>
+                <span className="font-extrabold tracking-wide">Submit</span>
               </button>
             )}
           </div>
@@ -973,7 +1057,7 @@ export const PracticeMode: React.FC = () => {
                 }}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer shrink-0 touch-press ${
                   activeSubjectTab === sub
-                    ? 'bg-[#004D40] text-white shadow-xs'
+                    ? 'bg-[#001028] text-white shadow-xs'
                     : 'bg-[#F7F9F8] text-[#66736F] hover:text-[#10201D] border border-[#E4EAE8]'
                 }`}
               >
@@ -995,7 +1079,7 @@ export const PracticeMode: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsSessionStarted(false)}
-              className="px-4 py-2 rounded-[12px] bg-[#004D40] text-white text-xs font-bold cursor-pointer touch-press"
+              className="px-4 py-2 rounded-[12px] bg-[#001028] text-white text-xs font-bold cursor-pointer touch-press"
             >
               Modify Setup
             </button>
@@ -1015,8 +1099,8 @@ export const PracticeMode: React.FC = () => {
               </div>
 
               {/* Score circle / card */}
-              <div className="p-5 rounded-[16px] bg-gradient-to-br from-emerald-50 via-[#F7F9F8] to-emerald-50/50 border border-emerald-100 flex flex-col items-center justify-center">
-                <div className="text-4xl sm:text-5xl font-extrabold text-[#004D40] tracking-tight">
+              <div className="p-5 rounded-[16px] bg-gradient-to-br from-[#F8F8F8] via-[#F7F9F8] to-[#F8F8F8]/50 border border-slate-100 flex flex-col items-center justify-center">
+                <div className="text-4xl sm:text-5xl font-extrabold text-[#001028] tracking-tight">
                   {scoreStats.percentage}%
                 </div>
                 <div className="text-xs font-bold text-[#66736F] mt-1.5">
@@ -1026,9 +1110,9 @@ export const PracticeMode: React.FC = () => {
 
               {/* Breakdown grid */}
               <div className="grid grid-cols-3 gap-2.5 text-center">
-                <div className="p-3 rounded-[12px] bg-emerald-50 border border-emerald-200">
-                  <div className="text-lg sm:text-xl font-black text-emerald-700">{scoreStats.correct}</div>
-                  <div className="text-[11px] font-bold text-emerald-800">Correct</div>
+                <div className="p-3 rounded-[12px] bg-[#F8F8F8] border border-[#E8E8E8]">
+                  <div className="text-lg sm:text-xl font-black text-[#001028]">{scoreStats.correct}</div>
+                  <div className="text-[11px] font-bold text-[#001028]">Correct</div>
                 </div>
                 <div className="p-3 rounded-[12px] bg-rose-50 border border-rose-200">
                   <div className="text-lg sm:text-xl font-black text-rose-700">{scoreStats.incorrect}</div>
@@ -1049,7 +1133,7 @@ export const PracticeMode: React.FC = () => {
                     setCorrectionsFilter('all');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="w-full py-3.5 px-6 rounded-[14px] bg-[#004D40] hover:bg-[#003B32] text-white text-sm font-extrabold shadow-md transition flex items-center justify-center space-x-2 cursor-pointer touch-press"
+                  className="w-full py-3.5 px-6 rounded-[14px] bg-[#001028] hover:bg-[#001830] text-white text-sm font-extrabold shadow-md transition flex items-center justify-center space-x-2 cursor-pointer touch-press"
                 >
                   <span>📝 Review Corrections & Step-by-Step Solutions</span>
                 </button>
@@ -1107,7 +1191,7 @@ export const PracticeMode: React.FC = () => {
                     onClick={() => setCorrectionsFilter('all')}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer shrink-0 ${
                       correctionsFilter === 'all'
-                        ? 'bg-[#004D40] text-white shadow-xs'
+                        ? 'bg-[#001028] text-white shadow-xs'
                         : 'text-[#66736F] hover:text-[#10201D]'
                     }`}
                   >
@@ -1129,8 +1213,8 @@ export const PracticeMode: React.FC = () => {
                     onClick={() => setCorrectionsFilter('correct')}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer shrink-0 ${
                       correctionsFilter === 'correct'
-                        ? 'bg-emerald-600 text-white shadow-xs'
-                        : 'text-emerald-700 hover:bg-emerald-50'
+                        ? 'bg-[#001028] text-white shadow-xs'
+                        : 'text-[#001028] hover:bg-[#F8F8F8]'
                     }`}
                   >
                     ✅ Correct ({scoreStats.correct})
@@ -1161,7 +1245,7 @@ export const PracticeMode: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setCorrectionsFilter('all')}
-                    className="text-xs font-bold text-[#004D40] underline cursor-pointer"
+                    className="text-xs font-bold text-[#001028] underline cursor-pointer"
                   >
                     Show all {scoreStats.total} questions
                   </button>
@@ -1189,7 +1273,7 @@ export const PracticeMode: React.FC = () => {
                         key={q.id || filteredIdx}
                         className={`p-5 sm:p-6 rounded-[18px] bg-white border-2 shadow-subtle space-y-4 transition ${
                           isCorrect
-                            ? 'border-emerald-300/80 bg-emerald-50/20'
+                            ? 'border-[#F8C800]/80 bg-[#F8F8F8]/20'
                             : isAnswered
                             ? 'border-rose-300/80 bg-rose-50/20'
                             : 'border-[#E4EAE8]'
@@ -1204,7 +1288,7 @@ export const PracticeMode: React.FC = () => {
 
                             {/* Result status */}
                             {isCorrect ? (
-                              <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-[11px] font-black bg-emerald-100 text-emerald-800 border border-emerald-300">
+                              <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-[11px] font-black bg-slate-100 text-[#001028] border border-[#F8C800]">
                                 <span>✓ Correct</span>
                               </span>
                             ) : isAnswered ? (
@@ -1226,7 +1310,7 @@ export const PracticeMode: React.FC = () => {
                               </span>
                             )}
                             {q.subtopic && (
-                              <span className="text-[10.5px] font-bold text-[#004D40] bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full truncate max-w-[140px]">
+                              <span className="text-[10.5px] font-bold text-[#001028] bg-[#F8F8F8] border border-[#E8E8E8] px-2 py-0.5 rounded-full truncate max-w-[140px]">
                                 🎯 {q.subtopic}
                               </span>
                             )}
@@ -1249,11 +1333,23 @@ export const PracticeMode: React.FC = () => {
                         <ComprehensionPassageViewer
                           text={q.text}
                           passage={q.passage}
+                          explanation={q.explanation}
                           subject={activeSubjectTab}
                           defaultExpanded={false}
                         />
 
-                        {/* Diagram SVG if present */}
+                        {/* Diagram Image / SVG if present */}
+                        {q.imageUrl && (
+                          <div className="my-3 p-3 rounded-[12px] bg-white border border-[#E4EAE8] flex flex-col items-center justify-center shadow-xs">
+                            <img
+                              src={q.imageUrl}
+                              alt={`Diagram for Question`}
+                              className="max-h-56 max-w-full object-contain rounded-md"
+                              loading="lazy"
+                            />
+                            <span className="text-[11px] text-gray-500 mt-1 font-medium">Question Diagram</span>
+                          </div>
+                        )}
                         {q.imageSvg && (
                           <div
                             className="my-3 p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] flex justify-center overflow-x-auto"
@@ -1271,16 +1367,16 @@ export const PracticeMode: React.FC = () => {
                             let badge = null;
 
                             if (isOptionCorrect && isOptionUserChoice) {
-                              optionStyles = 'border-emerald-500 bg-emerald-50 text-emerald-950 font-semibold ring-1 ring-emerald-500';
+                              optionStyles = 'border-[#F8F8F8]0 bg-[#F8F8F8] text-[#001028] font-semibold ring-1 ring-[#F8F8F8]0';
                               badge = (
-                                <span className="text-[11px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-300">
+                                <span className="text-[11px] font-black text-[#001028] bg-slate-100 px-2 py-0.5 rounded-md border border-[#F8C800]">
                                   ✓ Your Choice (Correct)
                                 </span>
                               );
                             } else if (isOptionCorrect) {
-                              optionStyles = 'border-emerald-500 bg-emerald-50/90 text-emerald-950 font-semibold ring-1 ring-emerald-500';
+                              optionStyles = 'border-[#F8F8F8]0 bg-[#F8F8F8]/90 text-[#001028] font-semibold ring-1 ring-[#F8F8F8]0';
                               badge = (
-                                <span className="text-[11px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-300">
+                                <span className="text-[11px] font-black text-[#001028] bg-slate-100 px-2 py-0.5 rounded-md border border-[#F8C800]">
                                   ✓ Correct Answer
                                 </span>
                               );
@@ -1301,7 +1397,7 @@ export const PracticeMode: React.FC = () => {
                                 <div className="flex items-center space-x-2.5">
                                   <span className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs ${
                                     isOptionCorrect
-                                      ? 'bg-emerald-600 text-white'
+                                      ? 'bg-[#001028] text-white'
                                       : isOptionUserChoice
                                       ? 'bg-rose-600 text-white'
                                       : 'bg-white border border-[#E4EAE8] text-[#10201D]'
@@ -1320,25 +1416,14 @@ export const PracticeMode: React.FC = () => {
                         <div className="p-2.5 rounded-[10px] bg-[#F1F5F4] border border-[#E4EAE8] flex items-center justify-between text-xs font-bold text-[#10201D]">
                           <span className="flex items-center space-x-1.5">
                             <span className="text-[#66736F]">Your Selection:</span>
-                            <span className={isCorrect ? 'text-emerald-700' : userAns ? 'text-rose-700' : 'text-slate-600'}>
+                            <span className={isCorrect ? 'text-[#001028]' : userAns ? 'text-rose-700' : 'text-slate-600'}>
                               {userAns ? `Option ${userAns}` : 'None (Skipped)'}
                             </span>
                           </span>
                           <span className="flex items-center space-x-1.5">
                             <span className="text-[#66736F]">Official Key:</span>
-                            <span className="text-emerald-700 font-extrabold">Option {q.correctAnswer}</span>
+                            <span className="text-[#001028] font-extrabold">Option {q.correctAnswer}</span>
                           </span>
-                        </div>
-
-                        {/* Examiner Strategy Tip */}
-                        <div className="p-3 rounded-[12px] bg-amber-50/90 border border-amber-200/90 flex items-start space-x-2.5 text-left">
-                          <span className="text-base text-amber-600">💡</span>
-                          <p className="text-[12px] text-amber-900 leading-snug">
-                            {getExamTipForQuestion(q) ||
-                              (q.topic
-                                ? `Think about: core syllabus rules and principles of ${q.topic}.`
-                                : 'Think about: standard syllabus equations and SI units.')}
-                          </p>
                         </div>
 
                         {/* Step-by-Step Chalkboard Digital Solution */}
@@ -1349,6 +1434,9 @@ export const PracticeMode: React.FC = () => {
                           }
                           explanationText={q.explanation}
                           topic={q.topic || activeSubjectTab}
+                          examType={q.examType || selectedExam || 'WAEC'}
+                          examTip={getExamTipForQuestion(q)}
+                          year={q.year}
                         />
 
                         {/* Action: Ask AI Tutor about this question */}
@@ -1363,7 +1451,7 @@ export const PracticeMode: React.FC = () => {
                                 topic: q.topic
                               })
                             }
-                            className="px-3.5 py-2 rounded-[12px] bg-white border border-[#004D40]/30 hover:bg-emerald-50 text-[12px] font-bold text-[#004D40] transition cursor-pointer flex items-center space-x-1.5 touch-press shadow-xs"
+                            className="px-3.5 py-2 rounded-[12px] bg-white border border-[#001028]/30 hover:bg-[#F8F8F8] text-[12px] font-bold text-[#001028] transition cursor-pointer flex items-center space-x-1.5 touch-press shadow-xs"
                           >
                             <span>🤖</span>
                             <span>Ask AI Tutor to Explain Further</span>
@@ -1392,7 +1480,7 @@ export const PracticeMode: React.FC = () => {
                   <button
                     type="button"
                     onClick={resetSession}
-                    className="px-4 py-2.5 rounded-[12px] bg-[#004D40] text-white font-bold text-xs hover:bg-[#003B32] transition cursor-pointer touch-press"
+                    className="px-4 py-2.5 rounded-[12px] bg-[#001028] text-white font-bold text-xs hover:bg-[#001830] transition cursor-pointer touch-press"
                   >
                     🔄 Retake Session
                   </button>
@@ -1416,39 +1504,92 @@ export const PracticeMode: React.FC = () => {
             <div className="bg-white rounded-[16px] p-5 sm:p-6 border border-[#E4EAE8] shadow-subtle space-y-4 animate-card-in">
               {/* Question Meta Strip */}
               <div className="flex items-center justify-between border-b border-[#E4EAE8] pb-2.5">
-                <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-[#004D40] border border-emerald-200">
-                  Question {practiceIndex + 1} of {activeQuestionList.length}
-                </span>
+                <div className="flex items-center space-x-2">
+                  <span className="px-2.5 py-1 rounded-lg text-xs font-black bg-[#001028] text-[#F8C800] border border-[#F8C800]/40 shadow-xs flex items-center space-x-1">
+                    <span>Question {practiceIndex + 1}</span>
+                    <span className="text-[10px] text-slate-300 font-normal">of {activeQuestionList.length}</span>
+                  </span>
+                </div>
 
                 <div className="flex items-center gap-1.5 flex-wrap justify-end max-w-[65%]">
+                  {/* Bookmark Button right in Question Card */}
+                  <button
+                    type="button"
+                    onClick={() => toggleBookmarkQuestion(currentQ.id)}
+                    className={`px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-bold border transition flex items-center space-x-1 cursor-pointer touch-press shadow-2xs ${
+                      isBookmarked
+                        ? 'bg-amber-100 text-amber-900 border-amber-400 font-extrabold ring-1 ring-amber-400/50'
+                        : 'bg-white hover:bg-amber-50 text-gray-700 hover:text-amber-800 border-gray-300 hover:border-amber-400'
+                    }`}
+                    title={isBookmarked ? 'Bookmarked (Click to remove)' : 'Bookmark Question'}
+                  >
+                    <span className="text-amber-500 text-xs">{isBookmarked ? '★' : '🔖'}</span>
+                    <span>{isBookmarked ? 'Bookmarked' : 'Bookmark'}</span>
+                  </button>
+
+                  {/* Share Question Card Button */}
+                  <button
+                    type="button"
+                    onClick={() => setIsShareModalOpen(true)}
+                    className="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-bold border border-gray-300 hover:border-[#F8C800] bg-white hover:bg-[#F8F8F8] text-gray-700 hover:text-[#001028] transition flex items-center space-x-1 cursor-pointer touch-press shadow-2xs"
+                    title="Share Question as Study Card"
+                  >
+                    <span>📤</span>
+                    <span>Share</span>
+                  </button>
+
                   {currentQ.topic && (
                     <span className="text-[10.5px] font-semibold text-[#66736F] bg-[#F1F5F4] px-2 py-0.5 rounded-full truncate max-w-[130px]">
                       {currentQ.topic}
                     </span>
                   )}
                   {currentQ.subtopic && (
-                    <span className="text-[10.5px] font-bold text-[#004D40] bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full truncate max-w-[150px]">
+                    <span className="text-[10.5px] font-bold text-[#001028] bg-[#F8F8F8] border border-[#E8E8E8] px-2 py-0.5 rounded-full truncate max-w-[150px]">
                       🎯 {currentQ.subtopic}
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* Question Text & Comprehension Passage */}
-              <ComprehensionPassageViewer
-                text={currentQ.text}
-                passage={currentQ.passage}
-                subject={activeSubjectTab}
-                defaultExpanded={true}
-              />
+              {/* Diagram / Graph Image Support (Direct imageUrl, extracted embedded image, or SVG) */}
+              {(() => {
+                const diagramSrc = currentQ.imageUrl || 
+                  (currentQ.text ? (currentQ.text.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1] || currentQ.text.match(/!\[[^\]]*\]\(([^)]+)\)/i)?.[2]) : null);
 
-              {/* Diagram / Image if any */}
-              {currentQ.imageSvg && (
-                <div
-                  className="my-3 p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] flex justify-center overflow-x-auto"
-                  dangerouslySetInnerHTML={{ __html: currentQ.imageSvg }}
-                />
-              )}
+                if (diagramSrc) {
+                  return (
+                    <div className="my-3 p-3 sm:p-4 rounded-[14px] bg-white border border-[#E4EAE8] flex flex-col items-center justify-center shadow-xs">
+                      <img
+                        src={diagramSrc}
+                        alt={`Diagram for Question ${practiceIndex + 1}`}
+                        className="max-h-64 sm:max-h-80 max-w-full object-contain rounded-lg"
+                        loading="eager"
+                      />
+                      <span className="text-[11px] text-[#66736F] mt-2 font-semibold">
+                        Diagram for Question {practiceIndex + 1}
+                      </span>
+                    </div>
+                  );
+                }
+                if (currentQ.imageSvg) {
+                  return (
+                    <div
+                      className="my-3 p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] flex justify-center overflow-x-auto"
+                      dangerouslySetInnerHTML={{ __html: currentQ.imageSvg }}
+                    />
+                  );
+                }
+                return null;
+              })()}
+
+              {/* Question Text & Comprehension Passage (Stripped of embedded img tags for pristine readability) */}
+              <ComprehensionPassageViewer
+                text={currentQ.text ? currentQ.text.replace(/<img[^>]*>/gi, '').replace(/!\[[^\]]*\]\([^)]+\)/gi, '').trim() : ''}
+                passage={currentQ.passage}
+                explanation={currentQ.explanation}
+                subject={activeSubjectTab}
+                defaultExpanded={false}
+              />
             </div>
 
             {/* Answer Options (A, B, C, D) using QuestionOption component */}
@@ -1476,17 +1617,6 @@ export const PracticeMode: React.FC = () => {
               })}
             </div>
 
-            {/* Light Amber Strategy / Hint Box (Screen 8 exact match!) */}
-            <div className="p-3.5 rounded-[12px] bg-amber-50/80 border border-amber-200/80 flex items-start space-x-2.5 text-left animate-page-enter">
-              <span className="text-base text-amber-600">💡</span>
-              <p className="text-[12px] text-amber-900 leading-snug">
-                {getExamTipForQuestion(currentQ) ||
-                  (currentQ.topic
-                    ? `Think about: core principles and standard formulas of ${currentQ.topic}.`
-                    : 'Think about: standard syllabus equations and SI units.')}
-              </p>
-            </div>
-
             {/* Digital Board Solution (Instant Mathematical Working in Study Mode) */}
             {practiceMode === 'study' && isCurrentRevealed && (
               <DigitalBoardSolution
@@ -1498,6 +1628,9 @@ export const PracticeMode: React.FC = () => {
                 }
                 explanationText={currentQ.explanation}
                 topic={currentQ.topic || activeSubjectTab}
+                examType={currentQ.examType || selectedExam || 'WAEC'}
+                examTip={getExamTipForQuestion(currentQ)}
+                year={currentQ.year}
               />
             )}
 
@@ -1506,14 +1639,15 @@ export const PracticeMode: React.FC = () => {
               <button
                 type="button"
                 onClick={() => toggleBookmarkQuestion(currentQ.id)}
-                className={`px-3.5 py-2.5 rounded-[12px] border text-[13px] font-semibold transition cursor-pointer flex items-center space-x-1.5 touch-press ${
+                className={`px-3 sm:px-3.5 py-2.5 rounded-[12px] border text-xs sm:text-[13px] font-bold transition cursor-pointer flex items-center space-x-1.5 touch-press shadow-2xs shrink-0 ${
                   isBookmarked
-                    ? 'bg-amber-50 text-amber-800 border-amber-300'
-                    : 'bg-white text-[#66736F] border-[#E4EAE8] hover:text-[#10201D]'
+                    ? 'bg-amber-100 text-amber-900 border-amber-400 font-extrabold ring-1 ring-amber-400/50'
+                    : 'bg-white text-gray-700 border-[#D0DBD8] hover:border-amber-400 hover:text-amber-800'
                 }`}
+                title={isBookmarked ? 'Question Bookmarked (Click to remove)' : 'Bookmark Question'}
               >
-                <span>{isBookmarked ? '★' : '🔖'}</span>
-                <span>{isBookmarked ? 'Marked' : 'Mark'}</span>
+                <span className="text-sm text-amber-500">{isBookmarked ? '★' : '🔖'}</span>
+                <span>{isBookmarked ? 'Bookmarked' : 'Bookmark'}</span>
               </button>
 
               <div className="flex items-center space-x-2">
@@ -1540,37 +1674,66 @@ export const PracticeMode: React.FC = () => {
                       topic: currentQ.topic
                     })
                   }
-                  className="px-3 py-2.5 rounded-[12px] bg-white border border-[#E4EAE8] text-[12px] font-bold text-[#004D40] hover:bg-[#F7F9F8] transition cursor-pointer flex items-center space-x-1 touch-press"
+                  className="px-3 py-2.5 rounded-[12px] bg-white border border-[#E4EAE8] text-[12px] font-bold text-[#001028] hover:bg-[#F7F9F8] transition cursor-pointer flex items-center space-x-1 touch-press"
                 >
                   <span>🤖</span>
                   <span className="hidden sm:inline">Ask AI</span>
                 </button>
 
-                {practiceIndex >= activeQuestionList.length - 1 ? (
+                {/* Share Question Card Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="px-3 py-2.5 rounded-[12px] bg-white border border-[#E4EAE8] text-[12px] font-bold text-gray-700 hover:text-[#001028] hover:bg-[#F7F9F8] transition cursor-pointer flex items-center space-x-1 touch-press shadow-2xs"
+                  title="Share Question as Study Card"
+                >
+                  <span>📤</span>
+                  <span className="hidden sm:inline">Share</span>
+                </button>
+
+                {/* Question Palette Bottom Trigger: Click to view */}
+                <button
+                  type="button"
+                  onClick={() => setIsQuestionPaletteOpen(true)}
+                  className="px-2.5 sm:px-3 py-2.5 rounded-[12px] bg-[#F1F5F4] hover:bg-[#E4EAE8] border border-[#D0DBD8] text-[#10201D] text-xs font-extrabold transition flex items-center space-x-1 cursor-pointer touch-press shadow-2xs"
+                  title="Click to view all questions in palette"
+                >
+                  <span className="text-sm">📋</span>
+                  <span className="hidden xs:inline">Palette</span>
+                  <span>({practiceIndex + 1}/{activeQuestionList.length})</span>
+                </button>
+
+                <div className="flex items-center space-x-2">
+                  {/* Dedicated Submit Button: Clearly Written & Always Visible */}
                   <button
                     type="button"
                     onClick={() => {
                       stopSpeech();
                       setIsSessionComplete(true);
                     }}
-                    className="px-5 py-2.5 rounded-[12px] bg-[#16A34A] hover:bg-emerald-700 text-white text-[13px] font-bold shadow-sm transition cursor-pointer touch-press"
+                    className="px-3.5 sm:px-4 py-2.5 rounded-[12px] bg-[#16A34A] hover:bg-[#001028] text-white text-xs sm:text-[13px] font-black uppercase tracking-wider shadow-sm transition cursor-pointer touch-press flex items-center space-x-1 shrink-0"
+                    title="Submit Practice Session"
                   >
-                    Submit ✓
+                    <span>✓</span>
+                    <span>Submit</span>
                   </button>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      stopSpeech();
-                      setPracticeIndex((prev) =>
-                        Math.min(activeQuestionList.length - 1, prev + 1)
-                      );
-                    }}
-                    className="px-6 py-2.5 rounded-[12px] bg-[#16A34A] hover:bg-emerald-700 text-white text-[13px] font-bold shadow-sm transition cursor-pointer touch-press"
-                  >
-                    Next &rarr;
-                  </button>
-                )}
+
+                  {/* Next Question Button (when not on last question) */}
+                  {practiceIndex < activeQuestionList.length - 1 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        stopSpeech();
+                        setPracticeIndex((prev) =>
+                          Math.min(activeQuestionList.length - 1, prev + 1)
+                        );
+                      }}
+                      className="px-4 sm:px-5 py-2.5 rounded-[12px] bg-[#001028] hover:bg-[#001830] text-white text-xs sm:text-[13px] font-bold shadow-sm transition cursor-pointer touch-press shrink-0"
+                    >
+                      Next &rarr;
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -1606,8 +1769,8 @@ export const PracticeMode: React.FC = () => {
                 <span>Answered</span>
               </span>
               <span className="flex items-center space-x-1">
-                <span className="w-3 h-3 rounded-full bg-amber-400 inline-block" />
-                <span>Marked</span>
+                <span className="text-amber-500 font-bold">★</span>
+                <span className="font-semibold text-amber-800">Bookmarked</span>
               </span>
               <span className="flex items-center space-x-1">
                 <span className="w-3 h-3 rounded-full bg-[#E4EAE8] inline-block" />
@@ -1624,13 +1787,15 @@ export const PracticeMode: React.FC = () => {
 
                 let btnStyle = 'bg-[#F7F9F8] text-[#10201D] border-[#E4EAE8]';
                 if (isAnswered) {
-                  btnStyle = 'bg-[#16A34A] text-white border-[#16A34A]';
+                  btnStyle = isMarked
+                    ? 'bg-[#16A34A] text-white border-amber-400 ring-2 ring-amber-400'
+                    : 'bg-[#16A34A] text-white border-[#16A34A]';
                 } else if (isMarked) {
-                  btnStyle = 'bg-amber-100 text-amber-900 border-amber-400';
+                  btnStyle = 'bg-amber-100 text-amber-900 border-amber-400 font-black';
                 }
 
                 if (isCurrent) {
-                  btnStyle += ' ring-2 ring-[#004D40] ring-offset-1 font-black';
+                  btnStyle += ' ring-2 ring-[#001028] ring-offset-1 font-black';
                 }
 
                 return (
@@ -1642,9 +1807,14 @@ export const PracticeMode: React.FC = () => {
                       setPracticeIndex(idx);
                       setIsQuestionPaletteOpen(false);
                     }}
-                    className={`h-10 rounded-[10px] border text-xs font-bold transition flex items-center justify-center cursor-pointer touch-press ${btnStyle}`}
+                    className={`h-10 rounded-[10px] border text-xs font-bold transition flex items-center justify-center relative cursor-pointer touch-press ${btnStyle}`}
                   >
-                    {idx + 1}
+                    <span>{idx + 1}</span>
+                    {isMarked && (
+                      <span className="absolute top-0.5 right-1 text-[10px] text-amber-400 leading-none">
+                        ★
+                      </span>
+                    )}
                   </button>
                 );
               })}
@@ -1659,7 +1829,7 @@ export const PracticeMode: React.FC = () => {
                   setIsSessionComplete(true);
                   setIsReviewingCorrections(true);
                 }}
-                className="px-3.5 py-2 rounded-[10px] bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs cursor-pointer touch-press flex items-center space-x-1"
+                className="px-3.5 py-2 rounded-[10px] bg-[#001028] hover:bg-[#001028] text-white font-bold text-xs cursor-pointer touch-press flex items-center space-x-1"
               >
                 <span>✓</span>
                 <span>Submit & View Corrections</span>
@@ -1675,6 +1845,26 @@ export const PracticeMode: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* ─── MODAL: Share Question as Study Card ────────────────────── */}
+      <ShareStudyCardModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        mode="question"
+        questionData={currentQ ? {
+          id: currentQ.id,
+          subject: activeSubjectTab,
+          examType: (currentQ as any).examType || selectedExam || 'WAEC',
+          year: currentQ.year,
+          topic: currentQ.topic,
+          subtopic: currentQ.subtopic,
+          text: currentQ.text,
+          options: currentQ.options,
+          correctAnswer: currentQ.correctAnswer,
+          explanation: currentQ.explanation,
+          imageUrl: currentQ.imageUrl
+        } : null}
+      />
     </div>
   );
 };
