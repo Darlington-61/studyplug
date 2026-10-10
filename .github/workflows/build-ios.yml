@@ -32,10 +32,10 @@ jobs:
       - name: Build Web Application
         run: npm run bundle
 
-      - name: Sync Assets to Capacitor iOS
+      - name: Copy Web Assets to Capacitor iOS
         run: |
           mkdir -p ios/App/App/public
-          npx cap sync ios --inline || npx cap copy ios
+          npx cap copy ios
 
       - name: Build iOS Archive (Unsigned)
         run: |
