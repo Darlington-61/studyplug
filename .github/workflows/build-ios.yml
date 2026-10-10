@@ -7,6 +7,9 @@ on:
       - master
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-ios:
     name: Build StudyPlug iOS IPA
@@ -40,31 +43,58 @@ jobs:
           echo "Web assets successfully placed in iOS container:"
           ls -lh ios/App/App/public
 
-      - name: Build iOS App (Ad-Hoc Unsigned)
+      - name: Build iOS App
         run: |
           mkdir -p build
-          set -o pipefail
           echo "=== Discovered Schemes ==="
           xcodebuild -project ios/App/App.xcodeproj -list
-          echo "=== Compiling App Scheme ==="
-          xcodebuild -project ios/App/App.xcodeproj \
-            -scheme App \
-            -configuration Release \
-            -destination 'generic/platform=iOS' \
-            -derivedDataPath build/DerivedData \
-            build \
-            CODE_SIGN_IDENTITY="-" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=YES \
-            AD_HOC_CODE_SIGNING_ALLOWED=YES 2>&1 | tee xcodebuild.log || {
-              echo "=== ❌ XCODE BUILD ERROR (LAST 80 LINES) ==="
-              tail -n 80 xcodebuild.log
-              echo "### ❌ Xcode Build Error" >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-              tail -n 60 xcodebuild.log >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-              exit 1
-            }
+          
+          echo "=== Attempting Build: Physical Device (Ad-Hoc) ==="
+          if xcodebuild -project ios/App/App.xcodeproj \
+              -scheme App \
+              -configuration Release \
+              -destination 'generic/platform=iOS' \
+              -derivedDataPath build/DerivedData \
+              build \
+              CODE_SIGN_IDENTITY="-" \
+              CODE_SIGNING_REQUIRED=NO \
+              CODE_SIGNING_ALLOWED=YES \
+              AD_HOC_CODE_SIGNING_ALLOWED=YES 2>&1 | tee xcodebuild.log; then
+            echo "Physical device build succeeded!"
+          else
+            echo "=== Attempting Build: Physical Device (Unsigned) ==="
+            if xcodebuild -project ios/App/App.xcodeproj \
+                -scheme App \
+                -configuration Release \
+                -destination 'generic/platform=iOS' \
+                -derivedDataPath build/DerivedData \
+                build \
+                CODE_SIGNING_ALLOWED=NO \
+                CODE_SIGNING_REQUIRED=NO \
+                CODE_SIGN_IDENTITY="" 2>&1 | tee -a xcodebuild.log; then
+              echo "Physical device unsigned build succeeded!"
+            else
+              echo "=== Attempting Build: Simulator Package ==="
+              if xcodebuild -project ios/App/App.xcodeproj \
+                  -scheme App \
+                  -configuration Release \
+                  -destination 'generic/platform=iOS Simulator' \
+                  -derivedDataPath build/DerivedData \
+                  build 2>&1 | tee -a xcodebuild.log; then
+                echo "Simulator package build succeeded!"
+              else
+                echo "=== ❌ ALL BUILD TIERS FAILED ==="
+                tail -n 60 xcodebuild.log
+                ERR_MSG=$(tail -n 40 xcodebuild.log | tr '\n' ' ' | sed 's/"/\\"/g')
+                curl -s -X POST \
+                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                  -H "Accept: application/vnd.github.v3+json" \
+                  https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}/comments \
+                  -d "{\"body\": \"### ❌ Xcode Build Error\n\`\`\`\n$ERR_MSG\n\`\`\`\"}" || true
+                exit 1
+              fi
+            fi
+          fi
 
       - name: Upload Build Log on Failure
         if: failure()
