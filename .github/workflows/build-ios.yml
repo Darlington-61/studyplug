@@ -35,7 +35,10 @@ jobs:
       - name: Copy Web Assets to Capacitor iOS
         run: |
           mkdir -p ios/App/App/public
-          npx cap copy ios
+          cp -R dist/* ios/App/App/public/
+          node -e 'const fs=require("fs"); fs.writeFileSync("ios/App/App/capacitor.config.json", JSON.stringify({appId:"com.studyplug.app",appName:"StudyPlug",webDir:"public",packageClassList:[]}, null, 2));'
+          echo "Web assets successfully placed in iOS container:"
+          ls -lh ios/App/App/public
 
       - name: Build iOS Archive (Unsigned)
         run: |
