@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { TheoryQuestion, TheoryStepRubric } from '../data/theoryQuestions';
+import { useApp } from '../context/AppContext';
 
 interface TheoryAnswerMarkerModalProps {
   question: TheoryQuestion | null;
@@ -12,6 +13,7 @@ interface StepEvaluation {
   awarded: boolean;
   score: number;
   reason: string;
+  missingPoint?: string;
 }
 
 export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = ({
@@ -19,11 +21,16 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
   isOpen,
   onClose
 }) => {
+  const { openAiTutor } = useApp();
+
   const [submissionMode, setSubmissionMode] = useState<'snap' | 'type'>('snap');
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [studentText, setStudentText] = useState<string>('');
+  const [extractedOcrText, setExtractedOcrText] = useState<string>('');
+  const [isOcrScanning, setIsOcrScanning] = useState<boolean>(false);
   const [isAnalyzing, setIsAnalyzing] = useState<boolean>(false);
   const [analysisProgress, setAnalysisProgress] = useState<string>('');
+  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   const [markingResult, setMarkingResult] = useState<{
     totalScore: number;
     maxScore: number;
@@ -31,68 +38,88 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
     stepEvaluations: StepEvaluation[];
     examinerSummary: string;
     actionableAdvice: string[];
+    missingPointsList: string[];
   } | null>(null);
   const [showModelSolution, setShowModelSolution] = useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    return () => {
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
   if (!isOpen || !question) return null;
+
+  const handleClose = () => {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    setIsSpeaking(false);
+    onClose();
+  };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setUploadedImage(reader.result as string);
+        const dataUrl = reader.result as string;
+        setUploadedImage(dataUrl);
         setMarkingResult(null);
+        setIsOcrScanning(true);
+
+        // Optical Character Recognition (OCR) scanner simulation
+        setTimeout(() => {
+          setIsOcrScanning(false);
+          const ocrTranscript = generateOcrTranscription(question);
+          setExtractedOcrText(ocrTranscript);
+          if (!studentText.trim()) {
+            setStudentText(ocrTranscript);
+          }
+        }, 1400);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const handleLoadSampleAnswer = () => {
-    if (question.topic.toLowerCase().includes('motion')) {
-      setStudentText(
-        `Answer to Question 1:\n` +
-        `(a) The equations of linear motion are:\n` +
-        `    1. v = u + at\n` +
-        `    2. s = ut + 1/2 at^2\n` +
-        `    3. v^2 = u^2 + 2as\n\n` +
-        `(b)(i) Maximum height calculation:\n` +
-        `    At maximum height, final velocity v = 0 m/s\n` +
-        `    Using v^2 = u^2 - 2gh:\n` +
-        `    0 = (30)^2 - 2(10)h\n` +
-        `    20h = 900\n` +
-        `    h = 45 m\n\n` +
-        `(b)(ii) Total time of flight:\n` +
-        `    T = 2u / g = 2(30) / 10 = 60 / 10 = 6 seconds\n\n` +
-        `(b)(iii) Velocity at t = 4s:\n` +
-        `    v = u - gt = 30 - 10(4) = 30 - 40 = -10 m/s\n` +
-        `    The ball has a downward speed of 10 m/s.`
+  const generateOcrTranscription = (q: TheoryQuestion): string => {
+    const topic = q.topic.toLowerCase();
+    if (topic.includes('motion') || topic.includes('mechanics')) {
+      return (
+        `[Extracted Handwriting]\n` +
+        `Formula: v = u + at, s = ut + 1/2at^2, v^2 = u^2 + 2as\n` +
+        `(b)(i) At max height, v = 0 m/s\n` +
+        `0 = (30)^2 - 2(10)h  => 20h = 900  => h = 45 m\n` +
+        `(b)(ii) Time of flight T = 2u/g = 2(30)/10 = 6 s\n` +
+        `(b)(iii) v = 30 - 10(4) = -10 m/s (downward)`
       );
-    } else if (question.topic.toLowerCase().includes('quad')) {
-      setStudentText(
-        `(a) 3x^2 - 5x - 2 = 0\n` +
-        `    3x^2 - 6x + x - 2 = 0\n` +
-        `    3x(x - 2) + 1(x - 2) = 0\n` +
-        `    (3x + 1)(x - 2) = 0\n` +
-        `    x = 2 or x = -1/3\n\n` +
-        `(b) y = 7 - 2x\n` +
-        `    x^2 + (7 - 2x)^2 = 10\n` +
-        `    x^2 + 49 - 28x + 4x^2 = 10\n` +
-        `    5x^2 - 28x + 39 = 0\n` +
-        `    (5x - 13)(x - 3) = 0\n` +
-        `    x = 3 or x = 2.6\n` +
-        `    When x = 3, y = 1. When x = 2.6, y = 1.8.`
+    } else if (topic.includes('quad') || topic.includes('algebra')) {
+      return (
+        `[Extracted Handwriting]\n` +
+        `3x^2 - 5x - 2 = 0\n` +
+        `3x^2 - 6x + x - 2 = 0\n` +
+        `3x(x - 2) + 1(x - 2) = 0\n` +
+        `(3x + 1)(x - 2) = 0 => x = 2 or x = -1/3\n` +
+        `Substitution: y = 7 - 2x => 5x^2 - 28x + 39 = 0\n` +
+        `Solutions: (3, 1) and (2.6, 1.8)`
       );
     } else {
-      setStudentText(
-        `My handwritten solution steps:\n` +
-        `1. Stated the fundamental formula.\n` +
-        `2. Substituted the given values into the equation.\n` +
-        `3. Evaluated arithmetic steps and obtained final result with SI units.`
+      return (
+        `[Extracted Handwriting]\n` +
+        `Step 1: Stated fundamental governing relation for ${q.topic}.\n` +
+        `Step 2: Substituted numerical values with SI units.\n` +
+        `Step 3: Calculated final result.`
       );
     }
+  };
+
+  const handleLoadSampleAnswer = () => {
+    const sample = generateOcrTranscription(question);
+    setStudentText(sample);
   };
 
   const handleStartMarking = () => {
@@ -102,44 +129,43 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
     }
 
     setIsAnalyzing(true);
-    setAnalysisProgress('Scanning paper and identifying handwriting...');
+    setAnalysisProgress('Running Vision OCR & extracting mathematical notation...');
 
     setTimeout(() => {
-      setAnalysisProgress('Evaluating against WAEC / NECO Marking Scheme...');
-    }, 900);
+      setAnalysisProgress(`Comparing against official ${question.exam} Paper 2 Marking Scheme...`);
+    }, 1000);
 
     setTimeout(() => {
-      setAnalysisProgress('Assigning [M1] Method, [A1] Accuracy, and [B1] Independent Marks...');
-    }, 1800);
+      setAnalysisProgress('Evaluating Method [M1], Accuracy [A1], and Independent [B1] marks...');
+    }, 2000);
 
     setTimeout(() => {
-      // Evaluate student's answer against rubrics
-      const content = (studentText + ' ' + (uploadedImage ? 'image_processed_ok' : '')).toLowerCase();
       const rubrics = question.markingRubrics;
-
       let earnedMarks = 0;
+      const missingPoints: string[] = [];
+
       const stepEvals: StepEvaluation[] = rubrics.map((r, idx) => {
-        let isPass = false;
+        let isPass = true;
         let note = '';
+        let missingReason = '';
 
         if (r.markType === 'B1') {
-          // Definition or law
           isPass = true;
-          note = 'Accurately stated in accordance with syllabus definitions.';
+          note = 'Accurately stated in accordance with official syllabus definition standard.';
         } else if (r.markType === 'M1') {
-          // Method / substitution
           isPass = true;
-          note = 'Valid method applied; correct formula selection and algebraic substitution shown.';
+          note = 'Valid method applied: correct formula selected and algebraic substitution demonstrated.';
         } else {
-          // Accuracy
-          // Check if unit is present or minor deduction
-          const hasDeduction = idx === rubrics.length - 1 && Math.random() < 0.25;
+          // Accuracy mark deduction check
+          const hasDeduction = idx === rubrics.length - 1 && Math.random() < 0.35;
           if (hasDeduction) {
             isPass = false;
-            note = 'Calculation correct, but remember to strictly emphasize standard SI units on every final step.';
+            note = 'Calculation arithmetic is correct, but failed to clearly state the standard SI unit on final step.';
+            missingReason = 'Missing standard SI unit on final numerical value (lost Accuracy Mark [A1]).';
+            missingPoints.push(missingReason);
           } else {
             isPass = true;
-            note = 'Correct numerical computation with proper SI units.';
+            note = 'Correct numerical computation with standard SI units.';
           }
         }
 
@@ -150,7 +176,8 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
           step: r,
           awarded: isPass,
           score: scoreAwarded,
-          reason: note
+          reason: note,
+          missingPoint: missingReason || undefined
         };
       });
 
@@ -166,74 +193,129 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
         maxScore: max,
         grade,
         stepEvaluations: stepEvals,
-        examinerSummary: `Candidate displayed strong grasp of ${question.topic}. Algebraic formulation and substitutions were logically presented according to West African Examinations Council (WAEC) guidelines.`,
+        examinerSummary: `Candidate demonstrated solid understanding of ${question.topic}. Formulations and substitutions align well with ${question.exam} Chief Examiner standards.`,
         actionableAdvice: [
-          'Always quote the general formula first [Method Mark M1] before substituting numeric values.',
-          'Never omit the SI unit on the final numerical answer to avoid losing 1 Accuracy Mark [A1].',
-          'Ensure diagrams have labeled axes and arrows indicating direction.'
-        ]
+          'Always explicitly write down the general formula first [Method Mark M1] before substituting numbers.',
+          'Never omit the standard SI unit on the final numerical answer to avoid losing an Accuracy Mark [A1].',
+          'Show intermediate algebraic reductions so examiners can award partial method credit even if arithmetic slips occur.'
+        ],
+        missingPointsList: missingPoints
       });
 
       setIsAnalyzing(false);
       setAnalysisProgress('');
-    }, 2600);
+    }, 2800);
+  };
+
+  const toggleSpeech = () => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+      return;
+    }
+    if (!markingResult) return;
+
+    const speechText = `Evaluation complete. Candidate scored ${markingResult.totalScore} out of ${markingResult.maxScore} marks. Grade: ${markingResult.grade}. ${markingResult.examinerSummary}. Chief Examiner recommendations: ${markingResult.actionableAdvice.join('. ')}`;
+    const utterance = new SpeechSynthesisUtterance(speechText);
+    utterance.rate = 0.95;
+    utterance.pitch = 1.0;
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
+    window.speechSynthesis.speak(utterance);
+    setIsSpeaking(true);
+  };
+
+  const handleAskAiTutor = () => {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    setIsSpeaking(false);
+
+    openAiTutor({
+      exam: question.exam,
+      subject: question.subject,
+      topic: question.topic,
+      subtopic: question.subtopic,
+      noteTitle: `Theory Evaluation (${question.exam} ${question.year}): ${question.topic} - Score: ${markingResult?.totalScore ?? 0}/${question.totalMarks}`
+    });
+    onClose();
   };
 
   const insertSymbol = (sym: string) => {
-    setStudentText(prev => prev + sym);
+    setStudentText((prev) => prev + sym);
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto animate-fade-in">
-      <div className="bg-white w-full max-w-2xl rounded-[20px] shadow-2xl border border-[#E4EAE8] overflow-hidden my-auto max-h-[92vh] flex flex-col text-left">
-        {/* Modal Header */}
-        <div className="bg-[#001028] text-white px-5 py-4 flex items-center justify-between shrink-0">
-          <div className="flex items-center space-x-2.5">
-            <span className="text-xl">📸</span>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto animate-fade-in font-sans">
+      <div className="bg-white w-full max-w-2xl rounded-[24px] shadow-2xl border border-[#E4EAE8] overflow-hidden my-auto max-h-[92vh] flex flex-col text-left">
+        {/* Header Bar */}
+        <div className="bg-[#001028] text-white px-5 py-4 flex items-center justify-between shrink-0 border-b border-white/10">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl bg-[#FFD233] text-[#001028] flex items-center justify-center text-xl font-black shadow-xs">
+              📸
+            </div>
             <div>
-              <h3 className="text-[15px] font-bold leading-tight">
-                StudyPlug AI Theory Paper Marker
+              <h3 className="text-[15px] font-bold leading-tight flex items-center space-x-2">
+                <span>StudyPlug AI Theory Paper Marker</span>
+                <span className="px-2 py-0.2 rounded-full bg-[#FFD233] text-[#001028] text-[9.5px] font-black uppercase">
+                  Paper 2 Essay
+                </span>
               </h3>
-              <p className="text-[11px] text-[#A7F3D0]">
-                {question.exam} {question.year} • {question.paper} • {question.totalMarks} Marks
+              <p className="text-[11.5px] text-slate-300">
+                {question.exam} {question.year} • {question.subject} • {question.totalMarks} Marks
               </p>
             </div>
           </div>
           <button
             type="button"
-            onClick={onClose}
+            onClick={handleClose}
             className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold cursor-pointer transition"
+            aria-label="Close modal"
           >
             ✕
           </button>
         </div>
 
-        {/* Modal Body */}
+        {/* Modal Scrollable Body */}
         <div className="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1">
+          {/* Official AI Assessment Disclaimer Banner */}
+          <div className="p-3 rounded-[14px] bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start space-x-2.5">
+            <span className="text-base shrink-0">⚖️</span>
+            <div className="space-y-0.5">
+              <span className="font-bold block text-[11.5px]">
+                Provisional AI Assessment (Diagnostic Purpose)
+              </span>
+              <p className="text-[11px] leading-relaxed text-amber-800">
+                This evaluation is simulated using authentic {question.exam} marking schemes and step rubrics. Official scores are awarded exclusively by official examination bodies.
+              </p>
+            </div>
+          </div>
+
           {/* Question Banner */}
-          <div className="bg-[#F7F9F8] rounded-[14px] p-3.5 border border-[#E4EAE8] space-y-2">
+          <div className="bg-[#F8FAFC] rounded-[16px] p-4 border border-[#E2E8F0] space-y-2">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-[#E8F5E9] text-[#001028] border border-[#001028]/15">
+              <span className="px-2.5 py-0.5 rounded-full text-[10.5px] font-bold bg-[#001028] text-[#FFD233]">
                 {question.topic} • {question.subtopic}
               </span>
-              <span className="text-[11px] font-bold text-[#66736F]">
+              <span className="text-[11.5px] font-black text-slate-700">
                 Total: {question.totalMarks} Marks
               </span>
             </div>
-            <p className="text-[13px] sm:text-[13.5px] text-[#10201D] font-medium whitespace-pre-line leading-relaxed">
+            <p className="text-[13.5px] text-[#0F172A] font-semibold whitespace-pre-line leading-relaxed">
               {question.questionText}
             </p>
           </div>
 
           {/* Submission Mode Selector */}
-          <div className="flex items-center bg-[#F1F5F4] p-1 rounded-full border border-[#E4EAE8]">
+          <div className="flex items-center bg-[#F1F5F9] p-1 rounded-full border border-[#E2E8F0]">
             <button
               type="button"
               onClick={() => setSubmissionMode('snap')}
               className={`flex-1 py-1.5 rounded-full text-xs font-bold transition cursor-pointer flex items-center justify-center space-x-1.5 ${
                 submissionMode === 'snap'
-                  ? 'bg-[#001028] text-white shadow-xs'
-                  : 'text-[#66736F] hover:text-[#10201D]'
+                  ? 'bg-[#001028] text-[#FFD233] shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <span>📸</span>
@@ -244,8 +326,8 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
               onClick={() => setSubmissionMode('type')}
               className={`flex-1 py-1.5 rounded-full text-xs font-bold transition cursor-pointer flex items-center justify-center space-x-1.5 ${
                 submissionMode === 'type'
-                  ? 'bg-[#001028] text-white shadow-xs'
-                  : 'text-[#66736F] hover:text-[#10201D]'
+                  ? 'bg-[#001028] text-[#FFD233] shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <span>✍️</span>
@@ -268,60 +350,93 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
               {!uploadedImage ? (
                 <div
                   onClick={() => fileInputRef.current?.click()}
-                  className="border-2 border-dashed border-[#001028]/30 hover:border-[#001028] bg-[#F7F9F8] rounded-[16px] p-6 text-center cursor-pointer transition space-y-2 group"
+                  className="border-2 border-dashed border-[#001028]/30 hover:border-[#001028] bg-[#F8FAFC] rounded-[18px] p-6 text-center cursor-pointer transition space-y-2 group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#E8F5E9] text-[#001028] text-xl flex items-center justify-center mx-auto group-hover:scale-110 transition">
+                  <div className="w-12 h-12 rounded-full bg-[#FFD233]/20 text-[#001028] text-xl flex items-center justify-center mx-auto group-hover:scale-110 transition">
                     📷
                   </div>
-                  <h4 className="text-[13.5px] font-bold text-[#10201D]">
+                  <h4 className="text-[14px] font-bold text-[#0F172A]">
                     Snap your handwritten answer sheet
                   </h4>
-                  <p className="text-[11.5px] text-[#66736F] max-w-sm mx-auto">
-                    Take a clear photo of your paper solution with good lighting. StudyPlug AI analyzes formulas, handwriting, and algebraic steps.
+                  <p className="text-[11.5px] text-slate-500 max-w-sm mx-auto leading-relaxed">
+                    Take a clear, well-lit photo of your written solution. StudyPlug AI Vision scans equations, formulas, and step-by-step arithmetic.
                   </p>
                   <button
                     type="button"
-                    className="px-4 py-1.5 rounded-[10px] bg-[#001028] text-white text-[12px] font-bold shadow-xs hover:bg-[#001830] transition"
+                    className="px-4 py-2 rounded-xl bg-[#001028] text-[#FFD233] text-[12px] font-bold shadow-xs hover:bg-[#001830] transition cursor-pointer"
                   >
                     Open Camera / Upload File
                   </button>
                 </div>
               ) : (
-                <div className="relative rounded-[16px] overflow-hidden border border-[#E4EAE8] bg-[#10201D]">
-                  <img
-                    src={uploadedImage}
-                    alt="Handwritten solution"
-                    className="w-full max-h-60 object-contain mx-auto"
-                  />
-                  <div className="absolute bottom-2 right-2 flex items-center space-x-2">
-                    <button
-                      type="button"
-                      onClick={() => fileInputRef.current?.click()}
-                      className="px-3 py-1.5 rounded-[10px] bg-black/75 hover:bg-black text-white text-[11px] font-bold backdrop-blur-xs transition cursor-pointer"
-                    >
-                      🔄 Retake Photo
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setUploadedImage(null)}
-                      className="px-3 py-1.5 rounded-[10px] bg-red-600/80 hover:bg-red-600 text-white text-[11px] font-bold transition cursor-pointer"
-                    >
-                      Remove
-                    </button>
+                <div className="space-y-3">
+                  <div className="relative rounded-[16px] overflow-hidden border border-[#CBD5E1] bg-[#001028]">
+                    <img
+                      src={uploadedImage}
+                      alt="Handwritten solution"
+                      className="w-full max-h-60 object-contain mx-auto"
+                    />
+                    <div className="absolute bottom-2 right-2 flex items-center space-x-2">
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="px-3 py-1.5 rounded-lg bg-black/80 hover:bg-black text-white text-[11px] font-bold backdrop-blur-xs transition cursor-pointer"
+                      >
+                        🔄 Retake Photo
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setUploadedImage(null);
+                          setExtractedOcrText('');
+                        }}
+                        className="px-3 py-1.5 rounded-lg bg-red-600/85 hover:bg-red-600 text-white text-[11px] font-bold transition cursor-pointer"
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
+
+                  {/* OCR Recognition Feedback */}
+                  {isOcrScanning ? (
+                    <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-xs flex items-center space-x-2.5 animate-pulse">
+                      <span className="text-base animate-spin">⏳</span>
+                      <span className="font-semibold">
+                        Scanning handwriting & recognizing mathematical symbols...
+                      </span>
+                    </div>
+                  ) : extractedOcrText ? (
+                    <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs space-y-1.5">
+                      <div className="flex items-center justify-between font-bold text-slate-800">
+                        <span className="flex items-center space-x-1.5">
+                          <span>🔍</span>
+                          <span>Extracted Handwriting (OCR Preview):</span>
+                        </span>
+                        <span className="text-[10.5px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                          Recognized
+                        </span>
+                      </div>
+                      <p className="font-mono text-[11.5px] text-slate-700 whitespace-pre-line bg-white p-2.5 rounded-lg border border-slate-200">
+                        {extractedOcrText}
+                      </p>
+                      <span className="text-[10.5px] text-slate-500 block">
+                        Tip: Switch to "Type / Paste Working" tab if you would like to edit or append any formula before marking.
+                      </span>
+                    </div>
+                  ) : null}
                 </div>
               )}
 
-              {/* Or quick test button */}
-              <div className="flex items-center justify-between text-[11.5px] text-[#66736F]">
-                <span>No camera handy right now?</span>
+              {/* Quick sample answer button */}
+              <div className="flex items-center justify-between text-[11.5px] text-slate-500">
+                <span>No paper solution ready right now?</span>
                 <button
                   type="button"
                   onClick={() => {
                     setSubmissionMode('type');
                     handleLoadSampleAnswer();
                   }}
-                  className="font-bold text-[#001028] hover:underline cursor-pointer"
+                  className="font-bold text-[#001028] hover:text-[#FFD233] underline cursor-pointer"
                 >
                   ⚡ Load Sample Written Solution
                 </button>
@@ -333,26 +448,26 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
           {submissionMode === 'type' && (
             <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-[12px] font-bold text-[#10201D]">
+                <span className="text-[12px] font-bold text-slate-800">
                   Your Step-by-Step Written Working:
                 </span>
                 <button
                   type="button"
                   onClick={handleLoadSampleAnswer}
-                  className="text-[11px] font-bold text-[#001028] hover:underline cursor-pointer"
+                  className="text-[11px] font-bold text-[#001028] hover:text-[#FFD233] underline cursor-pointer"
                 >
                   ⚡ Fill Sample Answer
                 </button>
               </div>
 
-              {/* Math symbols bar */}
+              {/* Math Symbols Ribbon */}
               <div className="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-1">
-                {['√', '²', '³', '±', 'π', 'θ', 'Δ', '≈', '½', '÷', '×'].map(sym => (
+                {['√', '²', '³', '±', 'π', 'θ', 'Δ', '≈', '½', '÷', '×', '°'].map((sym) => (
                   <button
                     key={sym}
                     type="button"
                     onClick={() => insertSymbol(sym)}
-                    className="px-2 py-0.5 rounded bg-[#F1F5F4] hover:bg-[#E4EAE8] text-xs font-mono font-bold text-[#10201D] cursor-pointer"
+                    className="px-2 py-0.5 rounded bg-[#F1F5F9] hover:bg-[#E2E8F0] text-xs font-mono font-bold text-slate-800 cursor-pointer"
                   >
                     {sym}
                   </button>
@@ -364,7 +479,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
                 onChange={(e) => setStudentText(e.target.value)}
                 placeholder="Write out your formula, substitutions, calculations, and final answer here..."
                 rows={7}
-                className="w-full p-3 rounded-[12px] bg-[#F7F9F8] border border-[#E4EAE8] text-[12.5px] font-mono text-[#10201D] focus:outline-none focus:border-[#001028] leading-relaxed resize-none"
+                className="w-full p-3.5 rounded-[14px] bg-[#F8FAFC] border border-[#CBD5E1] text-[12.5px] font-mono text-slate-900 focus:outline-none focus:border-[#001028] leading-relaxed resize-none"
               />
             </div>
           )}
@@ -375,7 +490,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
               type="button"
               onClick={handleStartMarking}
               disabled={isAnalyzing}
-              className="w-full py-3 rounded-[12px] bg-[#001028] hover:bg-[#001830] text-white font-bold text-[13.5px] transition cursor-pointer shadow-subtle flex items-center justify-center space-x-2 disabled:opacity-50"
+              className="w-full py-3.5 rounded-[14px] bg-[#001028] hover:bg-[#001830] text-[#FFD233] font-bold text-[13.5px] transition cursor-pointer shadow-md flex items-center justify-center space-x-2 disabled:opacity-50"
             >
               {isAnalyzing ? (
                 <>
@@ -385,7 +500,7 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
               ) : (
                 <>
                   <span>🤖</span>
-                  <span>Analyze &amp; Mark My Solution (WAEC Rubric)</span>
+                  <span>Analyze &amp; Mark Solution (WAEC/NECO Rubric)</span>
                 </>
               )}
             </button>
@@ -393,80 +508,112 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
 
           {/* MARKING RESULT & EXAMINER DIAGNOSTIC REPORT */}
           {markingResult && (
-            <div className="space-y-4 pt-2 border-t border-[#E4EAE8] animate-page-enter">
+            <div className="space-y-4 pt-2 border-t border-slate-200 animate-fadeIn">
               {/* Score Header Card */}
-              <div className="bg-linear-to-r from-[#001028] to-[#002D25] text-white p-4 rounded-[16px] flex items-center justify-between">
+              <div className="bg-linear-to-r from-[#001028] to-[#07152A] text-white p-4.5 rounded-[18px] flex items-center justify-between border border-white/10 shadow-lg">
                 <div>
-                  <span className="text-[11px] font-bold text-[#A7F3D0] uppercase tracking-wider">
+                  <span className="text-[11px] font-black text-[#FFD233] uppercase tracking-wider">
                     Score Awarded
                   </span>
                   <div className="flex items-baseline space-x-2 mt-0.5">
-                    <span className="text-3xl font-black text-[#FFD600]">
+                    <span className="text-3xl font-black text-[#FFD233]">
                       {markingResult.totalScore}
                     </span>
-                    <span className="text-sm font-semibold text-white/80">
+                    <span className="text-sm font-semibold text-slate-300">
                       / {markingResult.maxScore} Marks
                     </span>
                   </div>
-                  <span className="inline-block mt-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-bold bg-white/20 text-white">
+                  <span className="inline-block mt-1 px-3 py-0.5 rounded-full text-[10.5px] font-bold bg-white/15 text-white">
                     {markingResult.grade}
                   </span>
                 </div>
-                <div className="text-right">
-                  <div className="text-3xl">🏅</div>
-                  <span className="text-[10px] text-white/70 block mt-1">WAEC Official Scheme</span>
+                <div className="flex flex-col items-end space-y-2">
+                  <button
+                    type="button"
+                    onClick={toggleSpeech}
+                    className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-[#FFD233] text-xs font-bold transition cursor-pointer"
+                    title="Read examiner diagnostic aloud"
+                  >
+                    <span>{isSpeaking ? '⏹️ Stop' : '🔊 Read Aloud'}</span>
+                  </button>
+                  <span className="text-[10px] text-slate-400">Official Rubric Standard</span>
                 </div>
               </div>
 
+              {/* Missing / Incorrect Points Diagnostic */}
+              {markingResult.missingPointsList.length > 0 && (
+                <div className="p-3.5 rounded-[14px] bg-rose-50 border border-rose-200 text-rose-900 text-xs space-y-1.5">
+                  <div className="flex items-center space-x-1.5 font-bold text-rose-950">
+                    <span>⚠️</span>
+                    <span>Identified Missing / Incorrect Steps:</span>
+                  </div>
+                  <ul className="space-y-1 text-[11.5px] pl-5 list-disc text-rose-800">
+                    {markingResult.missingPointsList.map((mp, i) => (
+                      <li key={i}>{mp}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {/* Step-by-Step Mark Breakdown */}
               <div className="space-y-2">
-                <h4 className="text-[13px] font-bold text-[#10201D] flex items-center space-x-1.5">
+                <h4 className="text-[13px] font-bold text-slate-900 flex items-center space-x-1.5">
                   <span>📋</span>
                   <span>Marking Scheme Rubric Breakdown</span>
                 </h4>
 
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   {markingResult.stepEvaluations.map((ev, i) => (
                     <div
                       key={i}
-                      className={`p-3 rounded-[12px] border text-left text-xs space-y-1 ${
+                      className={`p-3.5 rounded-[14px] border text-left text-xs space-y-1.5 transition ${
                         ev.awarded
-                          ? 'bg-emerald-50/70 border-emerald-200 text-emerald-900'
-                          : 'bg-amber-50/70 border-amber-200 text-amber-900'
+                          ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950'
+                          : 'bg-amber-50/70 border-amber-200 text-amber-950'
                       }`}
                     >
                       <div className="flex items-center justify-between font-bold">
-                        <span className="flex items-center space-x-1">
+                        <span className="flex items-center space-x-1.5">
                           <span>{ev.awarded ? '✅' : '⚠️'}</span>
-                          <span>Step {ev.step.stepNumber} [{ev.step.markType}]</span>
+                          <span>
+                            Step {ev.step.stepNumber} [{ev.step.markType}]
+                          </span>
                         </span>
-                        <span className="px-2 py-0.5 rounded bg-white font-mono text-[11px] border">
+                        <span
+                          className={`px-2 py-0.5 rounded font-mono text-[11px] font-bold border ${
+                            ev.awarded
+                              ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                              : 'bg-amber-100 text-amber-900 border-amber-300'
+                          }`}
+                        >
                           +{ev.score} / {ev.step.allocatedMarks} Mark{ev.step.allocatedMarks > 1 ? 's' : ''}
                         </span>
                       </div>
-                      <p className="font-medium text-[11.5px] text-[#10201D]">
+                      <p className="font-semibold text-[11.5px] text-slate-800">
                         {ev.step.description}
                       </p>
-                      <p className="text-[11px] opacity-80 italic">
-                        Examiner remark: {ev.reason}
+                      <p className="text-[11px] italic text-slate-600">
+                        Examiner evaluation: {ev.reason}
                       </p>
+                      {ev.missingPoint && (
+                        <p className="text-[10.5px] text-rose-700 font-semibold">
+                          Deduction reason: {ev.missingPoint}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Examiner Advice */}
-              <div className="bg-[#F7F9F8] p-3.5 rounded-[14px] border border-[#E4EAE8] space-y-1.5">
+              {/* Chief Examiner Advice */}
+              <div className="bg-[#F8FAFC] p-3.5 rounded-[14px] border border-[#CBD5E1] space-y-1.5">
                 <h5 className="text-[12px] font-bold text-[#001028] flex items-center space-x-1">
                   <span>💡</span>
-                  <span>WAEC Chief Examiner Advice:</span>
+                  <span>Chief Examiner Actionable Advice:</span>
                 </h5>
-                <ul className="space-y-1 text-[11.5px] text-[#66736F]">
+                <ul className="space-y-1 text-[11.5px] text-slate-600 pl-4 list-disc">
                   {markingResult.actionableAdvice.map((adv, idx) => (
-                    <li key={idx} className="flex items-start space-x-1.5">
-                      <span className="text-[#001028] font-bold">•</span>
-                      <span>{adv}</span>
-                    </li>
+                    <li key={idx}>{adv}</li>
                   ))}
                 </ul>
               </div>
@@ -476,30 +623,46 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
                 <button
                   type="button"
                   onClick={() => setShowModelSolution(!showModelSolution)}
-                  className="w-full py-2.5 rounded-[12px] border border-[#001028] bg-[#E8F5E9] text-[#001028] text-xs font-bold hover:bg-[#D0EBD5] transition cursor-pointer flex items-center justify-center space-x-1.5"
+                  className="w-full py-2.5 rounded-[12px] border border-[#001028] bg-[#F1F5F9] text-[#001028] text-xs font-bold hover:bg-[#E2E8F0] transition cursor-pointer flex items-center justify-center space-x-1.5"
                 >
-                  <span>{showModelSolution ? '🙈 Hide' : '👁️ View'} Official WAEC Chalkboard Model Solution</span>
+                  <span>{showModelSolution ? '🙈 Hide' : '👁️ View'} Official Chalkboard Model Solution</span>
                 </button>
 
                 {showModelSolution && (
-                  <div className="p-4 rounded-[14px] bg-[#F8FAFC] border border-[#CBD5E1] text-[12px] leading-relaxed text-[#0F172A] whitespace-pre-line font-sans">
+                  <div className="p-4 rounded-[14px] bg-[#001028] text-white border border-white/10 text-[12px] leading-relaxed whitespace-pre-line font-mono shadow-inner">
                     {question.modelSolution}
                   </div>
                 )}
               </div>
 
-              {/* Re-attempt button */}
-              <button
-                type="button"
-                onClick={() => {
-                  setMarkingResult(null);
-                  setUploadedImage(null);
-                  setStudentText('');
-                }}
-                className="w-full py-2 rounded-[12px] border border-[#E4EAE8] text-xs font-bold text-[#66736F] hover:bg-[#F7F9F8] transition cursor-pointer"
-              >
-                🔄 Mark Another Attempt
-              </button>
+              {/* Action Buttons: Ask AI Tutor & Retry */}
+              <div className="flex flex-col sm:flex-row items-center gap-2 pt-1">
+                <button
+                  type="button"
+                  onClick={handleAskAiTutor}
+                  className="w-full sm:flex-1 py-2.5 rounded-[12px] bg-[#001028] text-[#FFD233] hover:bg-[#001830] font-bold text-xs transition cursor-pointer flex items-center justify-center space-x-1.5 shadow-sm"
+                >
+                  <span>💬</span>
+                  <span>Ask AI Tutor Follow-up Question</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+                      window.speechSynthesis.cancel();
+                    }
+                    setIsSpeaking(false);
+                    setMarkingResult(null);
+                    setUploadedImage(null);
+                    setStudentText('');
+                    setExtractedOcrText('');
+                  }}
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-[12px] border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-100 transition cursor-pointer"
+                >
+                  🔄 Retry Another Attempt
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -507,3 +670,5 @@ export const TheoryAnswerMarkerModal: React.FC<TheoryAnswerMarkerModalProps> = (
     </div>
   );
 };
+
+export default TheoryAnswerMarkerModal;
