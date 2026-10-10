@@ -40,7 +40,7 @@ jobs:
           echo "Web assets successfully placed in iOS container:"
           ls -lh ios/App/App/public
 
-      - name: Build iOS App (Unsigned)
+      - name: Build iOS App (Ad-Hoc Unsigned)
         run: |
           mkdir -p build
           set -o pipefail
@@ -50,16 +50,23 @@ jobs:
             -destination 'generic/platform=iOS' \
             -derivedDataPath build/DerivedData \
             build \
-            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="-" \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_INJECT_BASE_ENTITLEMENTS=NO 2>&1 | tee xcodebuild.log || {
+            CODE_SIGNING_ALLOWED=YES \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES 2>&1 | tee xcodebuild.log || {
               echo "### ❌ Xcode Build Error" >> $GITHUB_STEP_SUMMARY
               echo '```' >> $GITHUB_STEP_SUMMARY
               tail -n 60 xcodebuild.log >> $GITHUB_STEP_SUMMARY
               echo '```' >> $GITHUB_STEP_SUMMARY
               exit 1
             }
+
+      - name: Upload Build Log on Failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcodebuild-failure-log
+          path: xcodebuild.log
 
       - name: Package App into .IPA
         run: |
