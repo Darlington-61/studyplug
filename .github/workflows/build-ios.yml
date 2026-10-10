@@ -44,6 +44,9 @@ jobs:
         run: |
           mkdir -p build
           set -o pipefail
+          echo "=== Discovered Schemes ==="
+          xcodebuild -project ios/App/App.xcodeproj -list
+          echo "=== Compiling App Scheme ==="
           xcodebuild -project ios/App/App.xcodeproj \
             -scheme App \
             -configuration Release \
@@ -54,6 +57,8 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=YES \
             AD_HOC_CODE_SIGNING_ALLOWED=YES 2>&1 | tee xcodebuild.log || {
+              echo "=== ❌ XCODE BUILD ERROR (LAST 80 LINES) ==="
+              tail -n 80 xcodebuild.log
               echo "### ❌ Xcode Build Error" >> $GITHUB_STEP_SUMMARY
               echo '```' >> $GITHUB_STEP_SUMMARY
               tail -n 60 xcodebuild.log >> $GITHUB_STEP_SUMMARY
